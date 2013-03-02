@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SIMOVA</title>
+    </head>
+    <body>
+        <?php echo $this->layout()->content; ?>
+    </body>
+</html>
+ $layout = Zend_Layout::getMvcInstance();
+ $layout->setLayout('layout')->setLayoutPath(APPLICATION_PATH . '/modules/' . $request->getModuleName() . '/views/layout');

@@ -1,0 +1,17 @@
+<fieldset>
+    <legend>Lista de Funcionarios</legend>
+    <table>
+        <thead>
+        <th>#</th>
+        <th>Nome</th>
+        </thead>
+        <tbody>
+            <?php foreach ($this->funcionario as $funcionario): ?>
+                <tr>
+                    <td><?php echo $funcionario->getId() ?></td>
+                    <td><?php echo $funcionario->getNome() ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</fieldset>
