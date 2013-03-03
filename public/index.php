@@ -1,12 +1,5 @@
 <?php
 
-/*
- * Setando parametro de sessao do servidor definido no PHP.INI 
- * caso esteja definido de forma diferenteo o que geralmenta acontece
- * em servidor dedicado para certa aplicação
- */
-ini_set('session.cookie_domain', '');
-
 // Define path to application directory
 defined('APPLICATION_PATH') || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
 
