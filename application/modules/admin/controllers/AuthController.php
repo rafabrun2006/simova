@@ -72,6 +72,9 @@ class Admin_AuthController extends Zend_Controller_Action {
         }
     }
 
+    /**
+     * Metodo responsavel pelo fechamento da sessao do usuario autenticado
+     */
     public function logoutAction() {
         $auth = Zend_Auth::getInstance();
         $auth->clearIdentity();
