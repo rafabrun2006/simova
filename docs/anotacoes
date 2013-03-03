@@ -2,3 +2,13 @@
 2 -> Tabela Funcionario recebe o ID de pessoa.
 3 -> Tabela Paciente recebe ID de pessoa.
 4 -> Verificar o passo E02 caso de uso LOGIN (nao existe campo statos para ser inativado o usuario).
+
+
+#########################   Modificações em banco  ############################
+
+1 - add campo STATUS_LOGIN na tabela LOGIN
+2 - removido campo COD_FUNCIONARIO, COD_PACIENTE da tabela PESSOA
+3 - add TIPO_PESSOA na tabela PESSOA (Motivo: solução para o problema 2)
+4 - movido campo COD_UN_SAUDE para tabela PESSOA (Motivo: Nó sem saida entre tabela ENDEREÇO e UNIDADE_SAUDE)
+5 - removido campo COD_LOGIN tabela PERFIL (Motivo: uma pessoa tem um login que tem um so perfil)
+6 - add campo NOME_ESTADO a tabela ESTADO (Motivo: precisamos saber o nome alem da sigla)
