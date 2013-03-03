@@ -7,7 +7,7 @@ class Admin_IndexController extends Zend_Controller_Action {
     }
 
     public function indexAction() {
-        print_r(Zend_Auth::getInstance()->getIdentity());
+        echo 'admin';
     }
 
 }

@@ -14,8 +14,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $bootstrap->bootstrap('FrontController');
         $front = $bootstrap->getResource('FrontController');
 
-        $front->registerPlugin(new Zend_Simova_Plugins_Layout());
-        $front->registerPlugin(new Zend_Simova_Plugins_Acl());
+        $front->registerPlugin(new Simova_Plugins_Layout());
+        $front->registerPlugin(new Simova_Plugins_Acl());
         
     }
 
