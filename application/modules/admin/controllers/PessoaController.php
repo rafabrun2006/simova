@@ -16,6 +16,8 @@ class Admin_PessoaController extends Zend_Controller_Action
     public function cadastroAction(){
         $form = new Admin_Form_Pessoa();
         
+        print_r($this->_request->getPost());
+        
         $this->view->form = $form;
     }
 

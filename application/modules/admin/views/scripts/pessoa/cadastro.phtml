@@ -1,37 +1,76 @@
-<form method="POST" name="cadastro-pessoa" id="cadastro-pessoa">
-    <div class="control-group">
-        <label class="control-label">Nome:</label>
-        <div class="controls">
+<h3>Cadastro de Pessoa</h3>
+<form class="form form-horizontal" method="POST" name="cadastro-pessoa" id="cadastro-pessoa">
+    <fieldset>
+        <legend>Dados Pessoais</legend>
+        <div class="control-group">
             <?php echo $this->form->NOME ?>
         </div>
-    </div>
-    <div class="control-group">
-        <label class="control-label">CPF:</label>
-        <div class="controls">
+        <div class="control-group">
             <?php echo $this->form->CPF ?>
         </div>
-    </div>
-    <div class="control-group">
-        <label class="control-label">Nome da Mãe:</label>
-        <div class="controls">
+        <div class="control-group">
+            <?php echo $this->form->RG ?>
+        </div>
+        <div class="control-group">
+            <?php echo $this->form->SEXO ?>
+        </div>
+        <div class="control-group">
+            <?php echo $this->form->DT_NASC ?>
+        </div>
+        <div class="control-group">
+            <?php echo $this->form->REGISTRO_NASC ?>
+        </div>
+        <div class="control-group">
+            <?php echo $this->form->ESTADO_CIVIL ?>
+        </div>
+        <div class="control-group">
+            <?php echo $this->form->TIPO_PESSOA ?>
+        </div>
+        <div class="control-group">
+            <?php echo $this->form->COD_UNIDADE_SAUDE ?>
+        </div>
+        <div class="control-group">
+            <?php echo $this->form->COD_PERFIL ?>
+        </div>
+
+    </fieldset>
+    <fieldset>
+        <legend>Dados de Localização</legend>
+        <div class="control-group">
+            <?php echo $this->form->Endereco->COD_CID ?>
+        </div>
+        <div class="control-group">
+            <?php echo $this->form->Endereco->ENDERECO ?>
+        </div>
+        <div class="control-group">
+            <?php echo $this->form->Endereco->CEP ?>
+        </div>
+        <div class="control-group">
+            <?php echo $this->form->Endereco->BAIRRO ?>
+        </div>
+        <div class="control-group">
+            <?php echo $this->form->Endereco->NUMERO ?>
+        </div>
+        <div class="control-group">
+            <?php echo $this->form->Endereco->COMPLEMENTO ?>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Dados de Familiares</legend>
+        <div class="control-group">
             <?php echo $this->form->NOME_MAE ?>
         </div>
-    </div>
-    <div class="control-group">
-        <label class="control-label">Nome do Pai:</label>
-        <div class="controls">
+        <div class="control-group">
             <?php echo $this->form->NOME_PAI ?>
         </div>
-    </div>
-    <div class="control-group">
-        <label class="control-label">Nome do Pai:</label>
-        <div class="controls">
-            <?php echo $this->form->NOME_PAI ?>
+    </fieldset>
+    <div class="form-actions">
+        <div class="btn-group pull-right">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="reset" class="btn">Limpar</button>
+            <a href="/admin/pessoa">
+                <button type="button" class="btn">Cancelar</button>
+            </a>
         </div>
     </div>
 </form>
-
-<?php
-
-    //echo $this->form->Endereco;
-?>

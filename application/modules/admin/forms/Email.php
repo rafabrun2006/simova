@@ -19,11 +19,12 @@ class Admin_Form_Email extends Zend_Form {
 
         $this->addElements(array($codEmail, $nomeEmail));
         
-        $elements = $this->getElements();
-        foreach($elements as $element) {
-            $element->removeDecorator('DtDdWrapper')
-                    ->removeDecorator('htmlTag')
-                    ->removeDecorator('label');
+        foreach ($this->getElements() as $element) {
+            $element->setDecorators(array(
+                'ViewHelper',
+                array('HtmlTag', array('tag' => 'div', 'class' => 'controls')),
+                array('Label', array('tag' => 'div', 'class' => 'control-label'))
+            ));
         }
     }
 

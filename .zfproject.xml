@@ -32,6 +32,7 @@
       </layoutsDirectory>
       <modelsDirectory>
         <modelFile modelName="Funcionario"/>
+        <modelFile modelName="Cidade"/>
       </modelsDirectory>
       <modulesDirectory>
         <moduleDirectory moduleName="admin">
