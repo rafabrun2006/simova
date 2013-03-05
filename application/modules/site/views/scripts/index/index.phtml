@@ -1,43 +1,257 @@
-<style>
-    a:link,
-    a:visited
-    {
-        color: #0398CA;
-    }
 
-    span#zf-name
-    {
-        color: #91BE3F;
-    }
+<div style="clear:both;"></div>
+<div id="newsSlider">
+    <div id="banner_div"></div>
+    <script type="text/javascript" src="js/images/jquery.js"></script>					<!-- Transiçao da imagem -->
+    <script type="text/javascript" src="js/images/jquery.flash.js"></script>				<!-- Transiçao da imagem -->
+    <script type="text/javascript" src="js/images/jquery.dd.js"></script>					<!-- Transiçao da imagem -->
+    <script type="text/javascript" src="js/images/jquery.lightbox.js"></script> 				<!-- Transiçao da imagem -->
+    <script type="text/javascript" src="js/images/cycleFullTransitions2.js"></script>			<!-- Transiçao da imagem -->
+    <link href='css/images/imagem.css' rel="stylesheet" type="text/css" />					<!-- Folha de estilo principal -->
+    <script type="text/javascript" src="js/images/cookies.js"></script>					<!-- Cookies -->
 
-    div#welcome
-    {
-        color: #FFFFFF;
-        background-image: url(http://framework.zend.com/images/bkg_header.jpg);
-        width:  600px;
-        height: 400px;
-        border: 2px solid #444444;
-        overflow: hidden;
-        text-align: center;
-    }
+    <div id="teaser">
 
-    div#more-information
-    {
-        background-image: url(http://framework.zend.com/images/bkg_body-bottom.gif);
-        height: 100%;
-    }
-</style>
-<div id="welcome">
-    <h1>Welcome to the <span id="zf-name">Zend Framework!</span></h1>
+        <script type="text/javascript">
+            var N = 4;
+            var width = 940; 
+            var atual=1;
+            var intervaloBanners = 6000;
+            var intVar;
+            var urlimgSel = 'url(images/st_controleativo.png)';
+            var urlimg = 'url(images/st_controledesativo.png)';
+            var heavyImage = new Image();
+            var imagemL = Array("","","",""); //Link das imagens caso necessario
+            //var imagemB = Array("img/banner/st_001.jpg","img/banner/st_002.jpg","img/banner/st_003.jpg","img/banner/st_004.jpg"); //imagems
+            var imagemB = Array("administrador/pag/banner/imagem/f9c15dec7cfbccda19c6087d098a831a_grande.jpg ","administrador/pag/banner/imagem/3c2010fb7ae8d894b6b0ed2c6c0091f7_grande.jpg ","administrador/pag/banner/imagem/ec3ade6953aad31f07fb02cc0654c4f0_grande.jpg ","administrador/pag/banner/imagem/aa2d60491211f94498f7c7b20ca12801_grande.jpg "); //imagems
+            var fundos = Array("administrador/pag/banner/imagem/f9c15dec7cfbccda19c6087d098a831a_grande.jpg ","administrador/pag/banner/imagem/3c2010fb7ae8d894b6b0ed2c6c0091f7_grande.jpg ","administrador/pag/banner/imagem/ec3ade6953aad31f07fb02cc0654c4f0_grande.jpg ","administrador/pag/banner/imagem/aa2d60491211f94498f7c7b20ca12801_grande.jpg "); //fundos
+            var coresFnd = Array("#CDCDCD","#182138","#7DC4E8","#CDCDCD"); //css das
+            $(document).ready(function() {
+                var w = width+'px';
+                $("#frameBanners").css({width:w});
+                loopBanner();
+                for(var i=1;i<=N;i++){
+                    if(i==atual)
+                        $("#cli"+i).css('background-image',urlimgSel);
+                    else
+                        $("#cli"+i).css('background-image',urlimg);
+                }
+                if($.cookie("simov4")!=null){
+                    if(Number($.cookie("simov4"))>=N)
+                        atual=1;
+                    else
+                        atual=Number($.cookie("simov4"))+1;
+                }
+                muda(atual);
+            });
+            function muda(d){
+                atual = d;
+                posicao = '-' + ((d - 1) * width) + 'px';
+                for (var i = 1; i <= N; i++) {
+                    if (i == atual) 
+                        $("#cli" + i).css('background-image', urlimgSel);
+                    else 
+                        $("#cli" + i).css('background-image', urlimg);
+                }
 
-    <h3>This is your project's main page</h3>
+                heavyImage.src = "";
+                heavyImage.src = fundos[atual - 1];
+                heavyImage.onload = function(){
+                    $("#disfarce").css("background-color", $('#bg').css('background-color'));
+                    $("#disfarce").css("background-image", $('#bg').css('background-image'));
+                    $("#disfarce").show(0);
+                    $("#bg").css("background-image", "url(" + heavyImage.src + ")");
+                    $("#bg").css("background-color", coresFnd[atual - 1]);
+                    $("#disfarce").fadeOut(500);
+                    if ($.browser.msie) {
+                        $("#imgBan").hide(0);
+                        $("#imgBan").attr("src", "");
+                        $("#imgBan").attr("src", imagemB[atual - 1]);
+                        document.getElementById("imgBan").onload = function(){
+                            $("#imgBan").show(0);
+                        };
+                    }
+                    else {
+                        $("#imgBan").fadeOut(function(){
+                            $("#imgBan").attr("src", "");
+                            $("#imgBan").attr("src", imagemB[atual - 1]);
+                            document.getElementById("imgBan").onload = function(){
+                                $("#imgBan").fadeIn();
+                            };
+                        });
+                    }
+                    $("#linkBan").attr("href",imagemL[atual - 1]);
+                    loopBanner();
+                    $.cookie("simov4", atual, {
+                        expires: 5
+                    });
+                };
+            }
+            function mudaInt(){
+                if(atual==N)
+                    atual=1;
+                else
+                    atual = atual+1;
+                for(var i=1;i<=N;i++){
+                    if(i==atual)
+                        $("#cli"+i).css('background-image',urlimgSel);
+                    else
+                        $("#cli"+i).css('background-image',urlimg);
+                }
+                posicao='-'+((atual-1)*width)+'px';
+                heavyImage.src = "";
+                heavyImage.src = fundos[atual - 1];
+                heavyImage.onload = function(){
+                    $("#disfarce").css("background-color", $('#bg').css('background-color'));
+                    $("#disfarce").css("background-image", $('#bg').css('background-image'));
+                    $("#disfarce").show(0);
+                    $("#bg").css("background-image", "url(" + heavyImage.src + ")");
+                    $("#bg").css("background-color", coresFnd[atual - 1]);
+                    $("#disfarce").fadeOut(500);
+                    if ($.browser.msie) {
+                        $("#imgBan").hide(0);
+                        $("#imgBan").attr("src", "");
+                        $("#imgBan").attr("src", imagemB[atual - 1]);
+                        document.getElementById("imgBan").onload = function(){
+                            $("#imgBan").show(0);
+                        };
+                    }
+                    else {
+                        $("#imgBan").fadeOut(function(){
+                            $("#imgBan").attr("src", "");
+                            $("#imgBan").attr("src", imagemB[atual - 1]);
+                            document.getElementById("imgBan").onload = function(){
+                                $("#imgBan").fadeIn();
+                            };
+                        });
+                    }
+				
+                    $("#linkBan").attr("href",imagemL[atual - 1]);
+                    loopBanner();
+                    $.cookie("simov4", atual, {
+                        expires: 5
+                    });
+                };
+            }
 
-    <div id="more-information">
-        <p><img src="http://framework.zend.com/images/PoweredBy_ZF_4LightBG.png" /></p>
-        <p>
-            Helpful Links: <br />
-            <a href="http://framework.zend.com/">Zend Framework Website</a> |
-            <a href="http://framework.zend.com/manual/en/">Zend Framework Manual</a>
-        </p>
-    </div>
+            function loopBanner(){	
+                clearInterval(intVar);	 
+                intVar = setInterval('mudaInt()',intervaloBanners);
+            }
+        </script>
+
+
+        <div id="frameBanners">
+            <ul>
+                <li><img id="imgBan" src="administrador/pag/banner/imagem/fotoban3_grande.jpg" alt="" title="" style="display: inline-block;">
+            </ul>
+        </div>
+
+        <div id="controle">
+            <ul>
+                <li><a href="javascript:muda(1)"><div id="cli1" class="btControl">&nbsp;</div></a></li>
+                <li><a href="javascript:muda(2)"><div id="cli2" class="btControl">&nbsp;</div></a></li>
+                <li><a href="javascript:muda(3)"><div id="cli3" class="btControl">&nbsp;</div></a></li>
+                <li><a href="javascript:muda(4)"><div id="cli4" class="btControl">&nbsp;</div></a></li>
+            </ul>
+        </div>
+    </div>  </div>
+
+
 </div>
+</div>
+<script type="text/javascript"> $("#ultimasNoticias ul").idTabs(); </script>
+</article>
+
+<div id="newsSlider">
+    <!-- primeira divisão da pag. principal -->	
+    <div class="st_box">
+        <div class="st_box_p">
+            <h1><strong><img src="images/st_gear.png" /> Hospital Santa Maria<br/>
+                </strong><span style="margin-left: 5%;"><img src="images/bullet.gif" /> Mudan&ccedil;a na vacina&ccedil;&atilde;o infantil.</span></span></h1>
+            <a id="foto_tumb" href="index.php?link=noticias"><img src="images/hospital_SM.jpg" alt="" width="150" height="100" border="0" class="st_conteudo_img"></a>
+            <p>Tetravalente passa a incluir o imunizante contra a hepatite B e vai combater cinco enfermidades. A partir de agosto, as duas primeiras doses do composto para evitar a poliomielite ser&atilde;o injet&aacute;veis&rdquo;.<br>
+                <br>
+                A partir de agosto, o calend&aacute;rio de vacina&ccedil;&atilde;o infantil sofrer&aacute; altera&ccedil;&atilde;o. O Minist&eacute;rio da Sa&uacute;de anunciou ontem que dois novos imunizantes ser&atilde;o inclu&iacute;dos. Com a novidade, em vez de as crian&ccedil;as tomarem as duas primeiras doses do composto contra a poliomielite em gotinhas, as aplica&ccedil;&otilde;es... <br><b><a href="index.php?link=noticias">[Saiba mais]</a></b></p>
+        </div>
+    </div>
+    <!-- fim primeira divisão da pag. principal -->	   
+
+
+    <!-- segunda divisão da pag. principal -->
+    <div class="st_box_a">
+        <div class="st_box_pa">
+
+            <h1> <img src="images/st_gear.png" /> SES-DF </h1>
+
+            <span style="margin-left: 5%;"><img src="images/bullet.gif" /> Acesse agora o portal da saúde do DF</span></h1><br /><br />
+
+            <a href="http://www.saude.df.gov.br/index.php" target="_blank" id="foto_tumb"><img src="images/ses.jpg" alt="" width="210" height="48" border="0"></a>
+
+        </div>   
+    </div>
+
+
+    <!-- fim segunda divisão da pag. principal -->
+
+
+    <!-- terceira divisão da pag. principal -->
+    <div class="st_box_a">
+        <div class="st_box_pa">
+
+            <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+            <div style="text-align:center; margin:0 8px">
+                <h4>
+                    <strong>
+                        <img src="images/st_gear.png" /> Carteirinha Online
+                        <br/> 
+                    </strong></h4>
+                <hr />
+            </div>
+
+            <!-- Inicio Fazer acesso  --> 
+            <span style="margin-left: 2%;">
+                <img src="images/bullet.gif" />
+                <strong> Fa&ccedil;a o login abaixo para ter acesso a carterinha de vacina&ccedil;&atilde;o online. 
+                    <br/>
+                    <br/>
+                    <br/>
+                </strong>
+            </span>
+            <!-- Fim Fazer acesso  -->   
+
+            <!-- Inicio Formulários  -->  
+            <div style="text-align:right; margin:0 8px">
+                <form action="index.php?link=newsletter" method="POST" name="frmFaleConosco" onsubmit="return submit_page(this);" > 
+                    <strong> Usu&aacute;rio: </strong>
+                    <input id="nome" name="nome" type="text"  placeholder="Inserir seu nome"  /><Br />
+                    <br />
+                    <strong> Senha: </strong>
+                    <input name="buttoemail" type="text"  placeholder="Insira seu e-mail" /><Br />
+                    <!-- Fim Formulários  --> 
+
+                    <!-- Inicio botões  do formulario-->    
+                    <input type="submit" class="botaocor" name="enviar" id="signIn" value=" Entrar ">
+                    <input type="submit" class="botaocor" name="reset" id="Limpar" value=" Limpar "><Br />
+                    <!-- Fim botões  do formulario-->
+
+                    <!-- botao esqueceu a senha-->
+                    <b><a href="index.php?link=noticias">Esqueceu a senha?</a></b><Br /><Br />
+                    <hr>
+                    <!-- botao esqueceu a senha-->
+
+                    <!-- inicio botao cadastro novo -->		
+                    <input type="submit" class="botaocor" name="Cadastronovo" id="Cadastronovo" value="Cadastrar Novo"> 
+                    <!-- Fim botao cadastro novo -->			
+                    </div>
+                    </div>
+                    </div>
+                    <!-- fim terceira divisão da pag. principal -->
+
+
+                    </div>
+
+                    <br />
+                    <div style="clear:both;"></div>
+
+                    </section>
