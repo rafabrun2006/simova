@@ -14,40 +14,37 @@ class Admin_Form_Pessoa extends Zend_Form {
 
     public function init() {
 
-        $codPessoa = new Zend_Form_Element_Hidden('COD_PESSOA');
+        $codPessoa = new Zend_Form_Element_Hidden('Cod_Pessoa');
 
         $cpf = new Zend_Form_Element_Text('CPF');
         $cpf->setLabel('CPF: ')->setRequired(TRUE);
 
-        $nome = new Zend_Form_Element_Text('NOME', array('class'=>'input-xlarge'));
+        $nome = new Zend_Form_Element_Text('Nome', array('class'=>'input-xlarge'));
         $nome->setLabel('Nome: ');
 
-        $nomeMae = new Zend_Form_Element_Text('NOME_MAE', array('class'=>'input-xlarge'));
+        $nomeMae = new Zend_Form_Element_Text('Nome_Mae', array('class'=>'input-xlarge'));
         $nomeMae->setLabel('Nome da Mãe: ');
 
-        $nomePai = new Zend_Form_Element_Text('NOME_PAI', array('class'=>'input-xlarge'));
+        $nomePai = new Zend_Form_Element_Text('Nome_Pai', array('class'=>'input-xlarge'));
         $nomePai->setLabel('Nome do Pai: ');
 
-        $sexo = new Zend_Form_Element_Radio('SEXO');
+        $sexo = new Zend_Form_Element_Radio('Sexo');
         $sexo->setLabel('Sexo: ');
 
         $rg = new Zend_Form_Element_Text('RG');
         $rg->setLabel('RG: ');
 
-        $estadoCivil = new Zend_Form_Element_Text('ESTADO_CIVIL');
+        $estadoCivil = new Zend_Form_Element_Text('Estado_Civil');
         $estadoCivil->setLabel('Estado Civil: ');
 
-        $dtNascimento = new Zend_Form_Element_Text('DT_NASC');
+        $dtNascimento = new Zend_Form_Element_Text('Dt_nasc');
         $dtNascimento->setLabel('Data de Nascimento: ');
 
-        $registroNasc = new Zend_Form_Element_Text('REGISTRO_NASC');
+        $registroNasc = new Zend_Form_Element_Text('Registro');
         $registroNasc->setLabel('Nº do Registro de Nascimento: ');
 
-        $codUnidadeSaude = new Zend_Form_Element_Text('COD_UNIDADE_SAUDE');
+        $codUnidadeSaude = new Zend_Form_Element_Text('TB_Unidade_Saude_Cod_Un_Saude');
         $codUnidadeSaude->setLabel('Codigo da Unidade de Saude:');
-
-        $tipoPessoa = new Zend_Form_Element_Radio('TIPO_PESSOA');
-        $tipoPessoa->setLabel('Tipo de Pessoa');
         
         $perfil = new Zend_Form_Element_Select('COD_PERFIL');
         $perfil->setLabel('Perfil:');

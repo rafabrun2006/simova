@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/home/bruno/www/zend_fac/application/modules/admin/controllers/PessoaController.php</file>
-        <file>file:/home/bruno/www/zend_fac/application/modules/admin/forms/Pessoa.php</file>
-        <file>file:/home/bruno/www/zend_fac/application/modules/admin/views/scripts/pessoa/cadastro.phtml</file>
-        <file>file:/home/bruno/www/zend_fac/application/models/Cidade.php</file>
-        <file>file:/home/bruno/www/zend_fac/application/modules/admin/forms/Endereco.php</file>
-        <file>file:/home/bruno/www/zend_fac/application/models/Perfil.php</file>
-    </open-files>
 </project-private>
