@@ -34,9 +34,9 @@ class Admin_AuthController extends Zend_Controller_Action {
                 //Invoca classe Zend_Auth responsavel pela autenticação no site
                 $authAdapter = new Zend_Auth_Adapter_DbTable();
                 $authAdapter
-                        ->setTableName('TB_LOGIN') //Indicando ao zend qual a tabela para autenticacao
-                        ->setCredentialColumn('SENHA_LOGIN') //Indicando o campo para senha
-                        ->setIdentityColumn('NOME_LOGIN'); //Indicando o campo para usuario
+                        ->setTableName('tb_login') //Indicando ao zend qual a tabela para autenticacao
+                        ->setCredentialColumn('Senha_Log') //Indicando o campo para senha
+                        ->setIdentityColumn('Nome_Log'); //Indicando o campo para usuario
 
                 $authAdapter
                         ->setIdentity($post['email']) //Preenchendo o usuario
@@ -46,23 +46,13 @@ class Admin_AuthController extends Zend_Controller_Action {
 
                     //Preenchendo os dados da sessao do usuario autenticado
                     Zend_Auth::getInstance()->getStorage()
-                            ->write($authAdapter->getResultRowObject(null, 'SENHA_LOGIN'));
+                            ->write($authAdapter->getResultRowObject(null, 'Senha_Log'));
 
                     //Se login certo, redireciona para principal
                     $this->redirect('/admin/index');
                 } else {
-
-                    /* Tentativas erro contador */
-
-                    //Criando uma sessao para contagem
-                    $session = new Zend_Session_Namespace('try');
-                    //Incrementando cada tentativa
-                    if (($session->try += 1) >= 5) {
-                        $locked = ' bloqueado por mais de ' . $session->try . ' tentativas sem sucesso';
-                    }
-
                     //Se login errado, apresenta mensagem de erro
-                    $this->view->mensagem = '<b>Usuário</b> e/ou <b>Senha</b> inválidos! ' . $locked;
+                    $this->view->mensagem = '<b>Usuário</b> e/ou <b>Senha</b> inválidos! ';
                 }
             } else {
 

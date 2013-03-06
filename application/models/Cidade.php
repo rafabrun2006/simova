@@ -3,8 +3,8 @@
 class Model_Cidade extends Zend_Db_Table_Abstract
 {
     
-    protected $_name = 'TB_CIDADE';
-    protected $_primary = 'COD_CID';
+    protected $_name = 'tb_cidade';
+    protected $_primary = 'cod_cid';
 
 
     public function listAll(){

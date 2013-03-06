@@ -3,8 +3,8 @@
 class Model_Perfil extends Zend_Db_Table_Abstract
 {
     
-    protected $_name = 'TB_PERFIL';
-    protected $_primary = 'COD_PERFIL';
+    protected $_name = 'tb_perfil';
+    protected $_primary = 'cod_perfil';
 
     public function listAll(){
         return $this->fetchAll();
