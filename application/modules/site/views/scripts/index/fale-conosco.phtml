@@ -1,0 +1,80 @@
+<!-- Estrutura da pagina  -->  
+<section id="corpo">
+    <div id="estatico">
+        <div id="container_d"> 
+            <div class="left"></div>
+            <div class="conteudo">
+
+                <!-- Inicio tema principal  -->  
+                <h3><strong>Fale Conosco</strong></h3>
+                <div class="hr">
+                </div>
+            </div>
+            <!-- FIM tema principal  --> 
+
+            <!-- Inicio Leitura - "conteudo"  -->                           
+
+            <div class="leitura">
+
+
+                <img src="/images/st_gear.png" /> <strong>Localiza&ccedil;&atilde;o: </strong><br/>
+
+
+                <p style="text-align: justify;"><span style="margin-left: 10%;"><img src="/images/bullet.gif" /></span> Disponibilizamos aqui nossos emails e endere&ccedil;o para contato!  </span></p>
+
+                <!-- primeiro lado mapa  -->    
+                <div class="st_box_contato">
+
+                    <!-- aciçao do mapa  -->                                       
+                    <p><iframe width="500" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com.br/maps?f=d&amp;source=s_d&amp;saddr=-16.001482,-48.050648&amp;daddr=&amp;hl=pt&amp;geocode=&amp;sll=-16.003112,-48.048524&amp;sspn=0.008921,0.016512&amp;t=h&amp;mra=mift&amp;mrsp=0&amp;sz=17&amp;ie=UTF8&amp;ll=-16.001307,-48.048835&amp;spn=0.014438,0.025749&amp;z=15&amp;output=embed"></iframe><br />
+                        <small><a href="http://maps.google.com.br/maps?f=d&amp;source=embed&amp;saddr=-16.001482,-48.050648&amp;daddr=&amp;hl=pt&amp;geocode=&amp;sll=-16.003112,-48.048524&amp;sspn=0.008921,0.016512&amp;t=h&amp;mra=mift&amp;mrsp=0&amp;sz=17&amp;ie=UTF8&amp;ll=-16.001307,-48.048835&amp;spn=0.014438,0.025749&amp;z=15" style="color:#0000FF;text-align:left">Exibir mapa ampliado</a></small><p>               
+
+                </div>
+                <!-- fim da aciçao do mapa  -->
+
+
+                <!-- Endereço e formulario  -->
+                <div class="st_box_a_contato">
+                    <div class="st_box_p_contato">	
+                        <h4><strong> <img src="/images/st_direito.png" /> Endere&ccedil;o</strong></h4>
+                        <p>  Setor de &Aacute;reas Isoladas Norte - SAIN<br /> 
+                            Asa Norte - Bloco B<br /> 
+                            (antigo pr&eacute;dio da C&acirc;mara Legislativa) <br />
+                            CEP: 70086-900</p><br />
+                        E-mail <a href="ouvidoria@saude.df.gov.br">ouvidoria@saude.df.gov.br</a><br /><br /><br />
+                        <h4><strong><img src="/images/st_direito.png" /> Formul&aacute;rio</strong></h4>
+
+                        <h2> Entre em contato preenchendo nosso formulário </h2>
+
+                        <form action="enviar.php" method="POST"><input type="hidden">
+                            <!--<form  id="contato" action="index.php?link=contato&ev=ok" method="post">-->
+
+                            <?php echo $this->form ?>
+
+                            <!-- Inicio botões  -->    
+                            <input type="submit" class="botaocor" name="enviar" id="Envio" value="Enviar">
+                            <input type="reset" class="botaocor" name="reset" id="Limpar" value="Limpar">
+                            <!-- Fim botões  -->  
+                        </form>
+
+
+                        <?
+                        if ($_GET["ev"] == "ok") {
+
+//echo $_POST["nome"] .  " |" ;
+//echo $_POST["email"].  " |" ;
+//echo $_POST["conteudo"].  "<Br>" ;
+                            echo "<Br><h1><center> Sucesso! Breve entraremos em contato! </center> </h1>";
+                        }
+                        ?>
+                    </div>
+                </div>							
+
+
+            </div>
+        </div>
+        <div class="right"></div>
+    </div>
+</div>
+<div style="clear:both;"></div>                
+</section>
