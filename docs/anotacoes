@@ -13,4 +13,4 @@
 5 - removido campo COD_LOGIN tabela PERFIL (Motivo: uma pessoa tem um login que tem um so perfil)
 6 - add campo NOME_ESTADO a tabela ESTADO (Motivo: precisamos saber o nome alem da sigla)
 7 - removido campo COD_EMAIL data tabela PESSOA (Motivo: um email e de uma pessoa e não a pessoa de um email)
-$$8 - add campo COD_PESSOA a tabela EMAIL (Motivo: solução para o problema 7)
+8 - add campo COD_PESSOA a tabela EMAIL (Motivo: solução para o problema 7)
