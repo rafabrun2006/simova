@@ -68,7 +68,6 @@ class Admin_Form_Pessoa extends Zend_Form {
             $dtNascimento,
             $registroNasc,
             $codUnidadeSaude,
-            $tipoPessoa,
             $perfil,
         ));
 
@@ -76,7 +75,6 @@ class Admin_Form_Pessoa extends Zend_Form {
          * Populando campos pre-preenchidos
          */
         $sexo->addMultiOptions(array('M' => 'Masculino', 'F' => 'Feminino'));
-        $tipoPessoa->addMultiOptions(array('P' => 'Paciente', 'F' => 'Funcionário'));
         $this->pupulaComboPerfil();
 
         foreach ($this->getElements() as $element) {
