@@ -1,4 +1,4 @@
-1 -> Tabela Email recebe ID de pessoa.
+﻿1 -> Tabela Email recebe ID de pessoa.
 2 -> Tabela Funcionario recebe o ID de pessoa.
 3 -> Tabela Paciente recebe ID de pessoa.
 4 -> Verificar o passo E02 caso de uso LOGIN (nao existe campo statos para ser inativado o usuario).
@@ -14,3 +14,4 @@
 6 - add campo NOME_ESTADO a tabela ESTADO (Motivo: precisamos saber o nome alem da sigla)
 7 - removido campo COD_EMAIL data tabela PESSOA (Motivo: um email e de uma pessoa e não a pessoa de um email)
 8 - add campo COD_PESSOA a tabela EMAIL (Motivo: solução para o problema 7)
+9- FAVICOM DO SIMOVA
