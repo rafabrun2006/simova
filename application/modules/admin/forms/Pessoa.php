@@ -34,7 +34,7 @@ class Admin_Form_Pessoa extends Zend_Form {
         $rg = new Zend_Form_Element_Text('RG');
         $rg->setLabel('RG: ');
 
-        $estadoCivil = new Zend_Form_Element_Text('Estado_Civil');
+        $estadoCivil = new Zend_Form_Element_Text('Estado_Civil_Cod_Estado_Civil');
         $estadoCivil->setLabel('Estado Civil: ');
 
         $dtNascimento = new Zend_Form_Element_Text('Dt_nasc');
@@ -92,8 +92,8 @@ class Admin_Form_Pessoa extends Zend_Form {
         $modelPerfil = new Model_Perfil();
 
         foreach ($modelPerfil->listAll() as $value) {
-            $this->getElement('COD_PERFIL')
-                    ->addMultiOption($value->COD_PERFIL, $value->NOME_PERFIL);
+            $this->getElement('Cod_Perfil')
+                    ->addMultiOption($value->Cod_Perfil, $value->Nome_Perfil);
         }
 
     }
