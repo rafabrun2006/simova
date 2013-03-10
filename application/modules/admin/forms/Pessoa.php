@@ -46,7 +46,7 @@ class Admin_Form_Pessoa extends Zend_Form {
         $codUnidadeSaude = new Zend_Form_Element_Text('TB_Unidade_Saude_Cod_Un_Saude');
         $codUnidadeSaude->setLabel('Codigo da Unidade de Saude:');
         
-        $perfil = new Zend_Form_Element_Select('COD_PERFIL');
+        $perfil = new Zend_Form_Element_Select('Cod_Perfil');
         $perfil->setLabel('Perfil:');
 
         /*
