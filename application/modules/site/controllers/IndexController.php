@@ -67,6 +67,14 @@ class Site_IndexController extends Zend_Controller_Action {
         $this->view->form = $form;
        
     }
+    
+    public function duvidasAction() {
+        
+    }
+    
+    public function linksUteisAction() {
+        
+    }
 
 }
 
