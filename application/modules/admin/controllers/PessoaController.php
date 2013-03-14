@@ -1,26 +1,33 @@
 <?php
 
-class Admin_PessoaController extends Zend_Controller_Action
-{
+class Admin_PessoaController extends Zend_Controller_Action {
 
-    public function init()
-    {
+    public function init() {
         /* Initialize action controller here */
     }
 
-    public function indexAction()
-    {
+    public function indexAction() {
         // action body
     }
-    
-    public function cadastroAction(){
+
+    public function cadastroAction() {
         $form = new Admin_Form_Pessoa();
-        
-        print_r($this->_request->getPost());
-        
+
+        if ($this->_request->isPost()) {
+            $post = $this->_request->getPost();
+
+            if ($form->isValid($post)) {
+                $model = new Model_Pessoa();
+                
+                if($model->insert($post)){
+                    echo 'inserido';
+                }
+            }else{
+                $form->populate($post);
+            }
+        }
         $this->view->form = $form;
     }
-
 
 }
 
