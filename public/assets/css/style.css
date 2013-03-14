@@ -109,13 +109,13 @@ ul {
 
 
 
- ul {
+/* ul {
 	list-style: none;
 }
  ul li {
 	padding: 15px 0 15px 0;
 	border-top: dotted 1px #c6aa95;
-}
+}*/
 
 #header {
 	position: relative;
@@ -131,7 +131,7 @@ ul {
 	line-height: 120px;
 }
 
-#main {
+/*#main {
 	position: relative;
 	padding: 0;
 	width: 1180px;
@@ -155,7 +155,7 @@ ul {
 #main ul li.first {
 	padding-top: 0;
 	border-top: 0;
-}
+}*/
 
 
 #nav {
