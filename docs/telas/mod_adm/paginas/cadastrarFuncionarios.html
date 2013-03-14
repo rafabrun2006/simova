@@ -1,0 +1,226 @@
+<!DOCKTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/css_alt.css">
+        <script type="text/javascript" src="../js/jquery.1.9.js"></script>
+        <script type="text/javascript" src="../js/bootstrap.js"></script>
+        <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/auto-complete.js"></script>
+    </head>
+    <body> 
+        <h1 id="faixa">Cadastrar Funcionário</h1>
+
+        <div class="tabbable" style="margin-bottom: 18px;">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">Dados Principais</a></li>
+                <li class=""><a href="#tab2" data-toggle="tab">Endereço</a></li>
+                <li class=""><a href="#tab3" data-toggle="tab">Dados Funcionais</a></li>
+            </ul>
+            <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
+                <div class="tab-pane active" id="tab1">
+                    <table align="center" width="100%" border="1" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="23%"><div align="left"><strong>Nome Completo:</strong></div></td>
+                            <td width="77%"><div align="left">
+                                    <input id="nome_func" name="funci_NomeCompleto"  tabindex="1" value="" size="60" class="input-text">
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Nome do Pai:</strong></div></td>
+                            <td><div align="left">
+                                    <input name="funci_NomePai"  tabindex="2" value="" size="60" class="input-text" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Nome da Mãe:</strong></div></td>
+                            <td><div align="left">
+                                    <input name="funci_NomeMae"  tabindex="3" value="" size="60" class="input-text" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Data de Nascimento:</strong></div></td>
+                            <td><div align="left">
+                                    <input name="funci_DataNascimento" class="input-text"  tabindex="4" value="" size="60" maxlength="10" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Estado Cívil :</strong></div></td>
+                            <td><div align="left">
+                                    <select name="EstadoCivil" tabindex="5">
+                                        <option>Selecione a opção </option>
+                                        <option value="Casado">Casado</option>
+                                        <option value="Solteiro">Solteiro</option>
+                                        <option value="Divorciado">Divorciado</option>
+                                        <option value="Viuvo">Viuvo</option>
+                                    </select>
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Sexo :</strong></div></td>
+                            <td><div align="left">
+                                    <input type="radio" name="Sexo" value="masculino"  tabindex="6"/>
+                                    Masculino 
+                                    <input type="radio" name="Sexo" value="feminino" />
+                                    Feminino</div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>RG :</strong></div></td>
+                            <td><div align="left">
+                                    <input name="funci_RG"  tabindex="7" value="" size="60" class="input-text" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>CPF :</strong></div></td>
+                            <td><div align="left">
+                                    <input name="funci_CPF"  tabindex="8" value="" size="60" class="input-text" />
+                                </div></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-pane" id="tab2">
+                    <table align="center" width="100%" border="1" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="23%"><div align="left"><strong>Rua:</strong></div></td>
+                            <td width="77%"><div align="left">
+                                    <input name="funci_Rua"  tabindex="9" value="" size="60" class="input-text" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Complemento:</strong></div></td>
+                            <td><div align="left">
+                                    <input name="funci_Complemento"  tabindex="10" value="" size="60" class="input-text" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Número:</strong></div></td>
+                            <td><div align="left">
+                                    <input name="funci_Numero"  tabindex="11" value="" size="60" class="input-text" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Bairro:</strong></div></td>
+                            <td><div align="left">
+                                    <input name="funci_Bairro"  tabindex="12" value="" size="60" class="input-text" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>CEP :</strong></div></td>
+                            <td><div align="left">
+                                    <input name="funci_CEP"  tabindex="13" value="" size="14" class="input-text" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>UF :</strong></div></td>
+                            <td><div align="left">
+                                    <select name="select">
+                                        <option>Selecione a opção </option>
+                                        <option value="Casado">Casado</option>
+                                        <option value="Solteiro">Solteiro</option>
+                                        <option value="Divorciado">Divorciado</option>
+                                        <option value="Viuvo">Viuvo</option>
+                                    </select>
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Cidade :</strong></div></td>
+                            <td><div align="left">
+                                    <input name="funci_Cidade"  tabindex="2" value="" size="60" class="input-text" />
+                                </div></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tab-pane" id="tab3">
+                    <table align="center" width="100%" border="1" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width="23%"><div align="left"><strong>Matricula:</strong></div></td>
+                            <td width="77%"><div align="left">
+                                    <input name="funci_Matricula"  tabindex="2" value="" size="60" class="input-text" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Cargo:</strong></div></td>
+                            <td><div align="left">
+                                    <div align="left">
+                                        <select name="select2">
+                                            <option>Selecione a opção </option>
+                                            <option value="Enfermeiro">Enfermeiro</option>
+                                            <option value="Tec. Enfermagem">Tec. Enfermagem</option>
+                                        </select>
+                                    </div>
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Função:</strong></div></td>
+                            <td><div align="left">
+                                    <input name="funci_Funcao"  tabindex="2" value="" size="60" class="input-text" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Lotação:</strong></div></td>
+                            <td><div align="left">
+                                    <input name="nomec" class="input-text" tabindex="1" value="" size="60" maxlength="35" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Status :</strong></div></td>
+                            <td><div align="left">
+                                    <input name="nomec2" class="input-text" tabindex="1" value="" size="60" maxlength="35" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Telefone Residêncial:</strong></div></td>
+                            <td><div align="left">
+                                    <input name="nomec22" class="input-text" tabindex="1" value="" size="60" maxlength="35" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Telefone Celular:</strong></div></td>
+                            <td><div align="left">
+                                    <input name="nomec22" class="input-text" tabindex="1" value="" size="60" maxlength="35" />
+                                </div></td>
+                        </tr>
+
+                        <tr>
+                            <td><div align="left"><strong>e-mail :</strong></div></td>
+                            <td><div align="left">
+                                    <input name="nomec" class="input-text" tabindex="1" value="" size="60" maxlength="35" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Usuário:</strong></div></td>
+                            <td><div align="left">
+                                    <input name="login" type="text"  id="login"  value="" maxlength="15" size="60" tabindex="2"  title="Usu&aacute;rio" autocomplete="off" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Senha</strong>:</div></td>
+                            <td><div align="left">
+                                    <input name="senha1" type="password" id="senha1" value="" maxlength="20" size="60" tabindex="3" title="Senha" />
+                                </div></td>
+                        </tr>
+                        <tr>
+                            <td><div align="left"><strong>Confirmar-Senha:</strong></div></td>
+                            <td><div align="left">
+                                    <input name="senha2" type="password" id="senha2" value="" maxlength="20" size="60" tabindex="4" title="Senha" />
+                                </div></td>
+                        </tr>
+                        <td colspan="2">
+                            <div align="center">
+                                <input name="cadastrar" type="submit" id="cadastrar" value="Cadastrar" class="input-submit" />
+                                <input name="reset" type="reset"  value="  Limpar  "  class="input-submit" >
+                                <input name="cadpor" type="hidden"  value="<? echo $_SESSION['login']; ?>" >
+                                <input type="hidden" name="datacad" value="<? echo date('Y/m/d H:i:s') ?>">
+                            </div>			</td>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+</html>
