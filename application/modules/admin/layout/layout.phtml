@@ -1,202 +1,107 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+
+        
+        Nome       : Modulo Administrativo Simova
+        Versão    : 1.0
+        
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <title>Painel Administrativo</title>
-        <link href="/assets/css/jquery.stepy.css" media="screen" rel="stylesheet" type="text/css">
-        <link href="/assets/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
-        <link href="/assets/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css">
-        <link href="/assets/css/blue.css" media="screen" rel="stylesheet" type="text/css">
-        <link href="/assets/css/style.css" media="screen" rel="stylesheet" type="text/css">
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="/favicon.ico">
 
-        <!--[if lte IE 8]>
-            <link rel="stylesheet" href="/css/ie.css" />
-            <script src="/js/ie/html5.js"></script>
-                        <script src="/js/ie/respond.min.js"></script>
-        <![endif]-->
-
+        <link href="/assets/css/acoordeon.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <!--<link href="/assets/css/css_alt.css" rel="stylesheet" type="text/css" />-->
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        
+        <script type="text/javascript" src="/assets/js/jquery.js"></script>
+        <script type="text/javascript" src="/assets/js/acoordeon.js"></script>
     </head>
     <body>
-
-        <div id="maincontainer" class="clearfix">
-            <!-- header -->
-            <header>
-                <div class="navbar navbar-fixed-top">
-                    <div class="navbar-inner">
-                        <div class="container-fluid">
-                            <div id="store-logomarca">
-                                <a class="brand" href="/admin"><i class="icon-home icon-white"></i> <span id="store-name">Painel</span></a>
-                            </div>
-                            <ul class="nav user_menu pull-right">
-                                <li class="hidden-phone hidden-tablet">
-                                    <div class="nb_boxes clearfix">
-                                        <a data-toggle="modal" data-backdrop="static" href="#" class="label ttip_b" title="Seu plano no Comércio Daqui">Conta Grátis <i class="splashy-shield"></i></a>
-                                    </div>
-                                </li>
-                                <li class="divider-vertical hidden-phone hidden-tablet"></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="/img/user_avatar.png" alt="" class="user_avatar" /> 
-                                        <ul class="dropdown-menu">
-                                            <li><a href="/admin/perfil/editar">Editar detalhe da conta</a></li>
-                                            <li><a href="/admin/perfil/upload-image">Alterar logo</a></li>
-                                            <li><a href="/admin/perfil/alterar-senha">Alterar senha</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="/admin/auth/logout">Sair</a></li>
-                                        </ul>
-                                </li>
-                            </ul>
-                            <a data-target=".nav-collapse" data-toggle="collapse" class="btn_menu">
-                                <span class="icon-align-justify icon-white"></span>
+        <div id="bg">
+            <div id="outer">
+                <div id="header">
+                    <div id="logo">
+                        <h1>
+                            <a href="/admin/">
+                                <img src="/assets/imagens/simova_logo.png"></img>
                             </a>
-                            <nav>
-                                <div class="nav-collapse">
-                                    <ul class="nav">
-                                        <li class="dropdown">
-                                            <a data-toggle="dropdown" class="dropdown-toggle" href="/#"> 
-                                                <i class="icon-th icon-white"></i>
-                                                Catálogo
-                                                <b class="caret"></b>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="/admin/produtos/catalogo">Produtos</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
+                        </h1>
+                    </div>
+                    <div id="nav">
+                        <h1 id="faixa">Painel Admininstrativo</h1>
+                        <br class="clear"/>
                     </div>
                 </div>
-            </header>
+                <div id="main">
+                    <div id="sidebar">
+                        <h3 id="tam">
+                            Menu
+                        </h3>
+                        <ul id="menuGeral">
+                            <li>
+                                <a class="itemMenu">Administrador</a>
+                                <div class="conteudoMenu">
+                                    <a href="paginas/editarPerfil.html" target="principal">Editar Perfil</a>
 
-            <!-- main content -->
-            <div id="contentwrapper">
-                <div class="main_content">
-                    <nav>
-<!--                        <div id="jCrumbs" class="breadCrumb module">
-                            <ul>
-                                <li>
-                                    <a href="/admin"><i class="icon-home"></i></a>
-                                </li>
-                                <li>
-                                </li>
-                                <style>
-                                    .icon-separator{
-                                        background: url("/img/separator.png") no-repeat scroll 100% 0 transparent;
-                                        padding-bottom: 3px;
-                                    }
-                                </style>
-                            </ul>
-                        </div>-->
-                    </nav>
-                    <?php echo $this->layout()->content; ?>
-                </div>
-            </div>
-
-            <!-- sidebar -->
-            <a href="javascript:void(0)" class="sidebar_switch on_switch ttip_r" title="Ocultar menu">Menu</a>
-            <div class="sidebar">
-                <div class="antiScroll">
-                    <div class="antiscroll-inner">
-                        <div class="antiscroll-content">
-                            <div class="sidebar_inner">
-                                <div id="side_accordion" class="accordion">
-                                    <div class="accordion-group">
-                                        <div class="accordion-heading">
-                                            <a href="/admin/pessoa/cadastro" data-parent="#side_accordion" data-toggle="collapse" class="accordion-toggle">
-                                                <i class="icon-user"></i> Usuários
-                                            </a>
-                                        </div>
-                                        <div class="accordion-body collapse" id="collapseThree">
-                                            <div class="accordion-inner">
-                                                <ul class="nav nav-list">
-                                                    <li><a href="/admin/perfil/editar">Detalhe da conta</a></li>
-                                                    <li><a href="/admin/perfil/upload-image">Alterar logo</a></li>
-                                                    <li><a href="/admin/perfil/alterar-senha">Alterar senha</a></li>
-                                                </ul>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-group">
-                                        <div class="accordion-group">
-                                            <div class="accordion-heading">
-                                                <a href="#collapseFour" data-parent="#side_accordion" 
-                                                   data-toggle="collapse" class="accordion-toggle">
-                                                    <i class="icon-globe"></i>
-                                                    Meus Aplicativos
-                                                </a>
-                                            </div>
-                                            <div class="accordion-body collapse" id="collapseFour">
-                                                <div class="accordion-inner">
-                                                    <ul class="nav nav-list elert alert-error">
-                                                        <li><a href="/admin/mensagens/perguntas-clientes">Perguntas de Clientes (54)</a></li>
-                                                    </ul>
-                                                    <br />
-                                                    <a class="btn btn-primary btn-small" style="color: #fff;" href="/admin/loja-owen">
-                                                        <i class="icon icon-list icon-white"></i>
-                                                        Aplicativos no Owen Store
-                                                    </a>
-                                                    <br />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="accordion-group">
-                                            <div class="accordion-heading sdb_h_active">
-                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#side_accordion" href="#collapse7">
-                                                    <i class="icon-th"></i> Calculadora
-                                                </a>
-                                            </div>
-                                            <div id="collapse7" class="accordion-body collapse in">
-                                                <div class="accordion-inner">
-                                                    <form id="calc" name="Calc">
-                                                        <div class="formSep control-group input-append">
-                                                            <input type="text" name="Input" style="width:130px"><button onclick="Calc.Input.value = ''" value="c" name="clear" class="btn" type="button"><i class="icon-remove"></i></button>
-                                                        </div>
-                                                        <div class="control-group">
-                                                            <input type="button" onclick="Calc.Input.value += '7'" value="7" name="seven" class="btn btn-large">
-                                                            <input type="button" onclick="Calc.Input.value += '8'" value="8" name="eight" class="btn btn-large">
-                                                            <input type="button" onclick="Calc.Input.value += '9'" value="9" name="nine" class="btn btn-large">
-                                                            <input type="button" onclick="Calc.Input.value += ' / '" value="/" name="div" class="btn btn-large">
-                                                        </div>
-                                                        <div class="control-group">
-                                                            <input type="button" onclick="Calc.Input.value += '4'" value="4" name="four" class="btn btn-large">
-                                                            <input type="button" onclick="Calc.Input.value += '5'" value="5" name="five" class="btn btn-large">
-                                                            <input type="button" onclick="Calc.Input.value += '6'" value="6" name="six" class="btn btn-large">
-                                                            <input type="button" onclick="Calc.Input.value += ' * '" value="x" name="times" class="btn btn-large">
-                                                        </div>
-                                                        <div class="control-group">
-                                                            <input type="button" onclick="Calc.Input.value += '1'" value="1" name="one" class="btn btn-large">
-                                                            <input type="button" onclick="Calc.Input.value += '2'" value="2" name="two" class="btn btn-large">
-                                                            <input type="button" onclick="Calc.Input.value += '3'" value="3" name="three" class="btn btn-large">
-                                                            <input type="button" onclick="Calc.Input.value += ' - '" value="-" name="minus" class="btn btn-large">
-                                                        </div>
-                                                        <div class="formSep control-group">
-                                                            <input type="button" onclick="Calc.Input.value += '.'" value="." name="dot" class="btn btn-large">
-                                                            <input type="button" onclick="Calc.Input.value += '0'" value="0" name="zero" class="btn btn-large">
-                                                            <input type="button" onclick="Calc.Input.value = Math.round(eval(Calc.Input.value) * 1000) / 1000" value="=" name="DoIt" class="btn btn-large">
-                                                            <input type="button" onclick="Calc.Input.value += ' + '" value="+" name="plus" class="btn btn-large">
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="push"></div>
-                            </div>
+                            </li>
+                            <li>
+                                <a class="itemMenu">Funcionários</a>
+                                <div class="conteudoMenu">
+                                    <a href="paginas/consultarFuncionarios.html" target="principal">Consultar</a>
+                                    <a href="paginas/cadastrarFuncionarios.html" target="principal">Cadastrar</a>
 
-                        </div>
+                                </div>
+                            </li>
+                            <li><a class="itemMenu">Pacientes</a>
+                                <div class="conteudoMenu">
+                                    <a href="paginas/consultarUsuarios.html" target="principal">Consultar</a>
+                                    <a href="paginas/cadastrarUsuarios.html" target="principal">Cadastrar</a>
+
+                                </div>
+                            </li>
+                            <li><a class="itemMenu">Vacinas</a>
+                                <div class="conteudoMenu">
+                                    <a href="paginas/consultarVacinas.html" target="principal">Consultar</a>
+                                    <a href="paginas/cadastrarVacinas.html" target="principal">Cadastrar</a>
+
+                                </div>
+                            </li>
+                            <li><a class="itemMenu">Calendários de Vacinas</a>
+                                <div class="conteudoMenu">
+                                    <a href="paginas/consultarVacinas.html" target="principal">Consultar</a>
+                                    <a href="paginas/cadastrarVacinas.html" target="principal">Cadastrar</a>
+
+                                </div>
+                            </li>
+                            <li><a class="itemMenu">Cartão de Vacinas</a>
+                                <div class="conteudoMenu">
+                                    <a href="paginas/consultarVacinas.html" target="principal">Consultar</a>
+                                    <a href="paginas/cadastrarVacinas.html" target="principal">Cadastrar</a>
+                                </div>
+                            </li>
+                        </ul>                   
                     </div>
+                    <?php echo $this->layout()->content ?>
+<!--                    <iframe src="paginas/principal.html" name="principal">
+                        <div id="content">
+                            <h1>Seja bem-vindo administrador!<h1>
+                                    <br class="clear" />
+                                    </div>
+                                    </iframe>-->
+                </div>
+                <div id="copyright">
+                    &copy; SIMOVA - Sistema de Monitoramento de Vacinas 
                 </div>
             </div>
         </div>
     </body>
-    <script type="text/javascript" src="/assets/js/jquery.js"></script>
-    <script type="text/javascript" src="/assets/js/gebo_common.js"></script>
-    <script type="text/javascript" src="/assets/js/gebo_dashboard.js"></script>
 </html>
-
