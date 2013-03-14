@@ -1,10 +1,10 @@
 <h3>Cadastro de Pessoa</h3>
-<div class="span9">
-    <form class="form form-horizontal" method="POST" name="cadastro-pessoa" id="cadastro-pessoa">
-        <fieldset>
-            <legend>Dados Pessoais</legend>
+<form class="form form-horizontal" method="POST" name="cadastro-pessoa" id="cadastro-pessoa">
+    <fieldset>
+        <legend>Dados Pessoais</legend>
+        <div class="span6">
             <div class="control-group">
-                <?php echo $this->form->Nome ?>
+                <?php echo $this->form->nome ?>
             </div>
             <div class="control-group">
                 <?php echo $this->form->CPF ?>
@@ -13,26 +13,34 @@
                 <?php echo $this->form->RG ?>
             </div>
             <div class="control-group">
-                <?php echo $this->form->Sexo ?>
+                <?php echo $this->form->sexo ?>
             </div>
             <div class="control-group">
-                <?php echo $this->form->DT_Nasc ?>
+                <?php echo $this->form->cod_estado_civil ?>
+            </div>
+        </div>
+        <div class="span6">
+            <div class="control-group">
+                <?php echo $this->form->email ?>
             </div>
             <div class="control-group">
-                <?php echo $this->form->Registro ?>
+                <?php echo $this->form->dt_nasc ?>
             </div>
             <div class="control-group">
-                <?php echo $this->form->Estado_Civil_Cod_Estado_Civil ?>
+                <?php echo $this->form->registro_nasc ?>
+            </div>
+            
+            <div class="control-group">
+                <?php echo $this->form->cod_un_saude ?>
             </div>
             <div class="control-group">
-                <?php echo $this->form->TB_Unidade_Saude_Cod_Un_Saude ?>
+                <?php echo $this->form->cod_perfil ?>
             </div>
-            <div class="control-group">
-                <?php echo $this->form->Cod_Perfil ?>
-            </div>
-        </fieldset>
-        <fieldset>
-            <legend>Dados de Localização</legend>
+        </div>
+    </fieldset>
+    <fieldset>
+        <legend>Dados de Localização</legend>
+        <div class="span6">
             <div class="control-group">
                 <?php echo $this->form->Endereco->Cod_Cid ?>
             </div>
@@ -42,6 +50,8 @@
             <div class="control-group">
                 <?php echo $this->form->Endereco->CEP ?>
             </div>
+        </div>
+        <div class="span5">
             <div class="control-group">
                 <?php echo $this->form->Endereco->Bairro ?>
             </div>
@@ -51,24 +61,24 @@
             <div class="control-group">
                 <?php echo $this->form->Endereco->Complemento ?>
             </div>
-        </fieldset>
-        <fieldset>
-            <legend>Dados de Familiares</legend>
-            <div class="control-group">
-                <?php echo $this->form->Nome_Mae ?>
-            </div>
-            <div class="control-group">
-                <?php echo $this->form->Nome_Pae ?>
-            </div>
-        </fieldset>
-        <div class="form-actions">
-            <div class="btn-group pull-right">
-                <button type="submit" class="btn btn-primary">Salvar</button>
-                <button type="reset" class="btn">Limpar</button>
-                <a href="/admin/pessoa">
-                    <button type="button" class="btn">Cancelar</button>
-                </a>
-            </div>
         </div>
-    </form>
-</div>
+    </fieldset>
+    <fieldset>
+        <legend>Dados de Familiares</legend>
+        <div class="control-group">
+            <?php echo $this->form->Nome_Mae ?>
+        </div>
+        <div class="control-group">
+            <?php echo $this->form->Nome_Pae ?>
+        </div>
+    </fieldset>
+    <div class="form-actions">
+        <div class="btn-group pull-right">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="reset" class="btn">Limpar</button>
+            <a href="/admin/pessoa">
+                <button type="button" class="btn">Cancelar</button>
+            </a>
+        </div>
+    </div>
+</form>

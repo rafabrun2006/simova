@@ -15,10 +15,13 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
-
+            
+            @$post['Perfil'] = array('Perfil'=>$post['Perfil']);
+            @$post['Endereco'] = array('Endereco'=>$post['Endereco']);
+                    
             if ($form->isValid($post)) {
                 $model = new Model_Pessoa();
-                
+                    
                 if($model->insert($post)){
                     echo 'inserido';
                 }

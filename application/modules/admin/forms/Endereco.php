@@ -61,7 +61,7 @@ class Admin_Form_Endereco extends Zend_Form {
 
         foreach ($modelCidade->listAll() as $value) {
             $this->getElement('Cod_Cid')
-                    ->addMultiOption($value->Cod_Cid, $value->Nome_Cid);
+                    ->addMultiOption($value->cod_cid, $value->nome_cid);
         }
     }
 

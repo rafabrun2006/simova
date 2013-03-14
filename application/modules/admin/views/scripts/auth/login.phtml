@@ -1,3 +1,6 @@
+<meta charset="utf-8">
+<link rel="stylesheet" href="/assets/css/bootstrap.css">
+<link rel="stylesheet" href="/assets/css/bootstrap-min.css">
 <style type="text/css">
     body {
         padding-top: 40px;
@@ -31,59 +34,57 @@
     }
     .form-signin #email{
         background-position: left;
-        padding: 7px 7px 7px 7px;
+        padding: 7px 7px 7px 30px;
         background-repeat: no-repeat;
         background-image: url("/assets/img/usuario.png");
     }
     .form-signin #senha{
         background-position: left;
-        padding: 7px 7px 7px 7px;
+        padding: 7px 7px 7px 30px;
         background-repeat: no-repeat;
         background-image: url("/assets/img/chaves.png");
     }
 </style>
-<div class="span9">
-    <div class="container">
-        <form class="form-signin" method="POST" action="/admin/auth/login">
-            <center>
-                <h4 class="form-signin-heading">SIMOVA - Painel Administrativo</h4>
-            </center>
-            <br>
-            <p>Autenticar usuário</p>
-            <hr>
-            <?php
-            if ($this->mensagem):
-                ?>
-                <div class="alert alert-danger"><?php echo $this->mensagem ?></div>
-                <?php
-            endif;
+<div class="container">
+    <form class="form-signin" method="POST" action="/admin/auth/login">
+        <center>
+            <h4 class="form-signin-heading">SIMOVA - Painel Administrativo</h4>
+        </center>
+        <br>
+        <p>Autenticar usuário</p>
+        <hr>
+        <?php
+        if ($this->mensagem):
             ?>
-            <div class="control-group">
-                <label class="control-label"><b>Usuário:</b></label>
-                <div class="controls">
-                    <input name="email" type="text" id="email" class="input-block-level" placeholder="     Email">
-                </div>
+            <div class="alert alert-danger"><?php echo $this->mensagem ?></div>
+            <?php
+        endif;
+        ?>
+        <div class="control-group">
+            <label class="control-label"><b>Usuário:</b></label>
+            <div class="controls">
+                <input name="email" type="text" id="email" class="input-block-level" placeholder="Email">
             </div>
-            <div class="control-group">
-                <label class="control-label"><b>Senha:</b></label>
-                <div class="controls">
-                    <input name="password" type="password" id="senha" class="input-block-level" placeholder="     Senha">
-                </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"><b>Senha:</b></label>
+            <div class="controls">
+                <input name="password" type="password" id="senha" class="input-block-level" placeholder="Senha">
             </div>
-            <button class="btn btn-small btn-primary" type="submit">Acessar</button>
-            <a class="" href="#">Esqueci minha senha</a>
-            <a class="" href="#">Pré-Cadastrar</a>
-        </form>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <footer>
-            <center>SIMOVA - Copyright©2013 SIMOVA - Todos os direitos reservados.</center>
-        </footer>
-    </div>
+        </div>
+        <button class="btn btn-small btn-primary" type="submit">Acessar</button>
+        <a class="" href="#">Esqueci minha senha</a>
+        <a class="" href="#">Pré-Cadastrar</a>
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer>
+        <center>SIMOVA - Copyright©2013 SIMOVA - Todos os direitos reservados.</center>
+    </footer>
 </div>

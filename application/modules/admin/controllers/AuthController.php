@@ -23,7 +23,7 @@ class Admin_AuthController extends Zend_Controller_Action {
      * FLUXO: Plugin_Acl -> Auth_Controller -> Formulario
      */
     public function loginAction() {
-
+        $this->_helper->layout->disableLayout();
         //Verificando se o formulario e um post, e se o usuario ja nao esta autenticado
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
@@ -35,8 +35,8 @@ class Admin_AuthController extends Zend_Controller_Action {
                 $authAdapter = new Zend_Auth_Adapter_DbTable();
                 $authAdapter
                         ->setTableName('tb_login') //Indicando ao zend qual a tabela para autenticacao
-                        ->setCredentialColumn('Senha_Login') //Indicando o campo para senha
-                        ->setIdentityColumn('Nome_Login'); //Indicando o campo para usuario
+                        ->setCredentialColumn('senha_login') //Indicando o campo para senha
+                        ->setIdentityColumn('nome_login'); //Indicando o campo para usuario
 
                 $authAdapter
                         ->setIdentity($post['email']) //Preenchendo o usuario
@@ -46,7 +46,7 @@ class Admin_AuthController extends Zend_Controller_Action {
 
                     //Preenchendo os dados da sessao do usuario autenticado
                     Zend_Auth::getInstance()->getStorage()
-                            ->write($authAdapter->getResultRowObject(null, 'Senha_Login'));
+                            ->write($authAdapter->getResultRowObject(null, 'senha_login'));
 
                     //Se login certo, redireciona para principal
                     $this->redirect('/admin/index');
