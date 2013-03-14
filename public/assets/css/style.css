@@ -45,6 +45,9 @@ h1,h2,h3,h4 {
 	background-color:#0099ff;
 	text-align:center;
         font-size: 25pt;
+        width: 610pt;
+        color: #fff;
+        margin-left: 5px;
         	
 }
 
@@ -82,7 +85,7 @@ ul {
 }
 
 
-#ccontent {
+#content {
 	width: 745px;
 	height:700px;
 	margin: 0 0 0 355px;
@@ -92,10 +95,11 @@ ul {
 }
 
 #copyright {
-	padding: 0 0 80px 0;
+	padding: 20px 0 10px 0;
 	text-align: center;
 	color: #D8C2AB;
-	margin:50px;
+	margin:0 0 80px 0;
+        
 }
 
 
@@ -219,10 +223,4 @@ h3#tam{
 }
 
 
-iframe {
-	width: 745px;
-	height:700px;
-	margin: 0 0 0 31px;
-	padding: 40px;
-	background: #fff;
-}
+

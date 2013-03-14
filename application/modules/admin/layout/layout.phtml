@@ -16,12 +16,13 @@
         <title>Painel Administrativo</title>
 
         <link href="/assets/css/acoordeon.css" rel="stylesheet" type="text/css" />
-        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <!--<link href="/assets/css/css_alt.css" rel="stylesheet" type="text/css" />-->
         <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-        
+
         <script type="text/javascript" src="/assets/js/jquery.js"></script>
+        <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="/assets/js/acoordeon.js"></script>
     </head>
     <body>
@@ -41,48 +42,48 @@
                     </div>
                 </div>
                 <div id="main">
-                    <div id="sidebar">
+                    <div id="sidebar" class="span2">
                         <h3 id="tam">
                             Menu
                         </h3>
                         <ul id="menuGeral">
                             <li>
-                                <a class="itemMenu">Administrador</a>
+                                <a style="background: #ffcc99;" class="itemMenu">Administrador</a>
                                 <div class="conteudoMenu">
-                                    <a href="paginas/editarPerfil.html" target="principal">Editar Perfil</a>
+                                    <a href="/admin/perfil">Editar Perfil</a>
 
                                 </div>
                             </li>
                             <li>
-                                <a class="itemMenu">Funcionários</a>
+                                <a style="background: #ffcc99;" class="itemMenu">Funcionários</a>
                                 <div class="conteudoMenu">
                                     <a href="paginas/consultarFuncionarios.html" target="principal">Consultar</a>
                                     <a href="/admin/pessoa/cadastro">Cadastrar</a>
 
                                 </div>
                             </li>
-                            <li><a class="itemMenu">Pacientes</a>
+                            <li><a style="background: #ffcc99;" class="itemMenu">Pacientes</a>
                                 <div class="conteudoMenu">
-                                    <a href="paginas/consultarUsuarios.html" target="principal">Consultar</a>
-                                    <a href="paginas/cadastrarUsuarios.html" target="principal">Cadastrar</a>
+                                    <a href="/admin/consultar-paciente">Consultar</a>
+                                    <a href="/admin/cadastrar-paciente" >Cadastrar</a>
 
                                 </div>
                             </li>
-                            <li><a class="itemMenu">Vacinas</a>
-                                <div class="conteudoMenu">
-                                    <a href="paginas/consultarVacinas.html" target="principal">Consultar</a>
-                                    <a href="paginas/cadastrarVacinas.html" target="principal">Cadastrar</a>
-
-                                </div>
-                            </li>
-                            <li><a class="itemMenu">Calendários de Vacinas</a>
+                            <li><a style="background: #ffcc99;" class="itemMenu">Vacinas</a>
                                 <div class="conteudoMenu">
                                     <a href="paginas/consultarVacinas.html" target="principal">Consultar</a>
                                     <a href="paginas/cadastrarVacinas.html" target="principal">Cadastrar</a>
 
                                 </div>
                             </li>
-                            <li><a class="itemMenu">Cartão de Vacinas</a>
+                            <li><a style="background: #ffcc99;" class="itemMenu">Calendários de Vacinas</a>
+                                <div class="conteudoMenu">
+                                    <a href="paginas/consultarVacinas.html" target="principal">Consultar</a>
+                                    <a href="paginas/cadastrarVacinas.html" target="principal">Cadastrar</a>
+
+                                </div>
+                            </li>
+                            <li><a style="background: #ffcc99;" class="itemMenu">Cartão de Vacinas</a>
                                 <div class="conteudoMenu">
                                     <a href="paginas/consultarVacinas.html" target="principal">Consultar</a>
                                     <a href="paginas/cadastrarVacinas.html" target="principal">Cadastrar</a>
@@ -90,13 +91,11 @@
                             </li>
                         </ul>                   
                     </div>
-                    <?php echo $this->layout()->content ?>
-<!--                    <iframe src="paginas/principal.html" name="principal">
-                        <div id="content">
-                            <h1>Seja bem-vindo administrador!<h1>
-                                    <br class="clear" />
-                                    </div>
-                                    </iframe>-->
+                    <div id="content" style="background-color: #fff;">
+                        <?php echo $this->layout()->content ?>
+                    </div>
+                    <br class="clear" />
+
                 </div>
                 <div id="copyright">
                     &copy; SIMOVA - Sistema de Monitoramento de Vacinas 
