@@ -17,7 +17,7 @@ class Admin_Form_Pessoa extends Zend_Form {
         $codPessoa = new Zend_Form_Element_Hidden('cod_pessoa');
 
         $cpf = new Zend_Form_Element_Text('CPF');
-        $cpf->setLabel('CPF: ')->setRequired(TRUE);
+        $cpf->setLabel('CPF: ')->setRequired(TRUE)->addValidator(new Zend_Validate_Int());
 
         $nome = new Zend_Form_Element_Text('nome', array('class'=>'input-xlarge'));
         $nome->setLabel('Nome: ');
@@ -32,7 +32,7 @@ class Admin_Form_Pessoa extends Zend_Form {
         $sexo->setLabel('Sexo: ');
 
         $rg = new Zend_Form_Element_Text('RG');
-        $rg->setLabel('RG: ');
+        $rg->setLabel('RG: ')->setRequired(TRUE);
 
         $estadoCivil = new Zend_Form_Element_Select('cod_estado_civil');
         $estadoCivil->setLabel('Estado Civil: ');
@@ -50,7 +50,8 @@ class Admin_Form_Pessoa extends Zend_Form {
         $perfil->setLabel('Perfil:');
 
         $email = new Zend_Form_Element_Text('email', array('class'=>'input-xlarge'));
-        $email->setLabel('Email:');
+        $email->setLabel('Email:')
+                ->addValidator(new Zend_Validate_EmailAddress());
         /*
          * Adicionando formularios auxiliares
          */
@@ -76,17 +77,21 @@ class Admin_Form_Pessoa extends Zend_Form {
         /*
          * Populando campos pre-preenchidos
          */
-        $sexo->addMultiOptions(array('M' => 'Masculino', 'F' => 'Feminino'));
+        $sexo->addMultiOptions(array('M' => 'Masculino', 'F' => 'Feminino'))->setValue('M');
         $estadoCivil->addMultiOptions(array('S' => 'Solteiro', 'C' => 'Casado'));
-        $this->pupulaComboPerfil();
+        //$this->pupulaComboPerfil();
 
+//        foreach ($this->getElements() as $element) {
+//            $element->setDecorators(array(
+//                'ViewHelper',
+//                'Errors',
+//                array('HtmlTag', array('tag' => 'div', 'class' => 'controls')),
+//                array('Label', array('tag' => 'div', 'class' => 'control-label'))
+//            ));
+//        }
+        
         foreach ($this->getElements() as $element) {
-            $element->setDecorators(array(
-                'ViewHelper',
-                'Errors',
-                array('HtmlTag', array('tag' => 'div', 'class' => 'controls')),
-                array('Label', array('tag' => 'div', 'class' => 'control-label'))
-            ));
+            $element->removeDecorator('HtmlTag')->removeDecorator('Label');
         }
     }
     

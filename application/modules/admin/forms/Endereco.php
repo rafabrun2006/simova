@@ -44,7 +44,7 @@ class Admin_Form_Endereco extends Zend_Form {
             $complemento
         ));
 
-        $this->populaComboCidade();
+        //$this->populaComboCidade();
 
         foreach ($this->getElements() as $element) {
             $element->setDecorators(array(

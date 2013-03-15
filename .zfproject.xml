@@ -21,6 +21,9 @@
         <controllerFile controllerName="Pessoa">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="ConsultarPaciente">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Login"/>
@@ -51,6 +54,24 @@
             <controllerFile controllerName="CadastrarPaciente">
               <actionMethod actionName="index"/>
             </controllerFile>
+            <controllerFile controllerName="ConsultarPaciente">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="ConsultarFuncionario">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="CadastrarFuncionario">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="CadastrarVacina">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="ConsultarVacina">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="ConsultarCartao">
+              <actionMethod actionName="index"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false"/>
           <layoutsDirectory enabled="false">
@@ -69,6 +90,24 @@
                 <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="CadastrarPaciente">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="ConsultarPaciente">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="ConsultarFuncionario">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="CadastrarFuncionario">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="CadastrarVacina">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="ConsultarVacina">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="ConsultarCartao">
                 <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>
@@ -117,6 +156,9 @@
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Pessoa">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ConsultarPaciente">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
