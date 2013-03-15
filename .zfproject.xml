@@ -72,6 +72,12 @@
             <controllerFile controllerName="ConsultarCartao">
               <actionMethod actionName="index"/>
             </controllerFile>
+            <controllerFile controllerName="Vacina">
+              <actionMethod actionName="index"/>
+            </controllerFile>
+            <controllerFile controllerName="Cartao">
+              <actionMethod actionName="index"/>
+            </controllerFile>
           </controllersDirectory>
           <formsDirectory enabled="false"/>
           <layoutsDirectory enabled="false">
@@ -108,6 +114,12 @@
                 <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
               <viewControllerScriptsDirectory forControllerName="ConsultarCartao">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Vacina">
+                <viewScriptFile forActionName="index"/>
+              </viewControllerScriptsDirectory>
+              <viewControllerScriptsDirectory forControllerName="Cartao">
                 <viewScriptFile forActionName="index"/>
               </viewControllerScriptsDirectory>
             </viewScriptsDirectory>

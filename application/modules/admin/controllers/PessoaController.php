@@ -56,5 +56,13 @@ class Admin_PessoaController extends Zend_Controller_Action {
         $this->view->form = $form;
     }
     
+    public function consultaFuncionarioAction() {
+        // action body
+    }
+    
+    public function consultaPacienteAction() {
+        // action body
+    }
+    
 }
 
