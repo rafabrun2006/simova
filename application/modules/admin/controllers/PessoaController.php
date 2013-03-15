@@ -17,15 +17,33 @@ class Admin_PessoaController extends Zend_Controller_Action {
             $post = $this->_request->getPost();
             
             @$post['Perfil'] = array('Perfil'=>$post['Perfil']);
-            @$post['Endereco'] = array('Endereco'=>$post['Endereco']);
+            $dadosEndereco = array('endereco'=>$post['endereco']);
+            @$post['Endereco'] = array('complemento'=>$post['complemento']);
                     
             if ($form->isValid($post)) {
                 
+                print_r($post);
+                
+                $endereco = new Model_Endereco();
+                $cod_end = $endereco->insert($dadosEndereco);
+                
+                unset($post['Endereco']);
+                unset($post['endereco']);
+                unset($post['complemento']);
+                unset($post['bairro']);
+                unset($post['cep']);
+                unset($post['Perfil']);
+                
                 //Inserção dos dados no banco
+                
+                $post['cod_end'] = $cod_end;
+                
                 $model = new Model_Pessoa();
                     
                 if($model->insert($post)){
-                    echo 'inserido';
+                    $this->view->mensagem = array(
+                        'type'=>'alert-sucess', 'mensagem'=>'Cadastrado com sucesso!'
+                        );
                 }
             }else{
                 $form->populate($post);

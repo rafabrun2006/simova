@@ -14,24 +14,24 @@ class Admin_Form_Endereco extends Zend_Form {
 
     public function init() {
 
-        $codEnd = new Zend_Form_Element_Hidden('Cod_End');
+        $codEnd = new Zend_Form_Element_Hidden('cod_end');
 
-        $codCID = new Zend_Form_Element_Select('Cod_Cid');
+        $codCID = new Zend_Form_Element_Select('cod_cid');
         $codCID->setLabel('Cidade: ');
 
-        $endereco = new Zend_Form_Element_Text('Endereco');
+        $endereco = new Zend_Form_Element_Text('endereco');
         $endereco->setLabel('Endereço: ');
 
-        $cep = new Zend_Form_Element_Text('CEP');
+        $cep = new Zend_Form_Element_Text('cep');
         $cep->setLabel('CEP: ');
 
-        $bairro = new Zend_Form_Element_Text('Bairro');
+        $bairro = new Zend_Form_Element_Text('bairro');
         $bairro->setLabel('Bairro: ');
 
-        $numero = new Zend_Form_Element_Text('Numero');
+        $numero = new Zend_Form_Element_Text('numero');
         $numero->setLabel('Numero:');
 
-        $complemento = new Zend_Form_Element_Text('Complemento');
+        $complemento = new Zend_Form_Element_Text('complemento');
         $complemento->setLabel('Complemento:');
 
         $this->addElements(array(
@@ -44,14 +44,18 @@ class Admin_Form_Endereco extends Zend_Form {
             $complemento
         ));
 
-        //$this->populaComboCidade();
+        $this->populaComboCidade();
 
+//        foreach ($this->getElements() as $element) {
+//            $element->setDecorators(array(
+//                'ViewHelper',
+//                array('HtmlTag', array('tag' => 'div', 'class' => 'controls')),
+//                array('Label', array('tag' => 'div', 'class' => 'control-label'))
+//            ));
+//        }
+        
         foreach ($this->getElements() as $element) {
-            $element->setDecorators(array(
-                'ViewHelper',
-                array('HtmlTag', array('tag' => 'div', 'class' => 'controls')),
-                array('Label', array('tag' => 'div', 'class' => 'control-label'))
-            ));
+            $element->removeDecorator('HtmlTag')->removeDecorator('Label');
         }
     }
 
@@ -60,7 +64,7 @@ class Admin_Form_Endereco extends Zend_Form {
         $modelCidade = new Model_Cidade();
 
         foreach ($modelCidade->listAll() as $value) {
-            $this->getElement('Cod_Cid')
+            $this->getElement('cod_cid')
                     ->addMultiOption($value->cod_cid, $value->nome_cid);
         }
     }

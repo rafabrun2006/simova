@@ -16,7 +16,7 @@ class Admin_Form_Pessoa extends Zend_Form {
 
         $codPessoa = new Zend_Form_Element_Hidden('cod_pessoa');
 
-        $cpf = new Zend_Form_Element_Text('CPF');
+        $cpf = new Zend_Form_Element_Text('cpf');
         $cpf->setLabel('CPF: ')->setRequired(TRUE)->addValidator(new Zend_Validate_Int());
 
         $nome = new Zend_Form_Element_Text('nome', array('class'=>'input-xlarge'));
@@ -31,7 +31,7 @@ class Admin_Form_Pessoa extends Zend_Form {
         $sexo = new Zend_Form_Element_Radio('sexo');
         $sexo->setLabel('Sexo: ');
 
-        $rg = new Zend_Form_Element_Text('RG');
+        $rg = new Zend_Form_Element_Text('rg');
         $rg->setLabel('RG: ')->setRequired(TRUE);
 
         $estadoCivil = new Zend_Form_Element_Select('cod_estado_civil');
@@ -78,8 +78,8 @@ class Admin_Form_Pessoa extends Zend_Form {
          * Populando campos pre-preenchidos
          */
         $sexo->addMultiOptions(array('M' => 'Masculino', 'F' => 'Feminino'))->setValue('M');
-        $estadoCivil->addMultiOptions(array('S' => 'Solteiro', 'C' => 'Casado'));
-        //$this->pupulaComboPerfil();
+        $estadoCivil->addMultiOptions(array('1' => 'Solteiro', '2' => 'Casado'));
+        $this->pupulaComboPerfil();
 
 //        foreach ($this->getElements() as $element) {
 //            $element->setDecorators(array(
