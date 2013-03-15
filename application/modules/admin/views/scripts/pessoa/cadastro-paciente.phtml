@@ -16,19 +16,27 @@
     li a:active{
         border-style: none;
     }
-    
+
     .tabbable{
         height: auto;
     }
-    
-    
+
+    div #content{
+        width: 745px;
+        height:800px;
+        margin: 0 0 0 355px;
+        padding: 40px;
+        background: #fff;
+    }
+
+
 
 </style>
 
 
 
 <div class="span9">
-    <h1 id="aa">Cadastrar Pacientes</h1>
+    <h1 id="aa">Cadastrar Paciente</h1>
 
 
     <div style="margin-bottom: 18px;" class="tabbable">
@@ -37,89 +45,76 @@
             <li class=""><a data-toggle="tab" href="#tab2">Endereço</a></li>
             <li class=""><a data-toggle="tab" href="#tab3">Dados Complementares</a></li>
         </ul>
-        <div style="padding-bottom: 9px; border-bottom: 1px solid #ddd;" class="tab-content">
-            <div id="tab1" class="tab-pane active">
+        <form class="bs-docs-example form-horizontal">
+            <div style="padding-bottom: 9px; border-bottom: 1px solid #ddd;" class="tab-content">
+                <div id="tab1" class="tab-pane active">
 
-                <!--INICIO DO PRIMEIRO FORM-->
+                    <!--INICIO DO PRIMEIRO FORM-->
 
-                <p><form class="bs-docs-example form-horizontal">
+                    <p>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Nome Completo:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <?php echo $this->form->nome ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Nome do Pai:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                           <?php echo $this->form->Nome_Pae ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Nome da Mãe:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <?php echo $this->form->Nome_Mae ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Data de Nascimento:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <?php echo $this->form->dt_nasc ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Estado Civil:</label>
                         <div class="controls">
-                            <select>
-                                <option>Selecione a opção</option>
-                                <option>Casado</option>
-                                <option>Solteiro</option>
-                                <option>Divorciado</option>
-                                <option>Viúvo</option>
-                            </select>
+                            <?php echo $this->form->cod_estado_civil ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Sexo:</label>
                         <div class="controls">
-                            <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Masculino</label>
-                            <label class="radio">
-                                <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Feminino</label>
-
+                                <?php echo $this->form->sexo ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">RG Nº:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <?php echo $this->form->RG ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">CPF Nº:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                           <?php echo $this->form->CPF ?>
                         </div>
                     </div>
                     <div class="control-group">
 
                         <div class="controls">
-                            <button class="btn" type="submit">Salvar</button>
-                            <button class="btn" type="reset">Limpar</button>
-
+                            <a class="btn btn-primary" href="#tab2" data-toggle="tab"><i class="icon-forward icon-white"></i></a>
                         </div>
                     </div>
 
-                </form></p>
-
-            </div> <!--FIM DO PRIMEIRO MENU-->
+                </div> <!--FIM DO PRIMEIRO MENU-->
 
 
-            <div id="tab2" class="tab-pane">
+                <div id="tab2" class="tab-pane">
 
-                <!--INICIO DO SEGUNDO FORM-->
+                    <!--INICIO DO SEGUNDO FORM-->
 
-                <p><form class="bs-docs-example form-horizontal">
+                    <p>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Rua:</label>
                         <div class="controls">
@@ -191,27 +186,22 @@
                             <input type="text" placeholder="Text input">
                         </div>
                     </div>
-                    
+
                     <div class="control-group">
 
                         <div class="controls">
-                            <button class="btn" type="submit">Salvar</button>
-                            <button class="btn" type="reset">Limpar</button>
-
+                            <a class="btn btn-primary" href="#tab3" data-toggle="tab"><i class="icon-forward icon-white"></i></a>
+                            <a class="btn btn-primary" href="#tab1" data-toggle="tab"><i class="icon-backward icon-white"></i></a>
                         </div>
                     </div>
-
-                </form></p>
-
-
-            </div> <!--FIM DO SEGUNDO MENU-->
+                </div> <!--FIM DO SEGUNDO MENU-->
 
 
-            <div id="tab3" class="tab-pane">
-                
-                <!--INICIO DO TERCEIRO FORM-->
+                <div id="tab3" class="tab-pane">
 
-                <p><form class="bs-docs-example form-horizontal">
+                    <!--INICIO DO TERCEIRO FORM-->
+
+                    
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Telefone residêncial:</label>
                         <div class="controls">
@@ -251,16 +241,14 @@
                     <div class="control-group">
 
                         <div class="controls">
-                            <button class="btn" type="submit">Salvar</button>
-                            <button class="btn" type="reset">Limpar</button>
+                            <button class="btn btn-info" type="submit">Salvar</button>
+                            <button class="btn btn-info" type="reset">Limpar</button>
 
                         </div>
                     </div>
-
-                </form></p>
-                
-            </div> <!--FIM DO TERCEIRO MENU-->
-        </div>
+                </div> <!--FIM DO TERCEIRO MENU-->
+            </div>
+        </form>
     </div>
 
 </div>
