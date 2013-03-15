@@ -8,6 +8,15 @@
         margin: 10px 0 30px 5px;
 
     }
+    h1#bb{
+        background-color: #000000;
+        color: #fff;
+        text-align: center;
+        font-size: 20pt;
+        width: 550pt;
+        margin: 10px 0 30px 5px;
+
+    }
     li a:hover{
         color: #CB0101;
 
@@ -27,6 +36,10 @@
         padding: 40px;
         background: #fff;
     }
+    thead{
+        color: #fff;
+        background-color: #000000;
+    }
 
 
 
@@ -37,8 +50,71 @@
 <div class="span9">
     <h1 id="aa">Consultar Pacientes</h1>
 
+    <br><br>
 
-    
+    <form class="form-inline">
+        <select>
+            <option>Selecione a opção</option>
+            <option>Nome</option>
+            <option>RG</option>
+            <option>CPF</option>
+            <option>Todos</option>
+        </select>
+        <div class="input-append">
+            <input class="span2" id="appendedInputButton" type="text">
+            <button class="btn btn-info" type="button"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+        </div>
+    </form>
+
+    <br><br><br>
+
+    <!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
+
+    <h1 id="bb">Resultado da Pesquisa</h1>
+
+    <br><br><br>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Usuário</th>
+                <th>Nome Completo</th>
+                <th>RG Nº</th>
+                <th>CPF Nº</th>
+                <th>Função</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Rossete</td>
+                <td>Rossete da Silva Sauro</td>
+                <td>111111111</td>
+                <td>222222222</td>
+                <td><button title="Excluir" class="btn btn-danger btn btn-mini" type="button"><i class="icon-trash icon-white"></i></button>&nbsp;
+                    <button title="Alterar" class="btn btn-primary btn btn-mini" type="button"><i class="icon-pencil icon-white"></i></button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Gil</td>
+                <td>Gilmar Caetano Gomes</td>
+                <td>333333333</td>
+                <td>555555555</td>
+                <td><button title="Excluir" class="btn btn-danger btn btn-mini" type="button"><i class="icon-trash icon-white"></i></button>&nbsp;
+                    <button title="Alterar" class="btn btn-primary btn btn-mini" type="button"><i class="icon-pencil icon-white"></i></button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Da vinci</td>
+                <td>Leonardo da Vinci</td>
+                <td>888888888</td>
+                <td>666666666</td>
+                <td><button title="Excluir" class="btn btn-danger btn btn-mini" type="button"><i class="icon-trash icon-white"></i></button>&nbsp;
+                    <button title="Alterar" class="btn btn-primary btn btn-mini" type="button"><i class="icon-pencil icon-white"></i></button></td>
+            </tr>
+        </tbody>
+    </table>
 
 </div>
 
