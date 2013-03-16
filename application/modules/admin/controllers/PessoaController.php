@@ -25,15 +25,19 @@ class Admin_PessoaController extends Zend_Controller_Action {
                 $cod_end = $endereco->insert(
                         array(
                             'endereco' => $post['endereco'],
-                            'complemento' => $post['complemento']
+                            'complemento' => $post['complemento'],
+                            'cep' => $post['cep'],
+                            'bairro' => $post['bairro'],
+                            'cod_cid' => $post['cod_cid']
                 ));
-
+                
                 unset($post['Endereco']);
                 unset($post['endereco']);
                 unset($post['complemento']);
                 unset($post['bairro']);
                 unset($post['cep']);
                 unset($post['Perfil']);
+                unset($post['cod_cid']);
 
                 //Cadastrando login
                 if (!empty($post['usuario']) and !empty($post['senha'])) {
@@ -53,6 +57,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
                 //Inserção dos dados no banco
 
                 $post['cod_end'] = $cod_end;
+                $post['dt_nasc'] = date('Y-m-d', strtotime($post['dt_nasc']));
 
                 $model = new Model_Pessoa();
 
