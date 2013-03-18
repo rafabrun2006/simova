@@ -2,7 +2,7 @@
 <style type="text/css">
 
     h1#aa{
-        background-color: #dbc59e;;
+        background-color: #ffcc99;
         text-align: center;
         font-size: 20pt;
         width: 550pt;
@@ -37,7 +37,9 @@
 
 <div class="span9">
     <h1 id="aa">Cadastrar Funcionários</h1>
-
+    <?php if ($this->mensagem): ?>
+        <div class="alert <?php echo $this->mensagem['type'] ?>"><?php echo $this->mensagem['mensagem'] ?></div>
+    <?php endif; ?>
 
     <div style="margin-bottom: 18px;" class="tabbable">
         <ul class="nav nav-tabs">
@@ -45,7 +47,7 @@
             <li class=""><a data-toggle="tab" href="#tab2">Endereço</a></li>
             <li class=""><a data-toggle="tab" href="#tab3">Dados Complementares</a></li>
         </ul>
-        <form class="bs-docs-example form-horizontal">
+        <form class="bs-docs-example form-horizontal" method="post">
             <div style="padding-bottom: 9px; border-bottom: 1px solid #ddd;" class="tab-content">
                 <div id="tab1" class="tab-pane active">
 
@@ -61,13 +63,13 @@
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Nome do Pai:</label>
                         <div class="controls">
-                           <?php echo $this->form->Nome_Pae ?>
+                            <?php echo $this->form->nome_pai ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Nome da Mãe:</label>
                         <div class="controls">
-                            <?php echo $this->form->Nome_Mae ?>
+                            <?php echo $this->form->nome_mae ?>
                         </div>
                     </div>
                     <div class="control-group">
@@ -85,19 +87,19 @@
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Sexo:</label>
                         <div class="controls">
-                                <?php echo $this->form->sexo ?>
+                            <?php echo $this->form->sexo ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">RG Nº:</label>
                         <div class="controls">
-                            <?php echo $this->form->RG ?>
+                            <?php echo $this->form->rg ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">CPF Nº:</label>
                         <div class="controls">
-                           <?php echo $this->form->CPF ?>
+                            <?php echo $this->form->cpf ?>
                         </div>
                     </div>
                     <div class="control-group">
@@ -118,31 +120,31 @@
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Rua:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <?php echo $this->form->Endereco->endereco ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Complemento: </label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <?php echo $this->form->Endereco->complemento ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Número:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <input type="text" placeholder="">
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Bairro:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <?php echo $this->form->Endereco->bairro ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">CEP:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <?php echo $this->form->Endereco->cep ?>
                         </div>
                     </div>
                     <div class="control-group">
@@ -183,7 +185,7 @@
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Cidade:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <?php echo $this->form->Endereco->cod_cid ?>
                         </div>
                     </div>
 
@@ -207,7 +209,7 @@
                         <div class="control-group">
                             <label for="inputEmail" class="control-label">Matrícula:</label>
                             <div class="controls">
-                                <input type="text" placeholder="Text input">
+                                <input type="text" placeholder="">
                             </div>
                         </div>
                         <label for="inputEmail" class="control-label">Cargo:</label>
@@ -223,55 +225,61 @@
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Função:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <input type="text" placeholder="">
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Lotação:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <input type="text" placeholder="">
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Status:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <input type="text" placeholder="">
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Telefone residêncial:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <input type="text" placeholder="">
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Telefone celular:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <input type="text" placeholder="">
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">E-mail:</label>
                         <div class="controls">
-                            <input type="text" id="inputEmail" placeholder="Email">
+                            <input name="email" type="text" id="inputEmail" placeholder="">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="inputEmail" class="control-label">Perfil:</label>
+                        <div class="controls">
+                            <?php echo $this->form->cod_perfil ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Usuário:</label>
                         <div class="controls">
-                            <input type="text" placeholder="Text input">
+                            <input name="usuario" type="text" placeholder="">
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Senha:</label>
                         <div class="controls">
-                            <input type="password" id="inputPassword" placeholder="Password">
+                            <input name="senha" type="password" id="inputPassword" placeholder="">
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Confirmar-Senha:</label>
                         <div class="controls">
-                            <input type="password" id="inputPassword" placeholder="Password">
+                            <input type="password" id="inputPassword" placeholder="">
                         </div>
                     </div>
                     <div class="control-group">
