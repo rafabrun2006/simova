@@ -37,9 +37,15 @@
 
 <div class="span9">
     <h1 id="aa">Cadastrar Funcionários</h1>
-    <?php if ($this->mensagem): ?>
-        <div class="alert <?php echo $this->mensagem['type'] ?>"><?php echo $this->mensagem['mensagem'] ?></div>
-    <?php endif; ?>
+    <?php
+    if ($this->mensagem):
+        foreach ($this->mensagem as $mensagem):
+            ?>
+            <div class="alert <?php echo $mensagem['type'] ?>"><?php echo $mensagem['mensagem'] ?></div>
+            <?php
+        endforeach;
+    endif;
+    ?>
 
     <div style="margin-bottom: 18px;" class="tabbable">
         <ul class="nav nav-tabs">
@@ -76,6 +82,12 @@
                         <label for="inputEmail" class="control-label">Data de Nascimento:</label>
                         <div class="controls">
                             <?php echo $this->form->dt_nasc ?>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="inputEmail" class="control-label">Nº Registro de Nascimento:</label>
+                        <div class="controls">
+                            <?php echo $this->form->registro_nasc ?>
                         </div>
                     </div>
                     <div class="control-group">
@@ -132,7 +144,7 @@
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Número:</label>
                         <div class="controls">
-                            <input type="text" placeholder="">
+                            <?php echo $this->form->Endereco->numero ?>
                         </div>
                     </div>
                     <div class="control-group">
@@ -150,36 +162,7 @@
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">UF:</label>
                         <div class="controls">
-                            <select>
-                                <option value="0">Selecione o Estado</option>
-                                <option value="ac">Acre</option>
-                                <option value="al">Alagoas</option>
-                                <option value="ap">Amapá</option>
-                                <option value="am">Amazonas</option>
-                                <option value="ba">Bahia</option>
-                                <option value="ce">Ceará</option>
-                                <option value="df">Distrito Federal</option>
-                                <option value="es">Espirito Santo</option>
-                                <option value="go">Goiás</option>
-                                <option value="ma">Maranhão</option>
-                                <option value="ms">Mato Grosso do Sul</option>
-                                <option value="mt">Mato Grosso</option>
-                                <option value="mg">Minas Gerais</option>
-                                <option value="pa">Pará</option>
-                                <option value="pb">Paraíba</option>
-                                <option value="pr">Paraná</option>
-                                <option value="pe">Pernambuco</option>
-                                <option value="pi">Piauí</option>
-                                <option value="rj">Rio de Janeiro</option>
-                                <option value="rn">Rio Grande do Norte</option>
-                                <option value="rs">Rio Grande do Sul</option>
-                                <option value="ro">Rondônia</option>
-                                <option value="rr">Roraima</option>
-                                <option value="sc">Santa Catarina</option>
-                                <option value="sp">São Paulo</option>
-                                <option value="se">Sergipe</option>
-                                <option value="to">Tocantins</option>
-                            </select>
+                            <?php echo $this->form->Endereco->cod_uf ?>
                         </div>
                     </div>
                     <div class="control-group">
@@ -209,17 +192,12 @@
                         <div class="control-group">
                             <label for="inputEmail" class="control-label">Matrícula:</label>
                             <div class="controls">
-                                <input type="text" placeholder="">
+                                <?php echo $this->form->Funcionario->matricula ?>
                             </div>
                         </div>
                         <label for="inputEmail" class="control-label">Cargo:</label>
                         <div class="controls">
-                            <select>
-                                <option>Selecione a opção</option>
-                                <option>Médico</option>
-                                <option>Enfermeiro</option>
-                                <option>Técnico de Enfermagem</option>
-                            </select>
+                            <?php echo $this->form->Funcionario->cod_cargo ?>
                         </div>
                     </div>
                     <div class="control-group">
@@ -237,13 +215,13 @@
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Status:</label>
                         <div class="controls">
-                            <input type="text" placeholder="">
+                            <?php echo $this->form->Status->cod_status ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Telefone residêncial:</label>
                         <div class="controls">
-                            <?php echo $this->form->Telefone->num_tel1?>
+                            <?php echo $this->form->Telefone->num_tel1 ?>
                         </div>
                     </div>
                     <div class="control-group">

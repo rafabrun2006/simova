@@ -18,36 +18,53 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
             if ($form->isValid($post) and $form->getSubForm('Endereco')->isValid($post)) {
 
-                //Cadastrando login
-                if ($form->getSubForm('Login')->isValid($post)) {
-                    $loginModel = new Model_Login();
-                    $cod_login = $loginModel->save($post);
-
-                    $post['cod_login'] = $cod_login;
-                }
-
                 //Cadastrando um endereço
                 $endereco = new Model_Endereco();
                 $post['cod_end'] = $endereco->save($post);
 
-                //Inserção dos dados no banco
-                $model = new Model_Pessoa();
-                if ($model->save($post)) {
-                    
-                    if($form->getSubForm('Telefone')->isValid($post)){
-                        $telefone = new Model_Telefone();
-                        $telefone->save($post, 2);
-                    }
-                    
+                if ($post['cod_end']) {
                     $this->view->mensagem = array(
-                        'type' => 'alert-sucess', 'mensagem' => 'Cadastrado com sucesso!'
+                        'type' => 'alert-sucess', 'mensagem' => 'Endereço cadastrado com sucesso!'
                     );
                 }
-                
+
+                //Inserção dos dados no banco
+                $model = new Model_Pessoa();
+                $codPessoa = $model->save($post);
+
+                if ($codPessoa) {
+                    $post['cod_pessoa'] = $codPessoa;
+
+                    if ($form->getSubForm('Telefone')->isValid($post)) {
+                        $telefone = new Model_Telefone();
+                        $telefone->saveMultiple($post, 2);
+                        $this->view->mensagem = array(
+                            'type' => 'alert-sucess', 'mensagem' => 'Telefone(s) cadastrado com sucesso!'
+                        );
+                    }
+
+                    if ($form->getSubForm('Funcionario')->isValid($post)) {
+                        $funcionario = new Model_Funcionario();
+                        $funcionario->save($post);
+                        $this->view->mensagem = array(
+                            'type' => 'alert-sucess', 'mensagem' => 'Funcionário cadastrado com sucesso!'
+                        );
+                    }
+
+                    //Cadastrando login
+                    if ($form->getSubForm('Login')->isValid($post)) {
+                        $loginModel = new Model_Login();
+                        $loginModel->save($post);
+                        $this->view->mensagem = array(
+                            'type' => 'alert-sucess', 'mensagem' => 'Login cadastrado com sucesso!'
+                        );
+                    }
+                }
             } else {
                 $this->view->mensagem = array(
                     'type' => 'alert-warning', 'mensagem' => 'Verifique seu formulário!'
                 );
+                print_r($form->getMessages());
                 $form->populate($post);
             }
         }

@@ -76,6 +76,7 @@ class Admin_Form_Pessoa extends Zend_Form {
         $this->addSubForm(new Admin_Form_Login(), 'Login');
         $this->addSubForm(new Admin_Form_Telefone(), 'Telefone');
         $this->addSubForm(new Admin_Form_Funcionario(), 'Funcionario');
+        $this->addSubForm(new Admin_Form_Status(), 'Status');
 
         $this->addElements(array(
             $codPessoa,
@@ -90,7 +91,7 @@ class Admin_Form_Pessoa extends Zend_Form {
             $registroNasc,
             $codUnidadeSaude,
             $perfil,
-            $email
+            $email,
         ));
 
         /*
@@ -98,23 +99,14 @@ class Admin_Form_Pessoa extends Zend_Form {
          */
         $sexo->addMultiOptions(array('M' => 'Masculino', 'F' => 'Feminino'))->setValue('M');
         $estadoCivil->addMultiOptions(array('1' => 'Solteiro', '2' => 'Casado'));
-        $this->pupulaComboPerfil();
-
-//        foreach ($this->getElements() as $element) {
-//            $element->setDecorators(array(
-//                'ViewHelper',
-//                'Errors',
-//                array('HtmlTag', array('tag' => 'div', 'class' => 'controls')),
-//                array('Label', array('tag' => 'div', 'class' => 'control-label'))
-//            ));
-//        }
+        $this->populaComboPerfil();
 
         foreach ($this->getElements() as $element) {
             $element->removeDecorator('HtmlTag')->removeDecorator('Label');
         }
     }
 
-    private function pupulaComboPerfil() {
+    private function populaComboPerfil() {
 
         $modelPerfil = new Model_Perfil();
 
@@ -123,5 +115,5 @@ class Admin_Form_Pessoa extends Zend_Form {
                     ->addMultiOption($value->cod_perfil, $value->nome_perfil);
         }
     }
-
+    
 }

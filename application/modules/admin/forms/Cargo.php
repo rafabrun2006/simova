@@ -6,21 +6,19 @@
  */
 
 /**
- * Description of Perfil
+ * Description of Cidade
  *
  * @author bruno
  */
-class Admin_Form_Status extends Zend_Form {
+class Cidade extends Zend_Form {
 
     public function init() {
 
-        $cod_status = new Zend_Form_Element_Radio('cod_status');
-        $this->addElement($cod_status);
-        
-        $cod_status->addMultiOptions(array(
-            1 => 'Ativo',
-            0 => 'Inativo'))->setValue(1);
+        $cod_cargo = new Zend_Form_Element_Hidden('cod_cargo');
+        $nome_cargo = new Zend_Form_Element_Text('nome_cargo');
 
+        $this->addElements(array($cod_cargo, $nome_cargo));
+        
         foreach ($this->getElements() as $element) {
             $element->removeDecorator('HtmlTag')->removeDecorator('Label');
         }
