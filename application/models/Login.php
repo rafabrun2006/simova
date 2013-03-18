@@ -5,7 +5,7 @@
  *
  * @author bruno
  */
-class Model_Login extends Zend_Db_Table_Abstract {
+class Model_Login extends Simova_Mapper_ModelMapper {
     
     protected $_name = 'tb_login';
     protected $_primary = 'cod_login';

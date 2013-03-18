@@ -16,55 +16,38 @@ class Admin_PessoaController extends Zend_Controller_Action {
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
 
-            //@$post['Perfil'] = array('Perfil' => $post['Perfil']);
-
-            if ($form->isValid($post)) {
-
-                //Cadastrando um endereço
-                $endereco = new Model_Endereco();
-                $cod_end = $endereco->insert(
-                        array(
-                            'endereco' => $post['endereco'],
-                            'complemento' => $post['complemento']
-                ));
-
-                unset($post['Endereco']);
-                unset($post['endereco']);
-                unset($post['complemento']);
-                unset($post['bairro']);
-                unset($post['cep']);
-                unset($post['Perfil']);
+            if ($form->isValid($post) and $form->getSubForm('Endereco')->isValid($post)) {
 
                 //Cadastrando login
-                if (!empty($post['usuario']) and !empty($post['senha'])) {
+                if ($form->getSubForm('Login')->isValid($post)) {
                     $loginModel = new Model_Login();
-                    $cod_login = $loginModel->insert(
-                            array(
-                                'nome_login' => $post['usuario'],
-                                'senha_login' => $post['senha']
-                    ));
-                    
+                    $cod_login = $loginModel->save($post);
+
                     $post['cod_login'] = $cod_login;
                 }
 
-                unset($post['usuario']);
-                unset($post['senha']);
+                //Cadastrando um endereço
+                $endereco = new Model_Endereco();
+                $post['cod_end'] = $endereco->save($post);
 
                 //Inserção dos dados no banco
-
-                $post['cod_end'] = $cod_end;
-
                 $model = new Model_Pessoa();
-
-                if ($model->insert($post)) {
+                if ($model->save($post)) {
+                    
+                    if($form->getSubForm('Telefone')->isValid($post)){
+                        $telefone = new Model_Telefone();
+                        $telefone->save($post, 2);
+                    }
+                    
                     $this->view->mensagem = array(
                         'type' => 'alert-sucess', 'mensagem' => 'Cadastrado com sucesso!'
                     );
                 }
+                
             } else {
                 $this->view->mensagem = array(
-                        'type' => 'alert-warning', 'mensagem' => 'Verifique seu formulário!'
-                    );
+                    'type' => 'alert-warning', 'mensagem' => 'Verifique seu formulário!'
+                );
                 $form->populate($post);
             }
         }

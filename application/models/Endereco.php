@@ -5,7 +5,7 @@
  *
  * @author bruno
  */
-class Model_Endereco extends Zend_Db_Table_Abstract {
+class Model_Endereco extends Simova_Mapper_ModelMapper {
     
     protected $_name = 'tb_endereco';
     protected $_primary = 'cod_end';
