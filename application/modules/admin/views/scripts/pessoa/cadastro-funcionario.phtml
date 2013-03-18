@@ -225,7 +225,7 @@
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Função:</label>
                         <div class="controls">
-                            <input type="text" placeholder="">
+                            <?php echo $this->form->Funcionario->cod_funcao ?>
                         </div>
                     </div>
                     <div class="control-group">
@@ -243,19 +243,19 @@
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Telefone residêncial:</label>
                         <div class="controls">
-                            <input type="text" placeholder="">
+                            <?php echo $this->form->Telefone->num_tel1?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">Telefone celular:</label>
                         <div class="controls">
-                            <input type="text" placeholder="">
+                            <?php echo $this->form->Telefone->num_tel2 ?>
                         </div>
                     </div>
                     <div class="control-group">
                         <label for="inputEmail" class="control-label">E-mail:</label>
                         <div class="controls">
-                            <input name="email" type="text" id="inputEmail" placeholder="">
+                            <?php echo $this->form->email ?>
                         </div>
                     </div>
                     <div class="control-group">
