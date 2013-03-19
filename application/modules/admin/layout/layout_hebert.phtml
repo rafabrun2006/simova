@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+
+        
+        Nome       : Modulo Administrativo Simova
+        Versão    : 1.0
+        
+
+--> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Painel Administrativo</title>
+
+        <link href="/assets/css/acoordeon.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript" src="/assets/js/jquery.js"></script>
+        <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/js/acoordeon.js"></script>
+    </head>
+    <body>
+        <div id="bg">
+            <div id="outer">
+                <div id="header">
+                    <div id="logo">
+                        <h1>
+                            <a href="/admin/">
+                                <img src="/assets/imagens/simova_logo.png"></img>
+                            </a>
+                        </h1>
+                    </div>
+                    <div id="nav">
+                        <h1 id="faixa">Painel Admininstrativo</h1>
+                        <br class="clear"/>
+                    </div>
+                </div>
+                <div id="main">
+                    <div id="sidebar" class="span2">
+                        <h3 id="tam">
+                            Menu
+                        </h3>
+                        <ul id="menuGeral">
+                            <li>
+                                <a style="background: #ffcc99;" class="itemMenu">Administrador</a>
+                                <div class="conteudoMenu">
+                                    <a href="/admin/perfil/editar">Editar Perfil</a>
+
+                                </div>
+                            </li>
+                            <li>
+                                <a style="background: #ffcc99;" class="itemMenu">Funcionários</a>
+                                <div class="conteudoMenu">
+                                    <a href="/admin/pessoa/consulta-funcionario">Consultar</a>
+                                    <a href="/admin/pessoa/cadastro-funcionario">Cadastrar</a>
+
+                                </div>
+                            </li>
+                            <li><a style="background: #ffcc99;" class="itemMenu">Pacientes</a>
+                                <div class="conteudoMenu">
+                                    <a href="/admin/pessoa/consulta-paciente">Consultar</a>
+                                    <a href="/admin/pessoa/cadastro-paciente" >Cadastrar</a>
+
+                                </div>
+                            </li>
+                            <li><a style="background: #ffcc99;" class="itemMenu">Vacinas</a>
+                                <div class="conteudoMenu">
+                                    <a href="/admin/vacina/consulta-vacina">Consultar</a>
+                                    <a href="/admin/vacina/cadastro-vacina">Cadastrar</a>
+
+                                </div>
+                            </li>
+                            <li><a style="background: #ffcc99;" class="itemMenu">Cartão de Vacinas</a>
+                                <div class="conteudoMenu">
+                                    <a href="/admin/cartao/consulta-cartao">Consultar</a>
+                                    <a href="/admin/cartao/cadastro-cartao">Cadastrar</a>
+                                </div>
+                            </li>
+                            <li><a class="btn" href="/admin/auth/logout">Sair</a></li>
+                        </ul>                   
+                    </div>
+                    <div id="content" style="background-color: #fff;">
+                        <?php echo $this->layout()->content ?>
+                    </div>
+                    <br class="clear" />
+
+                </div>
+                <div id="copyright">
+                    &copy; SIMOVA - Sistema de Monitoramento de Vacinas 
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
