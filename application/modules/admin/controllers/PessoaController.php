@@ -95,10 +95,9 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
     public function consultaFuncionarioAction() {
         $model = new Model_Funcionario();
-        
+
         $this->view->listFuncionarios = $model
                 ->listFuncionarios($this->_request->getPost());
-        
     }
 
     public function consultaPacienteAction() {
@@ -106,7 +105,23 @@ class Admin_PessoaController extends Zend_Controller_Action {
     }
 
     public function excluirFuncionarioAction() {
-        
+        $model = new Model_Pessoa();
+
+        if ($this->getParam('cod_pessoa')) {
+            $model->delete(array(
+                'cod_pessoa' => $this->getParam('cod_pessoa'))
+            );
+
+            $this->view->mensagem = array(
+                'type' => 'alert-warning', 'mensagem' => 'Funcionário apagado com sucesso!'
+            );
+        }
+
+        $this->_redirect('/admin/pessoa/consulta-funcionario');
+    }
+
+    public function editarFuncionarioAction() {
+        $this->cadastroFuncionarioAction();
     }
 
 }
