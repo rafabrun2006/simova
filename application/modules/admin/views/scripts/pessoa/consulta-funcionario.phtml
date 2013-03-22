@@ -1,4 +1,4 @@
-
+<!--
 <style type="text/css">
 
     h1#aa{
@@ -45,96 +45,74 @@
 
 
 
-</style>
+</style>-->
 
 
+<h1 id="aa">Consultar Funcionários</h1>
 
-<div class="span9">
-    <h1 id="aa">Consultar Funcionários</h1>
+<br><br>
 
-    <br><br>
-
-    <form class="form-inline">
-        <select>
-            <option>Selecione a opção</option>
-            <option>Nome</option>
-            <option>Matricula</option>
-            <option>Todos</option>
-        </select>
-        <div class="input-append">
-            <input class="span2" id="appendedInputButton" type="text">
-            <button class="btn btn-info" type="button"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
-        </div>
-    </form>
-
-    <br><br><br>
-
-    <!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
-
-    <h1 id="bb">Resultado da Pesquisa</h1>
-
-    <br><br><br>
-
-    <!--PAGINAÇÃO DAS TABELAS DA PESQUISA-->
-
-    <div class="pagination pagination-centered span9">
-        <ul>
-            <!--TABELA COM OS DADOS DA PESQUISA-->
-            <li>
-                <table class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Usuário</th>
-                            <th>Nome Completo</th>
-                            <th>Matrícula Nº</th>
-                            <th>Status</th>
-                            <th>Função</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Rossete</td>
-                            <td>Rossete da Silva Sauro</td>
-                            <td>111111111</td>
-                            <td>Ativo</td>
-                            <td><button title="Excluir" class="btn btn-danger btn btn-mini" type="button"><i class="icon-trash icon-white"></i></button>&nbsp;
-                                <button title="Alterar" class="btn btn-primary btn btn-mini" type="button"><i class="icon-pencil icon-white"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Gil</td>
-                            <td>Gilmar Caetano Gomes</td>
-                            <td>333333333</td>
-                            <td>Ativo</td>
-                            <td><button title="Excluir" class="btn btn-danger btn btn-mini" type="button"><i class="icon-trash icon-white"></i></button>&nbsp;
-                                <button title="Alterar" class="btn btn-primary btn btn-mini" type="button"><i class="icon-pencil icon-white"></i></button></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Da vinci</td>
-                            <td>Leonardo da Vinci</td>
-                            <td>888888888</td>
-                            <td>Inativo</td>
-                            <td><button title="Excluir" class="btn btn-danger btn btn-mini" type="button"><i class="icon-trash icon-white"></i></button>&nbsp;
-                                <button title="Alterar" class="btn btn-primary btn btn-mini" type="button"><i class="icon-pencil icon-white"></i></button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </li>
-            
-            <li><a href="#">2</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li><a href="#">7</a></li>
-            <li><a href="#">anterior</a></li>
-
-        </ul>
-
-
+<form class="form-inline" method="post" action="">
+    <select name="tipoConsulta">
+        <option value="">Selecione a opção</option>
+        <option value="nome">Nome</option>
+        <option value="matricula">Matricula</option>
+        <option value="">Todos</option>
+    </select>
+    <div class="input-append">
+        <input class="input-large" name="search" id="appendedInputButton" type="text">
+        <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
     </div>
+</form>
+
+<!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
+
+<legend id="bb">Resultado da Pesquisa</legend>
+
+<!--PAGINAÇÃO DAS TABELAS DA PESQUISA-->
+
+<div class="pagination pagination-centered">
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Usuário</th>
+                <th>Nome Completo</th>
+                <th>Matrícula Nº</th>
+                <th>Status</th>
+                <th>Função</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php //print_r($this->listFuncionarios); ?>
+            <?php foreach ($this->listFuncionarios as $funcionarios): ?>
+                <tr>
+                    <td><?php echo $funcionarios->cod_pessoa ?></td>
+                    <td><?php echo $funcionarios->nome ?></td>
+                    <td><?php echo $funcionarios->nome ?></td>
+                    <td><?php echo $funcionarios->matricula ?></td>
+                    <td><?php echo $funcionarios->cod_status == 1 ? 'Ativo' : 'Inativo' ?></td>
+                    <td>
+                        <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Alterar" class="btn btn-primary btn btn-mini" type="button"><i class="icon-pencil icon-white"></i></a>
+                        <a href="/admin/pessoa/excluir-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Excluir" class="btn btn-danger btn btn-mini" type="button"><i class="icon-trash icon-white"></i></a>&nbsp;
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <ul>
+        <!--TABELA COM OS DADOS DA PESQUISA-->
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">anterior</a></li>
+
+    </ul>
+</div>
 
 
 
@@ -144,4 +122,4 @@
 
 
 
-    
+

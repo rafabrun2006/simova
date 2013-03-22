@@ -94,11 +94,19 @@ class Admin_PessoaController extends Zend_Controller_Action {
     }
 
     public function consultaFuncionarioAction() {
-        // action body
+        $model = new Model_Funcionario();
+        
+        $this->view->listFuncionarios = $model
+                ->listFuncionarios($this->_request->getPost());
+        
     }
 
     public function consultaPacienteAction() {
         // action body
+    }
+
+    public function excluirFuncionarioAction() {
+        
     }
 
 }
