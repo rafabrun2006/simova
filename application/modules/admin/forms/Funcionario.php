@@ -24,7 +24,7 @@ class Admin_Form_Funcionario extends Zend_Form {
         
         $cod_funcao = new Zend_Form_Element_Select('cod_funcao');
         $cod_funcao->setLabel('Função: ')
-                ->setRequired(TRUE)
+                ->setRequired(true)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
         
         $cod_cargo = new Zend_Form_Element_Select('cod_cargo');
