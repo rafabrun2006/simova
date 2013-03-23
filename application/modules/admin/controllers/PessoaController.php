@@ -108,9 +108,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
         $model = new Model_Pessoa();
 
         if ($this->getParam('cod_pessoa')) {
-            $model->delete(array(
-                'cod_pessoa' => $this->getParam('cod_pessoa'))
-            );
+            $model->delete('cod_pessoa = ' . $this->getParam('cod_pessoa'));
 
             $this->view->mensagem = array(
                 'type' => 'alert-warning', 'mensagem' => 'Funcionário apagado com sucesso!'

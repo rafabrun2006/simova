@@ -23,5 +23,9 @@ class Model_Funcionario extends Simova_Mapper_ModelMapper {
         
         return $this->fetchAll($query);
     }
+    
+    public function delete($where) {
+        parent::delete($where);
+    }
 
 }

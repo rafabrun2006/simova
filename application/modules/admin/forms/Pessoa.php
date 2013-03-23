@@ -49,7 +49,7 @@ class Admin_Form_Pessoa extends Zend_Form {
         $estadoCivil = new Zend_Form_Element_Select('cod_estado_civil');
         $estadoCivil->setLabel('Estado Civil: ');
 
-        $dtNascimento = new Zend_Form_Element_Text('dt_nasc');
+        $dtNascimento = new Zend_Form_Element_Text('dt_nasc', array('readonly'=>'readonly'));
         $dtNascimento->setLabel('Data de Nascimento: ')
                 ->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
