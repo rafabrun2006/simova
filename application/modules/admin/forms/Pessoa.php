@@ -9,6 +9,7 @@
  * Description of CadastroVacinas
  *
  * @author bruno
+ * @email Rafael Bruno <rafabrun2006@gmail.com>
  */
 class Admin_Form_Pessoa extends Zend_Form {
 
@@ -106,9 +107,12 @@ class Admin_Form_Pessoa extends Zend_Form {
         }
     }
 
+    /*
+     * @email Rafael Bruno <rafabrun2006@gmail.com>
+     */
     private function populaComboPerfil() {
 
-        $modelPerfil = new Model_Perfil();
+        $modelPerfil = new App_Model_Perfil();
 
         foreach ($modelPerfil->listAll() as $value) {
             $this->getElement('cod_perfil')

@@ -19,7 +19,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
             if ($form->isValid($post) and $form->getSubForm('Endereco')->isValid($post)) {
 
                 //Cadastrando um endereço
-                $endereco = new Model_Endereco();
+                $endereco = new App_Model_Endereco();
                 $post['cod_end'] = $endereco->save($post);
 
                 if ($post['cod_end']) {
@@ -29,14 +29,14 @@ class Admin_PessoaController extends Zend_Controller_Action {
                 }
 
                 //Inserção dos dados no banco
-                $model = new Model_Pessoa();
+                $model = new App_Model_Pessoa();
                 $codPessoa = $model->save($post);
 
                 if ($codPessoa) {
                     $post['cod_pessoa'] = $codPessoa;
 
                     if ($form->getSubForm('Telefone')->isValid($post)) {
-                        $telefone = new Model_Telefone();
+                        $telefone = new App_Model_Telefone();
                         $telefone->saveMultiple($post, 2);
                         $this->view->mensagem = array(
                             'type' => 'alert-sucess', 'mensagem' => 'Telefone(s) cadastrado com sucesso!'
@@ -44,7 +44,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
                     }
 
                     if ($form->getSubForm('Funcionario')->isValid($post)) {
-                        $funcionario = new Model_Funcionario();
+                        $funcionario = new App_Model_Funcionario();
                         $funcionario->save($post);
                         $this->view->mensagem = array(
                             'type' => 'alert-sucess', 'mensagem' => 'Funcionário cadastrado com sucesso!'
@@ -53,7 +53,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
                     //Cadastrando login
                     if ($form->getSubForm('Login')->isValid($post)) {
-                        $loginModel = new Model_Login();
+                        $loginModel = new App_Model_Login();
                         $loginModel->save($post);
                         $this->view->mensagem = array(
                             'type' => 'alert-sucess', 'mensagem' => 'Login cadastrado com sucesso!'
@@ -94,7 +94,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
     }
 
     public function consultaFuncionarioAction() {
-        $model = new Model_Funcionario();
+        $model = new App_Model_Funcionario();
 
         $this->view->listFuncionarios = $model
                 ->listFuncionarios($this->_request->getPost());
@@ -107,7 +107,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
     }
 
     public function excluirFuncionarioAction() {
-        $model = new Model_Pessoa();
+        $model = new App_Model_Pessoa();
 
         if ($this->getParam('cod_pessoa')) {
             $model->delete('cod_pessoa = ' . $this->getParam('cod_pessoa'));
@@ -123,7 +123,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
     public function editarFuncionarioAction() {
         $form = new Admin_Form_Pessoa();
 
-        $model = new Model_Funcionario();
+        $model = new App_Model_Funcionario();
         $funcionario = $model->getArrayById($this->getParam('cod_pessoa'));
         
         $form->populate($funcionario[0]);

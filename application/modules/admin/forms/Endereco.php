@@ -58,7 +58,7 @@ class Admin_Form_Endereco extends Zend_Form {
 
     private function populaComboCidade() {
 
-        $modelCidade = new Model_Cidade();
+        $modelCidade = new App_Model_Cidade();
 
         foreach ($modelCidade->listAll() as $value) {
             $this->getElement('cod_cid')
@@ -68,7 +68,7 @@ class Admin_Form_Endereco extends Zend_Form {
     
     private function populaComboEstado() {
 
-        $modelEstado = new Model_Estado();
+        $modelEstado = new App_Model_Estado();
 
         foreach ($modelEstado->fetchAll() as $value) {
             $this->getElement('cod_uf')

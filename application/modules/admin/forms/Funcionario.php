@@ -57,7 +57,7 @@ class Admin_Form_Funcionario extends Zend_Form {
 
     private function pupulaComboFuncao() {
 
-        $modelFuncao = new Model_Funcao();
+        $modelFuncao = new App_Model_Funcao();
 
         foreach ($modelFuncao->fetchAll() as $value) {
             $this->getElement('cod_funcao')
@@ -67,7 +67,7 @@ class Admin_Form_Funcionario extends Zend_Form {
     
     private function populaComboCargo() {
 
-        $modelCargo = new Model_Cargo();
+        $modelCargo = new App_Model_Cargo();
 
         foreach ($modelCargo->fetchAll() as $value) {
             $this->getElement('cod_cargo')
