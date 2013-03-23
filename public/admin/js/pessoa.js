@@ -4,10 +4,10 @@
  * 
  */
 
-$(document).ready(function(){
-   
+$(document).ready(function() {
+
     $('#dt_nasc').datepicker();
-    
+
 });
 
 

@@ -1,3 +1,5 @@
+<script type="text/javascript" src="/admin/js/pessoa.js"></script>
+<?php echo $this->modal ?>
 <fieldset>
     <legend>Consultar Funcionários</legend>
 
@@ -38,8 +40,8 @@
                     <td><?php echo $funcionarios->matricula ?></td>
                     <td><?php echo $funcionarios->cod_status == 1 ? 'Ativo' : 'Inativo' ?></td>
                     <td>
-                        <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Alterar" class="btn btn-primary btn btn-mini" type="button"><i class="icon-pencil icon-white"></i></a>
-                        <a href="/admin/pessoa/excluir-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Excluir" class="btn btn-danger btn btn-mini" type="button"><i class="icon-trash icon-white"></i></a>&nbsp;
+                        <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Alterar" class="btn btn-primary btn btn-mini"><i class="icon-pencil icon-white"></i></a>
+                        <a href="/admin/pessoa/excluir-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Excluir" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
                     </td>
                 </tr>
             <?php endforeach; ?>

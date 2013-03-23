@@ -98,6 +98,8 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
         $this->view->listFuncionarios = $model
                 ->listFuncionarios($this->_request->getPost());
+
+        $this->view->modal = $this->view->render('utils/modal.phtml');
     }
 
     public function consultaPacienteAction() {
@@ -119,7 +121,21 @@ class Admin_PessoaController extends Zend_Controller_Action {
     }
 
     public function editarFuncionarioAction() {
-        $this->cadastroFuncionarioAction();
+        $form = new Admin_Form_Pessoa();
+
+        $model = new Model_Funcionario();
+        $funcionario = $model->getArrayById($this->getParam('cod_pessoa'));
+        
+        $form->populate($funcionario[0]);
+        $form->getSubForm('Endereco')->populate($funcionario[0]);
+        $form->getSubForm('Telefone')->populate(
+                array('num_tel1' => $funcionario[0]['num_tel']));
+        $form->getSubForm('Login')->populate($funcionario[0]);
+
+        Zend_Debug::dump($model->getArrayById($this->getParam('cod_pessoa')));
+        
+        $this->view->form = $form;
+        $this->renderScript('/pessoa/cadastro-funcionario.phtml');
     }
 
 }
