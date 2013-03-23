@@ -5,7 +5,7 @@
  *
  * @author bruno
  */
-class Model_Funcionario extends Simova_Mapper_ModelMapper {
+class App_Model_Funcionario extends Simova_Mapper_ModelMapper {
 
     protected $_name = 'tb_funcionario';
     protected $_primary = 'cod_funcionario';

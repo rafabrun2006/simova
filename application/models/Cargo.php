@@ -1,6 +1,6 @@
 <?php
 
-class Model_Cargo extends Zend_Db_Table_Abstract
+class App_Model_Cargo extends Zend_Db_Table_Abstract
 {
     
     protected $_name = 'tb_cargo';

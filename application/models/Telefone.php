@@ -5,7 +5,7 @@
  *
  * @author bruno
  */
-class Model_Telefone extends Simova_Mapper_ModelMapper {
+class App_Model_Telefone extends Simova_Mapper_ModelMapper {
 
     protected $_name = 'tb_telefone';
     protected $_primary = 'cod_tel';
