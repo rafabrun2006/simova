@@ -132,7 +132,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
                 array('num_tel1' => $funcionario[0]['num_tel']));
         $form->getSubForm('Login')->populate($funcionario[0]);
 
-        Zend_Debug::dump($model->getArrayById($this->getParam('cod_pessoa')));
+        //Zend_Debug::dump($model->getArrayById($this->getParam('cod_pessoa')));
         
         $this->view->form = $form;
         $this->renderScript('/pessoa/cadastro-funcionario.phtml');
