@@ -48,8 +48,7 @@ class Admin_Form_Funcionario extends Zend_Form {
          * Populando campos pre-preenchidos
          */
         $this->pupulaComboFuncao();
-        
-        $cod_cargo->addMultiOptions(array(1 => 'Médico', 2 => 'Enfermeiro', 3 => 'Técnico de Enfermagem'));
+        $this->populaComboCargo();
 
         foreach ($this->getElements() as $element) {
             $element->removeDecorator('HtmlTag')->removeDecorator('Label');
@@ -58,11 +57,21 @@ class Admin_Form_Funcionario extends Zend_Form {
 
     private function pupulaComboFuncao() {
 
-        $modelFuncao = new Model_Funcao();
+        $modelFuncao = new App_Model_Funcao();
 
         foreach ($modelFuncao->fetchAll() as $value) {
             $this->getElement('cod_funcao')
                     ->addMultiOption($value->cod_funcao, $value->nome_funcao);
+        }
+    }
+    
+    private function populaComboCargo() {
+
+        $modelCargo = new App_Model_Cargo();
+
+        foreach ($modelCargo->fetchAll() as $value) {
+            $this->getElement('cod_cargo')
+                    ->addMultiOption($value->cod_cargo, $value->nome_cargo);
         }
     }
 

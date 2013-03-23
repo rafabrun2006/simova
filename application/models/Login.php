@@ -5,7 +5,7 @@
  *
  * @author bruno
  */
-class Model_Login extends Simova_Mapper_ModelMapper {
+class App_Model_Login extends Simova_Mapper_ModelMapper {
     
     protected $_name = 'tb_login';
     protected $_primary = 'cod_login';

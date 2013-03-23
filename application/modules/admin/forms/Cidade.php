@@ -10,7 +10,7 @@
  *
  * @author bruno
  */
-class Cidade extends Zend_Form {
+class Admin_Form_Cidade extends Zend_Form {
 
     public function init() {
 

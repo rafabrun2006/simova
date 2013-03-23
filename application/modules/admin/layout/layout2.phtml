@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+
+        
+        Nome       : Modulo Administrativo Simova
+        Versão    : 1.0
+        
+
+--> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="keywords" content="" />
+        <meta name="description" content="" />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Painel Administrativo</title>
+
+        <!--<link href="/assets/css/acoordeon.css" rel="stylesheet" type="text/css" />-->
+        <!--<link href="/assets/css/style.css" rel="stylesheet" type="text/css" />-->
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/css/jquery.ui.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript" src="/assets/js/jquery.js"></script>
+        <script type="text/javascript" src="/assets/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/assets/js/acoordeon.js"></script>
+        <script type="text/javascript" src="/assets/js/jquery.ui.js"></script>
+        <script type="text/javascript" src="/assets/js/confirm-action.js"></script>
+    </head>
+    <body>
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <div class="navbar">
+                        <a class="brand" href="/admin/index">Simova - Painel Administrativo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr></hr>
+        <hr></hr>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3">
+                    <div class="well sidebar-nav">
+                        <ul class="nav nav-list">
+                            <li class="active"><a>Menu</a></li>
+                            <li>
+                                <li class="itemMenu"><a class="nav-header" href="#">Administrador</a></li>
+                                <ul class="conteudoMenu">
+                                    <li><a href="/admin/perfil/editar">Editar Perfil</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <li class="itemMenu"><a class="nav-header" href="#">Funcionários</a></li>
+                                <ul class="conteudoMenu">
+                                    <li><a href="/admin/pessoa/consulta-funcionario">Consultar</a></li>
+                                    <li><a href="/admin/pessoa/cadastro-funcionario">Cadastrar</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <li class="itemMenu"><a class="nav-header" href="#">Pacientes</a></li>
+                                <ul class="conteudoMenu">
+                                    <li><a href="/admin/pessoa/consulta-paciente">Consultar</a></li>
+                                    <li><a href="/admin/pessoa/cadastro-paciente" >Cadastrar</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <li class="itemMenu"><a class="nav-header" href="#">Vacinas</a></li>
+                                <ul class="conteudoMenu">
+                                    <li><a href="/admin/vacina/consulta-vacina">Consultar</a></li>
+                                    <li><a href="/admin/vacina/cadastro-vacina">Cadastrar</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <li class="itemMenu"><a class="nav-header" href="#">Cartão de Vacinas</a></li>
+                                <ul class="conteudoMenu">
+                                    <li><a href="/admin/cartao/consulta-cartao">Consultar</a></li>
+                                    <li><a href="/admin/cartao/cadastro-cartao">Cadastrar</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <li class="itemMenu"><a class="nav-header" href="/admin/auth/logout">Sair</a></li>
+                            </li>
+                        </ul>                   
+                    </div>
+                </div>
+                <div class="span9">
+                    <?php echo $this->layout()->content ?>
+                </div>
+            </div>
+            <hr>
+                <footer>
+                    &copy; SIMOVA - Sistema de Monitoramento de Vacinas 
+                </footer>
+        </div>
+    </body>
+</html>

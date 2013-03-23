@@ -18,6 +18,9 @@ class Admin_Form_Endereco extends Zend_Form {
 
         $codCID = new Zend_Form_Element_Select('cod_cid');
         $codCID->setLabel('Cidade: ');
+        
+        $codUf = new Zend_Form_Element_Select('cod_uf');
+        $codUf->setLabel('Estado: ');
 
         $endereco = new Zend_Form_Element_Text('endereco');
         $endereco->setLabel('Endereço: ');
@@ -41,18 +44,12 @@ class Admin_Form_Endereco extends Zend_Form {
             $cep,
             $bairro,
             $numero,
-            $complemento
+            $complemento,
+            $codUf
         ));
 
         $this->populaComboCidade();
-
-//        foreach ($this->getElements() as $element) {
-//            $element->setDecorators(array(
-//                'ViewHelper',
-//                array('HtmlTag', array('tag' => 'div', 'class' => 'controls')),
-//                array('Label', array('tag' => 'div', 'class' => 'control-label'))
-//            ));
-//        }
+        $this->populaComboEstado();
         
         foreach ($this->getElements() as $element) {
             $element->removeDecorator('HtmlTag')->removeDecorator('Label');
@@ -61,11 +58,21 @@ class Admin_Form_Endereco extends Zend_Form {
 
     private function populaComboCidade() {
 
-        $modelCidade = new Model_Cidade();
+        $modelCidade = new App_Model_Cidade();
 
         foreach ($modelCidade->listAll() as $value) {
             $this->getElement('cod_cid')
                     ->addMultiOption($value->cod_cid, $value->nome_cid);
+        }
+    }
+    
+    private function populaComboEstado() {
+
+        $modelEstado = new App_Model_Estado();
+
+        foreach ($modelEstado->fetchAll() as $value) {
+            $this->getElement('cod_uf')
+                    ->addMultiOption($value->cod_uf, $value->nome_uf);
         }
     }
 
