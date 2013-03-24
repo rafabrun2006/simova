@@ -1,121 +1,53 @@
-<style type="text/css">
+<script type="text/javascript" src="/admin/js/pessoa.js"></script>
 
-    h1#aa{
-        background-color: #ffcc99;
-        text-align: center;
-        font-size: 20pt;
-        width: 550pt;
-        margin: 10px 0 30px 5px;
+<?php if (count($this->listPacientes)<=0): ?>
+    <div class="alert alert-warning">Nenhum resultado encontrado</div>
+<?php endif; ?>
 
-    }
-    h1#bb{
-        background-color: #000000;
-        color: #fff;
-        text-align: center;
-        font-size: 20pt;
-        width: 550pt;
-        margin: 10px 0 30px 5px;
+<legend>Consultar Pacientes</legend>
+<form class="form-inline" action="" method="post">
+    <select name="tipoConsulta">
+        <option value="">Selecione a opção</option>
+        <option value="nome">Nome</option>
+        <option value="rg">RG</option>
+        <option value="cpf">CPF</option>
+        <option value="">Todos</option>
+    </select>
+    <div class="input-append">
+        <input class="input-xlarge" name="search" id="appendedInputButton" type="text">
+        <button class="btn btn-info" type="submit"><i class="icon-search icon-white"></i>Pesquisar</button>
+    </div>
+</form>
 
-    }
-    li a:hover{
-        color: #CB0101;
+<!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
 
-    }
-    li a:active{
-        border-style: none;
-    }
-
-    .tabbable{
-        height: auto;
-    }
-
-    div #content{
-        width: 745px;
-        height:700px;
-        margin: 0 0 0 355px;
-        padding: 40px;
-        background: #fff;
-    }
-    thead{
-        color: #fff;
-        background-color: #000000;
-    }
-
-
-
-</style>
-
-
-
-<div class="span9">
-    <h1 id="aa">Consultar Pacientes</h1>
-
-    <br><br>
-
-    <form class="form-inline">
-        <select>
-            <option>Selecione a opção</option>
-            <option>Nome</option>
-            <option>RG</option>
-            <option>CPF</option>
-            <option>Todos</option>
-        </select>
-        <div class="input-append">
-            <input class="span2" id="appendedInputButton" type="text">
-            <button class="btn btn-info" type="button"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
-        </div>
-    </form>
-
-    <br><br><br>
-
-    <!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
-
-    <h1 id="bb">Resultado da Pesquisa</h1>
-
-    <br><br><br>
-
+<?php if (count($this->listPacientes)): ?>
+<div class="alert alert-info">Resultado(s) da(s) consulta(s) para: <strong><?php echo $this->request['search'] ?></strong></div>
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>#</th>
-                <th>Usuário</th>
                 <th>Nome Completo</th>
                 <th>RG Nº</th>
                 <th>CPF Nº</th>
-                <th>Função</th>
+                <th width="75">Função</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Rossete</td>
-                <td>Rossete da Silva Sauro</td>
-                <td>111111111</td>
-                <td>222222222</td>
-                <td><button title="Excluir" class="btn btn-danger btn btn-mini" type="button"><i class="icon-trash icon-white"></i></button>&nbsp;
-                    <button title="Alterar" class="btn btn-primary btn btn-mini" type="button"><i class="icon-pencil icon-white"></i></button></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Gil</td>
-                <td>Gilmar Caetano Gomes</td>
-                <td>333333333</td>
-                <td>555555555</td>
-                <td><button title="Excluir" class="btn btn-danger btn btn-mini" type="button"><i class="icon-trash icon-white"></i></button>&nbsp;
-                    <button title="Alterar" class="btn btn-primary btn btn-mini" type="button"><i class="icon-pencil icon-white"></i></button></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Da vinci</td>
-                <td>Leonardo da Vinci</td>
-                <td>888888888</td>
-                <td>666666666</td>
-                <td><button title="Excluir" class="btn btn-danger btn btn-mini" type="button"><i class="icon-trash icon-white"></i></button>&nbsp;
-                    <button title="Alterar" class="btn btn-primary btn btn-mini" type="button"><i class="icon-pencil icon-white"></i></button></td>
-            </tr>
+            <?php foreach ($this->listPacientes as $paciente): ?>
+                <tr>
+                    <td><?php echo $paciente->cod_pac ?></td>
+                    <td><?php echo $paciente->nome ?></td>
+                    <td><?php echo $paciente->rg ?></td>
+                    <td><?php echo $paciente->cpf ?></td>
+                    <td>
+                        <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Alterar" class="btn btn-primary btn btn-mini"><i class="icon-pencil icon-white"></i></a>
+                        <a href="/admin/pessoa/excluir-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Excluir" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                    </td>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
-
-</div>
-
-
+    <?php
+endif;
+?>

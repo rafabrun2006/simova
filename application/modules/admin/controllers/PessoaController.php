@@ -103,7 +103,14 @@ class Admin_PessoaController extends Zend_Controller_Action {
     }
 
     public function consultaPacienteAction() {
-        // action body
+        $model = new App_Model_Paciente();
+
+        $this->view->request = $this->_request->getPost();
+        
+        $this->view->listPacientes = $model
+                ->listPaciente($this->_request->getPost());
+
+        $this->view->modal = $this->view->render('utils/modal.phtml');
     }
 
     public function excluirFuncionarioAction() {
