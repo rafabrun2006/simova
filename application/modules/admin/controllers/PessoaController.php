@@ -165,7 +165,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
         $form = new Admin_Form_Pessoa();
 
         $model = new App_Model_Funcionario();
-        $funcionario = $model->getArrayById($this->getParam('cod_pessoa'));
+        $funcionario = $model->getArrayById($this->_getParam('cod_pessoa'));
 
         $form->populate($funcionario[0]);
         $form->getSubForm('Endereco')->populate($funcionario[0]);
