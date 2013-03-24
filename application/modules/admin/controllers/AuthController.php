@@ -40,7 +40,7 @@ class Admin_AuthController extends Zend_Controller_Action {
 
                 $authAdapter
                         ->setIdentity($post['email']) //Preenchendo o usuario
-                        ->setCredential($post['password']); //Preenchendo a senha
+                        ->setCredential(md5($post['password'])); //Preenchendo a senha
                 //Verificando o sucesso do login
                 if ($authAdapter->authenticate()->isValid()) {
 
