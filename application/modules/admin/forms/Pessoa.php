@@ -56,7 +56,7 @@ class Admin_Form_Pessoa extends Zend_Form {
         $registroNasc = new Zend_Form_Element_Text('registro_nasc');
         $registroNasc->setLabel('Nº do Registro de Nascimento: ');
 
-        $codUnidadeSaude = new Zend_Form_Element_Text('cod_un_saude');
+        $codUnidadeSaude = new Zend_Form_Element_Select('cod_un_saude');
         $codUnidadeSaude->setLabel('Codigo da Unidade de Saude:')
                 ->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
@@ -101,6 +101,7 @@ class Admin_Form_Pessoa extends Zend_Form {
         $sexo->addMultiOptions(array('M' => 'Masculino', 'F' => 'Feminino'))->setValue('M');
         $estadoCivil->addMultiOptions(array('1' => 'Solteiro', '2' => 'Casado'));
         $this->populaComboPerfil();
+        $this->populaComboUnidade();
 
         foreach ($this->getElements() as $element) {
             $element->removeDecorator('HtmlTag')->removeDecorator('Label');
@@ -118,6 +119,16 @@ class Admin_Form_Pessoa extends Zend_Form {
         foreach ($modelPerfil->listAll() as $value) {
             $this->getElement('cod_perfil')
                     ->addMultiOption($value->cod_perfil, $value->nome_perfil);
+        }
+    }
+
+    private function populaComboUnidade() {
+
+        $modelPerfil = new App_Model_UnidadeSaude();
+
+        foreach ($modelPerfil->fetchAll() as $value) {
+            $this->getElement('cod_un_saude')
+                    ->addMultiOption($value->cod_un_saude, $value->nome_un_saude);
         }
     }
 
