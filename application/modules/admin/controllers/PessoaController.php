@@ -1,7 +1,7 @@
 <?php
 
 class Admin_PessoaController extends Zend_Controller_Action {
-
+ 
     public function init() {
         /* Initialize action controller here */
     }
