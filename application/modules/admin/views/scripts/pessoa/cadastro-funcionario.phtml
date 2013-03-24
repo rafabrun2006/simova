@@ -3,11 +3,9 @@
     <legend>Cadastrar Funcionários</legend>
     <?php
     if ($this->mensagem):
-        foreach ($this->mensagem as $mensagem):
             ?>
-            <div class="alert <?php echo $mensagem['type'] ?>"><?php echo $mensagem['mensagem'] ?></div>
+            <div class="alert <?php echo $this->mensagem['type'] ?>"><?php echo $this->mensagem['mensagem'] ?></div>
             <?php
-        endforeach;
     endif;
     ?>
 

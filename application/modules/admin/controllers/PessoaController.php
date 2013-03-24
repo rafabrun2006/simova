@@ -38,17 +38,11 @@ class Admin_PessoaController extends Zend_Controller_Action {
                     if ($form->getSubForm('Telefone')->isValid($post)) {
                         $telefone = new App_Model_Telefone();
                         $telefone->saveMultiple($post, 2);
-                        $this->view->mensagem = array(
-                            'type' => 'alert-sucess', 'mensagem' => 'Telefone(s) cadastrado com sucesso!'
-                        );
                     }
 
                     if ($form->getSubForm('Funcionario')->isValid($post)) {
                         $funcionario = new App_Model_Funcionario();
                         $funcionario->save($post);
-                        $this->view->mensagem = array(
-                            'type' => 'alert-sucess', 'mensagem' => 'Funcionário cadastrado com sucesso!'
-                        );
                     }
 
                     //Cadastrando login
@@ -56,13 +50,13 @@ class Admin_PessoaController extends Zend_Controller_Action {
                         $loginModel = new App_Model_Login();
                         $loginModel->save($post);
                         $this->view->mensagem = array(
-                            'type' => 'alert-sucess', 'mensagem' => 'Login cadastrado com sucesso!'
+                            'type' => 'alert-success', 'mensagem' => 'Cadastro realizado com sucesso!'
                         );
                     }
                 }
             } else {
                 $this->view->mensagem = array(
-                    'type' => 'alert-warning', 'mensagem' => 'Verifique seu formulário!'
+                    'type' => 'alert-error', 'mensagem' => 'Verifique seu formulário!'
                 );
                 print_r($form->getMessages());
                 $form->populate($post);

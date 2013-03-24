@@ -13,25 +13,28 @@
 class Admin_Form_Funcionario extends Zend_Form {
 
     const MESSAGE_REQUIRED = 'Preenchimento obrigatório';
+    const MESSAGE_TIPO_INVALIDO = 'Tipo Invalido';
 
     public function init() {
 
         $cod_funcionario = new Zend_Form_Element_Hidden('cod_funcionario');
         $cod_pessoa = new Zend_Form_Element_Hidden('cod_pessoa');
-        
+
         $matricula = new Zend_Form_Element_Text('matricula');
-        $matricula->setRequired(TRUE);
-        
+        $matricula->addValidator(new Zend_Validate_Int())
+                ->addErrorMessage(self::MESSAGE_TIPO_INVALIDO)
+                ->setRequired(TRUE);
+
         $cod_funcao = new Zend_Form_Element_Select('cod_funcao');
         $cod_funcao->setLabel('Função: ')
                 ->setRequired(true)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
-        
+
         $cod_cargo = new Zend_Form_Element_Select('cod_cargo');
         $cod_cargo->setLabel('Cargo: ')
                 ->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
-        
+
         /*
          * Adicionando formularios auxiliares
          */
@@ -64,7 +67,7 @@ class Admin_Form_Funcionario extends Zend_Form {
                     ->addMultiOption($value->cod_funcao, $value->nome_funcao);
         }
     }
-    
+
     private function populaComboCargo() {
 
         $modelCargo = new App_Model_Cargo();

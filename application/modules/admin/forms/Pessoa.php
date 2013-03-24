@@ -64,6 +64,7 @@ class Admin_Form_Pessoa extends Zend_Form {
         $perfil = new Zend_Form_Element_Select('cod_perfil');
         $perfil->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED)
+                
                 ->setLabel('Perfil:');
 
         $email = new Zend_Form_Element_Text('email', array('class' => 'input-xlarge'));
