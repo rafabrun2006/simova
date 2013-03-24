@@ -11,14 +11,19 @@
  * @author bruno
  */
 class Admin_Form_Perfil extends Zend_Form {
-    
-    public function init(){
-        
-        $cod = new Zend_Form_Element_Hidden('COD_PERFIL');
-        $nome = new Zend_Form_Element_Text('NOME_PERFIL');
+
+    const MESSAGE_REQUIRED = 'Preenchimento obrigatório';
+
+    public function init() {
+
+        $cod = new Zend_Form_Element_Hidden('cod_perfil');
+        $cod->setRequired(TRUE)
+                ->addErrorMessage(self::MESSAGE_REQUIRED);
+
+        $nome = new Zend_Form_Element_Text('nome_perfil');
 
         $this->addElements(array($cod, $nome));
-        
+
         foreach ($this->getElements() as $element) {
             $element->setDecorators(array(
                 'ViewHelper',
@@ -26,7 +31,6 @@ class Admin_Form_Perfil extends Zend_Form {
                 array('Label', array('tag' => 'div', 'class' => 'control-label'))
             ));
         }
-        
     }
-    
+
 }

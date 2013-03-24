@@ -12,18 +12,24 @@
  */
 class Admin_Form_Endereco extends Zend_Form {
 
+    const MESSAGE_REQUIRED = 'Preenchimento obrigatório';
+
     public function init() {
 
         $codEnd = new Zend_Form_Element_Hidden('cod_end');
 
         $codCID = new Zend_Form_Element_Select('cod_cid');
-        $codCID->setLabel('Cidade: ');
-        
+        $codCID->setRequired(TRUE)
+                ->addErrorMessage(self::MESSAGE_REQUIRED)
+                ->setLabel('Cidade: ');
+
         $codUf = new Zend_Form_Element_Select('cod_uf');
         $codUf->setLabel('Estado: ');
 
         $endereco = new Zend_Form_Element_Text('endereco');
-        $endereco->setLabel('Endereço: ');
+        $endereco->setRequired(TRUE)
+                ->addErrorMessage(self::MESSAGE_REQUIRED)
+                ->setLabel('Endereço: ');
 
         $cep = new Zend_Form_Element_Text('cep');
         $cep->setLabel('CEP: ');
@@ -50,7 +56,7 @@ class Admin_Form_Endereco extends Zend_Form {
 
         $this->populaComboCidade();
         $this->populaComboEstado();
-        
+
         foreach ($this->getElements() as $element) {
             $element->removeDecorator('HtmlTag')->removeDecorator('Label');
         }
@@ -65,7 +71,7 @@ class Admin_Form_Endereco extends Zend_Form {
                     ->addMultiOption($value->cod_cid, $value->nome_cid);
         }
     }
-    
+
     private function populaComboEstado() {
 
         $modelEstado = new App_Model_Estado();

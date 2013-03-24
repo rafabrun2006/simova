@@ -20,9 +20,7 @@ class Admin_Form_Pessoa extends Zend_Form {
         $codPessoa = new Zend_Form_Element_Hidden('cod_pessoa');
 
         $cpf = new Zend_Form_Element_Text('cpf');
-        $cpf->setLabel('CPF: ')
-                ->setRequired(TRUE)->addValidator(new Zend_Validate_Int())
-                ->addErrorMessage(self::MESSAGE_REQUIRED);
+        $cpf->setLabel('CPF: ');
 
         $nome = new Zend_Form_Element_Text('nome', array('class' => 'input-xlarge'));
         $nome->setLabel('Nome: ')
@@ -43,28 +41,30 @@ class Admin_Form_Pessoa extends Zend_Form {
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
 
         $rg = new Zend_Form_Element_Text('rg');
-        $rg->setLabel('RG: ')
-                ->setRequired(TRUE)
-                ->addErrorMessage(self::MESSAGE_REQUIRED);
+        $rg->setLabel('RG: ');
 
         $estadoCivil = new Zend_Form_Element_Select('cod_estado_civil');
-        $estadoCivil->setLabel('Estado Civil: ');
+        $estadoCivil->setRequired(TRUE)
+                ->addErrorMessage(self::MESSAGE_REQUIRED)
+                ->setLabel('Estado Civil: ');
 
-        $dtNascimento = new Zend_Form_Element_Text('dt_nasc', array('readonly'=>'readonly'));
+        $dtNascimento = new Zend_Form_Element_Text('dt_nasc', array('readonly' => 'readonly'));
         $dtNascimento->setLabel('Data de Nascimento: ')
                 ->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
 
         $registroNasc = new Zend_Form_Element_Text('registro_nasc');
-        $registroNasc->setLabel('Nº do Registro de Nascimento: ')
+        $registroNasc->setLabel('Nº do Registro de Nascimento: ');
+
+        $codUnidadeSaude = new Zend_Form_Element_Text('cod_un_saude');
+        $codUnidadeSaude->setLabel('Codigo da Unidade de Saude:')
                 ->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
 
-        $codUnidadeSaude = new Zend_Form_Element_Text('cod_un_saude');
-        $codUnidadeSaude->setLabel('Codigo da Unidade de Saude:');
-
         $perfil = new Zend_Form_Element_Select('cod_perfil');
-        $perfil->setLabel('Perfil:');
+        $perfil->setRequired(TRUE)
+                ->addErrorMessage(self::MESSAGE_REQUIRED)
+                ->setLabel('Perfil:');
 
         $email = new Zend_Form_Element_Text('email', array('class' => 'input-xlarge'));
         $email->setLabel('Email:')
@@ -110,6 +110,7 @@ class Admin_Form_Pessoa extends Zend_Form {
     /*
      * @email Rafael Bruno <rafabrun2006@gmail.com>
      */
+
     private function populaComboPerfil() {
 
         $modelPerfil = new App_Model_Perfil();
@@ -119,5 +120,5 @@ class Admin_Form_Pessoa extends Zend_Form {
                     ->addMultiOption($value->cod_perfil, $value->nome_perfil);
         }
     }
-    
+
 }
