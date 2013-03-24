@@ -49,10 +49,11 @@ class Admin_PessoaController extends Zend_Controller_Action {
                     if ($form->getSubForm('Login')->isValid($post)) {
                         $loginModel = new App_Model_Login();
                         $loginModel->saveLogin($post);
-                        $this->view->mensagem = array(
-                            'type' => 'alert-success', 'mensagem' => 'Cadastro realizado com sucesso!'
-                        );
                     }
+                } else {
+                    $this->view->mensagem = array(
+                        'type' => 'alert-success', 'mensagem' => 'Cadastro realizado com sucesso!'
+                    );
                 }
             } else {
                 $this->view->mensagem = array(
