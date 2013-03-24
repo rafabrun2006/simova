@@ -22,7 +22,7 @@ class Admin_Form_Login extends Zend_Form {
         $nome_login->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
         
-        $senha_login = new Zend_Form_Element_Text('senha_login');
+        $senha_login = new Zend_Form_Element_Password('senha_login');
         $senha_login->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
 

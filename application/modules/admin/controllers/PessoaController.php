@@ -73,6 +73,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
     public function cadastroPacienteAction() {
         $form = new Admin_Form_Pessoa();
+        $form;
 
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
