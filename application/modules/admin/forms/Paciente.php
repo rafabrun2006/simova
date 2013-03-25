@@ -18,7 +18,7 @@ class Admin_Form_Paciente extends Zend_Form {
 
         $cod_paciente = new Zend_Form_Element_Hidden('cod_paciente');
         $cod_pessoa = new Zend_Form_Element_Hidden('cod_pessoa');
-        
+
         /*
          * Adicionando formularios auxiliares
          */

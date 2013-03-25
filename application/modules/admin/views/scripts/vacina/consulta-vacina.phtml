@@ -1,85 +1,30 @@
+<script type="text/javascript" src="/admin/js/pessoa.js"></script>
+<?php echo $this->modal ?>
+<fieldset>
+    <legend>Consultar Vacinas</legend>
 
-<style type="text/css">
-
-    h1#aa{
-        background-color: #ffcc99;
-        text-align: center;
-        font-size: 20pt;
-        width: 550pt;
-        margin: 10px 0 30px 5px;
-
-    }
-     h1#bb{
-        background-color: #000000;
-        color: #fff;
-        text-align: center;
-        font-size: 20pt;
-        width: 550pt;
-        margin: 10px 0 30px 5px;
-
-    }
-    li a:hover{
-        color: #CB0101;
-
-    }
-    li a:active{
-        border-style: none;
-    }
-
-    .tabbable{
-        height: auto;
-    }
-
-    div #content{
-        width: 745px;
-        height:700px;
-        margin: 0 0 0 355px;
-        padding: 40px;
-        background: #fff;
-    }
-    
-    thead{
-        color: #fff;
-        background-color: #000000;
-    }
-
-
-
-</style>
-
-
-
-<div class="span9">
-    <h1 id="aa">Consultar Vacinas</h1>
-
-    <br><br>
-
-    <form class="form-inline">
-        <select>
-            <option>Selecione a opção</option>
-            <option>Nome</option>
-            <option>Código</option>
-            <option>Todos</option>
+    <form class="form-inline" method="post" action="">
+        <select name="tipoConsulta">
+            <option value="">Selecione a opção</option>
+            <option value="nome">Nome da vacina</option>
+            <option value="codigo">Código da vacina</option>
+            <option value="">Todos</option>
         </select>
         <div class="input-append">
-            <input class="span2" id="appendedInputButton" type="text">
-            <button class="btn btn-info" type="button"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+            <input class="input-large" name="search" id="appendedInputButton" type="text">
+            <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>Pesquisar</button>
         </div>
     </form>
-    
-    <br><br><br>
 
     <!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
 
-    <h1 id="bb">Resultado da Pesquisa</h1>
-
-    <br><br><br>
+    <!--PAGINAÇÃO DAS TABELAS DA PESQUISA-->
 
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
                 <th>#</th>
-                <th>Cód. da Vacina</th>
+                <th>Cod. da Vacina</th>
                 <th>Nome da Vacina</th>
                 <th>Dt. de Fabricação</th>
                 <th>Dt. de Vencimento</th>
@@ -87,46 +32,32 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>12</td>
-                <td>BCG-ID</td>
-                <td>10/10/2011</td>
-                <td>20/10/2013</td>
-                <td><button title="Excluir" class="btn btn-danger btn btn-mini" type="button"><i class="icon-trash icon-white"></i></button>&nbsp;
-                    <button title="Alterar" class="btn btn-primary btn btn-mini" type="button"><i class="icon-pencil icon-white"></i></button></td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>09</td>
-                <td>Sabin</td>
-                <td>15/02/2010</td>
-                <td>22/06/2011</td>
-                <td><button title="Excluir" class="btn btn-danger btn btn-mini" type="button"><i class="icon-trash icon-white"></i></button>&nbsp;
-                    <button title="Alterar" class="btn btn-primary btn btn-mini" type="button"><i class="icon-pencil icon-white"></i></button></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>25</td>
-                <td>Tríplice vira</td>
-                <td>25/06/2012</td>
-                <td>10/02/2014</td>
-                <td><button title="Excluir" class="btn btn-danger btn btn-mini" type="button"><i class="icon-trash icon-white"></i></button>&nbsp;
-                    <button title="Alterar" class="btn btn-primary btn btn-mini" type="button"><i class="icon-pencil icon-white"></i></button></td>
-            </tr>
+            <?php foreach ($this->listFuncionarios as $funcionarios): ?>
+                <tr>
+                    <td><?php echo $funcionarios->cod_pessoa ?></td>
+                    <td><?php echo $funcionarios->nome ?></td>
+                    <td><?php echo $funcionarios->nome ?></td>
+                    <td><?php echo $funcionarios->matricula ?></td>
+                    <td><?php echo $funcionarios->cod_status == 1 ? 'Ativo' : 'Inativo' ?></td>
+                    <td>
+                        <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Alterar" class="btn btn-primary btn btn-mini"><i class="icon-pencil icon-white"></i></a>
+                        <a href="/admin/pessoa/excluir-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Excluir" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                    </td>
+                </tr>
+            <?php endforeach; ?>
         </tbody>
     </table>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
+    <div class="pagination pagination-centered">
+        <ul>
+            <!--TABELA COM OS DADOS DA PESQUISA-->
+            <li><a href="#">Anterior</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">Proximo</a></li>
+        </ul>
+    </div>
+</fieldset>
