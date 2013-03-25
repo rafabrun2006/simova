@@ -1,4 +1,5 @@
 <script type="text/javascript" src="/admin/js/pessoa.js"></script>
+<?php echo $this->modal ?>
 
 <?php if (count($this->listPacientes)<=0): ?>
     <div class="alert alert-warning">Nenhum resultado encontrado</div>
@@ -41,8 +42,14 @@
                     <td><?php echo $paciente->rg ?></td>
                     <td><?php echo $paciente->cpf ?></td>
                     <td>
-                        <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Alterar" class="btn btn-primary btn btn-mini"><i class="icon-pencil icon-white"></i></a>
-                        <a href="/admin/pessoa/excluir-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Excluir" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                        <a href="/admin/pessoa/editar-paciente/cod_pessoa/<?php echo $paciente->cod_pessoa ?>" 
+                           title="Alterar" class="btn btn-info btn-mini">
+                            <i class="icon-edit icon-white"></i>
+                        </a>
+                        <a href="/admin/pessoa/excluir-paciente/cod_pessoa/<?php echo $paciente->cod_pessoa ?>" 
+                           title="Excluir" class="btn btn-danger btn-mini confirm">
+                            <i class="icon-trash icon-white"></i>
+                        </a>
                     </td>
                 </tr>
             <?php endforeach; ?>

@@ -22,6 +22,7 @@
         <link href="/administrator/css/font-awesome.css" rel="stylesheet">
         <link href="/administrator/css/animate.css" rel="stylesheet">
         <link href="/administrator/css/uniform.default.css" rel="stylesheet">
+        <link href="/administrator/css/datepicker.css" rel="stylesheet">
 
         <link href="/administrator/css/select2.css" rel="stylesheet">
         <link href="/administrator/css/fullcalendar.css" rel="stylesheet">
@@ -230,14 +231,14 @@
                                     <li>
                                         <a href="/admin/pessoa/consulta-funcionario" title="Consultar Funcionário" class="corner-all">
                                             <i class="icofont-file"></i>
-                                            <span class="sidebar-text">Consulta</span>
+                                            <span class="sidebar-text">Consultar</span>
                                         </a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
                                         <a href="/admin/pessoa/cadastro-funcionario" title="Cadastrar Funcionário" class="corner-all">
                                             <i class="icofont-book"></i>
-                                            <span class="sidebar-text">Cadastro</span>
+                                            <span class="sidebar-text">Cadastrar</span>
                                         </a>
                                     </li>
                                     
@@ -257,14 +258,14 @@
                                     <li>
                                         <a href="/admin/pessoa/consulta-paciente" title="Consultar Paciente" class="corner-all">
                                             <i class="icofont-file"></i>
-                                            <span class="sidebar-text">Consulta</span>
+                                            <span class="sidebar-text">Consultar</span>
                                         </a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
                                         <a href="/admin/pessoa/cadastro-paciente" title="Cadastrar Paciente" class="corner-all">
                                             <i class="icofont-book"></i>
-                                            <span class="sidebar-text">Cadastro</span>
+                                            <span class="sidebar-text">Cadastrar</span>
                                         </a>
                                     </li>
                                     
@@ -284,14 +285,14 @@
                                     <li>
                                         <a href="/admin/unidade/consulta-unidade" title=" Consultar Unidades de Saúde" class="corner-all">
                                             <i class="icofont-file"></i>
-                                            <span class="sidebar-text">Consulta</span>
+                                            <span class="sidebar-text">Consultar</span>
                                         </a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
                                         <a href="/admin/unidade/cadastro-unidade" title="Cadastrar Unidade de Saúde" class="corner-all">
                                             <i class="icofont-book"></i>
-                                            <span class="sidebar-text">Cadastro</span>
+                                            <span class="sidebar-text">Cadastrar</span>
                                         </a>
                                     </li>
                                     
@@ -310,14 +311,14 @@
                                     <li>
                                         <a href="/admin/vacina/consulta-vacina" title="Consultar Vacinas" class="corner-all">
                                             <i class="icofont-file"></i>
-                                            <span class="sidebar-text">Consulta</span>
+                                            <span class="sidebar-text">Consultar</span>
                                         </a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
                                         <a href="/admin/vacina/cadastro-vacina" title="Cadastrar Vacinas" class="corner-all">
                                             <i class="icofont-book"></i>
-                                            <span class="sidebar-text">Cadastro</span>
+                                            <span class="sidebar-text">Cadastrar</span>
                                         </a>
                                     </li>
                                     
@@ -336,14 +337,14 @@
                                     <li>
                                         <a href="/admin/cartao/consulta-cartao" title="Consultar Cartão de Vacinas" class="corner-all">
                                             <i class="icofont-file"></i>
-                                            <span class="sidebar-text">Consulta</span>
+                                            <span class="sidebar-text">Consultar</span>
                                         </a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
                                         <a href="/admin/cartao/cadastro-cartao" title="Cadastrar Cartão de Vacinas" class="corner-all">
                                             <i class="icofont-book"></i>
-                                            <span class="sidebar-text">Registro de Vacinas</span>
+                                            <span class="sidebar-text">Cadastrar</span>
                                         </a>
                                     </li>
                                     
@@ -362,14 +363,14 @@
                                     <li>
                                         <a href="/admin/campanha/consulta-campanha" title="Consultar Campanhas" class="corner-all">
                                             <i class="icofont-file"></i>
-                                            <span class="sidebar-text">Consulta</span>
+                                            <span class="sidebar-text">Consultar</span>
                                         </a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
                                         <a href="/admin/campanha/cadastro-campanha" title="Cadastrar Campanhas" class="corner-all">
                                             <i class="icofont-book"></i>
-                                            <span class="sidebar-text">Cadastro</span>
+                                            <span class="sidebar-text">Cadastrar</span>
                                         </a>
                                     </li>
                                     
@@ -388,7 +389,7 @@
                                     <li>
                                         <a href="form.html" title="form element" class="corner-all">
                                             <i class="icofont-file"></i>
-                                            <span class="sidebar-text">Envio de Mensagens</span>
+                                            <span class="sidebar-text">Enviar</span>
                                         </a>
                                     </li>
                                     <li class="divider"></li>
@@ -406,7 +407,7 @@
                                     <div class="helper-font-24">
                                         
                                     </div>
-                                    <span class="sidebar-text">Emissão Relatórios</span>
+                                    <span class="sidebar-text">Emitir Relatórios</span>
                                 </a>
                             </li>
                             
@@ -482,9 +483,9 @@
                                 <li class="active">Data elements</li>
                             </ul><!--/breadcrumb-->
                         </div><!-- /content-breadcrumb -->
-                        <div class="content-body">
+                        <section class="content-body">
                             <?php echo $this->layout()->content ?>
-                        </div>
+                        </section>
                         <!-- content-body -->
 <!--                        <div class="content-body">
                              dashboar 
@@ -1108,12 +1109,13 @@
 
         <!-- javascript
         ================================================== -->
-        <script src="/administrator/widgets.js"></script>
         <script src="/administrator/js/jquery.js"></script>
         <script src="/administrator/js/jquery-ui.min.js"></script>
         <script src="/administrator/js/bootstrap.js"></script>
         <script src="/administrator/js/uniform/jquery.uniform.js"></script>
+        <script src="/administrator/js/widgets.js"></script>
         <script src="/administrator/js/peity/jquery.peity.js"></script>
+        <script src="/administrator/js/datepicker/bootstrap-datepicker.js"></script>
 
         <script src="/administrator/js/select2/select2.js"></script>
         <script src="/administrator/js/knob/jquery.knob.js"></script>

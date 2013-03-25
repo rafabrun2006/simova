@@ -12,6 +12,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
     public function cadastroFuncionarioAction() {
         $form = new Admin_Form_Pessoa();
+        $formFuncionario = new Admin_Form_Funcionario();
 
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
@@ -21,12 +22,6 @@ class Admin_PessoaController extends Zend_Controller_Action {
                 //Cadastrando um endereço
                 $endereco = new App_Model_Endereco();
                 $post['cod_end'] = $endereco->save($post);
-
-                if ($post['cod_end']) {
-                    $this->view->mensagem = array(
-                        'type' => 'alert-sucess', 'mensagem' => 'Endereço cadastrado com sucesso!'
-                    );
-                }
 
                 //Inserção dos dados no banco
                 $model = new App_Model_Pessoa();
@@ -40,7 +35,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
                         $telefone->saveMultiple($post, 2);
                     }
 
-                    if ($form->getSubForm('Funcionario')->isValid($post)) {
+                    if ($formFuncionario->isValid($post)) {
                         $funcionario = new App_Model_Funcionario();
                         $funcionario->save($post);
                     }
@@ -49,10 +44,11 @@ class Admin_PessoaController extends Zend_Controller_Action {
                     if ($form->getSubForm('Login')->isValid($post)) {
                         $loginModel = new App_Model_Login();
                         $loginModel->saveLogin($post);
-                        $this->view->mensagem = array(
-                            'type' => 'alert-success', 'mensagem' => 'Cadastro realizado com sucesso!'
-                        );
                     }
+
+                    $this->view->mensagem = array(
+                        'type' => 'alert-success', 'mensagem' => 'Cadastro realizado com sucesso!'
+                    );
                 }
             } else {
                 $this->view->mensagem = array(
@@ -67,7 +63,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
     public function cadastroPacienteAction() {
         $form = new Admin_Form_Pessoa();
-        $form;
+        $formPaciente = new Admin_Form_Paciente();
 
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
@@ -77,44 +73,34 @@ class Admin_PessoaController extends Zend_Controller_Action {
                 //Cadastrando um endereço
                 $endereco = new App_Model_Endereco();
                 $post['cod_end'] = $endereco->save($post);
-
-                if ($post['cod_end']) {
-                    $this->view->mensagem = array(
-                        'type' => 'alert-sucess', 'mensagem' => 'Endereço cadastrado com sucesso!'
-                    );
-                }
-
+                
                 //Inserção dos dados no banco
                 $model = new App_Model_Pessoa();
-                $codPessoa = $model->save($post);
+                $post['cod_pessoa'] = $model->save($post);
 
-                if ($codPessoa) {
-                    $post['cod_pessoa'] = $codPessoa;
+                if ($post['cod_pessoa']) {
 
                     if ($form->getSubForm('Telefone')->isValid($post)) {
                         $telefone = new App_Model_Telefone();
                         $telefone->saveMultiple($post, 2);
-                        $this->view->mensagem = array(
-                            'type' => 'alert-sucess', 'mensagem' => 'Telefone(s) cadastrado com sucesso!'
-                        );
                     }
 
-                    if ($form->getSubForm('Funcionario')->isValid($post)) {
-                        $funcionario = new App_Model_Paciente();
-                        $funcionario->save($post);
-                        $this->view->mensagem = array(
-                            'type' => 'alert-sucess', 'mensagem' => 'Funcionário cadastrado com sucesso!'
-                        );
+                    if ($formPaciente->isValid($post)) {
+                        $paciente = new App_Model_Paciente();
+                        $paciente->save($post);
                     }
 
                     //Cadastrando login
                     if ($form->getSubForm('Login')->isValid($post)) {
                         $loginModel = new App_Model_Login();
                         $loginModel->save($post);
-                        $this->view->mensagem = array(
-                            'type' => 'alert-sucess', 'mensagem' => 'Login cadastrado com sucesso!'
-                        );
                     }
+
+                    $this->view->mensagem = array(
+                        'type' => 'alert-success', 'mensagem' => 'Cadastro realizado com sucesso!'
+                    );
+                    
+                    $this->_redirect('/admin/pessoa/consulta-paciente');
                 }
             } else {
                 $this->view->mensagem = array(
@@ -147,18 +133,26 @@ class Admin_PessoaController extends Zend_Controller_Action {
         $this->view->modal = $this->view->render('utils/modal.phtml');
     }
 
-    public function excluirFuncionarioAction() {
+    public function excluir($actionRedirect) {
         $model = new App_Model_Pessoa();
 
         if ($this->getParam('cod_pessoa')) {
             $model->delete('cod_pessoa = ' . $this->getParam('cod_pessoa'));
 
             $this->view->mensagem = array(
-                'type' => 'alert-warning', 'mensagem' => 'Funcionário apagado com sucesso!'
+                'type' => 'alert-warning', 'mensagem' => 'Operação de exclusão efetuada com sucesso!'
             );
         }
 
-        $this->_redirect('/admin/pessoa/consulta-funcionario');
+        $this->_redirect('/admin/pessoa/'.$actionRedirect);
+    }
+    
+    public function excluirFuncionarioAction(){
+        $this->excluir('consulta-funcionario');
+    }
+    
+    public function excluirPacienteAction(){
+        $this->excluir('consulta-paciente');
     }
 
     public function editarFuncionarioAction() {
