@@ -1,45 +1,71 @@
-<style type="text/css">
+<script type="text/javascript" src="/admin/js/pessoa.js"></script>
+<?php echo $this->modal ?>
+<fieldset>
+    <legend>Consultar Cartão de Vacinas</legend>
 
-    h1#aa{
-        background-color: #ffcc99;
-        text-align: center;
-        font-size: 20pt;
-        width: 550pt;
-        margin: 10px 0 30px 5px;
+    <form class="form-inline" method="post" action="">
+        <select name="tipoConsulta">
+            <option value="">Selecione a opção</option>
+            <option value="nome">Nome</option>
+            <option value="nome_mae">Nome da mãe</option>
+            <option value="dt_nasc">Data de Nascimento (DD/MM/AAAA)</option>
+            <option value="rg">RG</option>
+            <option value="">Todos</option>
+        </select>
+        <div class="input-append">
+            <input class="input-large" name="search" id="appendedInputButton" type="text">
+            <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+        </div>
+    </form>
 
-    }
-    li a:hover{
-        color: #CB0101;
+    <!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
 
-    }
-    li a:active{
-        border-style: none;
-    }
+    <!--PAGINAÇÃO DAS TABELAS DA PESQUISA-->
 
-    .tabbable{
-        height: auto;
-    }
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>código</th>
+                <th>Nome</th>
+                <th>Nome da mãe</th>
+                <th>Data de nascimento</th>
+                <th>Sexo</th>
+                <th>RG</th>
+                <th>Celular</th>
+                <th>Cartão de vacina</th>
+            </tr>
+        </thead>
+        <tbody>
 
-    div #content{
-        width: 745px;
-        height:700px;
-        margin: 0 0 0 355px;
-        padding: 40px;
-        background: #fff;
-    }
+            <tr>
+                <td>12</td>
+                <td>José da Silva</td>
+                <td>Maria da Silva</td>
+                <td>06/10/1989</td>
+                <td>M</td>
+                <td>25465878</td>
+                <td>(61)9152-8547</td>
+                <td>
+                    <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Visualisar cartão de vacinas" class="btn btn-warning btn btn-small"><i class="icon-eye-open icon-white"></i></a>
+                    <a href="/admin/cartao/cadastro-cartao" title="Registrar e aprazar vacinas" class="btn btn-success btn btn-small"><i class="icon-list-alt icon-white"></i></a>
+                    <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Alterar cartão de vacinas" class="btn btn-primary btn btn-small"><i class="icon-pencil icon-white"></i></a>
+                    <a href="/admin/pessoa/excluir-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Excluir cartão de vacinas" class="btn btn-danger btn btn-small confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                </td>
+            </tr>
 
-
-
-</style>
-
-
-
-<div class="span9">
-    <h1 id="aa">Consultar Cartão de Vacinas</h1>
-
-
-    
-
-
-</div>
-
+        </tbody>
+    </table>
+    <div class="pagination pagination-centered">
+        <ul>
+            <!--TABELA COM OS DADOS DA PESQUISA-->
+            <li><a href="#">Anterior</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">Proximo</a></li>
+        </ul>
+    </div>
+</fieldset>
