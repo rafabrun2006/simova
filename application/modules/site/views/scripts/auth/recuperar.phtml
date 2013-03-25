@@ -1,0 +1,29 @@
+<fieldset>
+    <legend>Formulario de recuperação de senhas</legend>
+    <br>
+    <h1><?php echo $this->mensagem ?></h1>
+    
+    <form action="" method="post" class="form form-horizontal">
+        <br>
+        <div class="controls">
+            <label class="control-label">Usuario: </label>
+            <br>
+            <input type="text" name="nome_login">
+        </div>
+        <br>
+        <div class="controls">
+            <label class="control-label">Digite os caracters da imagem abaixo: </label>
+            <br>
+            <input type="text" name="captcha_confirm">
+            <br>
+        </div>
+        <div class="controls">
+            <?php if(!is_null($this->captcha)): ?>
+            <img src="/captcha/<?php echo $this->captcha; ?>"/>
+            <?php endif; ?>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Recuperar</button>
+        </div>
+    </form>
+</fieldset>

@@ -19,7 +19,6 @@ abstract class Simova_Mapper_ModelMapper extends Zend_Db_Table_Abstract {
         }
 
         if ($data[$this->_primary]) {
-            
             $this->update($dataInsert, 
                     $this->_primary . '=' . $data[$this->_primary]);
             return $data[$this->_primary];
