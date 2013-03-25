@@ -16,10 +16,8 @@ class Admin_Form_Paciente extends Zend_Form {
 
     public function init() {
 
-        $cod_paciente = new Zend_Form_Element_Hidden('cod_paciente');
+        $cod_paciente = new Zend_Form_Element_Hidden('cod_pac');
         $cod_pessoa = new Zend_Form_Element_Hidden('cod_pessoa');
-        $cod_pessoa->setRequired(true)
-                ->addErrorMessage(self::MESSAGE_REQUIRED);
 
         /*
          * Adicionando formularios auxiliares

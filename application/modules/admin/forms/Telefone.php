@@ -16,7 +16,7 @@ class Admin_Form_Telefone extends Zend_Form {
 
     public function init() {
 
-        $cod = new Zend_Form_Element_Hidden('cod_telefone');
+        $cod = new Zend_Form_Element_Hidden('cod_tel');
         $cod_pessoa = new Zend_Form_Element_Text('cod_pessoa');
 
         $num_tel1 = new Zend_Form_Element_Text('num_tel1');

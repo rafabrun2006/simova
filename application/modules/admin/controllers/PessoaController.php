@@ -12,50 +12,29 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
     public function cadastroFuncionarioAction() {
         $form = new Admin_Form_Pessoa();
-        $formFuncionario = new Admin_Form_Funcionario();
+        $form->addSubForm(new Admin_Form_Funcionario(), 'Funcionario');
 
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
 
-            if ($form->isValid($post) and $form->getSubForm('Endereco')->isValid($post)) {
+            //Validando formulario
+            if ($form->isValid($post)) {
 
-                //Cadastrando um endereço
-                $endereco = new App_Model_Endereco();
-                $post['cod_end'] = $endereco->save($post);
-
-                //Inserção dos dados no banco
-                $model = new App_Model_Pessoa();
-                $codPessoa = $model->save($post);
-
-                if ($codPessoa) {
-                    $post['cod_pessoa'] = $codPessoa;
-
-                    if ($form->getSubForm('Telefone')->isValid($post)) {
-                        $telefone = new App_Model_Telefone();
-                        $telefone->saveMultiple($post, 2);
-                    }
-
-                    if ($formFuncionario->isValid($post)) {
-                        $funcionario = new App_Model_Funcionario();
-                        $funcionario->save($post);
-                    }
-
-                    //Cadastrando login
-                    if ($form->getSubForm('Login')->isValid($post)) {
-                        $loginModel = new App_Model_Login();
-                        $loginModel->saveLogin($post);
-                    }
-
+                if ($this->save('F', $post)) {
                     $this->view->mensagem = array(
-                        'type' => 'alert-success', 'mensagem' => 'Cadastro realizado com sucesso!'
+                        'type' => 'alert-success', 'mensagem' => 'Cadastro efetuado com sucesso!'
+                    );
+
+                    $this->_redirect('/admin/pessoa/consulta-funcionario');
+                } else {
+                    $this->view->mensagem = array(
+                        'type' => 'alert-danger', 'mensagem' => 'Erro ao efetuar cadastro!'
                     );
                 }
             } else {
                 $this->view->mensagem = array(
-                    'type' => 'alert-error', 'mensagem' => 'Verifique seu formulário!'
+                    'type' => 'alert-warning', 'mensagem' => 'Verifique seu formulário!'
                 );
-                print_r($form->getMessages());
-                $form->populate($post);
             }
         }
         $this->view->form = $form;
@@ -63,51 +42,29 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
     public function cadastroPacienteAction() {
         $form = new Admin_Form_Pessoa();
-        $formPaciente = new Admin_Form_Paciente();
+        $form->addSubForm(new Admin_Form_Paciente(), 'Paciente');
 
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
 
-            if ($form->isValid($post) and $form->getSubForm('Endereco')->isValid($post)) {
+            //Validando formulario
+            if ($form->isValid($post)) {
 
-                //Cadastrando um endereço
-                $endereco = new App_Model_Endereco();
-                $post['cod_end'] = $endereco->save($post);
-                
-                //Inserção dos dados no banco
-                $model = new App_Model_Pessoa();
-                $post['cod_pessoa'] = $model->save($post);
-
-                if ($post['cod_pessoa']) {
-
-                    if ($form->getSubForm('Telefone')->isValid($post)) {
-                        $telefone = new App_Model_Telefone();
-                        $telefone->saveMultiple($post, 2);
-                    }
-
-                    if ($formPaciente->isValid($post)) {
-                        $paciente = new App_Model_Paciente();
-                        $paciente->save($post);
-                    }
-
-                    //Cadastrando login
-                    if ($form->getSubForm('Login')->isValid($post)) {
-                        $loginModel = new App_Model_Login();
-                        $loginModel->save($post);
-                    }
-
+                if ($this->save('P', $post)) {
                     $this->view->mensagem = array(
-                        'type' => 'alert-success', 'mensagem' => 'Cadastro realizado com sucesso!'
+                        'type' => 'alert-success', 'mensagem' => 'Cadastro efetuado com sucesso!'
                     );
-                    
+
                     $this->_redirect('/admin/pessoa/consulta-paciente');
+                } else {
+                    $this->view->mensagem = array(
+                        'type' => 'alert-danger', 'mensagem' => 'Erro ao efetuar cadastro!'
+                    );
                 }
             } else {
                 $this->view->mensagem = array(
                     'type' => 'alert-warning', 'mensagem' => 'Verifique seu formulário!'
                 );
-                print_r($form->getMessages());
-                $form->populate($post);
             }
         }
         $this->view->form = $form;
@@ -133,7 +90,76 @@ class Admin_PessoaController extends Zend_Controller_Action {
         $this->view->modal = $this->view->render('utils/modal.phtml');
     }
 
-    public function excluir($actionRedirect) {
+    /*
+     * Isto e um falso link que utiliza a URL para acionar uma função principal
+     */
+
+    public function excluirFuncionarioAction() {
+        $this->excluir('consulta-funcionario');
+    }
+
+    /*
+     * Isto e um falso link que utiliza a URL para acionar uma função principal
+     */
+
+    public function excluirPacienteAction() {
+        $this->excluir('consulta-paciente');
+    }
+
+    public function editarFuncionarioAction() {
+        $form = new Admin_Form_Pessoa();
+        $form->addSubForm(new Admin_Form_Funcionario(), 'Funcionario');
+
+        if ($this->_request->isPost()) {
+            $post = $this->_request->getPost();
+
+            if ($form->isValid($post)) {
+                if ($this->save('F', $post)) {
+                    $this->view->mensagem = array(
+                        'type' => 'alert-success', 'mensagem' => 'Alteração efetuado com sucesso!'
+                    );
+
+                    $this->_redirect('/admin/pessoa/consulta-funcionario');
+                }
+            }
+        }
+
+        $this->populaFormEditar('F', $form, $this->_getParam('cod_pessoa'));
+    }
+
+    public function editarPacienteAction() {
+        $form = new Admin_Form_Pessoa();
+        $form->addSubForm(new Admin_Form_Paciente(), 'Paciente');
+
+        if ($this->_request->isPost()) {
+            $post = $this->_request->getPost();
+
+            if ($form->isValid($post)) {
+
+                if ($this->save('P', $post)) {
+                    $this->view->mensagem = array(
+                        'type' => 'alert-success', 'mensagem' => 'Alteração efetuado com sucesso!'
+                    );
+
+                    $this->_redirect('/admin/pessoa/consulta-paciente');
+                }
+            } else {
+                $this->view->mensagem = array(
+                    'type' => 'alert-warning', 'mensagem' => 'Verifique seu formulário!'
+                );
+                Zend_Debug::dump($post);
+                Zend_Debug::dump($form->getMessages());
+            }
+        }
+
+        $this->populaFormEditar('P', $form, $this->_getParam('cod_pessoa'));
+    }
+
+    /*
+     * Metodos internos privados não acessados pela URL
+     */
+
+    private function excluir($actionRedirect) {
         $model = new App_Model_Pessoa();
 
         if ($this->getParam('cod_pessoa')) {
@@ -144,33 +170,84 @@ class Admin_PessoaController extends Zend_Controller_Action {
             );
         }
 
-        $this->_redirect('/admin/pessoa/'.$actionRedirect);
-    }
-    
-    public function excluirFuncionarioAction(){
-        $this->excluir('consulta-funcionario');
-    }
-    
-    public function excluirPacienteAction(){
-        $this->excluir('consulta-paciente');
+        $this->_redirect('/admin/pessoa/' . $actionRedirect);
     }
 
-    public function editarFuncionarioAction() {
-        $form = new Admin_Form_Pessoa();
+    private function populaFormEditar($tipoPessoa, $form, $codPessoa) {
 
-        $model = new App_Model_Funcionario();
-        $funcionario = $model->getArrayById($this->_getParam('cod_pessoa'));
+        if ($tipoPessoa == 'F') {
+            $model = new App_Model_Funcionario();
+            $pessoa = $model->getArrayById($codPessoa);
 
-        $form->populate($funcionario[0]);
-        $form->getSubForm('Endereco')->populate($funcionario[0]);
+            //Adicionando subform para funcionario no formulario de pessoa
+            $form->getSubForm('Funcionario')->populate($pessoa[0]);
+        } else if ($tipoPessoa == 'P') {
+            $model = new App_Model_Paciente();
+            $pessoa = $model->getArrayById($codPessoa);
+
+            //Adicionando subform para paciente no formulario de pessoa
+            $form->getSubForm('Paciente')->populate($pessoa[0]);
+        }
+
+        //Populando formulario pessoa
+        $form->populate($pessoa[0]);
+
+        //Populando formulario endereço
+        $form->getSubForm('Endereco')->populate($pessoa[0]);
+
+        //Populando formulario telefone
         $form->getSubForm('Telefone')->populate(
-                array('num_tel1' => $funcionario[0]['num_tel']));
-        $form->getSubForm('Login')->populate($funcionario[0]);
+                array(
+                    'cod_tel' => $pessoa[0]['cod_tel'],
+                    'num_tel1' => $pessoa[0]['num_tel'],
+        ));
+
+        //Populando formulario login
+        $form->getSubForm('Login')->populate($pessoa[0]);
 
         //Zend_Debug::dump($model->getArrayById($this->getParam('cod_pessoa')));
 
         $this->view->form = $form;
-        $this->renderScript('/pessoa/cadastro-funcionario.phtml');
+    }
+
+    private function save($tipoPessoa, $post) {
+
+        //Cadastrando um endereço
+        $endereco = new App_Model_Endereco();
+        $post['cod_end'] = $endereco->save($post);
+
+        //Cadastrando login
+        if (!empty($post['nome_login']) && !empty($post['senha_login'])) {
+            $loginModel = new App_Model_Login();
+            $post['cod_login'] = $loginModel->saveLogin($post);
+        }
+
+        //Inserção dos dados no banco
+        $model = new App_Model_Pessoa();
+        $codPessoa = $model->save($post);
+
+        if ($codPessoa) {
+            $post['cod_pessoa'] = $codPessoa;
+
+            //Cadastrando telefones
+            $telefone = new App_Model_Telefone();
+            $telefone->saveMultiple($post, 2);
+
+            //Salvando pessoa pelo tipo, funcionario ou paciente
+            if ($tipoPessoa == 'F') {
+
+                //Se tipoPessoa F, cadastra funcionario
+                $funcionario = new App_Model_Funcionario();
+                $funcionario->save($post);
+            } else if ($tipoPessoa == 'P') {
+
+                //Se tipoPessoa P, cadastra paciente
+                $paciente = new App_Model_Paciente();
+                $paciente->save($post);
+            }
+
+            return TRUE;
+        }
     }
 
 }
