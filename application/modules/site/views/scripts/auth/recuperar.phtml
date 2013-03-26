@@ -19,7 +19,7 @@
         </div>
         <div class="controls">
             <?php if(!is_null($this->captcha)): ?>
-            <img src="/captcha/<?php echo $this->captcha; ?>"/>
+            <img src="<?php echo '/captcha/'.$this->captcha.'.png' ?>"/>
             <?php endif; ?>
         </div>
         <div class="form-actions">
