@@ -13,7 +13,7 @@ class Site_AuthController extends Zend_Controller_Action {
      * Metodo construtor da classe
      */
     public function indexAction() {
-        $this->redirect('/index');
+        ;
     }
 
     /**
@@ -23,7 +23,7 @@ class Site_AuthController extends Zend_Controller_Action {
      * FLUXO: Plugin_Acl -> Auth_Controller -> Formulario
      */
     public function loginAction() {
-        $this->_helper->layout->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(TRUE);
         //Verificando se o formulario e um post, e se o usuario ja nao esta autenticado
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
@@ -50,7 +50,7 @@ class Site_AuthController extends Zend_Controller_Action {
                             ->write($authAdapter->getResultRowObject(null, 'senha_login'));
 
                     //Se login certo, redireciona para principal
-                    $this->_redirect('/admin/index');
+                    $this->_redirect('/');
                 } else {
                     //Se login errado, apresenta mensagem de erro
                     $this->view->mensagem = '<b>Usuário</b> e/ou <b>Senha</b> inválidos! ';
