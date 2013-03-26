@@ -53,13 +53,11 @@
         <br>
         <p>Autenticar usuário</p>
         <hr>
-        <?php
-        if ($this->mensagem):
-            ?>
-            <div class="alert alert-danger"><?php echo $this->mensagem ?></div>
-            <?php
-        endif;
-        ?>
+        <?php if ($this->mensagem or Zend_Registry::isRegistered('notAccess')): ?>
+            <div class="alert alert-danger">
+                <?php echo (Zend_Registry::get('notAccess')) ? Zend_Registry::get('notAccess') : $this->mensagem ?>
+            </div>
+        <?php endif; ?>
         <div class="control-group">
             <label class="control-label"><b>Usuário:</b></label>
             <div class="controls">

@@ -4,6 +4,9 @@ class Site_IndexController extends Zend_Controller_Action {
 
     public function init() {
         /* Initialize action controller here */
+        
+        $this->view->hasIdentity = Zend_Auth::getInstance()->hasIdentity();
+        $this->view->user = Zend_Auth::getInstance()->getIdentity();
     }
 
     public function indexAction() {
