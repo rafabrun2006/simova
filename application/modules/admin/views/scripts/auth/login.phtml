@@ -53,9 +53,12 @@
         <br>
         <p>Autenticar usuário</p>
         <hr>
-        <?php if ($this->mensagem or Zend_Registry::isRegistered('notAccess')): ?>
+        <?php
+            $notAccess = (Zend_Registry::isRegistered('notAccess')) ? Zend_Registry::get('notAccess') : false;
+        ?>
+        <?php if ($this->mensagem or $notAccess): ?>
             <div class="alert alert-danger">
-                <?php echo (Zend_Registry::get('notAccess')) ? Zend_Registry::get('notAccess') : $this->mensagem ?>
+                <?php echo ($notAccess) ? $notAccess : $this->mensagem ?>
             </div>
         <?php endif; ?>
         <div class="control-group">
