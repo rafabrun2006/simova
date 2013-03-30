@@ -20,6 +20,9 @@ class Admin_CartaoController extends Zend_Controller_Action
     {
         // action body
     }
+    public function visualisaCartaoAction(){
+        
+    }
 
 
 }
