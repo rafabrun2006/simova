@@ -27,9 +27,9 @@ class Site_AuthController extends Zend_Controller_Action {
         //Verificando se o formulario e um post, e se o usuario ja nao esta autenticado
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
-
+            
             //Verificando se o usuario preencheu os campos necessarios
-            if (!empty($post['email']) or !empty($post['password'])) {
+            if (!empty($post['nome_login']) or !empty($post['password'])) {
 
                 //Invoca classe Zend_Auth responsavel pela autenticação no site
                 $authAdapter = new Zend_Auth_Adapter_DbTable();
@@ -40,8 +40,8 @@ class Site_AuthController extends Zend_Controller_Action {
                         ->setAmbiguityIdentity(TRUE); //Caso haja ambiguidade de usuario na tabela
 
                 $authAdapter
-                        ->setIdentity($post['email']) //Preenchendo o usuario
-                        ->setCredential(md5($post['password'])); //Preenchendo a senha
+                        ->setIdentity($post['nome_login']) //Preenchendo o usuario
+                        ->setCredential(md5($post['senha_login'])); //Preenchendo a senha
                 //Verificando o sucesso do login
                 if ($authAdapter->authenticate()->isValid()) {
 
@@ -54,6 +54,7 @@ class Site_AuthController extends Zend_Controller_Action {
                 } else {
                     //Se login errado, apresenta mensagem de erro
                     $this->view->mensagem = '<b>Usuário</b> e/ou <b>Senha</b> inválidos! ';
+                    $this->_redirect('/index');
                 }
             } else {
 
@@ -69,7 +70,7 @@ class Site_AuthController extends Zend_Controller_Action {
     public function logoutAction() {
         $auth = Zend_Auth::getInstance();
         $auth->clearIdentity();
-        $this->_redirect('/admin/auth/login');
+        $this->_redirect('/');
     }
 
     /*

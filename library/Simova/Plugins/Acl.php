@@ -15,11 +15,24 @@ class Simova_Plugins_Acl extends Zend_Controller_Plugin_Abstract {
          * 
          * FLUXO: Plugin_Acl -> Auth_Controller -> Formulario
          */
+        $auth = Zend_Auth::getInstance();
 
-        if ($request->getModuleName() == 'admin' and !Zend_Auth::getInstance()->hasIdentity()) {
-            $request->setModuleName('admin');
-            $request->setControllerName('/auth');
-            $request->setActionName('/login');
+        //Verifica se o modulo e o admin
+        if ($request->getModuleName() == 'admin') {
+
+            if (!$auth->hasIdentity()) {
+                $request->setModuleName('admin');
+                $request->setControllerName('/auth');
+                $request->setActionName('/login');
+            }
+            
+            if ($auth->getIdentity()->cod_perfil >= 3) {
+                $request->setModuleName('admin');
+                $request->setControllerName('/auth');
+                $request->setActionName('/login');
+                
+                Zend_Registry::set('notAccess', 'Você não tem previlégios para acessar esta área!');
+            }
         }
     }
 
