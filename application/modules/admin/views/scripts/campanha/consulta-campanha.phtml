@@ -1,0 +1,60 @@
+<script type="text/javascript" src="/admin/js/pessoa.js"></script>
+<?php echo $this->modal ?>
+<fieldset>
+    <legend>Consultar Campanhas</legend>
+
+    <form class="form-inline" method="post" action="">
+        <select name="tipoConsulta">
+            <option value="">Selecione a opção</option>
+            <option value="nome">Nome da Campanha</option>
+            <option value="nome">Data Inicial</option>
+            <option value="nome">Data Final</option>
+            <option value="">Todos</option>
+        </select>
+        <div class="input-append">
+            <input class="input-large" name="search" id="appendedInputButton" type="text">
+            <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+        </div>
+    </form>
+
+    <!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
+
+    <!--PAGINAÇÃO DAS TABELAS DA PESQUISA-->
+
+    <table class="table table-bordered table-striped" style="font-size: 13px;">
+        <thead style="background-color: #08c; color: #FFFFFF">
+            <tr>
+                <th>Nome da Campanha</th>
+                <th>Data Inicial</th>
+                <th>Data Final</th>
+                <th>Função</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>Contra Hepatite B</td>
+                <td>10/03/2011</td>
+                <td>10/05/2011</td>
+                <td>
+                    <a href="/admin/campanha/alterar-campanha<?php echo $funcionarios->cod_pessoa ?>" title="Alterar Campanha" class="btn btn-primary btn btn-small"><i class="icon-edit icon-white"></i></a>
+                    <a href="/admin/campanha/excluir-campanha<?php echo $funcionarios->cod_pessoa ?>" title="Excluir Campanha" class="btn btn-danger btn btn-small confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="pagination pagination-centered">
+        <ul>
+            <!--TABELA COM OS DADOS DA PESQUISA-->
+            <li><a href="#">Anterior</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">Proximo</a></li>
+        </ul>
+    </div>
+</fieldset>

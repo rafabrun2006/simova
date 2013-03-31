@@ -1,0 +1,64 @@
+<script type="text/javascript" src="/admin/js/pessoa.js"></script>
+<?php echo $this->modal ?>
+<fieldset>
+    <legend>Seleção para Envio de Mensagens</legend>
+
+    <form class="form-inline" method="post" action="">
+        <select name="tipoConsulta">
+            <option value="">Selecione a opção</option>
+            <option value="nome">Nome do Paciente</option>
+            <option value="nome">Registro de Nascimento</option>
+            <option value="nome">RG</option>
+            <option value="nome">Data de Nascimento</option>
+            <option value="">Todos</option>
+        </select>
+        <div class="input-append">
+            <input class="input-large" name="search" id="appendedInputButton" type="text">
+            <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+        </div>
+    </form>
+
+    <!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
+
+    <!--PAGINAÇÃO DAS TABELAS DA PESQUISA-->
+
+    <table class="table table-bordered table-striped" style="font-size: 13px;">
+        <thead style="background-color: #08c; color: #FFFFFF">
+            <tr>
+                <th>Código do Paciente</th>
+                <th>Nome do Paciente</th>
+                <th>RG</th>
+                <th>Registro de Nascimento</th>
+                <th>Data de Nascimento</th>
+                <th>Função</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>18</td>
+                <td>Joaquim Gomes</td>
+                <td>5568485</td>
+                <td>6548785</td>
+                <td>15/08/1980</td>
+                <td>
+                    <a href="/admin/mensagem/enviar-mensagem<?php echo $funcionarios->cod_pessoa ?>" title="Enviar Mensagem" class="btn btn-inverse btn btn-small"><i class="icon-envelope icon-white"></i></a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="pagination pagination-centered">
+        <ul>
+            <!--TABELA COM OS DADOS DA PESQUISA-->
+            <li><a href="#">Anterior</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">Proximo</a></li>
+        </ul>
+    </div>
+</fieldset>

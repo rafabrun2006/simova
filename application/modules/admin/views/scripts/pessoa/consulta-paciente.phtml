@@ -1,7 +1,7 @@
 <script type="text/javascript" src="/admin/js/pessoa.js"></script>
 <?php echo $this->modal ?>
 
-<?php if (count($this->listPacientes)<=0): ?>
+<?php if (count($this->listPacientes) <= 0): ?>
     <div class="alert alert-warning">Nenhum resultado encontrado</div>
 <?php endif; ?>
 
@@ -16,18 +16,18 @@
     </select>
     <div class="input-append">
         <input class="input-xlarge" name="search" id="appendedInputButton" type="text">
-        <button class="btn btn-info" type="submit"><i class="icon-search icon-white"></i>Pesquisar</button>
+        <button class="btn btn-info" type="submit"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
     </div>
 </form>
 
 <!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
 
 <?php if (count($this->listPacientes)): ?>
-<div class="alert alert-info">Resultado(s) da(s) consulta(s) para: <strong><?php echo $this->request['search'] ?></strong></div>
-    <table class="table table-bordered table-striped">
-        <thead>
+    <div class="alert alert-info">Resultado(s) da(s) consulta(s) para: <strong><?php echo $this->request['search'] ?></strong></div>
+    <table class="table table-bordered table-striped"  style="font-size: 13px;">
+        <thead style="background-color: #08c; color: #FFFFFF">
             <tr>
-                <th>#</th>
+                <th>Código</th>
                 <th>Nome Completo</th>
                 <th>RG Nº</th>
                 <th>CPF Nº</th>
@@ -58,3 +58,16 @@
     <?php
 endif;
 ?>
+<div class="pagination pagination-centered">
+    <ul>
+        <!--TABELA COM OS DADOS DA PESQUISA-->
+        <li><a href="#">Anterior</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">6</a></li>
+        <li><a href="#">7</a></li>
+        <li><a href="#">Proximo</a></li>
+    </ul>
+</div>

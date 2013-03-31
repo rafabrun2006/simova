@@ -14,26 +14,32 @@
         <?php
     endif;
     ?>
-    <!-- INICIO DO MENU EXTERNO-->
-    <div class="tabbable tabs-left">
+
+        
+    <div class="tabbable"> <!-- INICIO DO MENU EXTERNO-->
+
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#rA" data-toggle="tab">Criança</a></li>
-            <li class=""><a href="#rB" data-toggle="tab">Adoscecente</a></li>
-            <li class=""><a href="#rC" data-toggle="tab">Adulto</a></li>
-            <li class=""><a href="#rD" data-toggle="tab">Idoso</a></li>
+            <li class="active"><a href="#tab1" data-toggle="tab">Criança</a></li>
+            <li><a href="#tab2" data-toggle="tab">Adoslecente</a></li>
+            <li><a href="#tab3" data-toggle="tab">Adulto</a></li>
+            <li><a href="#tab4" data-toggle="tab">Idoso</a></li>
         </ul>
+
         <div class="tab-content">
 
-            <div class="tab-pane active" id="rA"> <!-- INICIO DO MENU CRIANÇA-->
+            <div class="tab-pane active" id="tab1"> <!--INICIO ABA CRIANÇA-->
 
-                <div class="tabbable" style="margin-bottom: 18px;">
+                <div class="tabbable tabs-right">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#tab1" data-toggle="tab">Calendário de Vacinas</a></li>
-                        <li class=""><a href="#tab2" data-toggle="tab">Cartão de Vacinas</a></li>
+                        <li class="active"><a href="#rA" data-toggle="tab">Calendário&nbsp;<i class="icon-calendar"></i></a></li>
+                        <li><a href="#rB" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartão&nbsp;<i class="icon-list-alt"></i></a></li>
 
                     </ul>
-                    <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
-                        <div class="tab-pane active" id="tab1">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="rA">
+                            
+                            <br>
+                            
                             <table  class="table table-bordered table-striped" style="font-size: 13px;">
                                 <caption ><h4>Calendário de Vacinação Infantil</h4></caption>
                                 <thead style="background-color: #08c; color: #FFFFFF">
@@ -209,42 +215,43 @@
 
                                 </tbody>
                             </table>
+                            
                         </div>
-                        <div class="tab-pane" id="tab2">
-
+                        <div class="tab-pane" id="rB">
+                            
                             <table class="table table-bordered " style="font-size: 13px;">
                                 
                                 <thead  style="font-size: 15px;">
                                     <tr>
-                                        <th colspan="7" style="background-color: #E6E6E6; color: #000; font-size: 20px;text-align: center;">Registro das Vacinas do Calendário Basico</th>
+                                        <th colspan="7" style="background-color: #d9edf7; color: #000; font-size: 20px;text-align: center;">Registro das Vacinas do Calendário Basico</th>
                                     </tr>
                                     <tr>
-                                        <th style="background-color: #E6E6E6; color: #000;">Nome completo:&nbsp;</th>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome completo:&nbsp;</th>
                                         <th colspan="6">Leonardo DaVinci</th>
                                         
 
                                     </tr>
                                     <tr>
-                                        <th style="background-color: #E6E6E6; color: #000;">Nome da mãe:&nbsp;</th>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome da mãe:&nbsp;</th>
                                         <th colspan="6">Monalisa</th>
                                         
 
                                     </tr>
                                     <tr>
-                                        <th style="background-color: #E6E6E6; color: #000;">Nome do pai:&nbsp;</th>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome do pai:&nbsp;</th>
                                         <th colspan="6">Miquelangelo</th>
                                         
 
 
                                     </tr>
                                     <tr>
-                                        <th style="background-color: #E6E6E6; color: #000;">Data de Nascimento:&nbsp;</th>
+                                        <th style="background-color: #d9edf7; color: #000;">Data de Nascimento:&nbsp;</th>
                                         <th colspan="6">18/02/1451</th>
                                         
 
                                     </tr>
                                     <tr>
-                                        <th style="background-color: #08c; color: #FFFFFF">Registro de Nascimento:&nbsp;</th>
+                                        <th style="background-color: #d9edf7; color: #000;">Registro de Nascimento:&nbsp;</th>
                                         <th colspan="6">5235487985</th>
                                         
 
@@ -353,7 +360,7 @@
                                         <td style="background-color: #08c; color: #FFFFFF">Campanha seguimento</td>
 
                                     </tr>
-                                    <tr>
+                                    <tr  class="info">
                                         <td style="background-color: #08c; color: #FFFFFF">1ª Dose ou reforço</td>
                                         <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
                                             Lote:&nbsp;<br>
@@ -386,7 +393,7 @@
                                             Resp.:&nbsp;
                                         </td>
                                     </tr>
-                                    <tr class="info">
+                                    <tr>
                                         <td style="background-color: #08c; color: #FFFFFF">2ª Dose ou reforço</td>
                                         <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
                                             Lote:&nbsp;<br>
@@ -585,30 +592,32 @@
 
                                     </tr>
                                     <tr>
-                                        <td colspan="7" style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td colspan="7" style="background-color: #08c; color: #FFFFFF; height:20px"></td>
                                     </tr>
-
+                                    
                                 </tbody>
                             </table>
-
+                            
                         </div>
 
                     </div>
                 </div>
 
-            </div>  <!-- FIM DO MENU CRIANÇA-->
+            </div> <!--FIM ABA CRIANÇA-->
 
-            <div class="tab-pane" id="rB"> <!-- INICIO DO MENU ADOLESCENTE-->
+            <div class="tab-pane" id="tab2"> <!--INICIO ABA ADOLESCENTE-->
 
-                <div class="tabbable" style="margin-bottom: 18px;">
+                <div class="tabbable tabs-right">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#tab3" data-toggle="tab">Calendário de Vacinas</a></li>
-                        <li class=""><a href="#tab4" data-toggle="tab">Cartão de Vacinas</a></li>
+                        <li class="active"><a href="#rC" data-toggle="tab">Calendário&nbsp;<i class="icon-calendar"></i></a></li>
+                        <li><a href="#rD" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartão&nbsp;<i class="icon-list-alt"></i></a></li>
 
                     </ul>
-                    <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
-                        <div class="tab-pane active" id="tab3">
-
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="rC">
+                            
+                            <br>
+                            
                             <table  class="table table-bordered table-striped" style="font-size: 13px;">
                                 <caption ><h4>Calendário de Vacinação do Adoslescente</h4></caption>
                                 <thead style="background-color: #08c; color: #FFFFFF">
@@ -704,29 +713,31 @@
 
                                 </tbody>
                             </table>
-
+                            
                         </div>
-                        <div class="tab-pane" id="tab4">
-                            <p>Howdy, I'm in Section 2.</p>
+                        <div class="tab-pane" id="rD">
+                            <p>Howdy, I'm in Section B.</p>
                         </div>
 
                     </div>
                 </div>
 
-            </div>  <!-- FIM DO MENU ADOLESCENTE-->
+            </div> <!--FIM ABA ADOLESCENTE-->
 
-            <div class="tab-pane" id="rC">  <!-- INICIO DO MENU ADULTO-->
+            <div class="tab-pane" id="tab3"> <!--INICIO ABA ADULTO-->
 
-                <div class="tabbable" style="margin-bottom: 18px;">
+                <div class="tabbable tabs-right">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#tab5" data-toggle="tab">Calendário de Vacinas</a></li>
-                        <li class=""><a href="#tab6" data-toggle="tab">Cartão de Vacinas</a></li>
+                        <li class="active"><a href="#rE" data-toggle="tab">Calendário&nbsp;<i class="icon-calendar"></i></a></li>
+                        <li><a href="#rF" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartão&nbsp;<i class="icon-list-alt"></i></a></li>
 
                     </ul>
-                    <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
-                        <div class="tab-pane active" id="tab5">
-
-                            <table  class="table table-bordered table-striped" style="font-size: 13px;">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="rE">
+                            
+                            <br>
+                            
+                             <table  class="table table-bordered table-striped" style="font-size: 13px;">
                                 <caption ><h4>Calendário de Vacinação do Adulto</h4></caption>
                                 <thead style="background-color: #08c; color: #FFFFFF">
                                     <tr>
@@ -821,28 +832,30 @@
 
                                 </tbody>
                             </table>
-
+                            
                         </div>
-                        <div class="tab-pane" id="tab6">
-                            <p>Howdy, I'm in Section 2.</p>
+                        <div class="tab-pane" id="rF">
+                            <p>Howdy, I'm in Section B.</p>
                         </div>
 
                     </div>
                 </div>
 
-            </div>  <!-- FIM DO MENU ADULTO-->
+            </div> <!--FIM ABA ADULTO-->
 
-            <div class="tab-pane" id="rD">  <!-- INICIO DO MENU IDOSO-->
+            <div class="tab-pane" id="tab4"> <!--INICIO ABA IDOSO-->
 
-                <div class="tabbable" style="margin-bottom: 18px;">
+                <div class="tabbable tabs-right">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#tab7" data-toggle="tab">Calendário de Vacinas</a></li>
-                        <li class=""><a href="#tab8" data-toggle="tab">Cartão de Vacinas</a></li>
+                        <li class="active"><a href="#rG" data-toggle="tab">Calendário&nbsp;<i class="icon-calendar"></i></a></li>
+                        <li><a href="#rH" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartão&nbsp;<i class="icon-list-alt"></i></a></li>
 
                     </ul>
-                    <div class="tab-content" style="padding-bottom: 9px; border-bottom: 1px solid #ddd;">
-                        <div class="tab-pane active" id="tab7">
-
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="rG">
+                            
+                            <br>
+                            
                             <table  class="table table-bordered table-striped" style="font-size: 13px;">
                                 <caption ><h4>Calendário de Vacinação do Idoso</h4></caption>
                                 <thead style="background-color: #08c; color: #FFFFFF">
@@ -924,20 +937,22 @@
 
                                 </tbody>
                             </table>
-
+                            
                         </div>
-                        <div class="tab-pane" id="tab8">
-                            <p>Howdy, I'm in Section 2.</p>
+                        <div class="tab-pane" id="rH">
+                            <p>Howdy, I'm in Section B.</p>
                         </div>
 
                     </div>
                 </div>
 
-            </div>  <!-- FIM DO MENU IDOSO-->
+            </div> <!--FIM ABA IDOSO-->
 
         </div>
-    </div> <!--FIM DO MENU EXTERNO-->
+    </div> <!-- FIM DO MENU EXTERNO-->
+
 </fieldset>
+
 
 
 

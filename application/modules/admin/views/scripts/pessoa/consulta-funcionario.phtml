@@ -12,7 +12,7 @@
         </select>
         <div class="input-append">
             <input class="input-large" name="search" id="appendedInputButton" type="text">
-            <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>Pesquisar</button>
+            <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
         </div>
     </form>
 
@@ -20,10 +20,10 @@
 
     <!--PAGINAÇÃO DAS TABELAS DA PESQUISA-->
 
-    <table class="table table-bordered table-striped">
-        <thead>
+    <table class="table table-bordered table-striped"  style="font-size: 13px;">
+        <thead style="background-color: #08c; color: #FFFFFF">
             <tr>
-                <th>#</th>
+                <th>Código</th>
                 <th>Usuário</th>
                 <th>Nome Completo</th>
                 <th>Matrícula Nº</th>
@@ -40,7 +40,7 @@
                     <td><?php echo $funcionarios->matricula ?></td>
                     <td><?php echo $funcionarios->cod_status == 1 ? 'Ativo' : 'Inativo' ?></td>
                     <td>
-                        <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Alterar" class="btn btn-primary btn btn-mini"><i class="icon-pencil icon-white"></i></a>
+                        <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Alterar" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
                         <a href="/admin/pessoa/excluir-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Excluir" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
                     </td>
                 </tr>

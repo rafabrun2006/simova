@@ -1,0 +1,59 @@
+<script type="text/javascript" src="/admin/js/pessoa.js"></script>
+<?php echo $this->modal ?>
+<fieldset>
+    <legend>Consultar Unidades de Saúde</legend>
+
+    <form class="form-inline" method="post" action="">
+        <select name="tipoConsulta">
+            <option value="">Selecione a opção</option>
+            <option value="nome">Nome da Unidade</option>
+            <option value="nome_mae">Número da Unidade</option>
+            <option value="">Todos</option>
+        </select>
+        <div class="input-append">
+            <input class="input-large" name="search" id="appendedInputButton" type="text">
+            <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+        </div>
+    </form>
+
+    <!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
+
+    <!--PAGINAÇÃO DAS TABELAS DA PESQUISA-->
+
+    <table class="table table-bordered table-striped" style="font-size: 13px;">
+        <thead style="background-color: #08c; color: #FFFFFF">
+            <tr>
+                <th>Número da Unidade de Saúde</th>
+                <th>Nome da Unidade de Saúde</th>
+                <th>Telefone</th>
+                <th>Função</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>02</td>
+                <td>Unidade de Saúde Fenix</td>
+                <td>(61)3349-6589</td>
+                <td>
+                    <a href="/admin/unidade/alterar-unidade<?php echo $funcionarios->cod_pessoa ?>" title="Alterar Unidade de Saúde" class="btn btn-primary btn btn-small"><i class="icon-edit icon-white"></i></a>
+                    <a href="/admin/unidade/excluir-unidade<?php echo $funcionarios->cod_pessoa ?>" title="Excluir Unidade de Saúde" class="btn btn-danger btn btn-small confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="pagination pagination-centered">
+        <ul>
+            <!--TABELA COM OS DADOS DA PESQUISA-->
+            <li><a href="#">Anterior</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">Proximo</a></li>
+        </ul>
+    </div>
+</fieldset>
