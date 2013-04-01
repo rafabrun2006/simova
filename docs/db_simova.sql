@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 24, 2013 at 02:27 AM
+-- Generation Time: Mar 29, 2013 at 08:53 PM
 -- Server version: 5.5.29-0ubuntu1
 -- PHP Version: 5.4.11
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_simova`
 --
+CREATE DATABASE `db_simova` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `db_simova`;
 
 -- --------------------------------------------------------
 
@@ -188,14 +190,14 @@ CREATE TABLE IF NOT EXISTS `tb_endereco` (
   `cod_cid` int(11) DEFAULT NULL,
   `cod_un_saude` int(11) DEFAULT NULL,
   `endereco` varchar(100) NOT NULL,
-  `cep` int(11) NOT NULL,
+  `cep` int(11) DEFAULT NULL,
   `bairro` varchar(45) NOT NULL,
   `numero` int(11) DEFAULT NULL,
   `complemento` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`cod_end`),
   KEY `fk_endereco_cidade` (`cod_cid`),
   KEY `fk_unidade_saude_endereco2` (`cod_un_saude`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=56 ;
 
 --
 -- Dumping data for table `tb_endereco`
@@ -212,7 +214,24 @@ INSERT INTO `tb_endereco` (`cod_end`, `cod_cid`, `cod_un_saude`, `endereco`, `ce
 (35, 1, NULL, 'rua', 222222, 'Pedregal', 11, 'comp'),
 (36, 1, NULL, 'rua', 222222, 'Pedregal', 0, 'comp'),
 (37, 1, NULL, 'rua', 222222, 'Pedregal', 0, 'comp'),
-(38, 1, NULL, 'rua', 222222, 'Pedregal', 0, 'comp');
+(38, 1, 1, 'rua', 222222, 'Pedregal', 0, 'comp'),
+(39, 1, 1, 'rua', 222222, 'Pedregal', 11, 'comp'),
+(40, 1, 1, 'rua', 222222, 'Pedregal', 11, 'comp'),
+(41, 1, 1, 'rua', 222222, 'Pedregal', 11, 'comp'),
+(42, 1, 1, 'rua', 222222, 'Pedregal', 11, 'comp'),
+(43, 1, 1, 'rua', 222222, 'Pedregal', 11, 'comp'),
+(44, 1, 1, 'rua', 222222, 'Pedregal', 11, 'comp'),
+(45, 1, 1, 'rua', 222222, 'Pedregal', 11, 'comp'),
+(46, 1, 1, 'rua', 222222, 'Pedregal', 11, 'comp'),
+(47, 1, 1, 'rua', 222222, 'Pedregal', 11, 'comp'),
+(48, 1, 1, 'rua', 222222, 'Pedregal', 11, 'comp'),
+(49, 1, 1, 'rua', 222222, 'Pedregal', 11, 'comp'),
+(50, 1, 1, 'rua', 222222, 'Pedregal', 0, 'comp'),
+(51, 1, 1, 'rua', 222222, 'Pedregal', 0, 'comp'),
+(52, 1, 1, 'rua', 222222, 'Pedregal', 0, 'comp'),
+(53, 1, 1, 'rua', 222222, 'Pedregal', 0, 'comp'),
+(54, 1, 1, 'rua', 222222, 'Pedregal', 44, 'comp'),
+(55, 1, 1, 'rua', 222222, 'Pedregal', 11, 'comp');
 
 -- --------------------------------------------------------
 
@@ -282,14 +301,7 @@ CREATE TABLE IF NOT EXISTS `tb_funcionario` (
   KEY `fk_cargo_funcionario` (`cod_cargo`),
   KEY `fk_funcao_funcionario` (`cod_funcao`),
   KEY `fk_funcionario_pessoa2` (`cod_pessoa`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
-
---
--- Dumping data for table `tb_funcionario`
---
-
-INSERT INTO `tb_funcionario` (`cod_funcionario`, `cod_funcao`, `cod_cargo`, `cod_pessoa`, `matricula`) VALUES
-(7, 1, 1, 7, 11111);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -314,27 +326,19 @@ CREATE TABLE IF NOT EXISTS `tb_login` (
   `cod_login` int(11) NOT NULL AUTO_INCREMENT,
   `cod_perfil` int(11) DEFAULT NULL,
   `nome_login` varchar(50) NOT NULL,
-  `senha_login` varchar(10) NOT NULL,
+  `senha_login` varchar(255) NOT NULL,
   PRIMARY KEY (`cod_login`),
   KEY `fk_login_perf_login2` (`cod_perfil`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
 
 --
 -- Dumping data for table `tb_login`
 --
 
 INSERT INTO `tb_login` (`cod_login`, `cod_perfil`, `nome_login`, `senha_login`) VALUES
-(2, 1, 'rafabrun2006@gmail.com', 'asdf'),
-(7, 1, 'rafabrun2006', 'asdf'),
-(8, 1, 'rafabrun2006@gmail.com', 'asdf'),
-(9, 1, 'rafabrun2006@gmail.com', 'asdf'),
-(10, 1, 'rafabrun2006@gmail.com', 'asdf'),
-(11, 1, 'rafabrun2006@gmail.com', 'asdf'),
-(12, 1, 'rafabrun2006@gmail.com', 'asdf'),
-(13, 1, 'rafabrun2006@gmail.com', 'asdf'),
-(14, 1, 'rafabrun2006@gmail.com', 'asdf'),
-(15, 1, 'rafabrun2006@gmail.com', 'asdf'),
-(16, 1, 'rafabrun2006@gmail.com', 'asdf');
+(12, 3, 'rafabrun2006', '912ec803b2ce49e4a541068d495ab570'),
+(32, 1, 'rafabrun2006@gmail.com', '912ec803b2ce49e4a541068d495ab570'),
+(34, 1, 'rafabrun2006@gmail.com', '912ec803b2ce49e4a541068d495ab570');
 
 -- --------------------------------------------------------
 
@@ -392,14 +396,16 @@ CREATE TABLE IF NOT EXISTS `tb_perfil` (
   `cod_perfil` int(11) NOT NULL AUTO_INCREMENT,
   `nome_perfil` varchar(20) NOT NULL,
   PRIMARY KEY (`cod_perfil`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `tb_perfil`
 --
 
 INSERT INTO `tb_perfil` (`cod_perfil`, `nome_perfil`) VALUES
-(1, 'Administrador');
+(1, 'Administrador'),
+(2, 'Funcionário'),
+(3, 'Paciente');
 
 -- --------------------------------------------------------
 
@@ -431,14 +437,15 @@ CREATE TABLE IF NOT EXISTS `tb_pessoa` (
   KEY `fk_pessoa_cartao_vacina` (`cod_cartao_vac`),
   KEY `fk_pessoa_estado_civil` (`cod_estado_civil`),
   KEY `fk_pessoa_unidade_de_saude` (`cod_un_saude`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `tb_pessoa`
 --
 
 INSERT INTO `tb_pessoa` (`cod_pessoa`, `cod_estado_civil`, `cod_un_saude`, `cod_login`, `cod_cartao_vac`, `cod_end`, `nome`, `cpf`, `nome_mae`, `nome_pai`, `sexo`, `rg`, `dt_nasc`, `registro_nasc`, `email`, `cod_perfil`, `cod_status`) VALUES
-(7, 1, NULL, 12, NULL, 38, 'João Pedro', '1234', 'antonia', 'nao', 'M', '1234', '2013-03-05', '12', 'rafabrun2006@gmail.com', 1, 1);
+(7, 1, 1, 12, NULL, 38, 'João Pedro', '123456789', 'antonia', 'nao', 'M', '1234', '2013-03-05', '12', 'rafabrun2006@gmail.com', 1, 1),
+(25, 1, 1, 12, NULL, 38, 'João Pedro', '1234', 'antonia', 'nao', 'M', '1234', '2013-03-05', '12', 'rafabrun2006@gmail.com', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -466,14 +473,17 @@ CREATE TABLE IF NOT EXISTS `tb_telefone` (
   `num_tel` int(11) NOT NULL,
   PRIMARY KEY (`cod_tel`),
   KEY `fk_pessoa_telefone` (`cod_pessoa`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
 
 --
 -- Dumping data for table `tb_telefone`
 --
 
 INSERT INTO `tb_telefone` (`cod_tel`, `cod_pessoa`, `num_tel`) VALUES
-(7, 7, 111111);
+(7, 7, 111111),
+(23, 25, 111111),
+(27, 7, 111111),
+(28, 7, 111111);
 
 -- --------------------------------------------------------
 
@@ -578,14 +588,19 @@ INSERT INTO `tb_uf` (`cod_uf`, `sigla_uf`, `nome_uf`) VALUES
 
 CREATE TABLE IF NOT EXISTS `tb_unidade_saude` (
   `cod_un_saude` int(11) NOT NULL AUTO_INCREMENT,
-  `cod_pessoa` int(11) DEFAULT NULL,
   `cod_end` int(11) DEFAULT NULL,
   `nome_un_saude` varchar(30) NOT NULL,
   `num_un_saude` int(11) NOT NULL,
   PRIMARY KEY (`cod_un_saude`),
-  KEY `fk_pessoa_unidade_de_saude2` (`cod_pessoa`),
   KEY `fk_unidade_saude_endereco` (`cod_end`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `tb_unidade_saude`
+--
+
+INSERT INTO `tb_unidade_saude` (`cod_un_saude`, `cod_end`, `nome_un_saude`, `num_un_saude`) VALUES
+(1, 29, 'Postinho Paraisopolis', 104);
 
 -- --------------------------------------------------------
 
@@ -686,7 +701,7 @@ ALTER TABLE `tb_login`
 -- Constraints for table `tb_paciente`
 --
 ALTER TABLE `tb_paciente`
-  ADD CONSTRAINT `fk_paciente_pessoa2` FOREIGN KEY (`cod_pessoa`) REFERENCES `tb_pessoa` (`cod_pessoa`);
+  ADD CONSTRAINT `fk_paciente_pessoa2` FOREIGN KEY (`cod_pessoa`) REFERENCES `tb_pessoa` (`cod_pessoa`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tb_pessoa`
@@ -694,7 +709,6 @@ ALTER TABLE `tb_paciente`
 ALTER TABLE `tb_pessoa`
   ADD CONSTRAINT `tb_pessoa_ibfk_10` FOREIGN KEY (`cod_end`) REFERENCES `tb_endereco` (`cod_end`),
   ADD CONSTRAINT `tb_pessoa_ibfk_6` FOREIGN KEY (`cod_estado_civil`) REFERENCES `tb_estado_civil` (`cod_estado_civil`),
-  ADD CONSTRAINT `tb_pessoa_ibfk_7` FOREIGN KEY (`cod_un_saude`) REFERENCES `tb_unidade_saude` (`cod_un_saude`),
   ADD CONSTRAINT `tb_pessoa_ibfk_8` FOREIGN KEY (`cod_login`) REFERENCES `tb_login` (`cod_login`),
   ADD CONSTRAINT `tb_pessoa_ibfk_9` FOREIGN KEY (`cod_cartao_vac`) REFERENCES `tb_cartao_vacina` (`cod_cartao_vac`);
 
@@ -738,7 +752,6 @@ ALTER TABLE `tb_tipo_telefone`
 -- Constraints for table `tb_unidade_saude`
 --
 ALTER TABLE `tb_unidade_saude`
-  ADD CONSTRAINT `fk_pessoa_unidade_de_saude2` FOREIGN KEY (`cod_pessoa`) REFERENCES `tb_pessoa` (`cod_pessoa`),
   ADD CONSTRAINT `fk_unidade_saude_endereco` FOREIGN KEY (`cod_end`) REFERENCES `tb_endereco` (`cod_end`);
 
 --
