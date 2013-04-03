@@ -76,7 +76,6 @@ class Admin_Form_Pessoa extends Zend_Form {
         $this->addSubForm(new Admin_Form_Endereco(), 'Endereco');
         $this->addSubForm(new Admin_Form_Login(), 'Login');
         $this->addSubForm(new Admin_Form_Telefone(), 'Telefone');
-        //$this->addSubForm(new Admin_Form_Funcionario(), 'Funcionario');
         $this->addSubForm(new Admin_Form_Status(), 'Status');
 
         $this->addElements(array(
