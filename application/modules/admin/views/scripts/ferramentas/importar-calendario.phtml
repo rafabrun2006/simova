@@ -1,0 +1,21 @@
+<script type="text/javascript" src="/assets/js/confirm-action.js"></script>
+<?php echo $this->modal; ?>
+<form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <div class="control-group">
+        <label class="control-label">Insira o arquivo de importação:</label>
+        <div class="controls">
+            <input type="file" name="import">
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="form-actions">
+            <button class="btn btn-primary" type="submit" name="btn-import">Importar</button>
+            <a href="/ferramentas/limpar-calendario" class="btn btn-danger confirm" type="submit" name="btn-import">Limpar Informações do Calendario</a>
+        </div>
+    </div>
+</form>
+<div class="span12" style="overflow: auto; max-height: 400px;">
+    <?php 
+        echo $this->retorno;
+    ?>
+</div>

@@ -27,9 +27,7 @@ class Admin_Form_Endereco extends Zend_Form {
         $codUf->setLabel('Estado: ');
 
         $endereco = new Zend_Form_Element_Text('endereco');
-        $endereco->setRequired(TRUE)
-                ->addErrorMessage(self::MESSAGE_REQUIRED)
-                ->setLabel('Endereço: ');
+        $endereco->setLabel('Endereço: ');
 
         $cep = new Zend_Form_Element_Text('cep');
         $cep->setLabel('CEP: ');

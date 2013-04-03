@@ -13,49 +13,49 @@
 
         <script type="text/javascript">
             var N = 4;
-            var width = 940; 
-            var atual=1;
+            var width = 940;
+            var atual = 1;
             var intervaloBanners = 6000;
             var intVar;
             var urlimgSel = 'url(images/st_controleativo.png)';
             var urlimg = 'url(images/st_controledesativo.png)';
             var heavyImage = new Image();
-            var imagemL = Array("","","",""); //Link das imagens caso necessario
+            var imagemL = Array("", "", "", ""); //Link das imagens caso necessario
             //var imagemB = Array("img/banner/st_001.jpg","img/banner/st_002.jpg","img/banner/st_003.jpg","img/banner/st_004.jpg"); //imagems
-            var imagemB = Array("/banners/imagem/f9c15dec7cfbccda19c6087d098a831a_grande.jpg ","/banners/imagem/3c2010fb7ae8d894b6b0ed2c6c0091f7_grande.jpg ","/banners/imagem/ec3ade6953aad31f07fb02cc0654c4f0_grande.jpg ","/banners/imagem/aa2d60491211f94498f7c7b20ca12801_grande.jpg "); //imagems
-            var fundos = Array("/banners/imagem/f9c15dec7cfbccda19c6087d098a831a_grande.jpg ","/banners/imagem/3c2010fb7ae8d894b6b0ed2c6c0091f7_grande.jpg ","/banners/imagem/ec3ade6953aad31f07fb02cc0654c4f0_grande.jpg ","/banners/imagem/aa2d60491211f94498f7c7b20ca12801_grande.jpg "); //fundos
-            var coresFnd = Array("#CDCDCD","#182138","#7DC4E8","#CDCDCD"); //css das
+            var imagemB = Array("/banners/imagem/f9c15dec7cfbccda19c6087d098a831a_grande.jpg ", "/banners/imagem/3c2010fb7ae8d894b6b0ed2c6c0091f7_grande.jpg ", "/banners/imagem/ec3ade6953aad31f07fb02cc0654c4f0_grande.jpg ", "/banners/imagem/aa2d60491211f94498f7c7b20ca12801_grande.jpg "); //imagems
+            var fundos = Array("/banners/imagem/f9c15dec7cfbccda19c6087d098a831a_grande.jpg ", "/banners/imagem/3c2010fb7ae8d894b6b0ed2c6c0091f7_grande.jpg ", "/banners/imagem/ec3ade6953aad31f07fb02cc0654c4f0_grande.jpg ", "/banners/imagem/aa2d60491211f94498f7c7b20ca12801_grande.jpg "); //fundos
+            var coresFnd = Array("#CDCDCD", "#182138", "#7DC4E8", "#CDCDCD"); //css das
             $(document).ready(function() {
-                var w = width+'px';
-                $("#frameBanners").css({width:w});
+                var w = width + 'px';
+                $("#frameBanners").css({width: w});
                 loopBanner();
-                for(var i=1;i<=N;i++){
-                    if(i==atual)
-                        $("#cli"+i).css('background-image',urlimgSel);
+                for (var i = 1; i <= N; i++) {
+                    if (i == atual)
+                        $("#cli" + i).css('background-image', urlimgSel);
                     else
-                        $("#cli"+i).css('background-image',urlimg);
+                        $("#cli" + i).css('background-image', urlimg);
                 }
-                if($.cookie("simov4")!=null){
-                    if(Number($.cookie("simov4"))>=N)
-                        atual=1;
+                if ($.cookie("simov4") != null) {
+                    if (Number($.cookie("simov4")) >= N)
+                        atual = 1;
                     else
-                        atual=Number($.cookie("simov4"))+1;
+                        atual = Number($.cookie("simov4")) + 1;
                 }
                 muda(atual);
             });
-            function muda(d){
+            function muda(d) {
                 atual = d;
                 posicao = '-' + ((d - 1) * width) + 'px';
                 for (var i = 1; i <= N; i++) {
-                    if (i == atual) 
+                    if (i == atual)
                         $("#cli" + i).css('background-image', urlimgSel);
-                    else 
+                    else
                         $("#cli" + i).css('background-image', urlimg);
                 }
 
                 heavyImage.src = "";
                 heavyImage.src = fundos[atual - 1];
-                heavyImage.onload = function(){
+                heavyImage.onload = function() {
                     $("#disfarce").css("background-color", $('#bg').css('background-color'));
                     $("#disfarce").css("background-image", $('#bg').css('background-image'));
                     $("#disfarce").show(0);
@@ -66,41 +66,41 @@
                         $("#imgBan").hide(0);
                         $("#imgBan").attr("src", "");
                         $("#imgBan").attr("src", imagemB[atual - 1]);
-                        document.getElementById("imgBan").onload = function(){
+                        document.getElementById("imgBan").onload = function() {
                             $("#imgBan").show(0);
                         };
                     }
                     else {
-                        $("#imgBan").fadeOut(function(){
+                        $("#imgBan").fadeOut(function() {
                             $("#imgBan").attr("src", "");
                             $("#imgBan").attr("src", imagemB[atual - 1]);
-                            document.getElementById("imgBan").onload = function(){
+                            document.getElementById("imgBan").onload = function() {
                                 $("#imgBan").fadeIn();
                             };
                         });
                     }
-                    $("#linkBan").attr("href",imagemL[atual - 1]);
+                    $("#linkBan").attr("href", imagemL[atual - 1]);
                     loopBanner();
                     $.cookie("simov4", atual, {
                         expires: 5
                     });
                 };
             }
-            function mudaInt(){
-                if(atual==N)
-                    atual=1;
+            function mudaInt() {
+                if (atual == N)
+                    atual = 1;
                 else
-                    atual = atual+1;
-                for(var i=1;i<=N;i++){
-                    if(i==atual)
-                        $("#cli"+i).css('background-image',urlimgSel);
+                    atual = atual + 1;
+                for (var i = 1; i <= N; i++) {
+                    if (i == atual)
+                        $("#cli" + i).css('background-image', urlimgSel);
                     else
-                        $("#cli"+i).css('background-image',urlimg);
+                        $("#cli" + i).css('background-image', urlimg);
                 }
-                posicao='-'+((atual-1)*width)+'px';
+                posicao = '-' + ((atual - 1) * width) + 'px';
                 heavyImage.src = "";
                 heavyImage.src = fundos[atual - 1];
-                heavyImage.onload = function(){
+                heavyImage.onload = function() {
                     $("#disfarce").css("background-color", $('#bg').css('background-color'));
                     $("#disfarce").css("background-image", $('#bg').css('background-image'));
                     $("#disfarce").show(0);
@@ -111,21 +111,21 @@
                         $("#imgBan").hide(0);
                         $("#imgBan").attr("src", "");
                         $("#imgBan").attr("src", imagemB[atual - 1]);
-                        document.getElementById("imgBan").onload = function(){
+                        document.getElementById("imgBan").onload = function() {
                             $("#imgBan").show(0);
                         };
                     }
                     else {
-                        $("#imgBan").fadeOut(function(){
+                        $("#imgBan").fadeOut(function() {
                             $("#imgBan").attr("src", "");
                             $("#imgBan").attr("src", imagemB[atual - 1]);
-                            document.getElementById("imgBan").onload = function(){
+                            document.getElementById("imgBan").onload = function() {
                                 $("#imgBan").fadeIn();
                             };
                         });
                     }
-				
-                    $("#linkBan").attr("href",imagemL[atual - 1]);
+
+                    $("#linkBan").attr("href", imagemL[atual - 1]);
                     loopBanner();
                     $.cookie("simov4", atual, {
                         expires: 5
@@ -133,9 +133,9 @@
                 };
             }
 
-            function loopBanner(){	
-                clearInterval(intVar);	 
-                intVar = setInterval('mudaInt()',intervaloBanners);
+            function loopBanner() {
+                clearInterval(intVar);
+                intVar = setInterval('mudaInt()', intervaloBanners);
             }
         </script>
 
@@ -154,103 +154,97 @@
                 <li><a href="javascript:muda(4)"><div id="cli4" class="btControl">&nbsp;</div></a></li>
             </ul>
         </div>
-    </div>  </div>
-
-
+    </div> 
 </div>
-</div>
-<script type="text/javascript"> $("#ultimasNoticias ul").idTabs(); </script>
-</article>
+<section>
+    <script type="text/javascript"> $("#ultimasNoticias ul").idTabs();</script>
 
-<div id="newsSlider">
-    <!-- primeira divisão da pag. principal -->	
-    <div class="st_box">
-        <div class="st_box_p">
-            <h1><strong><img src="images/st_gear.png" /> Hospital Santa Maria<br/>
-                </strong><span style="margin-left: 5%;"><img src="images/bullet.gif" /> Mudança na vacinação infantil.</span></span></h1>
-            <a id="foto_tumb" href="index.php?link=noticias"><img src="images/hospital_SM.jpg" alt="" width="150" height="100" border="0" class="st_conteudo_img"></a>
-            <p>Tetravalente passa a incluir o imunizante contra a hepatite B e vai combater cinco enfermidades. A partir de agosto, as duas primeiras doses do composto para evitar a poliomielite serão injetáveis.<br>
-                <br>
-                A partir de agosto, o calendário de vacinação infantil sofrerá altereção. O Ministério da Saúde anunciou ontem que dois novos imunizantes serão incluídos. Com a novidade, em vez de as crianças tomarem as duas primeiras doses do composto contra a poliomielite em gotinhas, as aplicações... <br><b><a href="index.php?link=noticias">[Saiba mais]</a></b></p>
-        </div>
-    </div>
-    <!-- fim primeira divisão da pag. principal -->	   
-
-
-    <!-- segunda divisão da pag. principal -->
-    <div class="st_box_a">
-        <div class="st_box_pa">
-
-            <h1> <img src="images/st_gear.png" /> SES-DF </h1>
-
-            <span style="margin-left: 5%;"><img src="images/bullet.gif" /> Acesse agora o portal da saúde do DF</span></h1><br /><br />
-
-            <a href="http://www.saude.df.gov.br/index.php" target="_blank" id="foto_tumb"><img src="images/ses.jpg" alt="" width="210" height="48" border="0"></a>
-
-        </div>   
-    </div>
-
-
-    <!-- fim segunda divisão da pag. principal -->
-
-
-    <!-- terceira divisão da pag. principal -->
-    <div class="st_box_a">
-        <div class="st_box_pa">
-
-            <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-            <div style="text-align:center; margin:0 8px">
-                <h4>
-                    <strong>
-                        <img src="images/st_gear.png" /> Carteirinha Online
-                        <br/> 
-                    </strong></h4>
-                <hr />
+    <div id="newsSlider">
+        <!-- primeira divisão da pag. principal -->	
+        <div class="st_box">
+            <div class="st_box_p">
+                <h1><strong><img src="images/st_gear.png" /> Hospital Santa Maria<br/>
+                    </strong><span style="margin-left: 5%;"><img src="images/bullet.gif" /> Mudança na vacinação infantil.</span></span></h1>
+                <a id="foto_tumb" href="index.php?link=noticias"><img src="images/hospital_SM.jpg" alt="" width="150" height="100" border="0" class="st_conteudo_img"></a>
+                <p>Tetravalente passa a incluir o imunizante contra a hepatite B e vai combater cinco enfermidades. A partir de agosto, as duas primeiras doses do composto para evitar a poliomielite serão injetáveis.<br>
+                    <br>
+                    A partir de agosto, o calendário de vacinação infantil sofrerá altereção. O Ministério da Saúde anunciou ontem que dois novos imunizantes serão incluídos. Com a novidade, em vez de as crianças tomarem as duas primeiras doses do composto contra a poliomielite em gotinhas, as aplicações... <br><b><a href="index.php?link=noticias">[Saiba mais]</a></b></p>
             </div>
+        </div>
+        <!-- fim primeira divisão da pag. principal -->	   
 
-            <!-- Inicio Fazer acesso  --> 
-            <span style="margin-left: 2%;">
-                <img src="images/bullet.gif" />
-                <strong> Faça o login abaixo para ter acesso a carterinha de vacinação online. 
-                    <br/>
-                    <br/>
-                    <br/>
-                </strong>
-            </span>
-            <!-- Fim Fazer acesso  -->   
 
-            <!-- Inicio Formulários  -->  
-            <div style="text-align:right; margin:0 8px">
-                <form action="index.php?link=newsletter" method="POST" name="frmFaleConosco" onsubmit="return submit_page(this);" > 
-                    <strong> Usuário: </strong>
-                    <input id="nome" name="nome" type="text"  placeholder="Inserir seu nome"  /><Br />
-                    <br />
-                    <strong> Senha: </strong>
-                    <input name="buttoemail" type="text"  placeholder="Insira seu e-mail" /><Br />
-                    <!-- Fim Formulários  --> 
+        <!-- segunda divisão da pag. principal -->
+        <div class="st_box_a">
+            <div class="st_box_pa">
+                <h1> <img src="images/st_gear.png" /> SES-DF </h1>
+                <span style="margin-left: 5%;"><img src="images/bullet.gif" /> Acesse agora o portal da saúde do DF</span></h1><br /><br />
+                <a href="http://www.saude.df.gov.br/index.php" target="_blank" id="foto_tumb"><img src="images/ses.jpg" alt="" width="210" height="48" border="0"></a>
+            </div>   
+        </div>
+        <!-- fim segunda divisão da pag. principal -->
 
-                    <!-- Inicio botões  do formulario-->    
-                    <input type="submit" class="botaocor" name="enviar" id="signIn" value=" Entrar ">
-                    <input type="submit" class="botaocor" name="reset" id="Limpar" value=" Limpar "><Br />
-                    <!-- Fim botões  do formulario-->
+        <!-- terceira divisão da pag. principal -->
+        <div class="st_box_a">
+            <div class="st_box_pa">
 
-                    <!-- botao esqueceu a senha-->
-                    <b><a href="index.php?link=noticias">Esqueceu a senha?</a></b><Br /><Br />
-                    <hr>
-                    <!-- botao esqueceu a senha-->
+                <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+                <div style="text-align:center; margin:0 8px">
+                    <h4>
+                        <strong>
+                            <img src="images/st_gear.png" /> Carteirinha Online
+                            <br/> 
+                        </strong></h4>
+                    <hr />
+                </div>
 
-                    <!-- inicio botao cadastro novo -->		
-                    <input type="submit" class="botaocor" name="Cadastronovo" id="Cadastronovo" value="Cadastrar Novo"> 
+                <!-- Inicio Fazer acesso  --> 
+                <span style="margin-left: 2%;">
+                    <img src="images/bullet.gif" />
+                    <strong> Faça o login abaixo para ter acesso a carterinha de vacinação online.</strong>
+                </span>
+                <!-- Fim Fazer acesso  -->   
+
+                <!-- Inicio Formulários  -->  
+                <div style="text-align:right; margin:0 8px">
+                    <?php if (!$this->hasIdentity): ?>
+                        <form action="/auth/login" method="post" name="frmFaleConosco" onsubmit="return submit_page(this);" > 
+                            <strong> Usuário: </strong>
+                            <input id="nome_login" name="nome_login" type="text" placeholder="Inserir seu nome"/><br />
+                            <br />
+                            <strong> Senha: </strong>
+                            <input name="senha_login" type="password" placeholder="Insira sua senha" />
+                            <br/>
+                            <!-- Fim Formulários  --> 
+
+                            <!-- Inicio botões  do formulario-->    
+                            <input type="submit" class="botaocor" name="enviar" id="signIn" value="Entrar">
+                            <input type="reset" class="botaocor" name="reset" id="Limpar" value=" Limpar ">
+                            <br/>
+                            <!-- Fim botões  do formulario-->
+
+                            <!-- botao esqueceu a senha-->
+                            <b><a href="/auth/recuperar">Esqueceu a senha?</a></b>
+                            <br/>
+                            <br/>
+                            <hr>
+                            <!-- botao esqueceu a senha-->
+
+                            <!-- inicio botao cadastro novo -->		
+                            <input type="submit" class="botaocor" name="Cadastronovo" id="Cadastronovo" value="Cadastrar Novo"> 
+                        </form>
+                    <?php else: ?>
+                    <br>
+                    <br>
+                    <strong>Olá, <?php echo $this->user->nome_login ?> (<a href="/auth/logout"><strong>Sair</strong></a>)</strong>
+                    <?php endif; ?>
+
                     <!-- Fim botao cadastro novo -->			
-                    </div>
-                    </div>
-                    </div>
-                    <!-- fim terceira divisão da pag. principal -->
-
-
-                    </div>
-
-                    <br />
-                    <div style="clear:both;"></div>
-
-                    </section>
+                </div>
+            </div>
+        </div>
+        <!-- fim terceira divisão da pag. principal -->
+    </div>
+    <br />
+    <div style="clear:both;"></div>
+</section>

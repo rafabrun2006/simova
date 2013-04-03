@@ -162,8 +162,8 @@ class Admin_PessoaController extends Zend_Controller_Action {
     private function excluir($actionRedirect) {
         $model = new App_Model_Pessoa();
 
-        if ($this->getParam('cod_pessoa')) {
-            $model->delete('cod_pessoa = ' . $this->getParam('cod_pessoa'));
+        if ($this->_getParam('cod_pessoa')) {
+            $model->delete('cod_pessoa = ' . $this->_getParam('cod_pessoa'));
 
             $this->view->mensagem = array(
                 'type' => 'alert-warning', 'mensagem' => 'Operação de exclusão efetuada com sucesso!'
