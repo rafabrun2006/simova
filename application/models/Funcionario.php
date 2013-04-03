@@ -16,6 +16,7 @@ class App_Model_Funcionario extends Simova_Mapper_ModelMapper {
         $query = $this->select()
                 ->from(array('f' => 'tb_funcionario'))
                 ->joinInner(array('p' => 'tb_pessoa'), 'p.cod_pessoa = f.cod_pessoa', array('*'))
+                ->joinInner(array('l' => 'tb_login'), 'p.cod_login = l.cod_login', array('*'))
                 ->setIntegrityCheck(false) 
                 ;
         
