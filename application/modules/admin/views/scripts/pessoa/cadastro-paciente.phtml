@@ -103,7 +103,7 @@
                     <div class="rows-fluid">
                         <div class="span6">
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Rua:</label>
+                                <label for="inputEmail" class="control-label">Endereço:</label>
                                 <div class="controls">
                                     <?php echo $this->form->Endereco->endereco ?>
                                 </div>
@@ -171,18 +171,18 @@
                                 <div class="control-group">
                                     <label for="inputEmail" class="control-label">Telefone residencial:</label>
                                     <div class="controls">
-                                        <?php echo $this->form->Funcionario->matricula ?>
+                                        <?php echo $this->form->Telefone->num_tel1 ?>
                                     </div>
                                 </div>
                                 <label for="inputEmail" class="control-label">Telefone celular:</label>
                                 <div class="controls">
-                                    <?php echo $this->form->Funcionario->cod_cargo ?>
+                                    <?php echo $this->form->Telefone->num_tel2 ?>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label for="inputEmail" class="control-label">E-mail:</label>
                                 <div class="controls">
-                                    <?php echo $this->form->Funcionario->cod_funcao ?>
+                                    <?php echo $this->form->email ?>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -191,7 +191,6 @@
                                     <?php echo $this->form->cod_perfil ?>
                                 </div>
                             </div>
-
                         </div>
                         <div class="span6">
 
