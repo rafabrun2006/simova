@@ -10,6 +10,7 @@
     <select name="tipoConsulta">
         <option value="">Selecione a opção</option>
         <option value="nome">Nome</option>
+        <option value="nome">Registro Nascimento</option>
         <option value="rg">RG</option>
         <option value="cpf">CPF</option>
         <option value="">Todos</option>
@@ -29,6 +30,7 @@
             <tr>
                 <th>Código</th>
                 <th>Nome Completo</th>
+                <th>Registro Nascimento</th>
                 <th>RG Nº</th>
                 <th>CPF Nº</th>
                 <th width="75">Função</th>
@@ -39,6 +41,7 @@
                 <tr>
                     <td><?php echo $paciente->cod_pac ?></td>
                     <td><?php echo $paciente->nome ?></td>
+                    <td><?php echo $paciente->rg ?></td>
                     <td><?php echo $paciente->rg ?></td>
                     <td><?php echo $paciente->cpf ?></td>
                     <td>

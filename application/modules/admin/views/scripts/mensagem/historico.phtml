@@ -1,7 +1,106 @@
-<?php
+<script type="text/javascript" src="/admin/js/pessoa.js"></script>
+<fieldset>
+    <legend>Histórico de Mensagens</legend>
+    <?php
+    if ($this->mensagem):
+        ?>
+        <div class="alert <?php echo $this->mensagem['type'] ?>"><?php echo $this->mensagem['mensagem'] ?></div>
+        <?php
+    endif;
+    ?>
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+    <div style="margin-bottom: 18px;" class="tabbable">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#tab1">Consultar Histórico</a></li>
+
+        </ul>
+
+        <div class="tab-content">
+            <div id="tab1" class="tab-pane active">
+
+
+                <form class="form-horizontal">
+                    <div class="control-group">
+                        <label class="control-label" for="inputEmail">Data Inicial</label>
+                        <div class="controls">
+                            <input type="text" id="inputEmail" placeholder=""> &nbsp; DD/MM/AAAA
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputPassword">Data Final</label> 
+                        <div class="controls">
+                            <input type="password" id="inputPassword" placeholder=""> &nbsp; DD/MM/AAAA
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+
+                            <button type="reset" class="btn btn-primary"> Limpar</button>
+                            <button type="submit" class="btn btn-primary"><i class="icon-search icon-white"></i> &nbsp; Pesquisar</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
+
+    <!--PAGINAÇÃO DAS TABELAS DA PESQUISA-->
+
+    <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+        <thead style="background-color: #08c; color: #FFFFFF">
+            <tr>
+                <th style="width: 125px">Código mensagem</th>
+                <th style="width: 90px">Data de Envio</th>
+                <th style="text-align: center;width: 500px">Mensagem</th>
+                <th style="width: 130px">Destinatário</th>
+                <th style="width: 110px">Código Paciente</th>
+                <th>Função</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td>18</td>
+                <td>09/06/2011</td>
+                <td>Você deverá comparecer no dia 20/06/2011 ao posto mais proximo para tomar a 2ª dose da vacina contra a Hepatite B</td>
+                <td>João da Silva Xavier</td>
+                <td>18</td>
+                <td>
+                    <a href="/admin/mensagem/enviar-mensagem<?php echo $funcionarios->cod_pessoa ?>" title="Enviar Mensagem" class="btn btn-info btn btn-small"><i class="icon-envelope icon-white"></i></a>
+                    <a href="/admin/mensagem/enviar-mensagem<?php echo $funcionarios->cod_pessoa ?>" title="Excluir Mensagem" class="btn btn-danger btn btn-small"><i class="icon-trash icon-white"></i></a>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="pagination pagination-centered">
+        <ul>
+            <!--TABELA COM OS DADOS DA PESQUISA-->
+            <li><a href="#">Anterior</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">Proximo</a></li>
+        </ul>
+    </div>
+
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+

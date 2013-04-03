@@ -1,10 +1,4 @@
 <script type="text/javascript" src="/admin/js/pessoa.js"></script>
-<ul class="pager offset10">
-    <li class="previous">
-        <a href="/admin/cartao/consulta-cartao"><i class="icon-arrow-left"></i><strong>Voltar</strong></a>
-    </li>
-
-</ul>
 <fieldset>
     <legend>Enviar Mensagens</legend>
     <?php
@@ -17,235 +11,168 @@
 
     <div style="margin-bottom: 18px;" class="tabbable">
         <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#tab1">Dados do Paciente</a></li>
-            <li class=""><a data-toggle="tab" href="#tab2">Registrar Vacinas</a></li>
-            <li class=""><a data-toggle="tab" href="#tab3">Aprazar Vacinas</a></li>
+            <li class="active"><a data-toggle="tab" href="#tab1">Escrever</a></li>
+            <li class=""><a data-toggle="tab" href="#tab2">Selecionar Destinatário</a></li>
 
         </ul>
         <form class="form-horizontal" method="post">
             <div class="tab-content">
                 <div id="tab1" class="tab-pane active">
 
-                   <!--INICIO DO PRIMEIRO MENU-->
-                        <div class="span4">
-                            <table class="table table-bordered">
-                                                               
-                                <tbody  style="font-size: 13px;">
-                                    <tr class="info">
-                                        <td>Código do Paciente:</td>
-                                        <td>12</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nome do Paciente:</td>
-                                        <td>José da Silva</td>
-                                    </tr>
-                                    <tr class="info">
-                                        <td>Nome da Mãe:</td>
-                                        <td>Maria da Silva</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Data de Nascimento:</td>
-                                        <td>06/10/1989</td>
-                                    </tr>
-                                    <tr class="info">
-                                        <td>Sexo:</td>
-                                        <td>Masculino</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Telefone Celular:</td>
-                                        <td>(61)9152-8547</td>
-                                    </tr>
-                                    <tr class="info">
-                                        <td>E-mail:</td>
-                                        <td>jose_silva@gmail.com</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                  
+                    <!--INICIO DO PRIMEIRO MENU-->
 
-                    
-                    <!--<h5><p class="text-left muted">
-                            Codigo do Paciente:<strong> 12</strong><br> 
-                            Nome do Paciente: <strong>José da Silva</strong><br> 
-                            Nome da mãe:<strong> Maria da Silva</strong><br> 
-                            Data de Nascimento:<strong> 06/10/1989</strong><br>
-                            Sexo: <strong>M</strong><br>
-                            Telefone celular:<strong> (61) 9152-8547</strong><br> 
-                            email:<strong> jose_silva@gmail.com</strong>
-                        </p></h5> -->
-
-                    <!--<div class="rows-fluid">
-                        <div class="span12">
-                            <div class="form-actions">
-                                <div class="control-group">
-                                    <a class="btn btn-primary" href="#tab2" data-toggle="tab">Continuar&nbsp; <i class="icon-forward icon-white"></i></a>
+                    <div class="rows-fluid">
+                        <div class="span6">
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Mensagem:</label>
+                                <div class="controls">
+                                    <textarea rows="3" style="width: 500px;"></textarea>
                                 </div>
                             </div>
+
+
+
                         </div>
-                    </div>-->
+
+                    </div>
+                    <!--  <div class="rows-fluid">
+                          <div class="span12">
+                              <div class="form-actions">
+                                  <div class="control-group">
+                                      <a class="btn btn-primary" href="#tab2" data-toggle="tab">Continuar <i class="icon-forward icon-white"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>-->
 
                 </div> <!--FIM DO PRIMEIRO MENU-->
 
                 <div id="tab2" class="tab-pane">
 
                     <!--INICIO DO SEGUNDO MENU-->
-                    <div class="rows-fluid">
-                        <div class="span6"> 
-                            <div class="control-group">
-                                <label for="inputEmail" class="control-label">Data da Aplicação:</label>
-                                <div class="controls">
-                                    <input type="text" placeholder="Text input">&nbsp;DD/MM/AAAA
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label for="inputEmail" class="control-label">Número da Dose:</label>
-                                <div class="controls">
-                                    <select>
-                                        <option>Selecione a opção</option>
-                                        <option>1º dose</option>
-                                        <option>2º dose</option>
-                                        <option>3º dose</option>
-                                        <option>Dose de reforço</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label for="inputEmail" class="control-label">Unidade de Saúde:</label>
-                                <div class="controls">
-                                    <select>
-                                        <option>Selecione a opção</option>
-                                        <option>Unidade de Saúde 1</option>
-                                        <option>Unidade de Saúde 2</option>
-                                    </select>
-                                </div>
-                            </div>
 
-                        </div>
-                        <div class="span6">
-                            <div class="control-group">
-                                <label for="inputEmail" class="control-label">Nome da Vacina:</label>
-                                <div class="controls">
-                                    <select>
-                                        <option>Selecione a opção</option>
-                                        <option>BCG - ID</option>
-                                        <option>Hepatite B</option>
-                                        <option>Vacina Oral de Rotavírus Humano (VROH)</option>
-                                        <option>Vacina oral poliomielite (VOP)</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label for="inputEmail" class="control-label">Lote da Vacina:</label>
-                                <div class="controls">
-                                    <input type="text" placeholder="Text input">
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label for="inputEmail" class="control-label">Nome do Responsável:</label>
-                                <div class="controls">
-                                    <input type="text" placeholder="Text input">
-                                </div>
-                            </div>
-
-
-
-                        </div>
-                    </div>
-
-                    <!--<div class="rows-fluid">
-                        <div class="span12">
-                            <div class="form-actions">
-                                <div class="control-group">
-                                    <a class="btn btn-primary" href="#tab2" data-toggle="tab">Continuar <i class="icon-forward icon-white"></i></a>
-                                </div>
+                    <div class="rows-fluid ">
+                        <div class="span10">
+                            <select name="tipoConsulta">
+                                <option value="">Selecione a opção</option>
+                                <option value="nome">Nome do Paciente</option>
+                                <option value="nome">Registro de Nascimento</option>
+                                <option value="nome">RG</option>
+                                <option value="nome">Data de Nascimento</option>
+                                <option value="">Todos</option>
+                            </select>
+                            <div class="input-append">
+                                <input class="input-large" name="search" id="appendedInputButton" type="text">
+                                <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
                             </div>
                         </div>
-                    </div>-->
 
-                </div> <!--FIM DO SEGUNDO MENU-->
+                        <br><br><br><br>
 
+                        <div class="rows-fluid ">
+                            <div class="span12">
 
-                <div id="tab3" class="tab-pane">
+                                <!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
 
-                    <!--INICIO DO TERCEIRO MENU-->
-                    <div class="rows-fluid">
-                        <div class="span6"> 
-                            <div class="control-group">
-                                <label for="inputEmail" class="control-label">Data da Aplicação:</label>
-                                <div class="controls">
-                                    <input type="text" placeholder="Text input">&nbsp;DD/MM/AAAA
+                                <!--PAGINAÇÃO DAS TABELAS DA PESQUISA-->
+
+                                <table class="table table-bordered table-striped" style="font-size: 13px;">
+                                    <thead style="background-color: #08c; color: #FFFFFF">
+                                        <tr>
+                                            <th rowspan="2">Código do Paciente</th>
+                                            <th rowspan="2">Nome do Paciente</th>
+                                            <th rowspan="2">Nome da Mãe</th>
+                                            <th rowspan="2">RG</th>
+                                            <th rowspan="2">Registro de Nascimento</th>
+                                            <th rowspan="2">Data de Nascimento</th>
+                                            <th>Enviar</th>
+                                        </tr>
+                                    </thead> 
+                                    <tbody>
+
+                                        <tr>
+                                            <td colspan="6"></td>
+                                            <td><label class="checkbox inline">
+                                                    <input type="checkbox" id="inlineCheckbox1" value="option1"> Todos
+                                                </label></td>
+                                        </tr>
+                                        <tr>
+                                            <td>18</td>
+                                            <td>Joaquim Gomes</td>
+                                            <td>Francisca Gomes</td>
+                                            <td>5568485</td>
+                                            <td>6548785</td>
+                                            <td>15/08/1980</td>
+                                            <td>
+                                                <label class="checkbox inline">
+                                                    <input type="checkbox" id="inlineCheckbox1" value="option1"> Sim
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>16</td>
+                                            <td>Mario Brito</td>
+                                            <td>Marta Pereira</td>
+                                            <td>11111485</td>
+                                            <td>2228785</td>
+                                            <td>03/05/1980</td>
+                                            <td>
+                                                <label class="checkbox inline">
+                                                    <input type="checkbox" id="inlineCheckbox1" value="option1"> Sim
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>02</td>
+                                            <td>Maria Sousa</td>
+                                            <td>Luzia Sauro</td>
+                                            <td>4444485</td>
+                                            <td>99999855</td>
+                                            <td>01/06/1980</td>
+                                            <td>
+                                                <label class="checkbox inline">
+                                                    <input type="checkbox" id="inlineCheckbox1" value="option1"> Sim
+                                                </label>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                                <div class="pagination pagination-centered">
+                                    <ul>
+                                        <!--TABELA COM OS DADOS DA PESQUISA-->
+                                        <li><a href="#">Anterior</a></li>
+                                        <li><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#">6</a></li>
+                                        <li><a href="#">7</a></li>
+                                        <li><a href="#">Proximo</a></li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="control-group">
-                                <label for="inputEmail" class="control-label">Número da Dose:</label>
-                                <div class="controls">
-                                    <select>
-                                        <option>Selecione a opção</option>
-                                        <option>1º dose</option>
-                                        <option>2º dose</option>
-                                        <option>3º dose</option>
-                                        <option>Dose de reforço</option>
-                                    </select>
-                                </div>
-                            </div>
 
-
+                            </div> 
                         </div>
-                        <div class="span6">
-                            <div class="control-group">
-                                <label for="inputEmail" class="control-label">Unidade de Saúde:</label>
-                                <div class="controls">
-                                    <select>
-                                        <option>Selecione a opção</option>
-                                        <option>Unidade de Saúde 1</option>
-                                        <option>Unidade de Saúde 2</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label for="inputEmail" class="control-label">Nome da Vacina:</label>
-                                <div class="controls">
-                                    <select>
-                                        <option>Selecione a opção</option>
-                                        <option>BCG - ID</option>
-                                        <option>Hepatite B</option>
-                                        <option>Vacina Oral de Rotavírus Humano (VROH)</option>
-                                        <option>Vacina oral poliomielite (VOP)</option>
-                                    </select>
-                                </div>
-                            </div>
 
-
-
-
-                        </div>
                     </div>
 
                     <div class="rows-fluid">
                         <div class="span12">
                             <div class="form-actions">
                                 <div class="control-group">
-                                    <button class="btn btn-primary" type="submit">Salvar</button>
+                                    <button class="btn btn-primary" type="submit">Enviar</button>
                                     <button class="btn btn-primary" type="reset">Limpar</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                </div> <!--FIM DO TERCEIRO MENU-->
+                    </div> 
+                </div> <!--FIM DO SEGUNDO MENU-->
             </div>
         </form>
+
+
+
     </div>
 </fieldset>
-
-
-
-
-
-
-
-
-
-
 
