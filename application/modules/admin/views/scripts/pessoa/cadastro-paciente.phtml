@@ -1,14 +1,6 @@
 <script type="text/javascript" src="/admin/js/pessoa.js"></script>
 <fieldset>
     <legend>Cadastrar Pacientes</legend>
-    <?php
-    if ($this->mensagem):
-        ?>
-        <div class="alert <?php echo $this->mensagem['type'] ?>"><?php echo $this->mensagem['mensagem'] ?></div>
-        <?php
-    endif;
-    ?>
-
     <div style="margin-bottom: 18px;" class="tabbable">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#tab1">Dados Principais</a></li>
@@ -186,6 +178,12 @@
                                 </div>
                             </div>
                             <div class="control-group">
+                                <label for="inputEmail" class="control-label">Codigo da Unidade:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->cod_un_saude ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
                                 <label for="inputEmail" class="control-label">Perfil:</label>
                                 <div class="controls">
                                     <?php echo $this->form->cod_perfil ?>
@@ -193,7 +191,12 @@
                             </div>
                         </div>
                         <div class="span6">
-
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Status:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Status->cod_status ?>
+                                </div>
+                            </div>
                             <div class="control-group">
                                 <label for="inputEmail" class="control-label">Usuário:</label>
                                 <div class="controls">
