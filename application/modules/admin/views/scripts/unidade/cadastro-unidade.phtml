@@ -1,63 +1,68 @@
-<form action="" method="post" name="form-unidade" id="form-unidade">
-    <div class="rows-fluid">
-        <div class="control-group">
-            <label for="inputEmail" class="control-label">Nome da Unidade:</label>
-            <div class="controls">
-                <?php echo $this->form->nome_un_saude ?>
+<div class="span12">
+    <?php echo $this->flashMessenger() ?>
+</div>
+<fieldset>
+    <form action="" method="post" name="form-unidade" id="form-unidade">
+        <div class="rows-fluid">
+            <div class="control-group">
+                <label for="inputEmail" class="control-label">Nome da Unidade:</label>
+                <div class="controls">
+                    <?php echo $this->form->nome_un_saude ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="inputEmail" class="control-label">Numero da Unidade de Saúde:</label>
+                <div class="controls">
+                    <?php echo $this->form->num_un_saude ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="inputEmail" class="control-label">Endereço:</label>
+                <div class="controls">
+                    <?php echo $this->form->Endereco->endereco ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="inputEmail" class="control-label">CEP:</label>
+                <div class="controls">
+                    <?php echo $this->form->Endereco->cep ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="inputEmail" class="control-label">Bairro:</label>
+                <div class="controls">
+                    <?php echo $this->form->Endereco->bairro ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="inputEmail" class="control-label">Numero:</label>
+                <div class="controls">
+                    <?php echo $this->form->Endereco->numero ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="inputEmail" class="control-label">Complemento:</label>
+                <div class="controls">
+                    <?php echo $this->form->Endereco->complemento ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="inputEmail" class="control-label">Estado:</label>
+                <div class="controls">
+                    <?php echo $this->form->Endereco->cod_uf ?>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="inputEmail" class="control-label">Cidade:</label>
+                <div class="controls">
+                    <?php echo $this->form->Endereco->cod_cid ?>
+                </div>
+            </div>
+            <?php echo $this->form->Endereco->cod_end; ?>
+            <div class="form-actions">
+                <button class="btn btn-primary" type="submit" name="btn-save" id="btn-save">Salvar</button>
+                <button class="btn" type="reset" name="btn-clear" id="btn-clear">Limpar</button>
             </div>
         </div>
-        <div class="control-group">
-            <label for="inputEmail" class="control-label">Numero da Unidade de Saúde:</label>
-            <div class="controls">
-                <?php echo $this->form->num_un_saude ?>
-            </div>
-        </div>
-        <div class="control-group">
-            <label for="inputEmail" class="control-label">Endereço:</label>
-            <div class="controls">
-                <?php echo $this->form->Endereco->endereco ?>
-            </div>
-        </div>
-        <div class="control-group">
-            <label for="inputEmail" class="control-label">CEP:</label>
-            <div class="controls">
-                <?php echo $this->form->Endereco->cep ?>
-            </div>
-        </div>
-        <div class="control-group">
-            <label for="inputEmail" class="control-label">Bairro:</label>
-            <div class="controls">
-                <?php echo $this->form->Endereco->bairro ?>
-            </div>
-        </div>
-        <div class="control-group">
-            <label for="inputEmail" class="control-label">Numero:</label>
-            <div class="controls">
-                <?php echo $this->form->Endereco->numero ?>
-            </div>
-        </div>
-        <div class="control-group">
-            <label for="inputEmail" class="control-label">Complemento:</label>
-            <div class="controls">
-                <?php echo $this->form->Endereco->complemento ?>
-            </div>
-        </div>
-        <div class="control-group">
-            <label for="inputEmail" class="control-label">Estado:</label>
-            <div class="controls">
-                <?php echo $this->form->Endereco->cod_uf ?>
-            </div>
-        </div>
-        <div class="control-group">
-            <label for="inputEmail" class="control-label">Cidade:</label>
-            <div class="controls">
-                <?php echo $this->form->Endereco->cod_cid ?>
-            </div>
-        </div>
-        <?php echo $this->form->Endereco->cod_end; ?>
-        <div class="form-actions">
-            <button class="btn btn-primary" type="submit" name="btn-save" id="btn-save">Salvar</button>
-            <button class="btn" type="reset" name="btn-clear" id="btn-clear">Limpar</button>
-        </div>
-    </div>
-</form>
+    </form>
+</fieldset>
