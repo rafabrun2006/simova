@@ -20,20 +20,24 @@ class Admin_Form_Pessoa extends Zend_Form {
         $codPessoa = new Zend_Form_Element_Hidden('cod_pessoa');
 
         $cpf = new Zend_Form_Element_Text('cpf');
-        $cpf->setLabel('CPF: ');
+        $cpf->setLabel('CPF: ')
+                ->addValidator(new Zend_Validate_Int());
 
         $nome = new Zend_Form_Element_Text('nome', array('class' => 'input-xlarge'));
         $nome->setLabel('Nome: ')
                 ->setRequired(TRUE)
-                ->addErrorMessage(self::MESSAGE_REQUIRED);
+                ->addErrorMessage(self::MESSAGE_REQUIRED)
+                ->addValidator(new Zend_Validate_Alpha());
 
         $nomeMae = new Zend_Form_Element_Text('nome_mae', array('class' => 'input-xlarge'));
         $nomeMae->setLabel('Nome da Mãe: ')
                 ->setRequired(TRUE)
-                ->addErrorMessage(self::MESSAGE_REQUIRED);
+                ->addErrorMessage(self::MESSAGE_REQUIRED)
+                ->addValidator(new Zend_Validate_Alpha());
 
         $nomePai = new Zend_Form_Element_Text('nome_pai', array('class' => 'input-xlarge'));
-        $nomePai->setLabel('Nome do Pai: ');
+        $nomePai->setLabel('Nome do Pai: ')
+                ->addValidator(new Zend_Validate_Alpha());
 
         $sexo = new Zend_Form_Element_Radio('sexo');
         $sexo->setLabel('Sexo: ')
@@ -41,7 +45,8 @@ class Admin_Form_Pessoa extends Zend_Form {
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
 
         $rg = new Zend_Form_Element_Text('rg');
-        $rg->setLabel('RG: ');
+        $rg->setLabel('RG: ')
+                ->addValidator(new Zend_Validate_Int());
 
         $estadoCivil = new Zend_Form_Element_Select('cod_estado_civil');
         $estadoCivil->setRequired(TRUE)
@@ -51,7 +56,8 @@ class Admin_Form_Pessoa extends Zend_Form {
         $dtNascimento = new Zend_Form_Element_Text('dt_nasc', array('readonly' => 'readonly'));
         $dtNascimento->setLabel('Data de Nascimento: ')
                 ->setRequired(TRUE)
-                ->addErrorMessage(self::MESSAGE_REQUIRED);
+                ->addErrorMessage(self::MESSAGE_REQUIRED)
+                ->addValidator(new Zend_Validate_Date('d/m/Y'));
 
         $registroNasc = new Zend_Form_Element_Text('registro_nasc');
         $registroNasc->setLabel('Nº do Registro de Nascimento: ');
