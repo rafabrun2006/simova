@@ -1,6 +1,6 @@
 <script type="text/javascript" src="/admin/js/pessoa.js"></script>
 <fieldset>
-    <legend>Cadastrar Funcionário</legend>
+    <legend>Cadastrar Funcionários</legend>
     <?php
     if ($this->mensagem):
         ?>
@@ -103,21 +103,21 @@
                     <div class="rows-fluid">
                         <div class="span6">
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Endereço:</label>
+                                <label for="inputEmail" class="control-label">Rua:</label>
                                 <div class="controls">
                                     <?php echo $this->form->Endereco->endereco ?>
-                                </div>
-                            </div>
-                            <div class="control-group">
-                                <label for="inputEmail" class="control-label">Número:</label>
-                                <div class="controls">
-                                    <?php echo $this->form->Endereco->numero ?>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label for="inputEmail" class="control-label">Complemento: </label>
                                 <div class="controls">
                                     <?php echo $this->form->Endereco->complemento ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Número:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Endereco->numero ?>
                                 </div>
                             </div>
                             <div class="control-group">

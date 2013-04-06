@@ -7,7 +7,9 @@ class Admin_UnidadeController extends Zend_Controller_Action {
     }
 
     public function consultaUnidadeAction(){
-        ;
+        $model = new App_Model_UnidadeSaude();
+        
+        $this->view->unidades = $model->fetchAll();
     }
     
     public function cadastroUnidadeAction() {
@@ -15,7 +17,7 @@ class Admin_UnidadeController extends Zend_Controller_Action {
 
         if ($this->_request->isPost()) {
             $post = $this->getRequest()->getPost();
-
+            
             if ($form->isValid($post)) {
                 $model = new App_Model_UnidadeSaude();
                 $modelEndereco = new App_Model_Endereco();
@@ -31,7 +33,7 @@ class Admin_UnidadeController extends Zend_Controller_Action {
                  */
                 if ($model->save($post)) {
                     $this->_helper->flashMessenger('success', 'Unidade de Saúde cadastrada com sucesso');
-                    $this->_redirect('/unidade/consulta-unidade');
+                    $this->_redirect('/admin/unidade/consulta-unidade');
                 }
             }else{
                 $this->_helper->flashMessenger('error', 'Verifique seu formulario');
@@ -41,12 +43,13 @@ class Admin_UnidadeController extends Zend_Controller_Action {
         $this->view->form = $form;
     }
 
-    public function editarUnidadeAction() {
+    public function alterarUnidadeAction() {
         $form = new Admin_Form_Unidade();
         $modelEndereco = new App_Model_Endereco();
         $model = new App_Model_UnidadeSaude();
 
-        $post = $model->find($this->_getParam('cod_un_saude'))->toArray();
+        $dataUnidade = $model->find($this->_getParam('cod_un_saude'))->toArray();
+        $dataEndereco = $modelEndereco->find($dataUnidade[0]['cod_end'])->toArray();
         
         if ($this->_request->isPost()) {
             $post = $this->getRequest()->getPost();
@@ -61,13 +64,17 @@ class Admin_UnidadeController extends Zend_Controller_Action {
                 /*
                  * Salva os dados de uma nova unidade saude cadastrada
                  */
+                
                 if ($model->save($post)) {
                     $this->mensagem = 'Parabens voce cadastrou com sucesso';
                 }
+            }else{
+                $form->populate($post);
             }
+        }else{
+            $form->populate(array_merge($dataEndereco[0], $dataUnidade[0]));
         }
 
-        $form->populate($post);
         $this->view->form = $form;
     }
 

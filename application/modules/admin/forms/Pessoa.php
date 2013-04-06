@@ -21,23 +21,27 @@ class Admin_Form_Pessoa extends Zend_Form {
 
         $cpf = new Zend_Form_Element_Text('cpf');
         $cpf->setLabel('CPF: ')
-                ->addValidator(new Zend_Validate_Int());
+                ->addValidator(new Zend_Validate_Int())
+                ;
 
         $nome = new Zend_Form_Element_Text('nome', array('class' => 'input-xlarge'));
         $nome->setLabel('Nome: ')
                 ->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED)
-                ->addValidator(new Zend_Validate_Alpha());
+                //->addValidator(new Zend_Validate_Alpha())
+                ;
 
         $nomeMae = new Zend_Form_Element_Text('nome_mae', array('class' => 'input-xlarge'));
         $nomeMae->setLabel('Nome da Mãe: ')
                 ->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED)
-                ->addValidator(new Zend_Validate_Alpha());
+                //->addValidator(new Zend_Validate_Alpha())
+                ;
 
         $nomePai = new Zend_Form_Element_Text('nome_pai', array('class' => 'input-xlarge'));
         $nomePai->setLabel('Nome do Pai: ')
-                ->addValidator(new Zend_Validate_Alpha());
+                //->addValidator(new Zend_Validate_Alpha())
+                ;
 
         $sexo = new Zend_Form_Element_Radio('sexo');
         $sexo->setLabel('Sexo: ')
@@ -57,7 +61,8 @@ class Admin_Form_Pessoa extends Zend_Form {
         $dtNascimento->setLabel('Data de Nascimento: ')
                 ->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED)
-                ->addValidator(new Zend_Validate_Date('d/m/Y'));
+                //->addValidator(new Zend_Validate_Date('d/m/Y'))
+                ;
 
         $registroNasc = new Zend_Form_Element_Text('registro_nasc');
         $registroNasc->setLabel('Nº do Registro de Nascimento: ');
