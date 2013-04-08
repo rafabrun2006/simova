@@ -39,6 +39,12 @@
                                     </div>
                                 </div>
                                 <div class="control-group">
+                                    <label for="inputEmail" class="control-label">Telefone Residencial:</label>
+                                    <div class="controls">
+                                        <?php echo $this->form->Telefone->num_tel2 ?>
+                                    </div>
+                                </div>
+                                <div class="control-group">
                                     <label for="inputEmail" class="control-label">E-mail:</label>
                                     <div class="controls">
                                         <?php echo $this->form->email ?>
@@ -59,36 +65,6 @@
                                     <div class="controls">
                                         <?php echo $this->form->Login->senha_login ?>
                                     </div>
-                                </div>
-                                <div class="hidden">
-                                    <?php
-                                    
-                                    echo $this->form->cod_pessoa;
-                                    echo $this->form->Login->nome_login;
-                                    echo $this->form->nome;
-                                    echo $this->form->nome_pai;
-                                    echo $this->form->nome_mae;
-                                    echo $this->form->dt_nasc;
-                                    echo $this->form->rg;
-                                    echo $this->form->cpf;
-                                    echo $this->form->registro_nasc;
-                                    echo $this->form->cod_estado_civil;
-                                    echo $this->form->sexo;
-                                    echo $this->form->Endereco->endereco;
-                                    echo $this->form->Endereco->complemento;
-                                    echo $this->form->Endereco->numero;
-                                    echo $this->form->Endereco->bairro;
-                                    echo $this->form->Endereco->cep;
-                                    echo $this->form->Endereco->cod_uf;
-                                    echo $this->form->Endereco->cod_cid;
-                                    echo $this->form->Funcionario->matricula;
-                                    echo $this->form->Funcionario->cod_cargo;
-                                    echo $this->form->Funcionario->cod_funcao;
-                                    echo $this->form->cod_un_saude;
-                                    echo $this->form->Status->cod_status;
-                                    echo $this->form->Telefone->num_tel2;
-                                    echo $this->form->cod_perfil;
-                                    ?>
                                 </div>
                             </div>
                             <div class="rows-fluid">
