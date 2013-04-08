@@ -23,37 +23,43 @@ class Admin_PerfilController extends Zend_Controller_Action {
                 ->findByPersonByLogin(Zend_Auth::getInstance()->getIdentity()->cod_login)
                 ->toArray();
 
-        $telefone = $modelTelefone->findByPerson($result[0]['cod_pessoa']);
+        if ($result) {
+            $telefone = $modelTelefone->findByPerson($result[0]['cod_pessoa']);
 
-        if ($this->_request->isPost()) {
-            $post = $this->_request->getPost();
-            
-            echo $senhaLogin = (md5($result[0]['senha_login']) == $post['senha_login'] ? TRUE : FALSE);
-            
-            $data = array_merge($result[0], $post);
+            if ($this->_request->isPost()) {
+                $post = $this->_request->getPost();
 
-            if ($form->isValid($data)) {
+                echo $senhaLogin = (md5($result[0]['senha_login']) == $post['senha_login'] ? TRUE : FALSE);
 
-                $data['num_tel'] = $data['num_tel1'];
-                $modelTelefone->saveMultiple($data, 1);
+                $data = array_merge($result[0], $post);
 
-                if (!empty($data['senha_login']) and $senhaLogin) {
-                    $modelLogin->saveLogin($data);
+                if ($form->isValid($data)) {
+
+                    $data['num_tel'] = $data['num_tel1'];
+                    $modelTelefone->saveMultiple($data, 1);
+
+                    if (!empty($data['senha_login']) and $senhaLogin) {
+                        $modelLogin->saveLogin($data);
+                    }
+
+                    if ($modelPessoa->save($data)) {
+                        $this->view->mensagem = array(
+                            'type' => 'alert-success', 'mensagem' => 'Alteração efetuado com sucesso!'
+                        );
+                    }
                 }
 
-                if ($modelPessoa->save($data)) {
-                    $this->view->mensagem = array(
-                        'type' => 'alert-success', 'mensagem' => 'Alteração efetuado com sucesso!'
-                    );
-                }
+                $form->populate($data);
+            } else {
+                $result[0]['num_tel1'] = $telefone[0]->num_tel;
+                $form->populate($result[0]);
             }
-            
-            $form->populate($data);
-            
         } else {
-            $result[0]['num_tel1'] = $telefone[0]->num_tel;
-            $form->populate($result[0]);
+            $this->view->mensagem = array(
+                'type' => 'alert-error', 'mensagem' => 'Perfil inexistente, verifique o banco de dados!'
+            );
         }
+
         $this->view->form = $form;
     }
 
