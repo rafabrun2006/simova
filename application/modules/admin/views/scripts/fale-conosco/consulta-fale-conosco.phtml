@@ -1,0 +1,18 @@
+<?php foreach($this->faleConosco as $faleConosco): ?>
+<li class="contact-alt grd-white">
+    <!--we use data toggle tab for navigate this action-->
+    <a href="#chat" data-toggle="tab" data-id="iin@mail.com">
+        <!--we use contact-item structure like the component media in bootstrap-->
+        <div class="contact-item">
+            <div class="pull-left">
+                <img class="contact-item-object" style="width: 32px;height: 32px;" src="/administrator/img/user-thumb-mini.jpg">
+            </div>
+            <div class="contact-item-body">
+                <div class="status" title="busy"><i class="icon icon-comment"></i></div>
+                <p class="contact-item-heading bold"><?php echo $faleConosco->nome_fale_conosco ?></p>
+                <p class="help-block"><small class="muted"><?php echo $faleConosco->email_fale_conosco ?></small></p>
+            </div>
+        </div>
+    </a>
+</li>
+<?php endforeach; ?>

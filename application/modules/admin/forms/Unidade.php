@@ -12,14 +12,19 @@
  */
 class Admin_Form_Unidade extends Zend_Form {
 
+    const MESSAGE_REQUIRED = 'Preenchimento obrigatório';
+    
     public function init() {
 
         $cod_un_saude = new Zend_Form_Element_Hidden('cod_un_saude');
 
         $nome_un_saude = new Zend_Form_Element_Text('nome_un_saude');
-        $nome_un_saude->setRequired(TRUE);
+        $nome_un_saude->setRequired(TRUE)
+                ->addErrorMessage(self::MESSAGE_REQUIRED);
 
         $num_un_saude = new Zend_Form_Element_Text('num_un_saude');
+        $num_un_saude->setRequired(TRUE)
+                ->addErrorMessage(self::MESSAGE_REQUIRED);
 
         $this->addElements(array(
             $cod_un_saude,

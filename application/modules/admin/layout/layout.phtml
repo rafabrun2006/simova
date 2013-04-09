@@ -33,7 +33,7 @@
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
     </head>
-
+    <?php $identity = Zend_Auth::getInstance()->getIdentity(); ?>
     <body>
         <!-- section header -->
         <header class="header">
@@ -56,7 +56,7 @@
                         <div class="panel-ext">
                             <div class="btn-group">
                                 <!--notification-->
-                                <a class="btn btn-danger btn-small" data-toggle="dropdown" href="#" title="3 notification">3</a>
+<!--                                <a class="btn btn-danger btn-small" data-toggle="dropdown" href="#" title="3 notification">3</a>-->
                                 <ul class="dropdown-menu dropdown-notification">
                                     <li class="dropdown-header grd-white"><a href="#">View All Notifications</a></li>
                                     <li class="new">
@@ -166,9 +166,9 @@
                                     <li><a tabindex="-1" href="#">Something else here</a></li>
                                 </ul>
                             </div>-->
-                            <div class="btn-group">
+<!--                            <div class="btn-group">
                                 <a class="btn btn-inverse btn-small" href="#">Outras Ações</a>
-                            </div>
+                            </div>-->
                             <div class="btn-group user-group">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                     <img class="corner-all" align="middle" src="/administrator/img/user-thumb.jpg" title="John Doe" alt="john doe" /> <!--this for display on PC device-->
@@ -181,7 +181,7 @@
                                                 <img class="img-circle" src="/administrator/img/user.jpg" title="profile" alt="profile" />
                                             </a>
                                             <div class="media-body description">
-                                                <p><strong>John Doe</strong></p>
+                                                <p><strong>John Does</strong></p>
                                                 <p class="muted">johndoe@mail.com</p>
                                                 <p class="action">Status - Ativo</p>
                                                 <a href="/admin/perfil" class="btn btn-primary btn-small btn-block">Ver Perfil</a>
@@ -872,7 +872,7 @@
                                             <div class="contact-control">
                                                 <div class="btn-group pull-right">
                                                     <button class="dropdown-toggle bg-transparent no-border" data-toggle="dropdown">
-                                                        <i class="icofont-caret-down"></i>
+                                                        <i class="icon icon-user"></i>
                                                     </button>
                                                     <ul class="dropdown-menu">
                                                         <li><a href="#"><i class="icofont-certificate color-green"></i> Online</a></li>
@@ -881,7 +881,7 @@
                                                         <li><a href="#"><i class="icofont-certificate color-orange"></i> Idle</a></li>
                                                     </ul>
                                                 </div>
-                                                <h5><i class="icofont-comment color-green"></i> John Doe</h5>
+                                                <h5><i class="icon icon-comment color-green"></i><?php echo $identity->nome_login ?></h5>
                                             </div><!--/contact-control-->
                                             <!--contact-search-->
                                             <div class="contact-search">
@@ -891,118 +891,12 @@
                                                             <i class="typicn-message color-silver-dark"></i>
                                                         </button>
                                                     </div>
-                                                    <input class="input-block-level grd-white" maxlength="11" type="text" name="contact-search" placeholder="chat with..." />
+                                                    <input class="input-block-level grd-white" maxlength="11" type="text" name="contact-search" placeholder="Fale com..." />
                                                 </div>
                                             </div><!--/contact-search-->
                                             <!--contact-list, we set this max-height:380px, you can set this if you want-->
-                                            <ul class="contact-list">
-                                                <li class="contact-alt grd-white">
-                                                    <!--we use data toggle tab for navigate this action-->
-                                                    <a href="#chat" data-toggle="tab" data-id="iin@mail.com">
-                                                        <!--we use contact-item structure like the component media in bootstrap-->
-                                                        <div class="contact-item">
-                                                            <div class="pull-left">
-                                                                <img class="contact-item-object" style="width: 32px;height: 32px;" src="/administrator/img/user-thumb-mini.jpg">
-                                                            </div>
-                                                            <div class="contact-item-body">
-                                                                <div class="status" title="busy"><i class="icofont-certificate color-red"></i></div>
-                                                                <p class="contact-item-heading bold">Iin T.</p>
-                                                                <p class="help-block"><small class="muted">Team Leader</small></p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="contact-alt grd-white">
-                                                    <!--we use data toggle tab for navigate this action-->
-                                                    <a href="#chat" data-toggle="tab" data-id="sungep@mail.com">
-                                                        <div class="contact-item">
-                                                            <div class="pull-left">
-                                                                <img class="contact-item-object" style="width: 32px;height: 32px;" src="/administrator/img/user-thumb-mini.jpg">
-                                                            </div>
-                                                            <div class="contact-item-body">
-                                                                <div class="status" title="idle"><i class="icofont-certificate color-orange"></i></div>
-                                                                <p class="contact-item-heading bold">Sungep</p>
-                                                                <p class="help-block"><small class="muted">UI designer</small></p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="contact-alt grd-white">
-                                                    <!--we use data toggle tab for navigate this action-->
-                                                    <a href="#chat" data-toggle="tab" data-id="harab@mail.com">
-                                                        <div class="contact-item">
-                                                            <div class="pull-left">
-                                                                <img class="contact-item-object" style="width: 32px;height: 32px;" src="/administrator/img/user-thumb-mini.jpg">
-                                                            </div>
-                                                            <div class="contact-item-body">
-                                                                <div class="status" title="ofline"><i class="icofont-certificate color-silver-dark"></i></div>
-                                                                <p class="contact-item-heading bold">Harab</p>
-                                                                <p class="help-block"><small class="muted">Team Leader</small></p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="contact-alt grd-white active"> <!-- you can use this for active contact or your self status-->
-                                                    <!--we use data toggle tab for navigate this action-->
-                                                    <a href="#chat" data-toggle="tab" data-id="janesmith@mail.com">
-                                                        <div class="contact-item">
-                                                            <div class="pull-left">
-                                                                <img class="contact-item-object" style="width: 32px;height: 32px;" src="/administrator/img/user-thumb-mini.jpg">
-                                                            </div>
-                                                            <div class="contact-item-body">
-                                                                <div class="status" title="online"><i class="icofont-certificate color-green"></i></div>
-                                                                <p class="contact-item-heading bold">Jane smith</p>
-                                                                <p class="help-block"><small class="muted">Data analyst</small></p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="contact-alt grd-white">
-                                                    <!--we use data toggle tab for navigate this action-->
-                                                    <a href="#chat" data-toggle="tab" data-id="mahardika@mail.com">
-                                                        <div class="contact-item">
-                                                            <div class="pull-left">
-                                                                <img class="contact-item-object" style="width: 32px;height: 32px;" src="/administrator/img/user-thumb-mini.jpg">
-                                                            </div>
-                                                            <div class="contact-item-body">
-                                                                <div class="status" title="online"><i class="icofont-certificate color-green"></i></div>
-                                                                <p class="contact-item-heading bold">Mahardika</p>
-                                                                <p class="help-block"><small class="muted">PHP Developer</small></p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="contact-alt grd-white">
-                                                    <!--we use data toggle tab for navigate this action-->
-                                                    <a href="#chat" data-toggle="tab" data-id="patul@mail.com">
-                                                        <div class="contact-item">
-                                                            <div class="pull-left">
-                                                                <img class="contact-item-object" style="width: 32px;height: 32px;" src="/administrator/img/user-thumb-mini.jpg">
-                                                            </div>
-                                                            <div class="contact-item-body">
-                                                                <div class="status" title="ofline"><i class="icofont-certificate color-silver-dark"></i></div>
-                                                                <p class="contact-item-heading bold">Pathoel</p>
-                                                                <p class="help-block"><small class="muted">UI designer</small></p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="contact-alt grd-white">
-                                                    <!--we use data toggle tab for navigate this action-->
-                                                    <a href="#chat" data-toggle="tab" data-id="opytama@mail.com">
-                                                        <div class="contact-item">
-                                                            <div class="pull-left">
-                                                                <img class="contact-item-object" style="width: 32px;height: 32px;" src="/administrator/img/user-thumb-mini.jpg">
-                                                            </div>
-                                                            <div class="contact-item-body">
-                                                                <div class="status" title="ofline"><i class="icofont-certificate color-silver-dark"></i></div>
-                                                                <p class="contact-item-heading bold">Opytama</p>
-                                                                <p class="help-block"><small class="muted">PHP Developer</small></p>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                            </ul><!--/contact-list-->
+                                            <ul class="contact-list"></ul>
+                                            <!--/contact-list-->
                                         </div>
                                     </div><!--/contact-->
 
@@ -1075,7 +969,9 @@
                 </div><!-- /span side-right -->
             </div>
         </section>
-
+        <section class="sqlDump">
+            <?php //echo $this->render('sqlDump.php') ?>
+        </section>
         <!-- section footer -->
         <footer>
             <a rel="to-top" href="#top"><i class="icofont-circle-arrow-up"></i></a>
@@ -1101,6 +997,7 @@
         <script src="/administrator/js/calendar/fullcalendar.js"></script> <!-- this plugin required jquery ui-->
         <script src="/administrator/js/pessoa.js"></script> <!-- this plugin required jquery ui-->
         <script src="/assets/js/confirm-action.js"></script> <!-- this plugin required jquery ui-->
+        <script src="/assets/js/fale-conosco.js"></script> <!-- this plugin required jquery ui-->
 
         <!-- required stilearn template js, for full feature-->
         <script src="/administrator/js/holder.js"></script>

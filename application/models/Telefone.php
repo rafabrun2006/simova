@@ -30,5 +30,16 @@ class App_Model_Telefone extends Simova_Mapper_ModelMapper {
 
         return $return;
     }
+    
+    public function findByPerson($codPessoa){
+        $query = $this->select()
+                ->from(array('p' => 'tb_pessoa'), array('cod_pessoa'))
+                ->join(array('t' => 'tb_telefone'), 'p.cod_pessoa = t.cod_pessoa', array('*'))
+                ->where('t.cod_pessoa = ?', $codPessoa)
+                ->setIntegrityCheck(false)
+                ;
+        
+        return $this->fetchAll($query);
+    }
 
 }

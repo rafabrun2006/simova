@@ -1,7 +1,7 @@
 <script type="text/javascript" src="/admin/js/pessoa.js"></script>
 <?php echo $this->modal ?>
 <fieldset>
-    <legend>Consultar Unidades de Saúde</legend>
+    <legend>Consultar Unidade de Saúde</legend>
 
     <form class="form-inline" method="post" action="">
         <select name="tipoConsulta">
@@ -25,22 +25,20 @@
             <tr>
                 <th>Número da Unidade de Saúde</th>
                 <th>Nome da Unidade de Saúde</th>
-                <th>Telefone</th>
-                <th>Função</th>
+                <th width="85">Função</th>
             </tr>
         </thead>
         <tbody>
-
+            <?php foreach($this->unidades as $unidade): ?>
             <tr>
-                <td>02</td>
-                <td>Unidade de Saúde Fenix</td>
-                <td>(61)3349-6589</td>
+                <td><?php echo $unidade->cod_un_saude ?></td>
+                <td><?php echo $unidade->nome_un_saude ?></td>
                 <td>
-                    <a href="/admin/unidade/alterar-unidade<?php echo $funcionarios->cod_pessoa ?>" title="Alterar Unidade de Saúde" class="btn btn-primary btn btn-small"><i class="icon-edit icon-white"></i></a>
-                    <a href="/admin/unidade/excluir-unidade<?php echo $funcionarios->cod_pessoa ?>" title="Excluir Unidade de Saúde" class="btn btn-danger btn btn-small confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                    <a href="/admin/unidade/alterar-unidade/cod_un_saude/<?php echo $unidade->cod_un_saude ?>" title="Alterar Unidade de Saúde" class="btn btn-primary btn btn-small"><i class="icon-edit icon-white"></i></a>
+                    <a href="/admin/unidade/excluir-unidade/cod_un_saude/<?php echo $unidade->cod_un_saude ?>" title="Excluir Unidade de Saúde" class="btn btn-danger btn btn-small confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
                 </td>
             </tr>
-
+            <?php endforeach; ?>
         </tbody>
     </table>
     <div class="pagination pagination-centered">
