@@ -17,24 +17,19 @@
        
             <div class="tab-content">
                 <div id="tab1" class="tab-pane active">  <!--INICIO DA PRIMEIRA ABA-MENU-->
-
-
-                     <form class="form-horizontal" method="post">
-
-                       
-
+                    <form class="form-horizontal" action="" method="post">
                         <div class="rows-fluid">
                             <div class="span6">
                                 <div class="control-group">
                                     <div class="control-group">
                                         <label for="inputEmail" class="control-label">Nome da Vacina:</label>
                                         <div class="controls">
-                                            <input type="text" placeholder="Text input">
+                                            <?php echo $this->form->Vacina->nome_vacina ?>
                                         </div>
                                     </div>
                                     <label for="inputEmail" class="control-label">Lote da Vacina:</label>
                                     <div class="controls">
-                                        <input type="text" placeholder="Text input">
+                                        <?php echo $this->form->Lote->num_lote ?>
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -61,7 +56,7 @@
                                 <div class="control-group">
                                     <label for="inputEmail" class="control-label">Quantidade:</label>
                                     <div class="controls">
-                                        <input type="text" placeholder="Text input">
+                                        <?php echo $this->form->qtd_vacina ?>
                                     </div>
                                 </div>
 
