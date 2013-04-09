@@ -15,3 +15,12 @@
 7 - removido campo COD_EMAIL data tabela PESSOA (Motivo: um email e de uma pessoa e não a pessoa de um email)
 8 - add campo COD_PESSOA a tabela EMAIL (Motivo: solução para o problema 7)
 9- FAVICOM DO SIMOVA
+
+
+Correções
+
+1 - Mensagens do sistema FlashMessenger
+2 - Paginação
+3 - Cronologia de data de nascimento
+4 - Estudar tipos para validação
+5 - Colocar o endereço na view de unidade de saude
