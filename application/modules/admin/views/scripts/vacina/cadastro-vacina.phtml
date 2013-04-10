@@ -8,76 +8,71 @@
         <?php
     endif;
     ?>
-
     <div style="margin-bottom: 18px;" class="tabbable">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#tab1">Dados Principais</a></li>
-
         </ul>
-       
-            <div class="tab-content">
-                <div id="tab1" class="tab-pane active">  <!--INICIO DA PRIMEIRA ABA-MENU-->
-                    <form class="form-horizontal" action="" method="post">
+
+        <div class="tab-content">
+            <div id="tab1" class="tab-pane active">  <!--INICIO DA PRIMEIRA ABA-MENU-->
+                <form class="form-horizontal" action="" method="post">
+                    <div class="rows-fluid">
+                        <div class="span6">
+                            <div class="control-group">
+                                <div class="control-group">
+                                    <label for="inputEmail" class="control-label">Nome da Vacina:</label>
+                                    <div class="controls">
+                                        <?php echo $this->form->Vacina->nome_vac ?>
+                                    </div>
+                                </div>
+                                <label for="inputEmail" class="control-label">Lote da Vacina:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Lote->num_lote ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Fabricante:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Vacina->Fabricante->nome_fabric ?>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="span6">
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Data de Fabricação:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Lote->dt_fabric ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Data de Vencimento:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Lote->dt_venc ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Quantidade:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->qtd_vacina ?>
+                                </div>
+                            </div>
+
+                        </div>
                         <div class="rows-fluid">
-                            <div class="span6">
-                                <div class="control-group">
+                            <div class="span12">
+                                <div class="form-actions">
                                     <div class="control-group">
-                                        <label for="inputEmail" class="control-label">Nome da Vacina:</label>
-                                        <div class="controls">
-                                            <?php echo $this->form->Vacina->nome_vacina ?>
-                                        </div>
-                                    </div>
-                                    <label for="inputEmail" class="control-label">Lote da Vacina:</label>
-                                    <div class="controls">
-                                        <?php echo $this->form->Lote->num_lote ?>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label for="inputEmail" class="control-label">Fabricante:</label>
-                                    <div class="controls">
-                                        <input type="text" placeholder="Text input">
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="span6">
-                                <div class="control-group">
-                                    <label for="inputEmail" class="control-label">Data de Fabricação:</label>
-                                    <div class="controls">
-                                        <input type="text" placeholder="Text input">
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label for="inputEmail" class="control-label">Data de Vencimento:</label>
-                                    <div class="controls">
-                                        <input type="text" placeholder="Text input">
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <label for="inputEmail" class="control-label">Quantidade:</label>
-                                    <div class="controls">
-                                        <?php echo $this->form->qtd_vacina ?>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="rows-fluid">
-                                <div class="span12">
-                                    <div class="form-actions">
-                                        <div class="control-group">
-                                            <button class="btn btn-primary" type="submit">Salvar</button>
-                                            <button class="btn btn-primary" type="reset">Limpar</button>
-                                        </div>
+                                        <button class="btn btn-primary" type="submit">Salvar</button>
+                                        <button class="btn btn-primary" type="reset">Limpar</button>
                                     </div>
                                 </div>
                             </div>
-                        </div> 
-                    
-
-
-                    </form>
-                </div> <!--FIM DA PRIMEIRA ABA-MENU-->
-            </div>
+                        </div>
+                    </div> 
+                </form>
+            </div> <!--FIM DA PRIMEIRA ABA-MENU-->
+        </div>
     </div>
 </fieldset>
 
