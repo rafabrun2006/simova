@@ -12,12 +12,15 @@
  */
 class Admin_Form_Vacina extends Zend_Form {
 
+    const MESSAGE_REQUIRED = 'Preenchimento obrigatório';
+    
     public function init() {
 
         $codVacina = new Zend_Form_Element_Hidden('cod_vacina');
         
         $nomeVacina = new Zend_Form_Element_Text('nome_vac');
-        $nomeVacina->setRequired(TRUE);
+        $nomeVacina->setRequired(TRUE)
+                ->addErrorMessage(self::MESSAGE_REQUIRED);
         
         $this->addSubForm(new Admin_Form_Fabricante(), 'Fabricante');
         

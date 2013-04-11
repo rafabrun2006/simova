@@ -15,7 +15,7 @@ class Admin_Form_LoteVacina extends Zend_Form {
     public function init() {
 
         $codLoteVacina = new Zend_Form_Element_Hidden('cod_lote_vacina');
-        $qtdVacina = new Zend_Form_Element_Text('qtd_vacina');
+        $qtdVacina = new Zend_Form_Element_Text('qtd_vacina', array('class'=>'input-small'));
 
         $this->addElements(array($codLoteVacina, $qtdVacina));
         

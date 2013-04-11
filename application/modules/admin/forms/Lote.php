@@ -12,22 +12,23 @@
  */
 class Admin_Form_Lote extends Zend_Form {
 
+    const MESSAGE_REQUIRED = 'Preenchimento obrigatório';
+    
     public function init() {
 
         $codLote = new Zend_Form_Element_Hidden('cod_lote');
         
         $numLote = new Zend_Form_Element_Text('num_lote');
-        $numLote->setRequired(TRUE);
+        $numLote->setRequired(TRUE)
+                ->addErrorMessage(self::MESSAGE_REQUIRED);
         
-        $dtVenc = new Zend_Form_Element_Text('dt_venc');
+        $dtVenc = new Zend_Form_Element_Text('dt_venc', array('class' => 'date-utils', 'readonly' => TRUE));
         $dtVenc->setRequired(TRUE)
-                ->addValidator(new Zend_Validate_Date())
-                ->addErrorMessage('Necessario uma data valida');
+                ->addErrorMessage(self::MESSAGE_REQUIRED);
         
-        $dtFabric = new Zend_Form_Element_Text('dt_fabric');
+        $dtFabric = new Zend_Form_Element_Text('dt_fabric', array('class' => 'date-utils', 'readonly' => TRUE));
         $dtFabric->setRequired(TRUE)
-                ->addValidator(new Zend_Validate_Date())
-                ->addErrorMessage('Necessario uma data valida');
+                ->addErrorMessage(self::MESSAGE_REQUIRED);
         
         $this->addElements(array($codLote, $numLote, $dtFabric, $dtVenc));
         
