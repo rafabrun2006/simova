@@ -12,6 +12,8 @@ class Admin_VacinaController extends Zend_Controller_Action {
 
     public function consultaVacinaAction() {
         $model = new App_Model_Vacina();
+        
+        $this->view->modal = $this->view->render('utils/modal.phtml');
         $this->view->vacinas = $model->joinAllRelations();
     }
 
