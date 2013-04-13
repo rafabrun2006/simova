@@ -36,15 +36,15 @@ class Admin_VacinaController extends Zend_Controller_Action {
             $post = $this->_request->getPost();
 
             $this->saveVacina($form, $post);
-            //$this->_redirect('/admin/vacina/consulta-vacina');
+            $this->_redirect('/admin/vacina/consulta-vacina');
         } else {
             $where = array('v.cod_vacina' => $this->_getParam('cod_vacina'));
 
             $result = $model->joinAllRelations($where)->toArray();
-            
+
             $form->populate($result[0]);
         }
-        
+
         $this->view->form = $form;
     }
 
@@ -67,6 +67,17 @@ class Admin_VacinaController extends Zend_Controller_Action {
             $modelVacinaFabri = new App_Model_VacinaFabricante();
             $modelVacinaFabri->save($post);
         }
+    }
+
+    public function excluirVacinaAction() {
+        $model = new App_Model_LoteVacina();
+
+        $model->delete(
+                'cod_vacina = ' . $this->_getParam('cod_vacina') . ' and ' .
+                'cod_lote = ' . $this->_getParam('cod_lote')
+        );
+
+        $this->_redirect('/admin/vacina/consulta-vacina');
     }
 
 }

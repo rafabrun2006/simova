@@ -23,6 +23,7 @@ class Admin_Form_Vacina extends Zend_Form {
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
         
         $this->addSubForm(new Admin_Form_Fabricante(), 'Fabricante');
+        $this->addSubForm(new Admin_Form_VacinaFabricante(), 'VacinaFabricante');
         
         $this->addElements(array($codVacina, $nomeVacina));
         

@@ -14,8 +14,8 @@ class Admin_Form_VacinaFabricante extends Zend_Form {
 
     public function init() {
 
-        $this->addSubForm(new Admin_Form_Vacina(), 'Vacina');
-        $this->addSubForm(new Admin_Form_Fabricante(), 'Fabricante');
+        $codVacinaFabric = new Zend_Form_Element_Hidden('cod_vacina_fabricante');
+        $this->addElement($codVacinaFabric);
         
         foreach($this->getElements() as $element){
             $element->removeDecorator('htmlTag')
