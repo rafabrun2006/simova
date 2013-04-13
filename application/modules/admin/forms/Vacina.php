@@ -8,7 +8,7 @@
 /**
  * Description of Vacina
  *
- * @author bruno
+ * @
  */
 class Admin_Form_Vacina extends Zend_Form {
 

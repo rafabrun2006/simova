@@ -3,7 +3,7 @@
 /**
  * Description of Pessoa
  *
- * @author bruno
+ 
  */
 class App_Model_Endereco extends Simova_Mapper_ModelMapper {
     

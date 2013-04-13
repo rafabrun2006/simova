@@ -8,7 +8,7 @@
 /**
  * Description of Perfil
  *
- * @author bruno
+ *
  */
 class Admin_Form_Status extends Zend_Form {
 

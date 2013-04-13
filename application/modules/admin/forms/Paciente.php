@@ -8,7 +8,7 @@
 /**
  * Description of CadastroVacinas
  *
- * @author bruno
+
  */
 class Admin_Form_Paciente extends Zend_Form {
 

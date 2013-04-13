@@ -8,7 +8,7 @@
 /**
  * Description of Cidade
  *
- * @author bruno
+ * 
  */
 class Cidade extends Zend_Form {
 

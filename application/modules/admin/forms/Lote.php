@@ -8,7 +8,7 @@
 /**
  * Description of Vacina
  *
- * @author bruno
+ * 
  */
 class Admin_Form_Lote extends Zend_Form {
 

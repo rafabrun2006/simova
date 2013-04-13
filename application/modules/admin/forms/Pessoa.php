@@ -8,8 +8,7 @@
 /**
  * Description of CadastroVacinas
  *
- * @author bruno
- * @email Rafael Bruno <rafabrun2006@gmail.com>
+ * 
  */
 class Admin_Form_Pessoa extends Zend_Form {
 

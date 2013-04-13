@@ -2,7 +2,7 @@
 /**
  * Description of FaleConoscoController
  *
- * @author bruno
+
  */
 class Admin_FaleConoscoController extends Zend_Controller_Action {
     

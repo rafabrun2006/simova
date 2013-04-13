@@ -8,7 +8,7 @@
 /**
  * Description of Perfil
  *
- * @author bruno
+ * 
  */
 class Admin_Form_Login extends Zend_Form {
 
