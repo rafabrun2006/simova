@@ -36,7 +36,9 @@ class Admin_Form_Endereco extends Zend_Form {
         $bairro->setLabel('Bairro: ');
 
         $numero = new Zend_Form_Element_Text('numero');
-        $numero->setLabel('Numero:');
+        $numero->setLabel('Numero:')
+                ->addValidator(new Zend_Validate_Int())
+                ->addErrorMessage("Informe um número");
 
         $complemento = new Zend_Form_Element_Text('complemento');
         $complemento->setLabel('Complemento:');

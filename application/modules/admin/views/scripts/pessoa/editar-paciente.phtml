@@ -1,10 +1,6 @@
 <script type="text/javascript" src="/admin/js/pessoa.js"></script>
 <fieldset>
     <legend>Alterar Paciente</legend>
-    <?php if ($this->mensagem): ?>
-        <div class="alert <?php echo $this->mensagem['type'] ?>"><?php echo $this->mensagem['mensagem'] ?></div>
-    <?php endif; ?>
-
     <div style="margin-bottom: 18px;" class="tabbable">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#tab1">Dados Principais</a></li>
@@ -15,189 +11,220 @@
             <div class="tab-content">
                 <div id="tab1" class="tab-pane active">
 
-                    <!--INICIO DO PRIMEIRO FORM-->
+                    <!--INICIO DO PRIMEIRO MENU-->
 
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Nome Completo:</label>
-                        <div class="controls">
-                            <?php echo $this->form->nome ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Nome do Pai:</label>
-                        <div class="controls">
-                            <?php echo $this->form->nome_pai ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Nome da Mãe:</label>
-                        <div class="controls">
-                            <?php echo $this->form->nome_mae ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Data de Nascimento:</label>
-                        <div class="controls">
-                            <div date-date-format="mm-dd-yyyy" data-date="01-01-2013" data-form="datepicker" class="input-append date">
-                                <?php echo $this->form->dt_nasc ?>
-                                <span class="add-on"><i class="icon-th"></i></span>
+                    <div class="rows-fluid">
+                        <div class="span6">
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Nome Completo:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->nome ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Nome do Pai:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->nome_pai ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Nome da Mãe:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->nome_mae ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Data de Nascimento:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->dt_nasc ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">RG Nº:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->rg ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Nº Registro de Nascimento:</label>
-                        <div class="controls">
-                            <?php echo $this->form->registro_nasc ?>
+                        <div class="span6">
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">CPF Nº:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->cpf ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Nº Registro de Nascimento:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->registro_nasc ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Estado Civil:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->cod_estado_civil ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Sexo:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->sexo ?>
+                                </div>
+                            </div>
+
+
                         </div>
+
                     </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Estado Civil:</label>
-                        <div class="controls">
-                            <?php echo $this->form->cod_estado_civil ?>
+                  <!--  <div class="rows-fluid">
+                        <div class="span12">
+                            <div class="form-actions">
+                                <div class="control-group">
+                                    <a class="btn btn-primary" href="#tab2" data-toggle="tab">Continuar <i class="icon-forward icon-white"></i></a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Sexo:</label>
-                        <div class="controls">
-                            <?php echo $this->form->sexo ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">RG Nº:</label>
-                        <div class="controls">
-                            <?php echo $this->form->rg ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">CPF Nº:</label>
-                        <div class="controls">
-                            <?php echo $this->form->cpf ?>
-                        </div>
-                    </div>
-                    <div class="form-actions">
-                        <div class="control-group">
-                            <a class="btn btn-primary" href="#tab2" data-toggle="tab">Continuar <i class="icon-forward icon-white"></i></a>
-                        </div>
-                    </div>
+                    </div>-->
 
                 </div> <!--FIM DO PRIMEIRO MENU-->
 
                 <div id="tab2" class="tab-pane">
 
-                    <!--INICIO DO SEGUNDO FORM-->
+                    <!--INICIO DO SEGUNDO MENU-->
 
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Endereço:</label>
-                        <div class="controls">
-                            <?php echo $this->form->Endereco->endereco ?>
+                    <div class="rows-fluid">
+                        <div class="span6">
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Endereço:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Endereco->endereco ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Número:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Endereco->numero ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Complemento: </label>
+                                <div class="controls">
+                                    <?php echo $this->form->Endereco->complemento ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Bairro:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Endereco->bairro ?>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Número:</label>
-                        <div class="controls">
-                            <?php echo $this->form->Endereco->numero ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Complemento: </label>
-                        <div class="controls">
-                            <?php echo $this->form->Endereco->complemento ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Bairro:</label>
-                        <div class="controls">
-                            <?php echo $this->form->Endereco->bairro ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">CEP:</label>
-                        <div class="controls">
-                            <?php echo $this->form->Endereco->cep ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">UF:</label>
-                        <div class="controls">
-                            <?php echo $this->form->Endereco->cod_uf ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Cidade:</label>
-                        <div class="controls">
-                            <?php echo $this->form->Endereco->cod_cid ?>
+                        <div class="span6">
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">CEP:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Endereco->cep ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">UF:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Endereco->cod_uf ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Cidade:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Endereco->cod_cid ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="form-actions">
-                        <div class="control-group">
-                            <a class="btn btn-primary" href="#tab1" data-toggle="tab">Voltar <i class="icon-backward icon-white"></i></a>
-                            <a class="btn btn-primary" href="#tab3" data-toggle="tab">Continuar <i class="icon-forward icon-white"></i></a>
+                    <!--<div class="rows-fluid"> 
+                        <div class="span12">
+                            <div class="form-actions">
+                                <div class="control-group">
+                                    <a class="btn btn-primary" href="#tab1" data-toggle="tab">Voltar <i class="icon-backward icon-white"></i></a>
+                                    <a class="btn btn-primary" href="#tab3" data-toggle="tab">Continuar <i class="icon-forward icon-white"></i></a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div> <!--FIM DO SEGUNDO MENU-->
 
                 <div id="tab3" class="tab-pane">
 
-                    <!--INICIO DO TERCEIRO FORM-->
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Unidade de Saúde:</label>
-                        <div class="controls">
-                            <?php echo $this->form->cod_un_saude ?>
+                    <!--INICIO DO TERCEIRO MENU-->
+
+                    <div class="rows-fluid">
+                        <div class="span6">
+                            <div class="control-group">
+                                <div class="control-group">
+                                    <label for="inputEmail" class="control-label">Telefone residencial:</label>
+                                    <div class="controls">
+                                        <?php echo $this->form->Telefone->num_tel1 ?>
+                                    </div>
+                                </div>
+                                <label for="inputEmail" class="control-label">Telefone celular:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Telefone->num_tel2 ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">E-mail:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->email ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Codigo da Unidade:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->cod_un_saude ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Perfil:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->cod_perfil ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span6">
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Status:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Status->cod_status ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Usuário:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Login->nome_login ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Senha:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Login->senha_login ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Confirmar-Senha:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->Login->senha_login ?>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Status:</label>
-                        <div class="controls">
-                            <?php echo $this->form->Status->cod_status ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Telefone residêncial:</label>
-                        <div class="controls">
-                            <?php echo $this->form->Telefone->num_tel1 ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Telefone celular:</label>
-                        <div class="controls">
-                            <?php echo $this->form->Telefone->num_tel2 ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">E-mail:</label>
-                        <div class="controls">
-                            <?php echo $this->form->email ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Perfil:</label>
-                        <div class="controls">
-                            <?php echo $this->form->cod_perfil ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Usuário:</label>
-                        <div class="controls">
-                            <?php echo $this->form->Login->nome_login ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Senha:</label>
-                        <div class="controls">
-                            <?php echo $this->form->Login->senha_login ?>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <label for="inputEmail" class="control-label">Confirmar-Senha:</label>
-                        <div class="controls">
-                            <?php echo $this->form->Login->senha_login ?>
-                        </div>
-                    </div>
-                    <div class="form-actions">
-                        <div class="control-group">
-                            <button class="btn btn-info" type="submit">Salvar</button>
-                            <button class="btn btn-info" type="reset">Limpar</button>
+                    <div class="rows-fluid">
+                        <div class="span12">
+                            <div class="form-actions">
+                                <div class="control-group">
+                                    <button class="btn btn-primary" type="submit">Salvar</button>
+                                    <button class="btn btn-primary" type="reset">Limpar</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="hidden">

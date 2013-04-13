@@ -19,9 +19,9 @@ class Admin_Form_Pessoa extends Zend_Form {
         $codPessoa = new Zend_Form_Element_Hidden('cod_pessoa');
 
         $cpf = new Zend_Form_Element_Text('cpf');
-        $cpf->setLabel('CPF: ')
-                ->addValidator(new Zend_Validate_Int())
-                ;
+        $cpf->setLabel('CPF: ');
+               
+                
 
         $nome = new Zend_Form_Element_Text('nome', array('class' => 'input-xlarge'));
         $nome->setLabel('Nome: ')
@@ -48,8 +48,8 @@ class Admin_Form_Pessoa extends Zend_Form {
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
 
         $rg = new Zend_Form_Element_Text('rg');
-        $rg->setLabel('RG: ')
-                ->addValidator(new Zend_Validate_Int());
+        $rg->setLabel('RG: ');
+                
 
         $estadoCivil = new Zend_Form_Element_Select('cod_estado_civil');
         $estadoCivil->setRequired(TRUE)
