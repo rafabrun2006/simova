@@ -18,7 +18,7 @@ class Admin_Form_Vacina extends Zend_Form {
 
         $codVacina = new Zend_Form_Element_Hidden('cod_vacina');
         
-        $nomeVacina = new Zend_Form_Element_Text('nome_vac');
+        $nomeVacina = new Zend_Form_Element_Text('nome_vacina');
         $nomeVacina->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
         

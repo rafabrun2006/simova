@@ -8,6 +8,8 @@ class App_Model_Lote extends Simova_Mapper_ModelMapper
     
     public function save($data){
         
+        $this->_primary = 'cod_lote';
+        
         $data['dt_venc'] = date('Y/m/d', strtotime($data['dt_venc']));
         $data['dt_fabric'] = date('Y/m/d', strtotime($data['dt_fabric']));
         

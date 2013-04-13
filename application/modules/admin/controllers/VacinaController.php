@@ -12,7 +12,7 @@ class Admin_VacinaController extends Zend_Controller_Action {
 
     public function consultaVacinaAction() {
         $model = new App_Model_Vacina();
-        
+
         $this->view->modal = $this->view->render('utils/modal.phtml');
         $this->view->vacinas = $model->joinAllRelations();
     }
@@ -24,7 +24,7 @@ class Admin_VacinaController extends Zend_Controller_Action {
             $post = $this->_request->getPost();
             $this->saveVacina($form, $post);
         }
-        
+
         $this->view->form = $form;
     }
 
@@ -36,26 +36,25 @@ class Admin_VacinaController extends Zend_Controller_Action {
             $post = $this->_request->getPost();
 
             $this->saveVacina($form, $post);
-            $this->_redirect('/admin/vacina/consulta-vacina');
+            //$this->_redirect('/admin/vacina/consulta-vacina');
         } else {
-            $where = array('cod_vacina' => $this->_getParam('cod_vacina'));
+            $where = array('v.cod_vacina' => $this->_getParam('cod_vacina'));
 
             $result = $model->joinAllRelations($where)->toArray();
-            $form->populate($result[0]);
             
-            $this->view->form = $form;
+            $form->populate($result[0]);
         }
+        
+        $this->view->form = $form;
     }
 
     public function saveVacina($form, $post) {
 
         if ($form->isValid($post)) {
-            
+
             $model = new App_Model_Vacina();
-            $post['cod_vac'] = $model->save($post);
-            
-            $post['cod_vacina'] = $post['cod_vac'];
-            
+            $post['cod_vacina'] = $model->save($post);
+
             $modelLote = new App_Model_Lote();
             $post['cod_lote'] = $modelLote->save($post);
 
@@ -67,9 +66,7 @@ class Admin_VacinaController extends Zend_Controller_Action {
 
             $modelVacinaFabri = new App_Model_VacinaFabricante();
             $modelVacinaFabri->save($post);
-            
         }
-        
     }
 
 }

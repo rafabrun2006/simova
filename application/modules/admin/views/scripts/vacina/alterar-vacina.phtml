@@ -21,7 +21,7 @@
                                 <div class="control-group">
                                     <label for="inputEmail" class="control-label">Nome da Vacina:</label>
                                     <div class="controls">
-                                        <?php echo $this->form->Vacina->nome_vac ?>
+                                        <?php echo $this->form->Vacina->nome_vacina ?>
                                     </div>
                                 </div>
                                 <label for="inputEmail" class="control-label">Lote da Vacina:</label>
@@ -60,6 +60,7 @@
                             </div>
                         </div>
                         <?php echo $this->form->Vacina->cod_vacina ?>
+                        <?php echo $this->form->cod_lote_vacina ?>
                         <?php echo $this->form->Lote->cod_lote ?>
                         <?php echo $this->form->Vacina->Fabricante->cod_fabric ?>
                         <div class="rows-fluid">
