@@ -25,4 +25,10 @@ class Simova_Mensagens {
     const ALTERAR_ERROR = 'Erro ao tentar salvar alterações do registro';
     const CADASTRO_ERROR = 'Erro ao tentar cadastrar registro';
     
+    /*
+     * Mensagem de aviso (warning) e validação
+     */
+    const FORM_INVALIDO = 'Verifique o seu formulário';
+    const NENHUM_RESULTADO = 'Nenhum resultado encontrado';
+    
 }

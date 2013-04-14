@@ -1,10 +1,7 @@
 <script type="text/javascript" src="/admin/js/pessoa.js"></script>
 <fieldset>
+    <?php echo $this->flashMessenger() ?>
     <legend>Alterar Unidade de Saúde</legend>
-    <?php if ($this->mensagem): ?>
-        <div class="alert <?php echo $this->mensagem['type'] ?>"><?php echo $this->mensagem['mensagem'] ?></div>
-    <?php endif; ?>
-
     <div style="margin-bottom: 18px;" class="tabbable">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#tab1">Dados Principais</a></li>

@@ -12,9 +12,15 @@ class Admin_VacinaController extends Zend_Controller_Action {
 
     public function consultaVacinaAction() {
         $model = new App_Model_Vacina();
-
+        
+        $this->view->request = $this->_request->getPost();
+        
         $this->view->modal = $this->view->render('utils/modal.phtml');
         $this->view->vacinas = $model->joinAllRelations();
+        
+        if(count($this->view->vacinas) <= 0){
+            $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::NENHUM_RESULTADO));
+        }
     }
 
     public function cadastroVacinaAction() {
@@ -23,6 +29,9 @@ class Admin_VacinaController extends Zend_Controller_Action {
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
             $this->saveVacina($form, $post);
+            
+            $this->_helper->flashMessenger(array('success' => Simova_Mensagens::CADASTRO_SUCESSO));
+            $this->_redirect('/admin/vacina/consulta-vacina');
         }
 
         $this->view->form = $form;
@@ -36,7 +45,10 @@ class Admin_VacinaController extends Zend_Controller_Action {
             $post = $this->_request->getPost();
 
             $this->saveVacina($form, $post);
+            
+            $this->_helper->flashMessenger(array('success' => Simova_Mensagens::ALTERAR_SUCESSO));
             $this->_redirect('/admin/vacina/consulta-vacina');
+            
         } else {
             $where = array('v.cod_vacina' => $this->_getParam('cod_vacina'));
 
@@ -76,7 +88,8 @@ class Admin_VacinaController extends Zend_Controller_Action {
                 'cod_vacina = ' . $this->_getParam('cod_vacina') . ' and ' .
                 'cod_lote = ' . $this->_getParam('cod_lote')
         );
-
+        
+        $this->_helper->flashMessenger(array('success' => Simova_Mensagens::DELETE_SUCESSO));
         $this->_redirect('/admin/vacina/consulta-vacina');
     }
 

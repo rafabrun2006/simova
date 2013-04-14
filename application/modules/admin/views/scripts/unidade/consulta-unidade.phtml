@@ -1,5 +1,6 @@
 <script type="text/javascript" src="/admin/js/pessoa.js"></script>
 <?php echo $this->modal ?>
+<?php echo $this->flashMessenger() ?>
 <fieldset>
     <legend>Consultar Unidade de Saúde</legend>
 
@@ -19,39 +20,41 @@
     <!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
 
     <!--PAGINAÇÃO DAS TABELAS DA PESQUISA-->
-
-    <table class="table table-bordered table-striped" style="font-size: 13px;">
-        <thead style="background-color: #08c; color: #FFFFFF">
-            <tr>
-                <th>Número da Unidade de Saúde</th>
-                <th>Nome da Unidade de Saúde</th>
-                <th width="85">Função</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($this->unidades as $unidade): ?>
-            <tr>
-                <td><?php echo $unidade->cod_un_saude ?></td>
-                <td><?php echo $unidade->nome_un_saude ?></td>
-                <td>
-                    <a href="/admin/unidade/alterar-unidade/cod_un_saude/<?php echo $unidade->cod_un_saude ?>" title="Alterar Unidade de Saúde" class="btn btn-primary btn btn-small"><i class="icon-edit icon-white"></i></a>
-                    <a href="/admin/unidade/excluir-unidade/cod_un_saude/<?php echo $unidade->cod_un_saude ?>" title="Excluir Unidade de Saúde" class="btn btn-danger btn btn-small confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="pagination pagination-centered">
-        <ul>
-            <!--TABELA COM OS DADOS DA PESQUISA-->
-            <li><a href="#">Anterior</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li><a href="#">7</a></li>
-            <li><a href="#">Proximo</a></li>
-        </ul>
-    </div>
+    <?php if (count($this->unidades) > 0): ?>
+        <table class="table table-bordered table-striped" style="font-size: 13px;">
+            <div class="alert alert-info">Resultado(s) da(s) consulta(s) para: <strong><?php echo $this->request['search'] ?></strong></div>
+            <thead style="background-color: #08c; color: #FFFFFF">
+                <tr>
+                    <th>Número da Unidade de Saúde</th>
+                    <th>Nome da Unidade de Saúde</th>
+                    <th width="85">Função</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($this->unidades as $unidade): ?>
+                    <tr>
+                        <td><?php echo $unidade->cod_un_saude ?></td>
+                        <td><?php echo $unidade->nome_un_saude ?></td>
+                        <td>
+                            <a href="/admin/unidade/alterar-unidade/cod_un_saude/<?php echo $unidade->cod_un_saude ?>" title="Alterar Unidade de Saúde" class="btn btn-primary btn btn-small"><i class="icon-edit icon-white"></i></a>
+                            <a href="/admin/unidade/excluir-unidade/cod_un_saude/<?php echo $unidade->cod_un_saude ?>" title="Excluir Unidade de Saúde" class="btn btn-danger btn btn-small confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <div class="pagination pagination-centered">
+            <ul>
+                <!--TABELA COM OS DADOS DA PESQUISA-->
+                <li><a href="#">Anterior</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">7</a></li>
+                <li><a href="#">Proximo</a></li>
+            </ul>
+        </div>
+    <?php endif; ?>
 </fieldset>

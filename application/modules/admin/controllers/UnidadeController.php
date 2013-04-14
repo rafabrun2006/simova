@@ -9,7 +9,14 @@ class Admin_UnidadeController extends Zend_Controller_Action {
     public function consultaUnidadeAction() {
         $model = new App_Model_UnidadeSaude();
 
+        $this->view->request = $this->_request->getPost();
+
         $this->view->unidades = $model->fetchAll();
+
+        if (count($this->view->unidades) <= 0) {
+            $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::NENHUM_RESULTADO));
+        }
+
         $this->view->modal = $this->view->render('/utils/modal.phtml');
     }
 
@@ -33,11 +40,11 @@ class Admin_UnidadeController extends Zend_Controller_Action {
                  * Salva os dados de uma nova unidade saude cadastrada
                  */
                 if ($model->save($post)) {
-                    $this->_helper->flashMessenger('success', 'Unidade de Saúde cadastrada com sucesso');
+                    $this->_helper->flashMessenger(array('success' => Simova_Mensagens::CADASTRO_SUCESSO));
                     $this->_redirect('/admin/unidade/consulta-unidade');
                 }
             } else {
-                $this->_helper->flashMessenger('error', 'Verifique seu formulario');
+                $this->_helper->flashMessenger(array('error' => Simova_Mensagens::FORM_INVALIDO));
             }
         }
 
@@ -67,9 +74,8 @@ class Admin_UnidadeController extends Zend_Controller_Action {
                  */
 
                 if ($model->save($post)) {
-                    $this->view->mensagem = array(
-                        'type' => 'alert-success',
-                        'mensagem' => 'Dados alterados com sucesso!');
+                    $this->_helper->flashMessenger(array('success' => Simova_Mensagens::ALTERAR_SUCESSO));
+                    $this->_redirect('/admin/unidade/consulta-unidade');
                 }
             } else {
                 $form->populate($post);
@@ -80,12 +86,13 @@ class Admin_UnidadeController extends Zend_Controller_Action {
 
         $this->view->form = $form;
     }
-    
-    public function excluirUnidadeAction(){
+
+    public function excluirUnidadeAction() {
         $model = new App_Model_UnidadeSaude();
-        
-        $model->delete('cod_un_saude = '.$this->_getParam('cod_un_saude'));
-        
+
+        $model->delete('cod_un_saude = ' . $this->_getParam('cod_un_saude'));
+
+        $this->_helper->flashMessenger(array('success' => Simova_Mensagens::DELETE_SUCESSO));
         $this->_redirect('/admin/unidade/consulta-unidade');
     }
 

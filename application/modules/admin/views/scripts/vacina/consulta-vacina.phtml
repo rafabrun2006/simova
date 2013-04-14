@@ -1,8 +1,7 @@
-<script type="text/javascript" src="/admin/js/pessoa.js"></script>
 <?php echo $this->modal ?>
+<?php echo $this->flashMessenger(); ?>
 <fieldset>
     <legend>Consultar Vacinas</legend>
-
     <form class="form-inline" method="post" action="">
         <select name="tipoConsulta">
             <option value="">Selecione a opção</option>
@@ -19,43 +18,45 @@
     <!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
 
     <!--PAGINAÇÃO DAS TABELAS DA PESQUISA-->
-
-    <table class="table table-bordered table-striped" style="font-size: 13px;">
-        <thead style="background-color: #08c; color: #FFFFFF">
-            <tr>
-                <th>Código da Vacina</th>
-                <th>Nome da Vacina</th>
-                <th>Data de Fabricação</th>
-                <th>Data de Vencimento</th>
-                <th>Função</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($this->vacinas as $vacinas): ?>
+    <?php if (count($this->vacinas)): ?>
+        <table class="table table-bordered table-striped" style="font-size: 13px;">
+            <div class="alert alert-info">Resultado(s) da(s) consulta(s) para: <strong><?php echo $this->request['search'] ?></strong></div>
+            <thead style="background-color: #08c; color: #FFFFFF">
                 <tr>
-                    <td><?php echo $vacinas->cod_vacina ?></td>
-                    <td><?php echo $vacinas->nome_vacina ?></td>
-                    <td><?php echo $vacinas->dt_fabric ?></td>
-                    <td><?php echo $vacinas->dt_venc ?></td>
-                    <td>
-                        <a href="/admin/vacina/alterar-vacina/cod_vacina/<?php echo $vacinas->cod_vacina ?>" title="Alterar" class="btn btn-primary btn btn-mini"><i class="icon-pencil icon-white"></i></a>
-                        <a href="/admin/vacina/excluir-vacina/cod_lote/<?php echo $vacinas->cod_lote ?>/cod_vacina/<?php echo $vacinas->cod_vacina ?>" title="Excluir" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
-                    </td>
+                    <th>Código da Vacina</th>
+                    <th>Nome da Vacina</th>
+                    <th>Data de Fabricação</th>
+                    <th>Data de Vencimento</th>
+                    <th width="75">Função</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="pagination pagination-centered">
-        <ul>
-            <!--TABELA COM OS DADOS DA PESQUISA-->
-            <li><a href="#">Anterior</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li><a href="#">7</a></li>
-            <li><a href="#">Proximo</a></li>
-        </ul>
-    </div>
+            </thead>
+            <tbody>
+                <?php foreach ($this->vacinas as $vacinas): ?>
+                    <tr>
+                        <td><?php echo $vacinas->cod_vacina ?></td>
+                        <td><?php echo $vacinas->nome_vacina ?></td>
+                        <td><?php echo $vacinas->dt_fabric ?></td>
+                        <td><?php echo $vacinas->dt_venc ?></td>
+                        <td>
+                            <a href="/admin/vacina/alterar-vacina/cod_vacina/<?php echo $vacinas->cod_vacina ?>" title="Alterar" class="btn btn-primary btn btn-mini"><i class="icon-pencil icon-white"></i></a>
+                            <a href="/admin/vacina/excluir-vacina/cod_lote/<?php echo $vacinas->cod_lote ?>/cod_vacina/<?php echo $vacinas->cod_vacina ?>" title="Excluir" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <div class="pagination pagination-centered">
+            <ul>
+                <!--TABELA COM OS DADOS DA PESQUISA-->
+                <li><a href="#">Anterior</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">6</a></li>
+                <li><a href="#">7</a></li>
+                <li><a href="#">Proximo</a></li>
+            </ul>
+        </div>
+    <?php endif; ?>
 </fieldset>

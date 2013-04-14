@@ -1,12 +1,6 @@
 <fieldset>
     <legend>Alterar Vacina</legend>
-    <?php
-    if ($this->mensagem):
-        ?>
-        <div class="alert <?php echo $this->mensagem['type'] ?>"><?php echo $this->mensagem['mensagem'] ?></div>
-        <?php
-    endif;
-    ?>
+    <?php echo $this->flashMessenger() ?>
     <div style="margin-bottom: 18px;" class="tabbable">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#tab1">Dados Principais</a></li>

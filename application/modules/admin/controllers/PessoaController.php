@@ -21,20 +21,14 @@ class Admin_PessoaController extends Zend_Controller_Action {
             if ($form->isValid($post)) {
 
                 if ($this->save('F', $post)) {
-                    $this->view->mensagem = array(
-                        'type' => 'alert-success', 'mensagem' => 'Cadastro efetuado com sucesso!'
-                    );
-
+                    $this->_helper->flashMessenger(array('success' => Simova_Mensagens::CADASTRO_SUCESSO));
                     $this->_redirect('/admin/pessoa/consulta-funcionario');
                 } else {
-                    $this->view->mensagem = array(
-                        'type' => 'alert-danger', 'mensagem' => 'Erro ao efetuar cadastro!'
-                    );
+                    $this->_helper->flashMessenger(array('success' => Simova_Mensagens::CADASTRO_ERROR));
+                    $this->_redirect('/admin/pessoa/consulta-funcionario');
                 }
             } else {
-                $this->view->mensagem = array(
-                    'type' => 'alert-warning', 'mensagem' => 'Verifique seu formulário!'
-                );
+                $this->_helper->flashMessenger(array('success' => Simova_Mensagens::FORM_INVALIDO));
             }
         }
         $this->view->form = $form;
@@ -51,20 +45,14 @@ class Admin_PessoaController extends Zend_Controller_Action {
             if ($form->isValid($post)) {
 
                 if ($this->save('P', $post)) {
-                    $this->view->mensagem = array(
-                        'type' => 'alert-success', 'mensagem' => 'Cadastro efetuado com sucesso!'
-                    );
 
+                    $this->_helper->flashMessenger(array('success' => Simova_Mensagens::CADASTRO_SUCESSO));
                     $this->_redirect('/admin/pessoa/consulta-paciente');
                 } else {
-                    $this->view->mensagem = array(
-                        'type' => 'alert-danger', 'mensagem' => 'Erro ao efetuar cadastro!'
-                    );
+                    $this->_helper->flashMessenger(array('success' => Simova_Mensagens::CADASTRO_ERROR));
                 }
             } else {
-                $this->view->mensagem = array(
-                    'type' => 'alert-warning', 'mensagem' => 'Verifique seu formulário!'
-                );
+                $this->_helper->flashMessenger(array('success' => Simova_Mensagens::FORM_INVALIDO));
             }
         }
         $this->view->form = $form;
@@ -73,8 +61,14 @@ class Admin_PessoaController extends Zend_Controller_Action {
     public function consultaFuncionarioAction() {
         $model = new App_Model_Funcionario();
 
+        $this->view->request = $this->_request->getPost();
+
         $this->view->listFuncionarios = $model
                 ->listFuncionarios($this->_request->getPost());
+
+        if (count($this->view->listFuncionarios) <= 0) {
+            $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::NENHUM_RESULTADO));
+        }
 
         $this->view->modal = $this->view->render('utils/modal.phtml');
     }
@@ -86,6 +80,10 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
         $this->view->listPacientes = $model
                 ->listPaciente($this->_request->getPost());
+        
+        if (count($this->view->listPacientes) <= 0) {
+            $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::NENHUM_RESULTADO));
+        }
 
         $this->view->modal = $this->view->render('utils/modal.phtml');
     }
@@ -115,12 +113,13 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
             if ($form->isValid($post)) {
                 if ($this->save('F', $post)) {
-                    $this->view->mensagem = array(
-                        'type' => 'alert-success', 'mensagem' => 'Alteração efetuado com sucesso!'
-                    );
-
+                    $this->_helper->flashMessenger(array('success' => Simova_Mensagens::ALTERAR_SUCESSO));
                     $this->_redirect('/admin/pessoa/consulta-funcionario');
+                } else {
+                    $this->_helper->flashMessenger(array('success' => Simova_Mensagens::ALTERAR_ERROR));
                 }
+            } else {
+                $this->_helper->flashMessenger(array('success' => Simova_Mensagens::FORM_INVALIDO));
             }
         }
 
@@ -137,18 +136,13 @@ class Admin_PessoaController extends Zend_Controller_Action {
             if ($form->isValid($post)) {
 
                 if ($this->save('P', $post)) {
-                    $this->view->mensagem = array(
-                        'type' => 'alert-success', 'mensagem' => 'Alteração efetuado com sucesso!'
-                    );
-
+                    $this->_helper->flashMessenger(array('success' => Simova_Mensagens::ALTERAR_SUCESSO));
                     $this->_redirect('/admin/pessoa/consulta-paciente');
+                } else {
+                    $this->_helper->flashMessenger(array('error' => Simova_Mensagens::ALTERAR_ERROR));
                 }
             } else {
-                $this->view->mensagem = array(
-                    'type' => 'alert-warning', 'mensagem' => 'Verifique seu formulário!'
-                );
-                Zend_Debug::dump($post);
-                Zend_Debug::dump($form->getMessages());
+                $this->_helper->flashMessenger(array('error' => Simova_Mensagens::FORM_INVALIDO));
             }
         }
 
@@ -165,9 +159,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
         if ($this->_getParam('cod_pessoa')) {
             $model->delete('cod_pessoa = ' . $this->_getParam('cod_pessoa'));
 
-            $this->view->mensagem = array(
-                'type' => 'alert-warning', 'mensagem' => 'Operação de exclusão efetuada com sucesso!'
-            );
+            $this->_helper->flashMessenger(array('success' => Simova_Mensagens::DELETE_SUCESSO));
         }
 
         $this->_redirect('/admin/pessoa/' . $actionRedirect);

@@ -1,13 +1,7 @@
 <script type="text/javascript" src="/admin/js/pessoa.js"></script>
+<?php echo $this->flashMessenger() ?>
 <fieldset>
     <legend>Cadastrar Funcionário</legend>
-    <?php
-    if ($this->mensagem):
-        ?>
-        <div class="alert <?php echo $this->mensagem['type'] ?>"><?php echo $this->mensagem['mensagem'] ?></div>
-        <?php
-    endif;
-    ?>
 
     <div style="margin-bottom: 18px;" class="tabbable">
         <ul class="nav nav-tabs">

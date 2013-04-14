@@ -1,9 +1,8 @@
 <script type="text/javascript" src="/admin/js/pessoa.js"></script>
-<?php echo $this->modal ?>
-
-<?php if (count($this->listPacientes) <= 0): ?>
-    <div class="alert alert-warning">Nenhum resultado encontrado</div>
-<?php endif; ?>
+<?php
+echo $this->modal;
+echo $this->flashMessenger();
+?>
 
 <legend>Consultar Paciente</legend>
 <form class="form-inline" action="" method="post">
@@ -37,7 +36,7 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($this->listPacientes as $paciente): ?>
+    <?php foreach ($this->listPacientes as $paciente): ?>
                 <tr>
                     <td><?php echo $paciente->cod_pac ?></td>
                     <td><?php echo $paciente->nome ?></td>
@@ -55,22 +54,23 @@
                         </a>
                     </td>
                 </tr>
-            <?php endforeach; ?>
+    <?php endforeach; ?>
         </tbody>
     </table>
+
+    <div class="pagination pagination-centered">
+        <ul>
+            <!--TABELA COM OS DADOS DA PESQUISA-->
+            <li><a href="#">Anterior</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">Proximo</a></li>
+        </ul>
+    </div>
     <?php
 endif;
 ?>
-<div class="pagination pagination-centered">
-    <ul>
-        <!--TABELA COM OS DADOS DA PESQUISA-->
-        <li><a href="#">Anterior</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">6</a></li>
-        <li><a href="#">7</a></li>
-        <li><a href="#">Proximo</a></li>
-    </ul>
-</div>
