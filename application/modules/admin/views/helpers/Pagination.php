@@ -32,12 +32,12 @@ class Zend_View_Helper_Pagination extends Zend_View_Helper_Abstract {
         }
 
         $std->pages = $numberPage;
-
+        
         /*
          * Definindo variavel que contem paginação Next e Previous
          */
-        $std->next = $linkNumber + $paginator->getCurrentPageNumber() + 1;
-        $std->previous = $linkNumber + $paginator->getCurrentPageNumber() - 1;
+        $std->next = $linkNumber . ($paginator->getCurrentPageNumber() + 1);
+        $std->previous = $linkNumber . ($paginator->getCurrentPageNumber() - 1);
         $std->count = $paginator->count();
 
         return $std;
