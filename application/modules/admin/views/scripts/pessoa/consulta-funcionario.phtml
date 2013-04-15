@@ -23,47 +23,42 @@ echo $this->flashMessenger();
     <!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
 
     <!--PAGINAÇÃO DAS TABELAS DA PESQUISA-->
-<?php if(count($this->listFuncionarios) > 0): ?>
-    <table class="table table-bordered table-striped"  style="font-size: 13px;">
-        <div class="alert alert-info">Resultado(s) da(s) consulta(s) para: <strong><?php echo $this->request['search'] ?></strong></div>
-        <thead style="background-color: #08c; color: #FFFFFF">
-            <tr>
-                <th>Código</th>
-                <th>Usuário</th>
-                <th>Nome Completo</th>
-                <th>Matrícula Nº</th>
-                <th>Status</th>
-                <th>Função</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($this->listFuncionarios as $funcionarios): ?>
+    <?php if (count($this->listFuncionarios) > 0): ?>
+        <table id="table-paginator" class="table table-bordered table-striped"  style="font-size: 13px;">
+            <div class="alert alert-info">Resultado(s) da(s) consulta(s) para: <strong><?php echo $this->request['search'] ?></strong></div>
+            <thead style="background-color: #08c; color: #FFFFFF">
                 <tr>
-                    <td><?php echo $funcionarios->cod_pessoa ?></td>
-                    <td><?php echo $funcionarios->nome_login ?></td>
-                    <td><?php echo $funcionarios->nome ?></td>
-                    <td><?php echo $funcionarios->matricula ?></td>
-                    <td><?php echo $funcionarios->cod_status == 1 ? 'Ativo' : 'Inativo' ?></td>
-                    <td>
-                        <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Alterar" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
-                        <a href="/admin/pessoa/excluir-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Excluir" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
-                    </td>
+                    <th>Código</th>
+                    <th>Usuário</th>
+                    <th>Nome Completo</th>
+                    <th>Matrícula Nº</th>
+                    <th>Status</th>
+                    <th>Função</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="pagination pagination-centered">
-        <ul>
-            <!--TABELA COM OS DADOS DA PESQUISA-->
-            <li><a href="#">Anterior</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li><a href="#">7</a></li>
-            <li><a href="#">Proximo</a></li>
-        </ul>
-    </div>
+            </thead>
+            <tbody>
+                <?php foreach ($this->listFuncionarios as $funcionarios): ?>
+                    <tr>
+                        <td><?php echo $funcionarios->cod_pessoa ?></td>
+                        <td><?php echo $funcionarios->nome_login ?></td>
+                        <td><?php echo $funcionarios->nome ?></td>
+                        <td><?php echo $funcionarios->matricula ?></td>
+                        <td><?php echo $funcionarios->cod_status == 1 ? 'Ativo' : 'Inativo' ?></td>
+                        <td>
+                            <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Alterar" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
+                            <a href="/admin/pessoa/excluir-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Excluir" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+        <div class="pagination pagination-centered">
+            <ul>
+                <!--TABELA COM OS DADOS DA PESQUISA-->
+                <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                <?php echo $this->pagination->pages ?>
+                <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+            </ul>
+        </div>
     <?php endif; ?>
 </fieldset>
