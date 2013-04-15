@@ -13,12 +13,17 @@ class Admin_VacinaController extends Zend_Controller_Action {
     public function consultaVacinaAction() {
         $model = new App_Model_Vacina();
         
+        $paginator = $this->view->pagination(
+                $model->joinAllRelations(),
+                $this->_getParam('page'),
+                '/admin/vacina/consulta-vacina/page/');
+        
+        $this->view->pagination = $paginator;
+        $this->view->vacinas = $paginator->paginator;
         $this->view->request = $this->_request->getPost();
-        
         $this->view->modal = $this->view->render('utils/modal.phtml');
-        $this->view->vacinas = $model->joinAllRelations();
         
-        if(count($this->view->vacinas) <= 0){
+        if($paginator->count <= 0){
             $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::NENHUM_RESULTADO));
         }
     }
