@@ -16,8 +16,8 @@ class Zend_View_Helper_Pagination extends Zend_View_Helper_Abstract {
 
         $paginator
                 ->setCurrentPageNumber($currentPage)
-                ->setItemCountPerPage(2)
-                ->setPageRange(2);
+                ->setItemCountPerPage(10)
+                ->setPageRange(10);
 
         $std->paginator = $paginator;
 
