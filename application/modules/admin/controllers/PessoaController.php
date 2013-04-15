@@ -61,30 +61,36 @@ class Admin_PessoaController extends Zend_Controller_Action {
     public function consultaFuncionarioAction() {
         $model = new App_Model_Funcionario();
 
-        $this->view->request = $this->_request->getPost();
+        $paginator = $this->view->pagination(
+                $model->listFuncionarios($this->_request->getPost()), $this->_getParam('page'), '/admin/pessoa/consulta-funcionario/page/');
 
-        $this->view->listFuncionarios = $model
-                ->listFuncionarios($this->_request->getPost());
+        $this->view->listFuncionarios = $paginator->paginator;
 
-        if (count($this->view->listFuncionarios) <= 0) {
+        if ($paginator->count <= 0) {
             $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::NENHUM_RESULTADO));
         }
 
+        $this->view->pagination = $paginator;
+        $this->view->request = $this->_request->getPost();
         $this->view->modal = $this->view->render('utils/modal.phtml');
     }
 
     public function consultaPacienteAction() {
         $model = new App_Model_Paciente();
 
-        $this->view->request = $this->_request->getPost();
+        $paginator = $this->view->pagination(
+                $model->listPaciente($this->_request->getPost()), 
+                $this->_getParam('page'), 
+                '/admin/pessoa/consulta-paciente/page/');
 
-        $this->view->listPacientes = $model
-                ->listPaciente($this->_request->getPost());
-        
-        if (count($this->view->listPacientes) <= 0) {
+        $this->view->listPacientes = $paginator->paginator;
+
+        if ($paginator->count <= 0) {
             $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::NENHUM_RESULTADO));
         }
 
+        $this->view->pagination = $paginator;
+        $this->view->request = $this->_request->getPost();
         $this->view->modal = $this->view->render('utils/modal.phtml');
     }
 
