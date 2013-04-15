@@ -9,14 +9,19 @@ class Admin_UnidadeController extends Zend_Controller_Action {
     public function consultaUnidadeAction() {
         $model = new App_Model_UnidadeSaude();
 
-        $this->view->request = $this->_request->getPost();
+        $paginator = $this->view->pagination(
+                    $model->fetchAll(),
+                    $this->_getParam('page'),
+                    '/admin/unidade/consulta-unidade/page/');
+        
+        $this->view->unidades = $paginator->paginator;
 
-        $this->view->unidades = $model->fetchAll();
-
-        if (count($this->view->unidades) <= 0) {
+        if ($paginator->count <= 0) {
             $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::NENHUM_RESULTADO));
         }
 
+        $this->view->pagination = $paginator;
+        $this->view->request = $this->_request->getPost();
         $this->view->modal = $this->view->render('/utils/modal.phtml');
     }
 
