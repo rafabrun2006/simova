@@ -36,7 +36,7 @@ echo $this->flashMessenger();
             </tr>
         </thead>
         <tbody>
-    <?php foreach ($this->listPacientes as $paciente): ?>
+            <?php foreach ($this->listPacientes as $paciente): ?>
                 <tr>
                     <td><?php echo $paciente->cod_pac ?></td>
                     <td><?php echo $paciente->nome ?></td>
@@ -54,21 +54,15 @@ echo $this->flashMessenger();
                         </a>
                     </td>
                 </tr>
-    <?php endforeach; ?>
+            <?php endforeach; ?>
         </tbody>
     </table>
-
     <div class="pagination pagination-centered">
         <ul>
             <!--TABELA COM OS DADOS DA PESQUISA-->
-            <li><a href="#">Anterior</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li><a href="#">7</a></li>
-            <li><a href="#">Proximo</a></li>
+            <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+            <?php echo $this->pagination->pages ?>
+            <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
         </ul>
     </div>
     <?php
