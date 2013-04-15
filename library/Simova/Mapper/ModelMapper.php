@@ -21,12 +21,12 @@ abstract class Simova_Mapper_ModelMapper extends Zend_Db_Table_Abstract {
         if ($data[$this->_primary]) {
             $this->update($dataInsert, $this->_primary . '=' . $data[$this->_primary]);
 
-            Zend_Debug::dump($dataInsert);
+            //Zend_Debug::dump($dataInsert);
 
             return $data[$this->_primary];
         } else {
 
-            Zend_Debug::dump($dataInsert);
+            //Zend_Debug::dump($dataInsert);
 
             return $this->insert($dataInsert);
         }
