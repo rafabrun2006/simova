@@ -10,7 +10,7 @@ $(document).ready(function() {
 
         confirmYes = this.href;
 
-        $('.modal-body').html('Deseja realmente continuar esta operação?');
+        $('.modal-body').html('Deseja excluir este registro?');
         $('.modal').modal('show');
 
         return false;

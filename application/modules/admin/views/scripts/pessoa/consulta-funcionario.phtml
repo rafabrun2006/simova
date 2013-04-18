@@ -28,7 +28,7 @@ echo $this->flashMessenger();
             <div class="alert alert-info">Resultado(s) da(s) consulta(s) para: <strong><?php echo $this->request['search'] ?></strong></div>
             <thead style="background-color: #08c; color: #FFFFFF">
                 <tr>
-                    <th>Código</th>
+                    <!--<th>Código</th>-->
                     <th>Usuário</th>
                     <th>Nome Completo</th>
                     <th>Matrícula Nº</th>
@@ -39,7 +39,7 @@ echo $this->flashMessenger();
             <tbody>
                 <?php foreach ($this->listFuncionarios as $funcionarios): ?>
                     <tr>
-                        <td><?php echo $funcionarios->cod_pessoa ?></td>
+                       <!-- <td><?php echo $funcionarios->cod_pessoa ?></td>-->
                         <td><?php echo $funcionarios->nome_login ?></td>
                         <td><?php echo $funcionarios->nome ?></td>
                         <td><?php echo $funcionarios->matricula ?></td>
