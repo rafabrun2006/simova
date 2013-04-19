@@ -11,8 +11,8 @@
 
     <div style="margin-bottom: 18px;" class="tabbable">
         <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#tab1">Escrever</a></li>
-            <li class=""><a data-toggle="tab" href="#tab2">Selecionar Destinatário</a></li>
+            <li class="active"><a data-toggle="tab" href="#tab1">Selecionar Destinatário</a></li>
+            <li class=""><a data-toggle="tab" href="#tab2">Escrever</a></li>
 
         </ul>
         <form class="form-horizontal" method="post">
@@ -20,38 +20,7 @@
                 <div id="tab1" class="tab-pane active">
 
                     <!--INICIO DO PRIMEIRO MENU-->
-
-                    <div class="rows-fluid">
-                        <div class="span6">
-                            <div class="control-group">
-                                <label for="inputEmail" class="control-label">Mensagem:</label>
-                                <div class="controls">
-                                    <textarea rows="3" style="width: 500px;"></textarea>
-                                </div>
-                            </div>
-
-
-
-                        </div>
-
-                    </div>
-                    <!--  <div class="rows-fluid">
-                          <div class="span12">
-                              <div class="form-actions">
-                                  <div class="control-group">
-                                      <a class="btn btn-primary" href="#tab2" data-toggle="tab">Continuar <i class="icon-forward icon-white"></i></a>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>-->
-
-                </div> <!--FIM DO PRIMEIRO MENU-->
-
-                <div id="tab2" class="tab-pane">
-
-                    <!--INICIO DO SEGUNDO MENU-->
-
-                    <div class="rows-fluid ">
+<div class="rows-fluid ">
                         <div class="span10">
                             <select name="tipoConsulta">
                                 <option value="">Selecione a opção</option>
@@ -79,7 +48,7 @@
                                 <table class="table table-bordered table-striped" style="font-size: 13px;">
                                     <thead style="background-color: #08c; color: #FFFFFF">
                                         <tr>
-                                            <th rowspan="2">Código do Paciente</th>
+                                            
                                             <th rowspan="2">Nome do Paciente</th>
                                             <th rowspan="2">Nome da Mãe</th>
                                             <th rowspan="2">RG</th>
@@ -91,13 +60,13 @@
                                     <tbody>
 
                                         <tr>
-                                            <td colspan="6"></td>
+                                            <td colspan="5"></td>
                                             <td><label class="checkbox inline">
                                                     <input type="checkbox" id="inlineCheckbox1" value="option1"> Todos
                                                 </label></td>
                                         </tr>
                                         <tr>
-                                            <td>18</td>
+                                           
                                             <td>Joaquim Gomes</td>
                                             <td>Francisca Gomes</td>
                                             <td>5568485</td>
@@ -110,7 +79,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>16</td>
+                                            
                                             <td>Mario Brito</td>
                                             <td>Marta Pereira</td>
                                             <td>11111485</td>
@@ -123,7 +92,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>02</td>
+                                           
                                             <td>Maria Sousa</td>
                                             <td>Luzia Sauro</td>
                                             <td>4444485</td>
@@ -157,7 +126,29 @@
 
                     </div>
 
-                    <div class="rows-fluid">
+                    
+                   
+
+                </div> <!--FIM DO PRIMEIRO MENU-->
+
+                <div id="tab2" class="tab-pane">
+
+                    <!--INICIO DO SEGUNDO MENU-->
+                    
+                     <div class="rows-fluid">
+                        <div class="span6">
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Mensagem:</label>
+                                <div class="controls">
+                                    <textarea rows="3" style="width: 500px;"></textarea>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                         
+                         <div class="rows-fluid">
                         <div class="span12">
                             <div class="form-actions">
                                 <div class="control-group">
@@ -167,6 +158,19 @@
                             </div>
                         </div>
                     </div> 
+
+                    </div>
+                    <!--  <div class="rows-fluid">
+                          <div class="span12">
+                              <div class="form-actions">
+                                  <div class="control-group">
+                                      <a class="btn btn-primary" href="#tab2" data-toggle="tab">Continuar <i class="icon-forward icon-white"></i></a>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>-->
+
+                    
                 </div> <!--FIM DO SEGUNDO MENU-->
             </div>
         </form>
