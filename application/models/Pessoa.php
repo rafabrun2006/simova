@@ -28,4 +28,18 @@ class App_Model_Pessoa extends Simova_Mapper_ModelMapper {
         
         return $this->fetchAll($query);
     }
+    
+    public function findById($cod_pessoa){
+        
+        $query = $this->select()
+                ->from(array('p' => 'tb_pessoa'), array('*'))
+                ->join(array('e' => 'tb_endereco'), 'p.cod_end = e.cod_end', array('*'))
+                ->join(array('t' => 'tb_telefone'), 't.cod_pessoa = p.cod_pessoa', array('*'))
+                ->joinLeft(array('l' => 'tb_login'), 'l.cod_login = p.cod_login', array('*'))
+                ->where('p.cod_pessoa = ?', $cod_pessoa)
+                ->setIntegrityCheck(false)
+                ;
+        
+        return $this->fetchAll($query);
+    }
 }
