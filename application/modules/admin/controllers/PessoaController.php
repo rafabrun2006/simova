@@ -97,7 +97,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
         $model = new App_Model_Pessoa();
         
         if($this->_getParam('cod_pessoa')){
-            $this->view->pessoa = $model->find($this->_getParam('cod_pessoa'));
+            $this->view->pessoa = $model->findById($this->_getParam('cod_pessoa'));
         }
     }
     
