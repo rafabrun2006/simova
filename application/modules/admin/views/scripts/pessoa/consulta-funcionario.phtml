@@ -28,7 +28,7 @@ echo $this->flashMessenger();
             <div class="alert alert-info">Resultado(s) da(s) consulta(s) para: <strong><?php echo $this->request['search'] ?></strong></div>
             <thead style="background-color: #08c; color: #FFFFFF">
                 <tr>
-                    <!--<th>Código</th>-->
+                    <th>Código</th>
                     <th>Usuário</th>
                     <th>Nome Completo</th>
                     <th>Matrícula Nº</th>
@@ -45,7 +45,8 @@ echo $this->flashMessenger();
                         <td><?php echo $funcionarios->matricula ?></td>
                         <td><?php echo $funcionarios->cod_status == 1 ? 'Ativo' : 'Inativo' ?></td>
                         <td>
-                            <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Alterar" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
+                            <a href="/admin/pessoa/visualisa-cadastro/cod_pessoa/"<?php echo $funcionarios->cod_pessoa ?>" title="Visualisar cadastro" class="btn btn-warning btn btn-mini"><i class="icon-eye-open icon-white"></i></a>
+                            <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Alterar cadastro" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
                             <a href="/admin/pessoa/excluir-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Excluir" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
                         </td>
                     </tr>
