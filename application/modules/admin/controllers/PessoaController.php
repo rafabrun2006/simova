@@ -93,7 +93,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
         $this->view->modal = $this->view->render('utils/modal.phtml');
     }
 
-    public function visualisaCadastroAction(){
+    public function visualisarCadastroAction(){
         $model = new App_Model_Pessoa();
         
         if($this->_getParam('cod_pessoa')){
