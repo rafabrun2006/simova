@@ -142,7 +142,7 @@ class Admin_Form_CartaoVacina extends Zend_Form {
     }
     
     private function populaComboDose(){
-        $this->getElement('cod_dose')->addMultiOptions(array(
+        $this->getElement('dose')->addMultiOptions(array(
             '' => '--',
             Simova_Constantes::PRIMEIRA_DOSE => '1ª Dose',
             Simova_Constantes::SEGUNDA_DOSE => '2ª Dose',
