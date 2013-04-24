@@ -14,51 +14,52 @@
             <li class=""><a data-toggle="tab" href="#tab2">Registrar Vacinas</a></li>
             <li class=""><a data-toggle="tab" href="#tab3">Aprazar Vacinas</a></li>
         </ul>
-        <form class="form-horizontal" method="post">
-            <div class="tab-content">
-                <div id="tab1" class="tab-pane active">
 
-                    <!--INICIO DO PRIMEIRO MENU-->
-                    <div class="span4">
-                        <table class="table table-bordered">
+        <div class="tab-content">
+            <div id="tab1" class="tab-pane active">
 
-                            <tbody  style="font-size: 13px;">
-                                <tr class="info">
-                                    <td>Código do Paciente:</td>
-                                    <td><?php echo $this->paciente['cod_pessoa'] ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Nome do Paciente:</td>
-                                    <td><?php echo $this->paciente['nome'] ?></td>
-                                </tr>
-                                <tr class="info">
-                                    <td>Nome da Mãe:</td>
-                                    <td><?php echo $this->paciente['nome_mae'] ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Data de Nascimento:</td>
-                                    <td><?php echo date('d-m-Y', strtotime($this->paciente['dt_nasc'])) ?></td>
-                                </tr>
-                                <tr class="info">
-                                    <td>Sexo:</td>
-                                    <td><?php echo $this->paciente['sexo'] == 'M' ? 'Masculino' : 'Feminino' ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Telefone Celular:</td>
-                                    <td><?php echo $this->paciente['num_tel'] ?></td>
-                                </tr>
-                                <tr class="info">
-                                    <td>E-mail:</td>
-                                    <td><?php echo $this->paciente['email'] ?></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div> <!--FIM DO PRIMEIRO MENU-->
+                <!--INICIO DO PRIMEIRO MENU-->
+                <div class="span6">
+                    <table class="table table-bordered">
 
-                <div id="tab2" class="tab-pane">
+                        <tbody  style="font-size: 13px;">
+                            <tr class="info">
+                                <td style="font-size: 15px;font-weight: bold; width: 170px;">Código do Paciente:</td>
+                                <td><?php echo $this->paciente['cod_pessoa'] ?></td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 15px;font-weight: bold; width: 170px;">Nome do Paciente:</td>
+                                <td><?php echo $this->paciente['nome'] ?></td>
+                            </tr>
+                            <tr class="info">
+                                <td style="font-size: 15px;font-weight: bold; width: 170px;">Nome da Mãe:</td>
+                                <td><?php echo $this->paciente['nome_mae'] ?></td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 15px;font-weight: bold; width: 170px;">Data de Nascimento:</td>
+                                <td><?php echo date('d-m-Y', strtotime($this->paciente['dt_nasc'])) ?></td>
+                            </tr>
+                            <tr class="info">
+                                <td style="font-size: 15px;font-weight: bold; width: 170px;">Sexo:</td>
+                                <td><?php echo $this->paciente['sexo'] == 'M' ? 'Masculino' : 'Feminino' ?></td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 15px;font-weight: bold; width: 170px;">Telefone Celular:</td>
+                                <td><?php echo $this->paciente['num_tel'] ?></td>
+                            </tr>
+                            <tr class="info">
+                                <td style="font-size: 15px;font-weight: bold; width: 170px;">E-mail:</td>
+                                <td><?php echo $this->paciente['email'] ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div> <!--FIM DO PRIMEIRO MENU-->
 
-                    <!--INICIO DO SEGUNDO MENU-->
+            <div id="tab2" class="tab-pane">
+
+                <!--INICIO DO SEGUNDO MENU-->
+                <form class="form-horizontal" method="post">
                     <div class="rows-fluid">
                         <div class="span6"> 
                             <div class="control-group">
@@ -107,11 +108,23 @@
                             </div>
                         </div>
                     </div>
-                </div> <!--FIM DO SEGUNDO MENU-->
+                    <div class="rows-fluid">
+                        <div class="span12">
+                            <div class="form-actions">
+                                <div class="control-group">
+                                    <button class="btn btn-primary" type="submit">Salvar</button>
+                                    <button class="btn btn-primary" type="reset">Limpar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div> <!--FIM DO SEGUNDO MENU-->
+            </form>
 
-                <div id="tab3" class="tab-pane">
+            <div id="tab3" class="tab-pane">
 
-                    <!--INICIO DO TERCEIRO MENU-->
+                <!--INICIO DO TERCEIRO MENU-->
+                <form class="form-horizontal" method="post">
                     <div class="rows-fluid">
                         <div class="span6"> 
                             <div class="control-group">
@@ -154,8 +167,8 @@
                         </div>
                     </div>
 
-                </div> <!--FIM DO TERCEIRO MENU-->
-            </div>
+            </div> <!--FIM DO TERCEIRO MENU-->
+        </div>
         </form>
     </div>
 </fieldset>
