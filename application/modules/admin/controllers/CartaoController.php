@@ -27,14 +27,15 @@ class Admin_CartaoController extends Zend_Controller_Action {
         $this->view->modal = $this->view->render('utils/modal.phtml');
     }
 
-    public function cadastroCartaoAction() {
+    public function registrarAprazarVacinaAction() {
         $modelPaciente = new App_Model_Paciente();
         $form = new Admin_Form_CartaoVacina();
         $data = $this->_request->getPost();
 
         //Populando dados de paciente apartir do banco de dados
         $paciente = $modelPaciente->getArrayById($this->_getParam('cod_pessoa'));
-
+        $form->getElement('cod_pessoa')->setValue($paciente[0]['cod_pessoa']);
+            
         if ($this->_request->isPost()) {
             
             //Testando validade dos dados com zend form
@@ -42,13 +43,16 @@ class Admin_CartaoController extends Zend_Controller_Action {
                 
                 //Chamando model de cartao vacina e dose vacina
                 $model = new App_Model_CartaoVacina();
-                $modelDoseVac = new App_Model_DoseVacina();
                 
                 //Salvando vacina aplicada e vacina aprazada
-                if ($model->save($data)) {
+                $data['cod_cartao_vacina'] = $model->save($data);
+                if ($data['cod_cartao_vacina']) {
                     
                     //Salvando dose da vacina aplicada
-                    $modelDoseVac->save($data);
+                    if($data['cod_situacao_vacina'] == 1){
+                        $modelVacinaApli = new App_Model_VacinaAplicada();
+                        $modelVacinaApli->save($data);
+                    }
                     
                     //Caso sucesso mostrar mensagem de sucesso
                     $this->_helper->flashMessenger(array('success' => Simova_Mensagens::CADASTRO_SUCESSO));
@@ -60,17 +64,18 @@ class Admin_CartaoController extends Zend_Controller_Action {
                     $this->_redirect('/admin/cartao/cadastro-cartao');
                 }
             } else {
-                
+                Zend_Debug::dump($form->getErrors());
                 //Caso form invalido popula formulario e mostra mensagem
                 $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::FORM_INVALIDO));
                 $form->populate($data);
             }
         }
 
+        $form->addSubForm(new Admin_Form_VacinaAplicada(), 'VacinaAplicada');
         $this->view->paciente = $paciente[0];
         $this->view->form = $form;
         $this->view->modal = $this->view->render('utils/modal.phtml');
-    }
+    } //registrar-aprazar-vacina
 
     public function visualisaCartaoAction() {
         
