@@ -5,7 +5,7 @@ class App_Model_Vacina extends Simova_Mapper_ModelMapper {
     protected $_name = 'tb_vacina';
     protected $_primary = 'cod_vacina';
 
-    public function joinAllRelations($where = array()) {
+    public function joinAllRelations($where = null) {
         $query = $this->select()
                 ->from(array('v' => 'tb_vacina'), array('*'))
                 ->join(array('lv' => 'tb_lote_vacina'), 'lv.cod_vacina = v.cod_vacina', array('cod_lote', 'cod_lote_vacina', 'qtd_vacina'))
@@ -15,8 +15,12 @@ class App_Model_Vacina extends Simova_Mapper_ModelMapper {
                 ->setIntegrityCheck(FALSE)
         ;
 
-        foreach ($where as $key => $value) {
-            $query->where($key . ' = ?', $value);
+        if ($where) {
+            foreach ($where as $key => $value) {
+                if ($value['tipoConsulta']) {
+                    $query->where($value['tipoConsulta'] . ' like ' . "'%{$value['search']}%'");
+                }
+            }
         }
 
         //echo $query;
@@ -24,11 +28,12 @@ class App_Model_Vacina extends Simova_Mapper_ModelMapper {
         return $this->fetchAll($query);
     }
 
-    public function save($data){
-        
+    public function save($data) {
+
         $this->_primary = 'cod_vacina';
-        
+
         return parent::save($data);
     }
+
 }
 

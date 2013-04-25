@@ -13,9 +13,10 @@ class App_Model_CartaoVacina extends Simova_Mapper_ModelMapper {
     }
 
     public function vacAplicBetweenIdade($idadeMin, $idadeMax, $where = array()) {
-        $query = $this->select()
+        echo $query = $this->select()
                 ->from(array('cv' => 'tb_cartao_vacina'), array('*'))
                 ->joinLeft(array('va' => 'tb_vacina_aplicada'), 'cv.cod_cartao_vacina = va.cod_cartao_vacina', array('*'))
+                ->joinRight(array('v' => 'tb_vacina'), 'v.cod_vacina = cv.cod_vacina', array('*'))
                 ->setIntegrityCheck(false);
 
         if ($where) {
