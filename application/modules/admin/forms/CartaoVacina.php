@@ -22,10 +22,6 @@ class Admin_Form_CartaoVacina extends Zend_Form {
         $dtVacina->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
 
-        $codCampanha = new Zend_Form_Element_Select('cod_campanha');
-        $codCampanha->setRequired(TRUE)
-                ->addErrorMessage(self::MESSAGE_REQUIRED);
-
         $codDose = new Zend_Form_Element_Select('dose');
         $codDose->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
@@ -54,7 +50,6 @@ class Admin_Form_CartaoVacina extends Zend_Form {
             $codCartaoVac,
             $dtVacina,
             $codPessoa,
-            $codCampanha,
             $codUnidade,
             $codGrupoVacina,
             $codVacina,
@@ -63,7 +58,6 @@ class Admin_Form_CartaoVacina extends Zend_Form {
         );
 
         $this->populaComboUnidade();
-        $this->populaComboCampanha();
         $this->populaComboVacina();
         $this->populaComboDose();
         $this->populaComboGrupoVacina();
@@ -81,16 +75,6 @@ class Admin_Form_CartaoVacina extends Zend_Form {
         foreach ($modelPerfil->fetchAll() as $value) {
             $this->getElement('cod_un_saude')
                     ->addMultiOption($value->cod_un_saude, $value->nome_un_saude);
-        }
-    }
-
-    private function populaComboCampanha() {
-        $campanha = new App_Model_Campanha();
-        $this->getElement('cod_campanha')->addMultiOption('', '--');
-
-        foreach ($campanha->fetchAll() as $option) {
-            $this->getElement('cod_campanha')
-                    ->addMultiOption($option->cod_camp, $option->nome_camp);
         }
     }
 
