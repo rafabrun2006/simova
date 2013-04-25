@@ -56,15 +56,12 @@ class Admin_CartaoController extends Zend_Controller_Action {
                     
                     //Caso sucesso mostrar mensagem de sucesso
                     $this->_helper->flashMessenger(array('success' => Simova_Mensagens::CADASTRO_SUCESSO));
-                    $this->_redirect('/admin/cartao/consulta-cartao');
                 } else {
                     
                     //Caso erro mostra mensagem de erro
                     $this->_helper->flashMessenger(array('danger' => Simova_Mensagens::CADASTRO_ERROR));
-                    $this->_redirect('/admin/cartao/cadastro-cartao');
                 }
             } else {
-                Zend_Debug::dump($form->getErrors());
                 //Caso form invalido popula formulario e mostra mensagem
                 $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::FORM_INVALIDO));
                 $form->populate($data);
@@ -75,10 +72,16 @@ class Admin_CartaoController extends Zend_Controller_Action {
         $this->view->paciente = $paciente[0];
         $this->view->form = $form;
         $this->view->modal = $this->view->render('utils/modal.phtml');
-    } //registrar-aprazar-vacina
+    }
 
     public function visualisaCartaoAction() {
+        $model = new App_Model_CartaoVacina();
+        $modelPaciente = new App_Model_Paciente();
         
+        $paciente = $modelPaciente->getArrayById($this->_getParam('cod_pessoa'));
+        
+        $this->view->paciente = (object)$paciente[0];
+        $this->view->cartaoCrianca = $model->vacAplicBetweenIdade(0, 10);
     }
 
 }
