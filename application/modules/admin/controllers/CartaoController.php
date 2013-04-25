@@ -81,9 +81,10 @@ class Admin_CartaoController extends Zend_Controller_Action {
         $paciente = $modelPaciente->getArrayById($this->_getParam('cod_pessoa'));
         
         $this->view->paciente = (object)$paciente[0];
-        $this->view->cartaoCrianca = $model->vacAplicBetweenIdade(0, 10);
+        Zend_Debug::dump($this->view->cartaoCrianca = $model->vacAplicBetweenIdade(0, 10));
     }
-    public function visualisaVacinaAction() {
+    
+    public function visualisaVacinasAction(){
         
     }
 
