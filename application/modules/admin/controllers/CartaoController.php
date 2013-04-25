@@ -83,6 +83,9 @@ class Admin_CartaoController extends Zend_Controller_Action {
         $this->view->paciente = (object)$paciente[0];
         $this->view->cartaoCrianca = $model->vacAplicBetweenIdade(0, 10);
     }
+    public function visualisaVacinaAction() {
+        
+    }
 
 }
 
