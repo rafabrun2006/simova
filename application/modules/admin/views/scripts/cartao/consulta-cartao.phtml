@@ -48,11 +48,10 @@
                     <td><?php echo $cartao->sexo ?></td>
                     <td><?php echo $cartao->rg ?></td>
                     <td><?php echo $cartao->telefone_celular ?></td>
-                    <td>
-                        <a href="/admin/cartao/visualisa-cartao/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Visualisar calendário e cartão de vacinas" class="btn btn-warning btn btn-mini"><i class="icon-eye-open icon-white"></i></a>
+                    <td style="width: 120px;">
+                        <a href="/admin/cartao/visualisa-vacina/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Consultar calendário e cartão de vacinas" class="btn btn-info btn btn-mini"><i class=" icon-list icon-white"></i></a>
                         <a href="/admin/cartao/registrar-aprazar-vacina/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Registrar e aprazar vacinas" class="btn btn-success btn btn-mini"><i class="icon-list-alt icon-white"></i></a>
-                        <a href="/admin/cartao/visualisa-vacina/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Alterar cartão de vacinas" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
-                        <a href="/admin/pessoa/excluir-cartao/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Excluir registro de vacinas" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                        
                     </td>
                 </tr>
             <?php endforeach; ?>

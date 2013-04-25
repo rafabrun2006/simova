@@ -87,6 +87,9 @@ class Admin_CartaoController extends Zend_Controller_Action {
     public function visualisaVacinaAction() {
         
     }
+    public function verCartaoAction() {
+        
+    }
 
 }
 
