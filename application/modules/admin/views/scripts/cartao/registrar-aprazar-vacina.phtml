@@ -7,7 +7,10 @@
     <legend>Registro e Aprazamento de vacinas</legend>
 
     <?php echo $this->flashMessenger() ?>
-
+    <?php
+    isset($this->params['tab']) ?
+                    $active[$this->params['tab']] = 'active' : $active[1] = 'active';
+    ?>
     <div style="margin-bottom: 18px;" class="tabbable">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#tab1">Dados do Paciente</a></li>
@@ -16,7 +19,7 @@
         </ul>
 
         <div class="tab-content">
-            <div id="tab1" class="tab-pane active">
+            <div id="tab1" class="tab-pane <?php echo $active[1] ?>">
 
                 <!--INICIO DO PRIMEIRO MENU-->
                 <div class="span6">
@@ -56,7 +59,7 @@
                 </div>
             </div> <!--FIM DO PRIMEIRO MENU-->
 
-            <div id="tab2" class="tab-pane">
+            <div id="tab2" class="tab-pane <?php echo $active[2] ?>">
 
                 <!--INICIO DO SEGUNDO MENU-->
                 <form class="form-horizontal" method="post">
@@ -113,6 +116,7 @@
                                 </div>
                             </div>
                         </div>
+                        <?php echo $this->form->cod_cartao_vacina ?>
                         <?php echo $this->form->cod_pessoa ?>
                         <?php echo $this->form->cod_situacao_vacina->setValue(1) ?>
                     </div>
@@ -130,7 +134,7 @@
             </div> <!--FIM DO SEGUNDO MENU-->
 
 
-            <div id="tab3" class="tab-pane">
+            <div id="tab3" class="tab-pane <?php echo $active[3] ?>">
 
                 <!--INICIO DO TERCEIRO MENU-->
                 <form class="form-horizontal" method="post">

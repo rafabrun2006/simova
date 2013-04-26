@@ -7,13 +7,7 @@
 </ul>
 <fieldset>
     <legend>Consulta de Calendário, Cartão e Aprazamento de vacinas</legend>
-    <?php
-    if ($this->mensagem):
-        ?>
-        <div class="alert <?php echo $this->mensagem['type'] ?>"><?php echo $this->mensagem['mensagem'] ?></div>
-        <?php
-    endif;
-    ?>
+    <?php echo $this->flashMessenger() ?>
 
     <table class="table table-bordered table-condensed " style="font-size: 13px;">
 
@@ -23,16 +17,16 @@
             </tr>
             <tr>
                 <th style="background-color: #08c; color: #FFFFFF;width: 180px;">Nome completo:&nbsp;</th>
-                <th colspan="6">Joaquim da Silva Sauro</th>
+                <th colspan="6"><?php echo $this->paciente->nome ?></th>
             </tr>
             <tr>
                 <th style="background-color: #08c; color: #FFFFFF">Nome da mãe:&nbsp;</th>
-                <th colspan="6">Maria da Silva Sauro</th>
+                <th colspan="6"><?php echo $this->paciente->nome_mae ?></th>
             </tr>
 
             <tr>
                 <th style="background-color: #08c; color: #FFFFFF">Data de Nascimento:&nbsp;</th>
-                <th colspan="6">23/05/2006</th>
+                <th colspan="6"><?php echo date('d-m-Y', strtotime($this->paciente->dt_nasc)) ?></th>
             </tr>
             <tr>
                 <th style="background-color: #08c; color: #FFFFFF">RG:&nbsp;</th>
@@ -264,7 +258,7 @@
                                     <input class="input-large" name="search" id="appendedInputButton" type="text">
                                     <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
 
-                                    <a href="/admin/cartao/ver-cartao/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Visualisar Cartão de Vacinas" class="btn btn-info btn btn-default"><i class="icon-eye-open icon-white"></i></a>
+                                    <a href="/admin/cartao/ver-cartao/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Visualisar Cartão de Vacinas" class="btn btn-info btn btn-default"><i class="icon-eye-open icon-white"></i></a>
 
                                 </div>
 
@@ -287,37 +281,20 @@
                                         <th>Lote</th>
                                         <th>Unidade</th>
                                         <th>Matricula do responsável</th>
-                                        <th>Grupo de Vacinas</th>
                                         <!--<th>Função</th>-->
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    <?php foreach($this->vacinasAplicadas as $key => $value): ?>
                                     <tr>
-                                        <td>BCG</td>
-                                        <td>reforço</td>
-                                        <td>13-08-2010</td>
-                                        <td>10</td>
-                                        <td>fenix</td>
-                                        <td>34589345</td>
-                                        <td>Campanha</td>
-                                       <!-- <td>
-                                            <a href="/admin/cartao/visualisa-cartao/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Visualisar calendário e cartão de vacinas" class="btn btn-warning btn btn-mini"><i class="icon-eye-open icon-white"></i></a>
-                                            <a href="/admin/cartao/registrar-aprazar-vacina/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Registrar e aprazar vacinas" class="btn btn-success btn btn-mini"><i class="icon-list-alt icon-white"></i></a>
-                                            <a href="/admin/cartao/visualisa-vacina/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Alterar cartão de vacinas" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
-                                            <a href="/admin/pessoa/excluir-cartao/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Excluir registro de vacinas" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
-                                        </td> -->
+                                        <td><?php echo $value->nome_vacina ?></td>
+                                        <td><?php echo $value->dose ?>ª</td>
+                                        <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                        <td><?php echo $value->lote ?></td>
+                                        <td><?php echo $value->nome_un_saude ?></td>
+                                        <td><?php echo $value->matricula ?></td>
                                     </tr>
-                                    <tr>
-                                        <td>Hepatite B</td>
-                                        <td>1 dose</td>
-                                        <td>13-06-2010</td>
-                                        <td>12</td>
-                                        <td>fenix</td>
-                                        <td>34589345</td>
-                                        <td>regular</td>
-                                    </tr>
-
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                             <div class="pagination pagination-centered">
@@ -373,30 +350,18 @@
 
                                 </thead>
                                 <tbody>
-
+                                    <?php foreach($this->vacinasAprazadas as $key => $value): ?>
                                     <tr>
-                                        <td>BCG</td>
-                                        <td>reforço</td>
-                                        <td>13-08-2010</td>
+                                        <td><?php echo $value->nome_vacina ?></td>
+                                        <td><?php echo $value->dose ?></td>
+                                        <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
                                         <td>
-                                            <a href="/admin/cartao/visualisa-cartao/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Registrar Vacina" class="btn btn-inverse btn btn-mini"><i class="icon-star icon-white"></i></a>
-                                            <a href="/admin/cartao/visualisa-vacina/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Alterar Aprazamento" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
-                                            <a href="/admin/pessoa/excluir-cartao/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Excluir Aprazamento" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                                            <a href="/admin/cartao/registrar-aprazar-vacina/tab/2/cod_cartao_vacina/<?php echo $value->cod_cartao_vacina ?>/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Registrar Vacina" class="btn btn-inverse btn btn-mini"><i class="icon-star icon-white"></i></a>
+                                            <a href="/admin/cartao/registrar-aprazar-vacina/tab/3/cod_cartao_vacina/<?php echo $value->cod_cartao_vacina ?>/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Alterar Aprazamento" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
+                                            <a href="/admin/pessoa/excluir-cartao/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Excluir Aprazamento" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
                                         </td>
-
                                     </tr>
-                                    <tr>
-                                        <td>Hepatite B</td>
-                                        <td>1 dose</td>
-                                        <td>13-06-2010</td>
-                                        <td style="width: 100px">
-                                            <a href="/admin/cartao/visualisa-cartao/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Registrar Vacina" class="btn btn-inverse btn btn-mini"><i class="icon-star icon-white"></i></a>
-                                            <a href="/admin/cartao/visualisa-vacina/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Alterar Aprazamento" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
-                                            <a href="/admin/pessoa/excluir-cartao/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Excluir Aprazamento" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
-                                        </td>
-
-                                    </tr>
-
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                             <div class="pagination pagination-centered">

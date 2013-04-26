@@ -16,7 +16,7 @@ class Admin_Form_CartaoVacina extends Zend_Form {
 
     public function init() {
 
-        $codCartaoVac = new Zend_Form_Element_Hidden('cod_cartao_vac');
+        $codCartaoVac = new Zend_Form_Element_Hidden('cod_cartao_vacina');
 
         $dtVacina = new Zend_Form_Element_Text('dt_vacina', array('class' => 'date-utils', 'readonly' => TRUE));
         $dtVacina->setRequired(TRUE)

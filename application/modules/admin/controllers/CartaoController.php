@@ -36,6 +36,20 @@ class Admin_CartaoController extends Zend_Controller_Action {
         $paciente = $modelPaciente->getArrayById($this->_getParam('cod_pessoa'));
         $form->getElement('cod_pessoa')->setValue($paciente[0]['cod_pessoa']);
 
+        /*
+         * Preenchendo automaticamente os dados de registrar vacina quando 
+         * estiver em situaçao de aprazada sendo que os dados serao utilizados
+         * para aplicação da vacina
+         */
+        if ($this->_getParam('cod_cartao_vacina')) {
+            $modelCartaoVacina = new App_Model_CartaoVacina();
+
+            $dataArray = $modelCartaoVacina->find($this->_getParam('cod_cartao_vacina'))
+                    ->toArray();
+
+            $form->populate($dataArray[0]);
+        }
+
         if ($this->_request->isPost()) {
 
             //Testando validade dos dados com zend form
@@ -46,16 +60,19 @@ class Admin_CartaoController extends Zend_Controller_Action {
 
                 //Salvando vacina aplicada e vacina aprazada
                 $data['cod_cartao_vacina'] = $model->save($data);
+
                 if ($data['cod_cartao_vacina']) {
 
                     //Salvando dose da vacina aplicada
                     if ($data['cod_situacao_vacina'] == 1) {
+
                         $modelVacinaApli = new App_Model_VacinaAplicada();
                         $modelVacinaApli->save($data);
                     }
 
                     //Caso sucesso mostrar mensagem de sucesso
                     $this->_helper->flashMessenger(array('success' => Simova_Mensagens::CADASTRO_SUCESSO));
+                    $this->_redirect('/admin/cartao/registrar-aprazar-vacina/cod_pessoa/' . $this->_getParam('cod_pessoa'));
                 } else {
 
                     //Caso erro mostra mensagem de erro
@@ -71,6 +88,7 @@ class Admin_CartaoController extends Zend_Controller_Action {
         $form->addSubForm(new Admin_Form_VacinaAplicada(), 'VacinaAplicada');
         $this->view->paciente = $paciente[0];
         $this->view->form = $form;
+        $this->view->params = $this->_getAllParams();
         $this->view->modal = $this->view->render('utils/modal.phtml');
     }
 
@@ -85,10 +103,75 @@ class Admin_CartaoController extends Zend_Controller_Action {
     }
 
     public function visualisaVacinaAction() {
-        
+        $model = new App_Model_CartaoVacina();
+        $modelPaciente = new App_Model_Paciente();
+
+        $paciente = $modelPaciente->getArrayById($this->_getParam('cod_pessoa'));
+
+        $aplicadas = array(
+            'cv.cod_pessoa' => $this->_getParam('cod_pessoa'),
+            'cv.cod_situacao_vacina' => 1
+        );
+
+        $aprazadas = array(
+            'cv.cod_pessoa' => $this->_getParam('cod_pessoa'),
+            'cv.cod_situacao_vacina' => 2
+        );
+
+        $this->view->paciente = (object) $paciente[0];
+        $this->view->vacinasAplicadas = $model->vacAplicBetweenIdade(0, 0, $aplicadas);
+        $this->view->vacinasAprazadas = $model->vacAplicBetweenIdade(0, 0, $aprazadas);
     }
+
     public function verCartaoAction() {
+        $modelPaciente = new App_Model_Paciente();
+        $model = new App_Model_CartaoVacina();
+
+        $paciente = $modelPaciente->getArrayById($this->_getParam('cod_pessoa'));;
         
+        $where = array(
+            'cv.cod_pessoa' => $this->_getParam('cod_pessoa'),
+            'cv.cod_situacao_vacina' => 1
+        );
+
+        $result = $model->vacAplicBetweenIdade(0, 0, $where);
+
+        foreach ($result as $value) {
+            if ($value->cod_vacina == $vacAnt) {
+                
+                $newArray[$value->cod_vacina][] = $this->arrayData($value);
+
+                $vacAnt = $value->cod_vacina;
+            } else {
+                $newArray[$value->cod_vacina][] = $this->arrayData($value);
+                $vacAnt = $value->cod_vacina;
+            }
+
+            $array = $newArray;
+        }
+        
+        $this->view->cartaoVacina = $array;
+        $this->view->paciente = (object)$paciente[0];
+    }
+
+    private function arrayData($value) {
+
+        return array(
+            'cod_cartao_vacina' => $value->cod_cartao_vacina,
+            'cod_un_saude' => $value->cod_un_saude,
+            'dt_vacina' => $value->dt_vacina,
+            'cod_grupo_vacina' => $value->cod_grupo_vacina,
+            'dose' => $value->dose,
+            'cod_vacina' => $value->cod_vacina,
+            'cod_pessoa' => $value->cod_pessoa,
+            'cod_situacao_vacina' => $value->cod_situacao_vacina,
+            'matricula' => $value->matricula,
+            'lote' => $value->lote,
+            'nome_vacina' => $value->nome_vacina,
+            'cod_end' => $value->cod_end,
+            'nome_un_saude' => $value->nome_un_saude,
+            'num_un_saude' => $value->num_un_saude
+        );
     }
 
 }
