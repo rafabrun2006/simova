@@ -13,8 +13,12 @@ class Admin_VacinaController extends Zend_Controller_Action {
     public function consultaVacinaAction() {
         $model = new App_Model_Vacina();
         
+        if($this->_request->isPost()){
+            $where = array($this->_request->getPost());
+        }
+        
         $paginator = $this->view->pagination(
-                $model->joinAllRelations(),
+                $model->joinAllRelations($where),
                 $this->_getParam('page'),
                 '/admin/vacina/consulta-vacina/page/');
         

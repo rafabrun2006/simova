@@ -9,5 +9,11 @@ $(document).ready(function() {
     $('.date-utils').datepicker({
         format: 'dd-mm-yyyy'
     });
-    
+
+
+    $('#print').click(function() {
+        var table = document.getElementById('cartao-vacina');
+        $('body').html(table);
+        print();
+    });
 });

@@ -7,10 +7,7 @@
     <legend>Registro e Aprazamento de vacinas</legend>
 
     <?php echo $this->flashMessenger() ?>
-    <?php
-    isset($this->params['tab']) ?
-                    $active[$this->params['tab']] = 'active' : $active[1] = 'active';
-    ?>
+
     <div style="margin-bottom: 18px;" class="tabbable">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#tab1">Dados do Paciente</a></li>
@@ -19,7 +16,7 @@
         </ul>
 
         <div class="tab-content">
-            <div id="tab1" class="tab-pane <?php echo $active[1] ?>">
+            <div id="tab1" class="tab-pane active">
 
                 <!--INICIO DO PRIMEIRO MENU-->
                 <div class="span6">
@@ -59,7 +56,7 @@
                 </div>
             </div> <!--FIM DO PRIMEIRO MENU-->
 
-            <div id="tab2" class="tab-pane <?php echo $active[2] ?>">
+            <div id="tab2" class="tab-pane">
 
                 <!--INICIO DO SEGUNDO MENU-->
                 <form class="form-horizontal" method="post">
@@ -83,12 +80,6 @@
                                     <?php echo $this->form->cod_un_saude ?>
                                 </div>
                             </div>
-                            <div class="control-group">
-                                <label for="inputEmail" class="control-label">Grupo Vacinação:</label>
-                                <div class="controls">
-                                    <?php echo $this->form->cod_grupo_vacina ?>
-                                </div>
-                            </div>
                         </div>
                         <div class="span6">
                             <div class="control-group">
@@ -100,25 +91,22 @@
                             <div class="control-group">
                                 <label for="inputEmail" class="control-label">Lote da Vacina:</label>
                                 <div class="controls">
-                                    <?php echo $this->form->VacinaAplicada->lote ?>
+                                    <?php echo $this->form->VacinaAplicada ?>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label for="inputEmail" class="control-label">Matricula do Responsável:</label>
                                 <div class="controls">
-                                    <?php echo $this->form->VacinaAplicada->matricula ?>
+                                    <?php echo $this->form->matricula ?>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label for="inputEmail" class="control-label">Campanha:</label>
                                 <div class="controls">
-                                    <?php echo $this->form->VacinaAplicada->cod_campanha ?>
+                                    <?php echo $this->form->cod_campanha ?>
                                 </div>
                             </div>
                         </div>
-                        <?php echo $this->form->cod_cartao_vacina ?>
-                        <?php echo $this->form->cod_pessoa ?>
-                        <?php echo $this->form->cod_situacao_vacina->setValue(1) ?>
                     </div>
                     <div class="rows-fluid">
                         <div class="span12">
@@ -130,11 +118,10 @@
                             </div>
                         </div>
                     </div>
-                </form>
             </div> <!--FIM DO SEGUNDO MENU-->
+            </form>
 
-
-            <div id="tab3" class="tab-pane <?php echo $active[3] ?>">
+            <div id="tab3" class="tab-pane">
 
                 <!--INICIO DO TERCEIRO MENU-->
                 <form class="form-horizontal" method="post">
@@ -143,7 +130,7 @@
                             <div class="control-group">
                                 <label for="inputEmail" class="control-label">Data da Aplicação:</label>
                                 <div class="controls">
-                                    <?php echo $this->form->dt_vacina ?>
+                                    <?php echo $this->form->dt_aprazada ?>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -152,29 +139,21 @@
                                     <?php echo $this->form->dose ?>
                                 </div>
                             </div>
-                            <div class="control-group">
-                                <label for="inputEmail" class="control-label">Grupo Vacinação:</label>
-                                <div class="controls">
-                                    <?php echo $this->form->cod_grupo_vacina ?>
-                                </div>
-                            </div>
                         </div>
                         <div class="span6">
                             <div class="control-group">
                                 <label for="inputEmail" class="control-label">Unidade de Saúde:</label>
                                 <div class="controls">
-                                    <?php echo $this->form->cod_un_saude ?>
+                                    <?php echo $this->form->cod_un_saude_apraz ?>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label for="inputEmail" class="control-label">Nome da Vacina:</label>
                                 <div class="controls">
-                                    <?php echo $this->form->cod_vacina ?>
+                                    <?php echo $this->form->cod_vacina_apraz ?>
                                 </div>
                             </div>
                         </div>
-                        <?php echo $this->form->cod_pessoa ?>
-                        <?php echo $this->form->cod_situacao_vacina->setValue(2) ?>
                     </div>
 
                     <div class="rows-fluid">
@@ -187,10 +166,10 @@
                             </div>
                         </div>
                     </div>
-                </form>
-            </div> <!--FIM DO TERCEIRO MENU-->
 
+            </div> <!--FIM DO TERCEIRO MENU-->
         </div>
+        </form>
     </div>
 </fieldset>
 
