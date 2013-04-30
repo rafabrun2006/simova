@@ -9,13 +9,7 @@
 
 <fieldset>
     <legend>Alterar Funcionário</legend>
-    <?php
-    if ($this->mensagem):
-        ?>
-        <div class="alert <?php echo $this->mensagem['type'] ?>"><?php echo $this->mensagem['mensagem'] ?></div>
-        <?php
-    endif;
-    ?>
+    <?php echo $this->flashMessenger() ?>
 
     <div style="margin-bottom: 18px;" class="tabbable">
         <ul class="nav nav-tabs">
@@ -32,7 +26,7 @@
                     <div class="rows-fluid">
                         <div class="span6">
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Nome Completo:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Nome Completo:</label>
                                 <div class="controls">
                                     <?php echo $this->form->nome ?>
                                 </div>
@@ -44,13 +38,13 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Nome da Mãe:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Nome da Mãe:</label>
                                 <div class="controls">
                                     <?php echo $this->form->nome_mae ?>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Data de Nascimento:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Data de Nascimento:</label>
                                 <div class="controls">
                                     <?php echo $this->form->dt_nasc ?>
                                 </div>
@@ -177,7 +171,7 @@
                         <div class="span6">
                             <div class="control-group">
                                 <div class="control-group">
-                                    <label for="inputEmail" class="control-label">Matrícula:</label>
+                                    <label for="inputEmail" class="control-label"><b>*</b> Matrícula:</label>
                                     <div class="controls">
                                         <?php echo $this->form->Funcionario->matricula ?>
                                     </div>
@@ -214,13 +208,13 @@
                         </div>
                         <div class="span6">
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Telefone residêncial:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Telefone residêncial:</label>
                                 <div class="controls">
                                     <?php echo $this->form->Telefone->num_tel1 ?>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Telefone celular:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Telefone celular:</label>
                                 <div class="controls">
                                     <?php echo $this->form->Telefone->num_tel2 ?>
                                 </div>
@@ -238,19 +232,19 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Usuário:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Usuário:</label>
                                 <div class="controls">
                                     <?php echo $this->form->Login->nome_login ?>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Senha:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Senha:</label>
                                 <div class="controls">
                                     <?php echo $this->form->Login->senha_login ?>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Confirmar-Senha:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Confirmar-Senha:</label>
                                 <div class="controls">
                                     <?php echo $this->form->Login->senha_login ?>
                                 </div>
