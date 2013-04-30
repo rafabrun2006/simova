@@ -22,132 +22,132 @@
                         </tr>
                         <tr class="info">
                             <td  style="font-size: 15px;font-weight: bold;width: 220px;background-color: #08c; color: #FFFFFF;">Código do Funcionário:</td>
-                            <td>12</td>
+                            <td><?php echo $this->pessoa->cod_pessoa?></td>
                         </tr>
                         <tr>
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Nome do Funcionário:</td>
-                            <td>José da Silva</td>
+                            <td><?php echo $this->pessoa->nome?></td>
                         </tr>
 
                         <tr class="info">
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Nome da Mãe:</td>
-                            <td>Maria da Silva</td>
+                            <td><?php echo $this->pessoa->nome_mae?></td>
                         </tr>
                         <tr>
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Nome do Pai:</td>
-                            <td>Maria da Silva</td>
+                            <td><?php echo $this->pessoa->nome_pai?></td>
                         </tr>
 
                         <tr class="info">
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Data de Nascimento:</td>
-                            <td>06/10/1989</td>
+                            <td><?php echo $this->pessoa->dt_nasc?></td>
                         </tr>
                         <tr>
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">RG Nº:</td>
-                            <td>Masculino</td>
+                            <td><?php echo $this->pessoa->rg?></td>
                         </tr>
 
                         <tr class="info">
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">CPF Nº:</td>
-                            <td>Masculino</td>
+                            <td><?php echo $this->pessoa->cpf?></td>
                         </tr>
                         <tr>
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Registro de Nascimento Nº:</td>
-                            <td>Masculino</td>
+                            <td><?php echo $this->pessoa->registro_nasc?></td>
                         </tr>
 
                         <tr class="info">
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Estado civil:</td>
-                            <td>Masculino</td>
+                            <td><?php echo $this->pessoa->nome_estado_civil?></td>
                         </tr>
                         <tr>
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Sexo:</td>
-                            <td>Masculino</td>
+                            <td><?php echo $this->pessoa->sexo?></td>
                         </tr>
                         <tr>
                             <td style="background-color: #08c; color: #FFFFFF;font-size: 20px;font-weight: bold;text-align: center;" colspan="2">Endereço</td>
                         </tr>
                         <tr class="info">
                             <td  style="font-size: 15px;font-weight: bold;width: 220px;background-color: #08c; color: #FFFFFF;">Endereço:</td>
-                            <td>12</td>
+                            <td><?php echo $this->pessoa->endereco?></td>
                         </tr>
                         <tr>
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Número:</td>
-                            <td>José da Silva</td>
+                            <td><?php echo $this->pessoa->numero?></td>
                         </tr>
 
                         <tr class="info">
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Complemento:</td>
-                            <td>Maria da Silva</td>
+                            <td><?php echo $this->pessoa->complemento?></td>
                         </tr>
                         <tr>
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Bairro:</td>
-                            <td>Maria da Silva</td>
+                            <td><?php echo $this->pessoa->bairro?></td>
                         </tr>
 
                         <tr class="info">
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">CEP:</td>
-                            <td>06/10/1989</td>
+                            <td><?php echo $this->pessoa->cep?></td>
                         </tr>
                         <tr>
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">UF:</td>
-                            <td>Masculino</td>
+                            <td><?php echo $this->pessoa->sigla_uf?></td>
                         </tr>
 
                         <tr class="info">
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Cidade:</td>
-                            <td>Masculino</td>
+                            <td><?php echo $this->pessoa->nome_uf?></td>
                         </tr>
                         <tr>
                             <td style="background-color: #08c; color: #FFFFFF;font-size: 20px;font-weight: bold;text-align: center;" colspan="2">Dados Complementares</td>
                         </tr>
                         <tr class="info">
                             <td  style="font-size: 15px;font-weight: bold;width: 220px;background-color: #08c; color: #FFFFFF;">Matrícula:</td>
-                            <td>12</td>
+                            <td><?php echo $this->pessoa->matricula?></td>
                         </tr>
                         <tr>
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Cargo:</td>
-                            <td>José da Silva</td>
+                            <td><?php echo $this->pessoa->nome_cargo?></td>
                         </tr>
 
                         <tr class="info">
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Função:</td>
-                            <td>Maria da Silva</td>
+                            <td><?php echo $this->pessoa->nome_funcao?></td>
                         </tr>
-                        <tr>
+                       <!-- <tr>
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Lotação:</td>
-                            <td>Maria da Silva</td>
-                        </tr>
+                            <td></td>
+                        </tr> -->
 
                         <tr class="info">
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Unidade de Saúde:</td>
-                            <td>06/10/1989</td>
+                            <td><?php echo $this->pessoa->nome_un_saude?></td>
                         </tr>
                         <tr>
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Status:</td>
-                            <td>Masculino</td>
+                            <td><?php echo $this->pessoa->nome_status?></td>
                         </tr>
 
                         <tr class="info">
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Telefone Residencial:</td>
-                            <td>Masculino</td>
+                            <td><?php echo $this->pessoa->telefone_residencial?></td>
                         </tr>
                         <tr>
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Telefone Celular:</td>
-                            <td>Masculino</td>
+                            <td><?php echo $this->pessoa->telefone_celular?></td>
                         </tr>
 
                         <tr class="info">
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">E-mail:</td>
-                            <td>Masculino</td>
+                            <td><?php echo $this->pessoa->email?></td>
                         </tr>
                         <tr>
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Perfil:</td>
-                            <td>Masculino</td>
+                            <td><?php echo $this->pessoa->nome_perfil?></td>
                         </tr>
                         <tr class="info">
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Usuário:</td>
-                            <td>Masculino</td>
+                            <td><?php echo $this->pessoa->nome_login?></td>
                         </tr>
                         <tr>
                             <td style="background-color: #08c; color: #FFFFFF;height: 20px" colspan="2"></td>
