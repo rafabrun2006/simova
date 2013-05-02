@@ -31,4 +31,15 @@ class Simova_Mensagens {
     const FORM_INVALIDO = 'Verifique o seu formulário';
     const NENHUM_RESULTADO = 'Nenhum resultado encontrado';
     
+    /*
+     * Mensagem para aviso de vacina aprazada
+     */
+    const VACINA_REGISTRADA = 'Vacina registrada com sucesso';
+    const VACINA_APRAZADA = 'Vacina aprazada com sucesso';
+    
+    /*
+     * Mensagem aviso restaurar
+     */
+    const RESTAURAR_SUCESSO = 'Registro restaurado com sucesso';
+    
 }

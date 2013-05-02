@@ -47,6 +47,10 @@ class Admin_CartaoController extends Zend_Controller_Action {
             $dataArray = $modelCartaoVacina->find($this->_getParam('cod_cartao_vacina'))
                     ->toArray();
 
+            $form->getElement('cod_vacina')->setAttrib('readonly', TRUE);
+            $form->getElement('cod_tipo_cartao')->setAttrib('readonly', TRUE);
+            $form->getElement('dose')->setAttrib('readonly', TRUE);
+
             $form->populate($dataArray[0]);
         }
 
@@ -68,10 +72,13 @@ class Admin_CartaoController extends Zend_Controller_Action {
 
                         $modelVacinaApli = new App_Model_VacinaAplicada();
                         $modelVacinaApli->save($data);
+
+                        //Caso sucesso mostrar mensagem de sucesso
+                        $this->_helper->flashMessenger(array('success' => Simova_Mensagens::VACINA_REGISTRADA));
+                    } else {
+                        $this->_helper->flashMessenger(array('success' => Simova_Mensagens::VACINA_APRAZADA));
                     }
 
-                    //Caso sucesso mostrar mensagem de sucesso
-                    $this->_helper->flashMessenger(array('success' => Simova_Mensagens::CADASTRO_SUCESSO));
                     $this->_redirect('/admin/cartao/registrar-aprazar-vacina/cod_pessoa/' . $this->_getParam('cod_pessoa'));
                 } else {
 
@@ -99,7 +106,7 @@ class Admin_CartaoController extends Zend_Controller_Action {
         $paciente = $modelPaciente->getArrayById($this->_getParam('cod_pessoa'));
 
         $this->view->paciente = (object) $paciente[0];
-        Zend_Debug::dump($this->view->cartaoCrianca = $model->vacAplicBetweenIdade(0, 10));
+        $this->view->cartaoCrianca = $model->vacAplicBetweenIdade();
     }
 
     public function visualisaVacinaAction() {
@@ -118,27 +125,35 @@ class Admin_CartaoController extends Zend_Controller_Action {
             'cv.cod_situacao_vacina' => 2
         );
 
+        if ($this->_request->isPost()) {
+            $post = $this->_request->getPost();
+
+            //Resultados por filtros de consulta
+            $like = array($post['tipoConsulta'] => $post['search']);
+        }
+
         $this->view->paciente = (object) $paciente[0];
-        $this->view->vacinasAplicadas = $model->vacAplicBetweenIdade(0, 0, $aplicadas);
-        $this->view->vacinasAprazadas = $model->vacAplicBetweenIdade(0, 0, $aprazadas);
+        $this->view->vacinasAplicadas = $model->vacAplicBetweenIdade($aplicadas, $like);
+        $this->view->vacinasAprazadas = $model->vacAplicBetweenIdade($aprazadas, $like);
     }
 
     public function verCartaoAction() {
         $modelPaciente = new App_Model_Paciente();
         $model = new App_Model_CartaoVacina();
 
-        $paciente = $modelPaciente->getArrayById($this->_getParam('cod_pessoa'));;
-        
+        $paciente = $modelPaciente->getArrayById($this->_getParam('cod_pessoa'));
+
         $where = array(
             'cv.cod_pessoa' => $this->_getParam('cod_pessoa'),
-            'cv.cod_situacao_vacina' => 1
+            'cv.cod_situacao_vacina' => 1,
+            'cod_tipo_cartao' => $this->_getParam('tipo')
         );
 
-        $result = $model->vacAplicBetweenIdade(0, 0, $where);
+        $result = $model->vacAplicBetweenIdade($where);
 
         foreach ($result as $value) {
             if ($value->cod_vacina == $vacAnt) {
-                
+
                 $newArray[$value->cod_vacina][] = $this->arrayData($value);
 
                 $vacAnt = $value->cod_vacina;
@@ -149,9 +164,9 @@ class Admin_CartaoController extends Zend_Controller_Action {
 
             $array = $newArray;
         }
-        
+
         $this->view->cartaoVacina = $array;
-        $this->view->paciente = (object)$paciente[0];
+        $this->view->paciente = (object) $paciente[0];
     }
 
     private function arrayData($value) {

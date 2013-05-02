@@ -12,6 +12,7 @@ echo $this->flashMessenger();
         <option value="nome">Registro Nascimento</option>
         <option value="rg">RG</option>
         <option value="cpf">CPF</option>
+        <option value="cod_sit">Situação do Cadastro</option>
         <option value="">Todos</option>
     </select>
     <div class="input-append">
@@ -44,10 +45,13 @@ echo $this->flashMessenger();
                     <td><?php echo $paciente->rg ?></td>
                     <td><?php echo $paciente->cpf ?></td>
                     <td>
-                        <a href="/admin/pessoa/visualisar-cadastro-paciente/cod_pessoa/<?php echo $paciente->cod_pessoa ?>" title="Visualisar cadastro" class="btn btn-warning btn btn-mini"><i class="icon-eye-open icon-white"></i></a>
-                        <a href="/admin/pessoa/editar-paciente/cod_pessoa/<?php echo $paciente->cod_pessoa ?>" title="Alterar cadastro" class="btn btn-info btn-mini"><i class="icon-edit icon-white"></i> </a>
-                        <a href="/admin/pessoa/excluir-paciente/cod_pessoa/<?php echo $paciente->cod_pessoa ?>"title="Excluir" class="btn btn-danger btn-mini confirm"><i class="icon-trash icon-white"></i></a> 
-
+                        <?php if ($paciente->cod_sit): ?>
+                            <a href="/admin/pessoa/visualisar-cadastro-paciente/cod_pessoa/<?php echo $paciente->cod_pessoa ?>" title="Visualisar cadastro" class="btn btn-warning btn btn-mini"><i class="icon-eye-open icon-white"></i></a>
+                            <a href="/admin/pessoa/editar-paciente/cod_pessoa/<?php echo $paciente->cod_pessoa ?>" title="Alterar cadastro" class="btn btn-info btn-mini"><i class="icon-edit icon-white"></i> </a>
+                            <a href="/admin/pessoa/excluir-paciente/cod_pessoa/<?php echo $paciente->cod_pessoa ?>"title="Excluir" class="btn btn-danger btn-mini confirm"><i class="icon-trash icon-white"></i></a> 
+                        <?php else: ?>
+                            <a href="/admin/pessoa/restaurar-paciente/cod_pessoa/<?php echo $paciente->cod_pessoa ?>"title="Restaurar cadastro" class="btn btn-mini"><i class="icon-check"></i></a> 
+                        <?php endif ?>
                     </td>
                 </tr>
             <?php endforeach; ?>
