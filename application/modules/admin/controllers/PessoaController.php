@@ -97,6 +97,16 @@ class Admin_PessoaController extends Zend_Controller_Action {
         if ($this->_getParam('cod_pessoa')) {
             $pessoa = $model->findById($this->_getParam('cod_pessoa'));
             $this->view->pessoa = $pessoa[0];
+            
+        }
+    }
+    public function visualisarCadastroPacienteAction() {
+        $model = new App_Model_Pessoa();
+
+        if ($this->_getParam('cod_pessoa')) {
+            $pessoa = $model->findById($this->_getParam('cod_pessoa'));
+            $this->view->pessoa = $pessoa[0];
+            
         }
     }
 

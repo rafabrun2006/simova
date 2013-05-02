@@ -9,7 +9,7 @@
     <legend>Consulta de Calendário, Cartão e Aprazamento de vacinas</legend>
     <?php echo $this->flashMessenger() ?>
 
-    <table class="table table-bordered table-condensed " style="font-size: 13px;">
+    <table class="table table-bordered table-condensed " style="font-size: 13px;"> <!--INÍCIO DO CABEÇALHO-->
 
         <thead  style="font-size: 15px;">
             <tr>
@@ -32,8 +32,21 @@
                 <th style="background-color: #08c; color: #FFFFFF">RG:&nbsp;</th>
                 <th colspan="6"><?php echo $this->paciente->registro_nasc ?></th>
             </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">Sexo:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente->sexo ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">Telefone celular:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente->telefone_celular ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">E-mail:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente->email ?></th>
+            </tr>
+
         </thead>
-    </table>
+    </table> <!--FIM DO CABEÇALHO-->
 
 
 
@@ -59,7 +72,7 @@
                     </ul>
                     <div class="tab-content">
 
-                        <div class="tab-pane active" id="rA"> <!--INICIO ABA CALENDÁRIO-->
+                        <div class="tab-pane active" id="rA"> <!--INICIO ABA CALENDÁRIO CRIANÇA-->
 
                             <br>
 
@@ -239,9 +252,9 @@
                                 </tbody>
                             </table>
 
-                        </div> <!--FIM ABA CALENDÁRIO-->
+                        </div> <!--FIM ABA CALENDÁRIO CRIANÇA-->
 
-                        <div class="tab-pane" id="rB"> <!--INICIO ABA CARTÃO-->
+                        <div class="tab-pane" id="rB"> <!--INICIO DA ABA VACINAS APLICADAS - CRIANÇAS-->
 
 
 
@@ -285,15 +298,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($this->vacinasAplicadas as $key => $value): ?>
-                                    <tr>
-                                        <td><?php echo $value->nome_vacina ?></td>
-                                        <td><?php echo $value->dose ?>ª</td>
-                                        <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
-                                        <td><?php echo $value->lote ?></td>
-                                        <td><?php echo $value->nome_un_saude ?></td>
-                                        <td><?php echo $value->matricula ?></td>
-                                    </tr>
+                                    <?php foreach ($this->vacinasAplicadas as $key => $value): ?>
+                                        <tr>
+                                            <td><?php echo $value->nome_vacina ?></td>
+                                            <td><?php echo $value->dose ?>ª</td>
+                                            <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                            <td><?php echo $value->lote ?></td>
+                                            <td><?php echo $value->nome_un_saude ?></td>
+                                            <td><?php echo $value->matricula ?></td>
+                                        </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -319,9 +332,9 @@
 
 
 
-                        </div> <!--FIM ABA CARTÃO-->
+                        </div> <!--FIM DA ABA VACINAS APLICADAS - CRIANÇAS-->
 
-                        <div class="tab-pane" id="rC"> <!--INICIO ABA APRAZAMENTO-->
+                        <div class="tab-pane" id="rC"> <!--INICIO DA ABA VACINAS APRAZADAS - CRIANÇAS-->
 
                             <form class="form-inline" method="post" action="">
                                 <select name="tipoConsulta">
@@ -350,17 +363,17 @@
 
                                 </thead>
                                 <tbody>
-                                    <?php foreach($this->vacinasAprazadas as $key => $value): ?>
-                                    <tr>
-                                        <td><?php echo $value->nome_vacina ?></td>
-                                        <td><?php echo $value->dose ?></td>
-                                        <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
-                                        <td>
-                                            <a href="/admin/cartao/registrar-aprazar-vacina/tab/2/cod_cartao_vacina/<?php echo $value->cod_cartao_vacina ?>/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Registrar Vacina" class="btn btn-inverse btn btn-mini"><i class="icon-star icon-white"></i></a>
-                                            <a href="/admin/cartao/registrar-aprazar-vacina/tab/3/cod_cartao_vacina/<?php echo $value->cod_cartao_vacina ?>/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Alterar Aprazamento" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
-                                            <a href="/admin/pessoa/excluir-cartao/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Excluir Aprazamento" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
-                                        </td>
-                                    </tr>
+                                    <?php foreach ($this->vacinasAprazadas as $key => $value): ?>
+                                        <tr>
+                                            <td><?php echo $value->nome_vacina ?></td>
+                                            <td><?php echo $value->dose ?></td>
+                                            <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                            <td>
+                                                <a href="/admin/cartao/registrar-aprazar-vacina/tab/2/cod_cartao_vacina/<?php echo $value->cod_cartao_vacina ?>/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Registrar Vacina" class="btn btn-inverse btn btn-mini"><i class="icon-star icon-white"></i></a>
+                                                <a href="/admin/cartao/registrar-aprazar-vacina/tab/3/cod_cartao_vacina/<?php echo $value->cod_cartao_vacina ?>/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Alterar Aprazamento" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
+                                                <a href="/admin/pessoa/excluir-cartao/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Excluir Aprazamento" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                                            </td>
+                                        </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                             </table>
@@ -375,23 +388,24 @@
 
 
 
-                        </div> <!--FIM ABA APRAZAMENTO-->
+                        </div> <!--FIM DA ABA VACINAS APRAZADAS - CRIANCAS-->
 
                     </div>
                 </div>
 
-            </div> <!--FIM ABA CRIANÇA-->
+            </div> <!--FIM DA ABA CRIANÇA-->
 
-            <div class="tab-pane" id="tab2"> <!--INICIO ABA ADOLESCENTE-->
+            <div class="tab-pane" id="tab2"> <!--INICIO DA ABA ADOLESCENTE-->
 
                 <div class="tabbable tabs-right">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#rC" data-toggle="tab">Calendário&nbsp;<i class="icon-calendar"></i></a></li>
-                        <li><a href="#rD" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartão&nbsp;<i class="icon-list-alt"></i></a></li>
+                        <li class="active"><a href="#rD" data-toggle="tab">Calendário de Vacinas&nbsp;<i class="icon-calendar"></i></a></li>
+                        <li><a href="#rE" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aplicadas&nbsp;<i class="icon-list-alt"></i></a></li>
+                        <li><a href="#rF" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
 
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane active" id="rC">
+                        <div class="tab-pane active" id="rD"> <!--INÍCIO DA ABA CALENDÁRIO ADOLESCENTE-->
 
                             <br>
 
@@ -491,373 +505,151 @@
                                 </tbody>
                             </table>
 
-                        </div>
-                        <div class="tab-pane" id="rD">
+                        </div> <!--FIM DA ABA CALENDÁRIO ADOLESCENTE-->
 
-                            <table class="table table-bordered " style="font-size: 13px;">
+                        <div class="tab-pane" id="rE"> <!--INICIO DA ABA VACINAS APLICADAS - ADOLESCENTE-->
 
-                                <thead  style="font-size: 15px;">
+                            <form class="form-inline" method="post" action="">
+                                <select name="tipoConsulta">
+                                    <option value="">--</option>
+                                    <option value="nome_vacina">Nome da Vacina</option>
+                                    <option value="dt_aplicacao">Data da Aplicação</option>
+                                    <option value="lote_vacina">Lote da Vacina</option>
+                                    <option value="">Todos</option>
+                                </select>
+
+                                <div class="input-append">
+                                    <input class="input-large" name="search" id="appendedInputButton" type="text">
+                                    <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+
+                                    <a href="/admin/cartao/ver-cartao/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Visualisar Cartão de Vacinas" class="btn btn-info btn btn-default"><i class="icon-eye-open icon-white"></i></a>
+
+                                </div>
+
+                            </form>
+
+
+
+
+
+                            <br><br>
+
+                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aplicadas</caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
                                     <tr>
-                                        <th colspan="7" style="background-color: #d9edf7; color: #000; font-size: 20px;text-align: center;">Registro das Vacinas do Calendário Basico</th>
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">Nome completo:&nbsp;</th>
-                                        <th colspan="6">Leonardo DaVinci</th>
-
-
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">Nome da mãe:&nbsp;</th>
-                                        <th colspan="6">Monalisa</th>
-
-
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">Nome do pai:&nbsp;</th>
-                                        <th colspan="6">Miquelangelo</th>
-
-
-
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">Data de Nascimento:&nbsp;</th>
-                                        <th colspan="6">18/02/1451</th>
-
-
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">Registro de Nascimento:&nbsp;</th>
-                                        <th colspan="6">5235487985</th>
-
-
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">RG:&nbsp;</th>
-                                        <th colspan="6">3335548747</th>
-
-
+                                       <!-- <th>Código Paciente</th>-->
+                                        <th>Nome da vacina</th>
+                                        <th>Dose</th>
+                                        <th>Data da aplicação</th>
+                                        <th>Lote</th>
+                                        <th>Unidade</th>
+                                        <th>Matricula do responsável</th>
+                                        <!--<th>Função</th>-->
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                    <tr >
-                                        <td></td>
-                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Tripice Viral</td>
-                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Hepatite B</td>
-                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Dupla Adulto</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #08c; color: #FFFFFF">1ª Dose</td>
-                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr class="info">
-                                        <td style="background-color: #08c; color: #FFFFFF;">2ª Dose</td>
-                                        <td colspan="2"></td>
-                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #08c; color: #FFFFFF">3ª Dose</td>
-                                        <td colspan="2"></td>
-                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td colspan="2" style="text-align:center;background-color: #08c; color: #FFFFFF;" >Febre Amarela</td>
-
-                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">DT 10 - 10 anos</td>
-                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Campanha seguimento</td>
-
-                                    </tr>
-                                    <tr  class="info">
-                                        <td style="background-color: #08c; color: #FFFFFF">1ª Dose ou reforço</td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #08c; color: #FFFFFF">2ª Dose ou reforço</td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td colspan="3" style="text-align:center;background-color: #08c; color: #FFFFFF;">Outras Vacinas</td>
-                                        <td colspan="3" style="text-align:center;background-color: #08c; color: #FFFFFF;">Campanhas</td>
-                                    </tr>
-                                    <tr class="info">
-                                        <td style="background-color: #08c; color: #FFFFFF"></td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #08c; color: #FFFFFF"></td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr class="info">
-                                        <td style="background-color: #08c; color: #FFFFFF"></td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #08c; color: #FFFFFF"></td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td colspan="7" style="background-color: #08c; color: #FFFFFF; height:20px"></td>
-                                    </tr>
-
+                                    <?php foreach ($this->vacinasAplicadas as $key => $value): ?>
+                                        <tr>
+                                            <td><?php echo $value->nome_vacina ?></td>
+                                            <td><?php echo $value->dose ?>ª</td>
+                                            <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                            <td><?php echo $value->lote ?></td>
+                                            <td><?php echo $value->nome_un_saude ?></td>
+                                            <td><?php echo $value->matricula ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    <!--TABELA COM OS DADOS DA PESQUISA-->
+                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                    <?php echo $this->pagination->pages ?>
+                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                </ul>
+                                <!--<div class="row-fluid">
+                                    <div class="offset10">
+                                          <button class="btn btn-small btn-primary" type="button">Visualizar Cartão de Vacinas</button>
+                                    </div>
+                                </div>-->
+                            </div>
 
-                        </div>
+
+
+
+                        </div> <!--FIM DA ABA VACINAS APLICADAS - ADOLESCENTE-->
+
+                        <div class="tab-pane active" id="rF"> <!--INICIO DA ABA VACINAS APRAZADAS - ADOLESCENTE-->
+
+                            <form class="form-inline" method="post" action="">
+                                <select name="tipoConsulta">
+                                    <option value="">--</option>
+                                    <option value="nome_vacina">Nome da Vacina</option>
+                                    <option value="dt_aplicacao">Data aprazada</option>
+                                    <option value="">Todos</option>
+                                </select>
+                                <div class="input-append">
+                                    <input class="input-large" name="search" id="appendedInputButton" type="text">
+                                    <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+                                </div>
+                            </form>
+
+                            <br><br>
+
+                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aprazadas</caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                       <!-- <th>Código Paciente</th>-->
+                                        <th>Nome da vacina</th>
+                                        <th>Dose</th>
+                                        <th>Data para aplicação</th>
+                                        <th>Função</th>
+
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($this->vacinasAprazadas as $key => $value): ?>
+                                        <tr>
+                                            <td><?php echo $value->nome_vacina ?></td>
+                                            <td><?php echo $value->dose ?></td>
+                                            <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                            <td>
+                                                <a href="/admin/cartao/registrar-aprazar-vacina/tab/2/cod_cartao_vacina/<?php echo $value->cod_cartao_vacina ?>/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Registrar Vacina" class="btn btn-inverse btn btn-mini"><i class="icon-star icon-white"></i></a>
+                                                <a href="/admin/cartao/registrar-aprazar-vacina/tab/3/cod_cartao_vacina/<?php echo $value->cod_cartao_vacina ?>/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Alterar Aprazamento" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
+                                                <a href="/admin/pessoa/excluir-cartao/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Excluir Aprazamento" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    <!--TABELA COM OS DADOS DA PESQUISA-->
+                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                    <?php echo $this->pagination->pages ?>
+                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                </ul>
+                            </div>
+
+                        </div> <!--FIM DA ABA VACINAS APRAZADAS - ADOLESCENTE-->
 
                     </div>
                 </div>
 
-            </div> <!--FIM ABA ADOLESCENTE-->
+            </div> <!--FIM DA ABA ADOLESCENTE-->
 
-            <div class="tab-pane" id="tab3"> <!--INICIO ABA ADULTO-->
+            <div class="tab-pane" id="tab3"> <!--INICIO DA ABA ADULTO-->
 
                 <div class="tabbable tabs-right">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#rE" data-toggle="tab">Calendário&nbsp;<i class="icon-calendar"></i></a></li>
-                        <li><a href="#rF" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartão&nbsp;<i class="icon-list-alt"></i></a></li>
+                        <li class="active"><a href="#rG" data-toggle="tab">Calendário de Vacinas&nbsp;<i class="icon-calendar"></i></a></li>
+                        <li><a href="#rH" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aplicadas&nbsp;<i class="icon-list-alt"></i></a></li>
+                        <li><a href="#rI" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
 
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane active" id="rE">
+                        <div class="tab-pane active" id="rG"> <!--INICIO DO CALENDARIO ADULTO-->
 
                             <br>
 
@@ -955,360 +747,149 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                        <div class="tab-pane" id="rF">
+                        </div>  <!--FIM DO CALENDÁRIO ADULTO-->
 
-                            <table class="table table-bordered " style="font-size: 13px;">
 
-                                <thead  style="font-size: 15px;">
+                        <div class="tab-pane" id="rH">  <!--INICIO DA ABA VACINAS APLICADAS - ADULTO-->
+
+                            <form class="form-inline" method="post" action="">
+                                <select name="tipoConsulta">
+                                    <option value="">--</option>
+                                    <option value="nome_vacina">Nome da Vacina</option>
+                                    <option value="dt_aplicacao">Data da Aplicação</option>
+                                    <option value="lote_vacina">Lote da Vacina</option>
+                                    <option value="">Todos</option>
+                                </select>
+
+                                <div class="input-append">
+                                    <input class="input-large" name="search" id="appendedInputButton" type="text">
+                                    <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+
+                                    <a href="/admin/cartao/ver-cartao/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Visualisar Cartão de Vacinas" class="btn btn-info btn btn-default"><i class="icon-eye-open icon-white"></i></a>
+
+                                </div>
+
+                            </form>
+
+
+
+
+
+                            <br><br>
+
+                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aplicadas</caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
                                     <tr>
-                                        <th colspan="7" style="background-color: #d9edf7; color: #000; font-size: 20px;text-align: center;">Registro das Vacinas do Calendário Basico</th>
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">Nome completo:&nbsp;</th>
-                                        <th colspan="6">Leonardo DaVinci</th>
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">Nome da mãe:&nbsp;</th>
-                                        <th colspan="6">Monalisa</th>
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">Nome do pai:&nbsp;</th>
-                                        <th colspan="6">Miquelangelo</th>
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">Data de Nascimento:&nbsp;</th>
-                                        <th colspan="6">18/02/1451</th>
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">Registro de Nascimento:&nbsp;</th>
-                                        <th colspan="6">5235487985</th>
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">RG:&nbsp;</th>
-                                        <th colspan="6">3335548747</th>
+                                       <!-- <th>Código Paciente</th>-->
+                                        <th>Nome da vacina</th>
+                                        <th>Dose</th>
+                                        <th>Data da aplicação</th>
+                                        <th>Lote</th>
+                                        <th>Unidade</th>
+                                        <th>Matricula do responsável</th>
+                                        <!--<th>Função</th>-->
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                    <tr >
-                                        <td></td>
-                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Tripice Viral</td>
-                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Hepatite B</td>
-                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Dupla Adulto</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #08c; color: #FFFFFF">1ª Dose</td>
-                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr class="info">
-                                        <td style="background-color: #08c; color: #FFFFFF;">2ª Dose</td>
-                                        <td colspan="2"></td>
-                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #08c; color: #FFFFFF">3ª Dose</td>
-                                        <td colspan="2"></td>
-                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td colspan="2" style="text-align:center;background-color: #08c; color: #FFFFFF;" >Febre Amarela</td>
-
-                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">DT 10 - 10 anos</td>
-                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Campanha seguimento</td>
-
-                                    </tr>
-                                    <tr  class="info">
-                                        <td style="background-color: #08c; color: #FFFFFF">1ª Dose ou reforço</td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #08c; color: #FFFFFF">2ª Dose ou reforço</td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td colspan="3" style="text-align:center;background-color: #08c; color: #FFFFFF;">Outras Vacinas</td>
-                                        <td colspan="3" style="text-align:center;background-color: #08c; color: #FFFFFF;">Campanhas</td>
-                                    </tr>
-                                    <tr class="info">
-                                        <td style="background-color: #08c; color: #FFFFFF"></td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #08c; color: #FFFFFF"></td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr class="info">
-                                        <td style="background-color: #08c; color: #FFFFFF"></td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #08c; color: #FFFFFF"></td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td colspan="7" style="background-color: #08c; color: #FFFFFF; height:20px"></td>
-                                    </tr>
-
+                                    <?php foreach ($this->vacinasAplicadas as $key => $value): ?>
+                                        <tr>
+                                            <td><?php echo $value->nome_vacina ?></td>
+                                            <td><?php echo $value->dose ?>ª</td>
+                                            <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                            <td><?php echo $value->lote ?></td>
+                                            <td><?php echo $value->nome_un_saude ?></td>
+                                            <td><?php echo $value->matricula ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    <!--TABELA COM OS DADOS DA PESQUISA-->
+                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                    <?php echo $this->pagination->pages ?>
+                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                </ul>
+                                <!--<div class="row-fluid">
+                                    <div class="offset10">
+                                          <button class="btn btn-small btn-primary" type="button">Visualizar Cartão de Vacinas</button>
+                                    </div>
+                                </div>-->
+                            </div>
 
-                        </div>
+                        </div>   <!--FIM DA ABA VACINAS APLICACADAS - ADULTO-->
+
+                        <div class="tab-pane" id="rI">  <!--INICIO DA ABA VACINAS APRAZADAS - ADULTO-->
+
+                            <form class="form-inline" method="post" action="">
+                                <select name="tipoConsulta">
+                                    <option value="">--</option>
+                                    <option value="nome_vacina">Nome da Vacina</option>
+                                    <option value="dt_aplicacao">Data aprazada</option>
+                                    <option value="">Todos</option>
+                                </select>
+                                <div class="input-append">
+                                    <input class="input-large" name="search" id="appendedInputButton" type="text">
+                                    <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+                                </div>
+                            </form>
+
+                            <br><br>
+
+                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aprazadas</caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                       <!-- <th>Código Paciente</th>-->
+                                        <th>Nome da vacina</th>
+                                        <th>Dose</th>
+                                        <th>Data para aplicação</th>
+                                        <th>Função</th>
+
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($this->vacinasAprazadas as $key => $value): ?>
+                                        <tr>
+                                            <td><?php echo $value->nome_vacina ?></td>
+                                            <td><?php echo $value->dose ?></td>
+                                            <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                            <td>
+                                                <a href="/admin/cartao/registrar-aprazar-vacina/tab/2/cod_cartao_vacina/<?php echo $value->cod_cartao_vacina ?>/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Registrar Vacina" class="btn btn-inverse btn btn-mini"><i class="icon-star icon-white"></i></a>
+                                                <a href="/admin/cartao/registrar-aprazar-vacina/tab/3/cod_cartao_vacina/<?php echo $value->cod_cartao_vacina ?>/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Alterar Aprazamento" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
+                                                <a href="/admin/pessoa/excluir-cartao/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Excluir Aprazamento" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    <!--TABELA COM OS DADOS DA PESQUISA-->
+                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                    <?php echo $this->pagination->pages ?>
+                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                </ul>
+                            </div>
+
+                        </div> <!--FIM DA ABA VACINAS APRAZADAS - ADULTO-->
 
                     </div>
                 </div>
 
-            </div> <!--FIM ABA ADULTO-->
+            </div> <!--FIM DA ABA ADULTO-->
 
-            <div class="tab-pane" id="tab4"> <!--INICIO ABA IDOSO-->
+            <div class="tab-pane" id="tab4"> <!--INICIO DA ABA IDOSO-->
 
                 <div class="tabbable tabs-right">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#rG" data-toggle="tab">Calendário&nbsp;<i class="icon-calendar"></i></a></li>
-                        <li><a href="#rH" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartão&nbsp;<i class="icon-list-alt"></i></a></li>
+                        <li class="active"><a href="#rJ" data-toggle="tab">Calendário de Vacinas&nbsp;<i class="icon-calendar"></i></a></li>
+                        <li><a href="#rK" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aplicadas&nbsp;<i class="icon-list-alt"></i></a></li>
+                        <li><a href="#rL" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
 
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane active" id="rG">
+                        <div class="tab-pane active" id="rJ"> <!--INICIO DA ABA CALENDÁRIO IDOSO-->
 
                             <br>
 
@@ -1394,358 +975,136 @@
                                 </tbody>
                             </table>
 
-                        </div>
-                        <div class="tab-pane" id="rH">
+                        </div> <!--FIM DA ABA CALENDÁRIO - IDOSO-->
 
-                            <table class="table table-bordered " style="font-size: 13px;">
 
-                                <thead  style="font-size: 15px;">
+                        <div class="tab-pane" id="rK"> <!--INICIO DA ABA VACINAS APLICADAS - IDOSO-->
+
+                            <form class="form-inline" method="post" action="">
+                                <select name="tipoConsulta">
+                                    <option value="">--</option>
+                                    <option value="nome_vacina">Nome da Vacina</option>
+                                    <option value="dt_aplicacao">Data da Aplicação</option>
+                                    <option value="lote_vacina">Lote da Vacina</option>
+                                    <option value="">Todos</option>
+                                </select>
+
+                                <div class="input-append">
+                                    <input class="input-large" name="search" id="appendedInputButton" type="text">
+                                    <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+
+                                    <a href="/admin/cartao/ver-cartao/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Visualisar Cartão de Vacinas" class="btn btn-info btn btn-default"><i class="icon-eye-open icon-white"></i></a>
+
+                                </div>
+
+                            </form>
+
+
+
+
+
+                            <br><br>
+
+                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aplicadas</caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
                                     <tr>
-                                        <th colspan="7" style="background-color: #d9edf7; color: #000; font-size: 20px;text-align: center;">Registro das Vacinas do Calendário Basico</th>
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">Nome completo:&nbsp;</th>
-                                        <th colspan="6">Leonardo DaVinci</th>
-
-
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">Nome da mãe:&nbsp;</th>
-                                        <th colspan="6">Monalisa</th>
-
-
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">Nome do pai:&nbsp;</th>
-                                        <th colspan="6">Miquelangelo</th>
-
-
-
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">Data de Nascimento:&nbsp;</th>
-                                        <th colspan="6">18/02/1451</th>
-
-
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">Registro de Nascimento:&nbsp;</th>
-                                        <th colspan="6">5235487985</th>
-
-
-                                    </tr>
-                                    <tr>
-                                        <th style="background-color: #d9edf7; color: #000;">RG:&nbsp;</th>
-                                        <th colspan="6">3335548747</th>
-
-
+                                       <!-- <th>Código Paciente</th>-->
+                                        <th>Nome da vacina</th>
+                                        <th>Dose</th>
+                                        <th>Data da aplicação</th>
+                                        <th>Lote</th>
+                                        <th>Unidade</th>
+                                        <th>Matricula do responsável</th>
+                                        <!--<th>Função</th>-->
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                    <tr >
-                                        <td></td>
-                                        <td colspan="3" style="background-color: #08c; color: #FFFFFF;text-align:center;">Hepatite B</td>
-                                        <td colspan="3" style="background-color: #08c; color: #FFFFFF;text-align:center;">Dupla Adulto</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #08c; color: #FFFFFF">1ª Dose</td>
-
-                                        <td colspan="3">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td colspan="3">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr class="info">
-                                        <td style="background-color: #08c; color: #FFFFFF;">2ª Dose</td>
-
-                                        <td colspan="3">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td colspan="3">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #08c; color: #FFFFFF">3ª Dose</td>
-
-                                        <td colspan="3">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td colspan="3">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td colspan="2" style="text-align:center;background-color: #08c; color: #FFFFFF;" >Febre Amarela</td>
-
-                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">DT 10 - 10 anos</td>
-                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Campanha seguimento</td>
-
-                                    </tr>
-                                    <tr  class="info">
-                                        <td style="background-color: #08c; color: #FFFFFF">1ª Dose ou reforço</td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #08c; color: #FFFFFF">2ª Dose ou reforço</td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td></td>
-                                        <td colspan="2" style="text-align:center;background-color: #08c; color: #FFFFFF;">Outras Vacinas</td>
-                                        <td style="text-align:center;background-color: #08c; color: #FFFFFF;">Campanhas</td>
-                                        <td colspan="3" style="text-align:center;background-color: #08c; color: #FFFFFF;">Influenza - Anual</td>
-                                    </tr>
-                                    <tr class="info">
-                                        <td style="background-color: #08c; color: #FFFFFF"></td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #08c; color: #FFFFFF"></td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr class="info">
-                                        <td style="background-color: #08c; color: #FFFFFF"></td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td style="background-color: #08c; color: #FFFFFF"></td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>Vacina:&nbsp;<br>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-                                        <td>
-                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
-                                            Lote:&nbsp;<br>
-                                            Unid.:&nbsp;<br>
-                                            Resp.:&nbsp;
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td colspan="7" style="background-color: #08c; color: #FFFFFF; height:20px"></td>
-                                    </tr>
-
+                                    <?php foreach ($this->vacinasAplicadas as $key => $value): ?>
+                                        <tr>
+                                            <td><?php echo $value->nome_vacina ?></td>
+                                            <td><?php echo $value->dose ?>ª</td>
+                                            <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                            <td><?php echo $value->lote ?></td>
+                                            <td><?php echo $value->nome_un_saude ?></td>
+                                            <td><?php echo $value->matricula ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    <!--TABELA COM OS DADOS DA PESQUISA-->
+                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                    <?php echo $this->pagination->pages ?>
+                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                </ul>
+                                <!--<div class="row-fluid">
+                                    <div class="offset10">
+                                          <button class="btn btn-small btn-primary" type="button">Visualizar Cartão de Vacinas</button>
+                                    </div>
+                                </div>-->
+                            </div>
 
-                        </div>
+                        </div> <!--FIM DA ABA VACINAS APLICADAS - IDOSO-->
 
+                        <div class="tab-pane" id="rL"> <!--INICIO DA ABA VACINAS APRAZADAS - IDOSO-->
+
+                            <form class="form-inline" method="post" action="">
+                                <select name="tipoConsulta">
+                                    <option value="">--</option>
+                                    <option value="nome_vacina">Nome da Vacina</option>
+                                    <option value="dt_aplicacao">Data aprazada</option>
+                                    <option value="">Todos</option>
+                                </select>
+                                <div class="input-append">
+                                    <input class="input-large" name="search" id="appendedInputButton" type="text">
+                                    <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+                                </div>
+                            </form>
+
+                            <br><br>
+
+                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aprazadas</caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                       <!-- <th>Código Paciente</th>-->
+                                        <th>Nome da vacina</th>
+                                        <th>Dose</th>
+                                        <th>Data para aplicação</th>
+                                        <th>Função</th>
+
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($this->vacinasAprazadas as $key => $value): ?>
+                                        <tr>
+                                            <td><?php echo $value->nome_vacina ?></td>
+                                            <td><?php echo $value->dose ?></td>
+                                            <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                            <td>
+                                                <a href="/admin/cartao/registrar-aprazar-vacina/tab/2/cod_cartao_vacina/<?php echo $value->cod_cartao_vacina ?>/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Registrar Vacina" class="btn btn-inverse btn btn-mini"><i class="icon-star icon-white"></i></a>
+                                                <a href="/admin/cartao/registrar-aprazar-vacina/tab/3/cod_cartao_vacina/<?php echo $value->cod_cartao_vacina ?>/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Alterar Aprazamento" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
+                                                <a href="/admin/pessoa/excluir-cartao/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Excluir Aprazamento" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    <!--TABELA COM OS DADOS DA PESQUISA-->
+                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                    <?php echo $this->pagination->pages ?>
+                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                </ul>
+                            </div>
+
+                        </div> <!--FIM DA ABA VACINAS APRAZADAS - IDOSO-->
                     </div>
                 </div>
 
-            </div> <!--FIM ABA IDOSO-->
+            </div> <!--FIM DA ABA IDOSO-->
 
         </div>
     </div> <!-- FIM DO MENU EXTERNO-->
