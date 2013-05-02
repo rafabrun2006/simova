@@ -45,6 +45,10 @@ class Admin_Form_CartaoVacina extends Zend_Form {
         $codSituacaoVacina = new Zend_Form_Element_Hidden('cod_situacao_vacina');
         $codSituacaoVacina->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
+        
+        $codTipoCartao = new Zend_Form_Element_Select('cod_tipo_cartao');
+        $codTipoCartao->setRequired(TRUE)
+                ->addErrorMessage(self::MESSAGE_REQUIRED);
 
         $this->addElements(array(
             $codCartaoVac,
@@ -54,13 +58,15 @@ class Admin_Form_CartaoVacina extends Zend_Form {
             $codGrupoVacina,
             $codVacina,
             $codSituacaoVacina,
-            $codDose)
+            $codDose,
+            $codTipoCartao)
         );
 
         $this->populaComboUnidade();
         $this->populaComboVacina();
         $this->populaComboDose();
         $this->populaComboGrupoVacina();
+        $this->populaComboTipoCartao();
 
         foreach ($this->getElements() as $element) {
             $element->removeDecorator('htmlTag')
@@ -100,6 +106,14 @@ class Admin_Form_CartaoVacina extends Zend_Form {
         }
     }
 
+    private function populaComboTipoCartao() {
+        $modelTipoCartao = new App_Model_TipoCartao();
+        
+        foreach($modelTipoCartao->fetchAll() as $value){
+            $this->getElement('cod_tipo_cartao')->addMultiOption($value->cod_tipo_cartao, $value->nome_tipo_cartao);
+        }
+    }
+    
     private function populaComboDose() {
         $this->getElement('dose')->addMultiOptions(array(
             '' => '--',

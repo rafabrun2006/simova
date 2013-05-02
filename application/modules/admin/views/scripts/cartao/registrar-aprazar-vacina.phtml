@@ -11,7 +11,7 @@
     isset($this->params['tab']) ?
                     $active[$this->params['tab']] = 'active' : $active[1] = 'active';
     ?>
-    
+
     <table class="table table-bordered table-condensed " style="font-size: 13px;">
 
         <thead  style="font-size: 15px;">
@@ -49,13 +49,13 @@
             </tr>
         </thead>
     </table>
-    
-    
+
+
     <div style="margin-bottom: 18px;" class="tabbable">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#tab1">Registrar Vacinas</a></li>
             <li class=""><a data-toggle="tab" href="#tab2">Aprazar Vacinas</a></li>
-         
+
         </ul>
 
         <div class="tab-content">
@@ -89,12 +89,18 @@
                                     <?php echo $this->form->cod_grupo_vacina ?>
                                 </div>
                             </div>
-                        </div>
-                        <div class="span6">
                             <div class="control-group">
                                 <label for="inputEmail" class="control-label"><b>*</b> Nome da Vacina:</label>
                                 <div class="controls">
                                     <?php echo $this->form->cod_vacina ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span6">
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Tipo do Cartão:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->cod_tipo_cartao ?>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -104,7 +110,7 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Matricula do Responsável:</label>
+                                <label for="inputEmail" class="control-label">Matricula:</label>
                                 <div class="controls">
                                     <?php echo $this->form->VacinaAplicada->matricula ?>
                                 </div>
@@ -160,6 +166,12 @@
                         </div>
                         <div class="span6">
                             <div class="control-group">
+                                <label for="inputEmail" class="control-label">Tipo do Cartão:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->cod_tipo_cartao ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
                                 <label for="inputEmail" class="control-label"><b>*</b> Unidade de Saúde:</label>
                                 <div class="controls">
                                     <?php echo $this->form->cod_un_saude ?>
@@ -172,6 +184,7 @@
                                 </div>
                             </div>
                         </div>
+                        <?php echo $this->form->cod_cartao_vacina ?>
                         <?php echo $this->form->cod_pessoa ?>
                         <?php echo $this->form->cod_situacao_vacina->setValue(2) ?>
                     </div>
@@ -190,7 +203,7 @@
             </div> <!--FIM DO SEGUNDO MENU-->
 
 
-          
+
 
         </div>
     </div>

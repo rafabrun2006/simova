@@ -97,16 +97,15 @@ class Admin_PessoaController extends Zend_Controller_Action {
         if ($this->_getParam('cod_pessoa')) {
             $pessoa = $model->findById($this->_getParam('cod_pessoa'));
             $this->view->pessoa = $pessoa[0];
-            
         }
     }
+
     public function visualisarCadastroPacienteAction() {
         $model = new App_Model_Pessoa();
 
         if ($this->_getParam('cod_pessoa')) {
             $pessoa = $model->findById($this->_getParam('cod_pessoa'));
             $this->view->pessoa = $pessoa[0];
-            
         }
     }
 
@@ -176,10 +175,13 @@ class Admin_PessoaController extends Zend_Controller_Action {
      */
 
     private function excluir($actionRedirect) {
-        $model = new App_Model_Pessoa();
-
+        
         if ($this->_getParam('cod_pessoa')) {
-            $model->delete('cod_pessoa = ' . $this->_getParam('cod_pessoa'));
+            $model = new App_Model_Pessoa();
+            $data = $model->find($this->_getParam('cod_pessoa'))->toArray();
+            $data[0]['cod_sit'] = 0;
+
+            $model->save($data[0], 'cod_pessoa = ' . $data['cod_pessoa']);
 
             $this->_helper->flashMessenger(array('success' => Simova_Mensagens::DELETE_SUCESSO));
         }
@@ -226,6 +228,9 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
     private function save($tipoPessoa, $post) {
 
+        //Add valor a variavel para tipo de registro ativo
+        $post['cod_sit'] = 1;
+        
         //Cadastrando um endereço
         $endereco = new App_Model_Endereco();
         $post['cod_end'] = $endereco->save($post);
@@ -262,6 +267,29 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
             return TRUE;
         }
+    }
+    
+    private function restaurar($actionRedirect) {
+        
+        if ($this->_getParam('cod_pessoa')) {
+            $model = new App_Model_Pessoa();
+            $data = $model->find($this->_getParam('cod_pessoa'))->toArray();
+            $data[0]['cod_sit'] = 1;
+
+            $model->save($data[0], 'cod_pessoa = ' . $data['cod_pessoa']);
+
+            $this->_helper->flashMessenger(array('success' => Simova_Mensagens::RESTAURAR_SUCESSO));
+        }
+
+        $this->_redirect('/admin/pessoa/' . $actionRedirect);
+    }
+    
+    public function restaurarFuncionarioAction(){
+        $this->restaurar('consulta-funcionario');
+    }
+    
+    public function restaurarPacienteAction(){
+        $this->restaurar('consulta-paciente');
     }
 
 }

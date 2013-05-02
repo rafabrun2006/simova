@@ -20,6 +20,9 @@ class App_Model_Funcionario extends Simova_Mapper_ModelMapper {
                 ->setIntegrityCheck(false) 
                 ;
         
+        $where['tipoConsulta']['cod_sit'] ? 
+                $query->where('cod_sit = ?', $where['search']) : $query->where('cod_sit = ?', TRUE);
+        
         if($where['tipoConsulta']){
             $query->where($where['tipoConsulta']." like ?", "%{$where['search']}%");
         }
