@@ -25,11 +25,9 @@ class Admin_PessoaController extends Zend_Controller_Action {
                     $this->_redirect('/admin/pessoa/consulta-funcionario');
                 } else {
                     $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::CADASTRO_ERROR));
-                    $this->_redirect('/admin/pessoa/consulta-funcionario');
                 }
             } else {
                 $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::FORM_INVALIDO));
-                $this->_redirect('/admin/pessoa/consulta-funcionario');
             }
         }
         $this->view->form = $form;
@@ -144,7 +142,6 @@ class Admin_PessoaController extends Zend_Controller_Action {
                 }
             } else {
                 $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::FORM_INVALIDO));
-                $this->_redirect('/admin/pessoa/consulta-funcionario');
             }
         }
 

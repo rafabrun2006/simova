@@ -13,6 +13,7 @@
 class Admin_Form_Unidade extends Zend_Form {
 
     const MESSAGE_REQUIRED = 'Preenchimento obrigatório';
+    const MESSAGE_VALUE_INCORRECT = 'Deve ser inserido um numero válido';
     
     public function init() {
 
@@ -24,7 +25,8 @@ class Admin_Form_Unidade extends Zend_Form {
 
         $num_un_saude = new Zend_Form_Element_Text('num_un_saude');
         $num_un_saude->setRequired(TRUE)
-                ->addErrorMessage(self::MESSAGE_REQUIRED);
+                ->addValidator(new Zend_Validate_Int())
+                ->addErrorMessage(self::MESSAGE_VALUE_INCORRECT);
 
         $this->addElements(array(
             $cod_un_saude,

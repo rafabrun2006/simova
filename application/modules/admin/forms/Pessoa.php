@@ -13,15 +13,17 @@
 class Admin_Form_Pessoa extends Zend_Form {
 
     const MESSAGE_REQUIRED = 'Preenchimento obrigatório';
+    const MESSAGE_INVALID_CPF = 'Insira um numero de CPF válido';
 
     public function init() {
 
         $codPessoa = new Zend_Form_Element_Hidden('cod_pessoa');
 
         $cpf = new Zend_Form_Element_Text('cpf');
-        $cpf->setLabel('CPF: ');
-               
-                
+        $cpf->setLabel('CPF: ')
+                ->addValidator(new Simova_Validates())
+                ->addErrorMessage(self::MESSAGE_INVALID_CPF)
+                ;
 
         $nome = new Zend_Form_Element_Text('nome', array('class' => 'input-xlarge'));
         $nome->setLabel('Nome: ')
@@ -56,7 +58,7 @@ class Admin_Form_Pessoa extends Zend_Form {
                 ->addErrorMessage(self::MESSAGE_REQUIRED)
                 ->setLabel('Estado Civil: ');
 
-        $dtNascimento = new Zend_Form_Element_Text('dt_nasc', array('readonly' => 'readonly'));
+        $dtNascimento = new Zend_Form_Element_Text('dt_nasc', array('readonly' => 'readonly', 'class'=>'date-utils'));
         $dtNascimento->setLabel('Data de Nascimento: ')
                 ->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED)
