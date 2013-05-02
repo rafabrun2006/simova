@@ -31,9 +31,19 @@ class Admin_Form_Login extends Zend_Form {
             $cod_login, $nome_login, $senha_login)
         );
 
+        $this->passwordRand();
+        
         foreach ($this->getElements() as $element) {
             $element->removeDecorator('HtmlTag')->removeDecorator('Label');
         }
     }
 
+    public function passwordRand(){
+        
+        for($i=0;$i<11;$i++){
+            $passwordRand .= rand(1, 9); 
+        }
+
+        $this->getElement('senha_login')->setValue($passwordRand);
+    }
 }
