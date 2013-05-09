@@ -7,14 +7,7 @@
 </ul>
 <fieldset>
     <legend>Consulta de Calendário, Cartão e Aprazamento de vacinas</legend>
-    <?php
-    if ($this->mensagem):
-        ?>
-        <div class="alert <?php echo $this->mensagem['type'] ?>"><?php echo $this->mensagem['mensagem'] ?></div>
-        <?php
-    endif;
-    ?>
-
+    <?php echo $this->flashMessenger() ?>
 
     <div class="tabbable"> <!-- INICIO DO MENU EXTERNO-->
 

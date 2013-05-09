@@ -22,9 +22,8 @@ class Admin_Form_Login extends Zend_Form {
         $nome_login->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
         
-        $senha_login = new Zend_Form_Element_Password('senha_login', array('placeholder'=>'Minimo 3 máximo 12', 'maxlength'=>12));
-        $senha_login->setRenderPassword(TRUE)
-                ->setRequired(TRUE)
+        $senha_login = new Zend_Form_Element_Text('senha_login', array('placeholder'=>'Minimo 3 máximo 12', 'maxlength'=>12));
+        $senha_login->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
 
         $this->addElements(array(
