@@ -1,0 +1,5 @@
+<select id="cod_id" name="cod_id">
+    <?php foreach($this->select as $value): ?>
+        <option value="<?php echo $value['value'] ?>"><?php echo $value['label'] ?></option>
+    <?php endforeach; ?>
+</select>

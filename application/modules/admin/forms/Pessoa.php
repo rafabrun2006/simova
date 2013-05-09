@@ -81,12 +81,16 @@ class Admin_Form_Pessoa extends Zend_Form {
         $email = new Zend_Form_Element_Text('email', array('class' => 'input-xlarge'));
         $email->setLabel('Email:')
                 ->addValidator(new Zend_Validate_EmailAddress());
+        
+        $telResidencial = new Zend_Form_Element_Text('telefone_residencial');
+        $telCelular = new Zend_Form_Element_Text('telefone_celular');
+        
         /*
          * Adicionando formularios auxiliares
          */
         $this->addSubForm(new Admin_Form_Endereco(), 'Endereco');
         $this->addSubForm(new Admin_Form_Login(), 'Login');
-        $this->addSubForm(new Admin_Form_Telefone(), 'Telefone');
+        //$this->addSubForm(new Admin_Form_Telefone(), 'Telefone');
         $this->addSubForm(new Admin_Form_Status(), 'Status');
 
         $this->addElements(array(
@@ -103,6 +107,8 @@ class Admin_Form_Pessoa extends Zend_Form {
             $codUnidadeSaude,
             $perfil,
             $email,
+            $telCelular,
+            $telResidencial
         ));
 
         /*

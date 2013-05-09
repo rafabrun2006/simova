@@ -164,18 +164,19 @@
                                 <div class="control-group">
                                     <label for="inputEmail" class="control-label"><b>*</b> Telefone residencial:</label>
                                     <div class="controls">
-                                        <?php echo $this->form->Telefone->num_tel1 ?>
+                                        <?php echo $this->form->telefone_residencial ?>
                                     </div>
                                 </div>
                                 <label for="inputEmail" class="control-label"><b>*</b> Telefone celular:</label>
                                 <div class="controls">
-                                    <?php echo $this->form->Telefone->num_tel2 ?>
+                                    <?php echo $this->form->telefone_celular ?>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <label for="inputEmail" class="control-label">E-mail:</label>
                                 <div class="controls">
-                                    <?php echo $this->form->email ?>
+                                    <?php //echo $this->form->email ?>
+                                    <input id="email" class="input-xlarge" type="email" name="email" value="">
                                 </div>
                             </div>
                             <div class="control-group">

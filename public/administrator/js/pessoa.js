@@ -14,9 +14,9 @@ $(document).ready(function() {
     
     $('#cep').mask('999.999-99');
     
-    $('#num_tel1').mask('(99)9999-9999');
+    $('#telefone_residencial').mask('(99)9999-9999');
     
-    $('#num_tel2').mask('(99)9999-9999');
+    $('#telefone_celular').mask('(99)9999-9999');
 
 });
 

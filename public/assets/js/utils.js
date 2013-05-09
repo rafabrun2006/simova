@@ -16,4 +16,13 @@ $(document).ready(function() {
         $('body').html(table);
         print();
     });
+    
+    //Load city by UF
+    $('#cod_uf').change(function(){
+        var uf_id = $(this).val();
+        
+        $.get('/admin/endereco/ajax-popula-cidade/uf_id/'+uf_id, function(data){
+            $('#cod_cid').html(data);
+        });
+    });
 });

@@ -212,11 +212,11 @@ class Admin_PessoaController extends Zend_Controller_Action {
         $form->getSubForm('Endereco')->populate($pessoa[0]);
 
         //Populando formulario telefone
-        $form->getSubForm('Telefone')->populate(
-                array(
-                    'cod_tel' => $pessoa[0]['cod_tel'],
-                    'num_tel1' => $pessoa[0]['num_tel'],
-        ));
+//        $form->getSubForm('Telefone')->populate(
+//                array(
+//                    'cod_tel' => $pessoa[0]['cod_tel'],
+//                    'num_tel1' => $pessoa[0]['num_tel'],
+//        ));
 
         //Populando formulario login
         $form->getSubForm('Login')->populate($pessoa[0]);
@@ -249,8 +249,8 @@ class Admin_PessoaController extends Zend_Controller_Action {
             $post['cod_pessoa'] = $codPessoa;
 
             //Cadastrando telefones
-            $telefone = new App_Model_Telefone();
-            $telefone->saveMultiple($post, 2);
+            //$telefone = new App_Model_Telefone();
+            //$telefone->saveMultiple($post, 2);
 
             //Salvando pessoa pelo tipo, funcionario ou paciente
             if ($tipoPessoa == 'F') {
