@@ -11,7 +11,7 @@ class App_Model_Vacina extends Simova_Mapper_ModelMapper {
                 ->join(array('lv' => 'tb_lote_vacina'), 'lv.cod_vacina = v.cod_vacina', array('cod_lote', 'cod_lote_vacina', 'qtd_vacina'))
                 ->join(array('l' => 'tb_lote'), 'l.cod_lote = lv.cod_lote', array('num_lote', 'dt_venc', 'dt_fabric'))
                 ->join(array('vf' => 'tb_vacina_fabricante'), 'vf.cod_vacina = v.cod_vacina', array('cod_fabric', 'cod_vacina_fabricante'))
-                ->join(array('f' => 'tb_fabricante'), 'f.cod_fabric = vf.cod_fabric', array('nome_fabric'))
+                ->join(array('f' => 'tb_fabricante'), 'f.cod_fabric = vf.cod_fabric', array('cod_fabric', 'nome_fabric'))
                 ->setIntegrityCheck(FALSE)
         ;
 
@@ -23,7 +23,7 @@ class App_Model_Vacina extends Simova_Mapper_ModelMapper {
             }
         }
 
-        //echo $query;
+        echo $query;
         
         return $this->fetchAll($query);
     }

@@ -20,4 +20,7 @@ class Simova_Constantes {
     const REFORCO           = 4;
     const CAMPANHA          = 5;
     
+    const ADMINISTRADOR     = 1;
+    const FUNCIONARIO       = 2;
+    const PACIENTE          = 3;
 }

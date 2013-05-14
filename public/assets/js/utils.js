@@ -7,7 +7,7 @@
 $(document).ready(function() {
 
     $('.date-utils').datepicker({
-        //format: 'dd-mm-yyyy'
+        format: 'dd-mm-yyyy'
     });
 
 

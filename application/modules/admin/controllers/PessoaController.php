@@ -2,6 +2,8 @@
 
 class Admin_PessoaController extends Zend_Controller_Action {
 
+    public $_form;
+    
     public function init() {
         /* Initialize action controller here */
     }
@@ -11,14 +13,18 @@ class Admin_PessoaController extends Zend_Controller_Action {
     }
 
     public function cadastroFuncionarioAction() {
-        $form = new Admin_Form_Pessoa();
-        $form->addSubForm(new Admin_Form_Funcionario(), 'Funcionario');
-
+        $this->_form = new Admin_Form_Pessoa();
+        $this->_form->addSubForm(new Admin_Form_Funcionario(), 'Funcionario');
+        
+        //Populando combo de perfil com perfil de funcionario e administrador
+        $this->populatePerfil(Simova_Constantes::FUNCIONARIO);
+        
+        //Verificando se a requisição e um POST
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
 
             //Validando formulario
-            if ($form->isValid($post)) {
+            if ($this->_form->isValid($post)) {
 
                 if ($this->save('F', $post)) {
                     $this->_helper->flashMessenger(array('success' => Simova_Mensagens::CADASTRO_SUCESSO));
@@ -30,18 +36,20 @@ class Admin_PessoaController extends Zend_Controller_Action {
                 $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::FORM_INVALIDO));
             }
         }
-        $this->view->form = $form;
+        $this->view->form = $this->_form;
     }
 
     public function cadastroPacienteAction() {
-        $form = new Admin_Form_Pessoa();
-        $form->addSubForm(new Admin_Form_Paciente(), 'Paciente');
+        $this->_form = new Admin_Form_Pessoa();
+        $this->_form->addSubForm(new Admin_Form_Paciente(), 'Paciente');
+        
+        $this->populatePerfil(Simova_Constantes::PACIENTE);
 
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
 
             //Validando formulario
-            if ($form->isValid($post)) {
+            if ($this->_form->isValid($post)) {
 
                 if ($this->save('P', $post)) {
 
@@ -54,7 +62,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
                 $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::FORM_INVALIDO));
             }
         }
-        $this->view->form = $form;
+        $this->view->form = $this->_form;
     }
 
     public function consultaFuncionarioAction() {
@@ -126,13 +134,16 @@ class Admin_PessoaController extends Zend_Controller_Action {
     }
 
     public function editarFuncionarioAction() {
-        $form = new Admin_Form_Pessoa();
-        $form->addSubForm(new Admin_Form_Funcionario(), 'Funcionario');
+        $this->_form = new Admin_Form_Pessoa();
+        $this->_form->addSubForm(new Admin_Form_Funcionario(), 'Funcionario');
 
+        //Populando o form de pessoa
+        $this->populatePerfil(Simova_Constantes::FUNCIONARIO);
+        
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
 
-            if ($form->isValid($post)) {
+            if ($this->_form->isValid($post)) {
                 if ($this->save('F', $post)) {
                     $this->_helper->flashMessenger(array('success' => Simova_Mensagens::ALTERAR_SUCESSO));
                     $this->_redirect('/admin/pessoa/consulta-funcionario');
@@ -144,7 +155,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
             }
         }
 
-        $this->populaFormEditar('F', $form, $this->_getParam('cod_pessoa'));
+        $this->populaFormEditar('F', $this->_form, $this->_getParam('cod_pessoa'));
     }
 
     public function editarPacienteAction() {
@@ -175,7 +186,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
      */
 
     private function excluir($actionRedirect) {
-        
+
         if ($this->_getParam('cod_pessoa')) {
             $model = new App_Model_Pessoa();
             $data = $model->find($this->_getParam('cod_pessoa'))->toArray();
@@ -211,13 +222,8 @@ class Admin_PessoaController extends Zend_Controller_Action {
         //Populando formulario endereço
         $form->getSubForm('Endereco')->populate($pessoa[0]);
 
-        //Populando formulario telefone
-//        $form->getSubForm('Telefone')->populate(
-//                array(
-//                    'cod_tel' => $pessoa[0]['cod_tel'],
-//                    'num_tel1' => $pessoa[0]['num_tel'],
-//        ));
-
+        //Decodificando a senha do usuario
+        $pessoa[0]['senha_login'] = App_Model_Login::decodingBase64($pessoa[0]['senha_login']);
         //Populando formulario login
         $form->getSubForm('Login')->populate($pessoa[0]);
 
@@ -230,7 +236,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
         //Add valor a variavel para tipo de registro ativo
         $post['cod_sit'] = 1;
-        
+
         //Cadastrando um endereço
         $endereco = new App_Model_Endereco();
         $post['cod_end'] = $endereco->save($post);
@@ -251,7 +257,6 @@ class Admin_PessoaController extends Zend_Controller_Action {
             //Cadastrando telefones
             //$telefone = new App_Model_Telefone();
             //$telefone->saveMultiple($post, 2);
-
             //Salvando pessoa pelo tipo, funcionario ou paciente
             if ($tipoPessoa == 'F') {
 
@@ -268,9 +273,9 @@ class Admin_PessoaController extends Zend_Controller_Action {
             return TRUE;
         }
     }
-    
+
     private function restaurar($actionRedirect) {
-        
+
         if ($this->_getParam('cod_pessoa')) {
             $model = new App_Model_Pessoa();
             $data = $model->find($this->_getParam('cod_pessoa'))->toArray();
@@ -283,14 +288,25 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
         $this->_redirect('/admin/pessoa/' . $actionRedirect);
     }
-    
-    public function restaurarFuncionarioAction(){
+
+    public function restaurarFuncionarioAction() {
         $this->restaurar('consulta-funcionario');
     }
-    
-    public function restaurarPacienteAction(){
+
+    public function restaurarPacienteAction() {
         $this->restaurar('consulta-paciente');
     }
 
+    private function populatePerfil($perfil){
+        $modelPerfil = new App_Model_Perfil();
+        
+        foreach ($modelPerfil->listAll() as $value) {
+            if ($value->cod_perfil >= $perfil) {
+                $this->_form->getElement('cod_perfil')
+                        ->addMultiOption($value->cod_perfil, $value->nome_perfil);
+            }
+        }
+    }
+    
 }
 

@@ -22,14 +22,28 @@ class Admin_Form_Vacina extends Zend_Form {
         $nomeVacina->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
         
-        $this->addSubForm(new Admin_Form_Fabricante(), 'Fabricante');
+        $codFabric = new Zend_Form_Element_Select('cod_fabric');
+        $codFabric->setRequired(TRUE)
+                ->addErrorMessage(self::MESSAGE_REQUIRED);
+        
         $this->addSubForm(new Admin_Form_VacinaFabricante(), 'VacinaFabricante');
         
-        $this->addElements(array($codVacina, $nomeVacina));
+        $this->addElements(array($codVacina, $codFabric, $nomeVacina));
+        
+        $this->populaFabricante();
         
         foreach($this->getElements() as $element){
             $element->removeDecorator('htmlTag')
                     ->removeDecorator('label');
+        }
+        
+    }
+    
+    public function populaFabricante(){
+        $modelFabricante = new App_Model_Fabricante();
+        
+        foreach($modelFabricante->fetchAll() as $value){
+            $this->getElement('cod_fabric')->addMultiOption($value->cod_fabric, $value->nome_fabric);
         }
     }
 

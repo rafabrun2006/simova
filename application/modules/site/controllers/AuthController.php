@@ -41,7 +41,7 @@ class Site_AuthController extends Zend_Controller_Action {
 
                 $authAdapter
                         ->setIdentity($post['nome_login']) //Preenchendo o usuario
-                        ->setCredential(md5($post['senha_login'])); //Preenchendo a senha
+                        ->setCredential(App_Model_Login::encodingBase64($post['senha_login'])); //Preenchendo a senha
                 //Verificando o sucesso do login
                 if ($authAdapter->authenticate()->isValid()) {
 

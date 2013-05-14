@@ -12,11 +12,8 @@ class Admin_PerfilController extends Zend_Controller_Action {
 
     public function editarAction() {
         $form = new Admin_Form_Pessoa();
-        $form->removeSubForm('Endereco');
-        $form->removeSubForm('Status');
 
         $modelPessoa = new App_Model_Pessoa();
-        $modelTelefone = new App_Model_Telefone();
         $modelLogin = new App_Model_Login();
 
         $result = $modelPessoa
@@ -24,40 +21,27 @@ class Admin_PerfilController extends Zend_Controller_Action {
                 ->toArray();
 
         if ($result) {
-            $telefone = $modelTelefone->findByPerson($result[0]['cod_pessoa']);
-
             if ($this->_request->isPost()) {
                 $post = $this->_request->getPost();
 
-                echo $senhaLogin = (md5($result[0]['senha_login']) == $post['senha_login'] ? TRUE : FALSE);
-
                 $data = array_merge($result[0], $post);
 
-                if ($form->isValid($data)) {
-
-                    $data['num_tel'] = $data['num_tel1'];
-                    $modelTelefone->saveMultiple($data, 1);
-
-                    if (!empty($data['senha_login']) and $senhaLogin) {
-                        $modelLogin->saveLogin($data);
-                    }
-
-                    if ($modelPessoa->save($data)) {
-                        $this->view->mensagem = array(
-                            'type' => 'alert-success', 'mensagem' => 'Alteração efetuado com sucesso!'
-                        );
-                    }
+                if (!empty($data['senha_login'])) {
+                    $modelLogin->saveLogin($data);
                 }
 
+                if ($modelPessoa->save($data)) {
+                    $this->_helper->flashMessenger(array('success' => Simova_Mensagens::ALTERAR_SUCESSO));
+                }
+
+                $result[0]['senha_login'] = App_Model_Login::decodingBase64($result[0]['senha_login']);
                 $form->populate($data);
             } else {
-                $result[0]['num_tel1'] = $telefone[0]->num_tel;
+                $result[0]['senha_login'] = App_Model_Login::decodingBase64($result[0]['senha_login']);
                 $form->populate($result[0]);
             }
         } else {
-            $this->view->mensagem = array(
-                'type' => 'alert-error', 'mensagem' => 'Perfil inexistente, verifique o banco de dados!'
-            );
+            $this->_helper->flashMessenger(array('warning' => 'Perfil inexistente!'));
         }
 
         $this->view->form = $form;
