@@ -13,7 +13,7 @@ class App_Model_CartaoVacina extends Simova_Mapper_ModelMapper {
     }
 
     public function vacAplicBetweenIdade(array $where = null, array $whereLike = null) {
-        echo $query = $this->select()
+        $query = $this->select()
                 ->from(array('cv' => 'tb_cartao_vacina'), array('*'))
                 ->joinLeft(array('va' => 'tb_vacina_aplicada'), 'cv.cod_cartao_vacina = va.cod_cartao_vacina', array('matricula', 'lote'))
                 ->joinRight(array('v' => 'tb_vacina'), 'v.cod_vacina = cv.cod_vacina', array('*'))

@@ -1,0 +1,1109 @@
+<script type="text/javascript" src="/js/pessoa.js"></script>
+<ul class="pager offset10">
+    <li class="previous">
+        <a href="/cartao/consulta-cartao"><i class="icon-arrow-left"></i><strong>Voltar</strong></a>
+    </li>
+
+</ul>
+<fieldset>
+    <legend>Consulta de Calendário, Cartão e Aprazamento de vacinas</legend>
+    <?php echo $this->flashMessenger() ?>
+
+    <table class="table table-bordered table-condensed " style="font-size: 13px;"> <!--INÍCIO DO CABEÇALHO-->
+
+        <thead  style="font-size: 15px;">
+            <tr>
+                <th colspan="7" style="background-color: #08c; color: #FFFFFF; font-size: 20px;text-align: center;">Dados do Paciente</th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF;width: 180px;">Nome completo:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente->nome ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">Nome da mãe:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente->nome_mae ?></th>
+            </tr>
+
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">Data de Nascimento:&nbsp;</th>
+                <th colspan="6"><?php echo date('d-m-Y', strtotime($this->paciente->dt_nasc)) ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">RG:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente->registro_nasc ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">Sexo:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente->sexo ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">Telefone celular:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente->telefone_celular ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">E-mail:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente->email ?></th>
+            </tr>
+
+        </thead>
+    </table> <!--FIM DO CABEÇALHO-->
+
+
+
+    <div class="tabbable"> <!-- INICIO DO MENU EXTERNO-->
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">Criança</a></li>
+            <li><a href="#tab2" data-toggle="tab">Adoslecente</a></li>
+            <li><a href="#tab3" data-toggle="tab">Adulto</a></li>
+            <li><a href="#tab4" data-toggle="tab">Idoso</a></li>
+        </ul>
+
+        <div class="tab-content">
+
+            <div class="tab-pane active" id="tab1"> <!--INICIO ABA CRIANÇA-->
+
+                <div class="tabbable tabs-right">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#rA" data-toggle="tab">Calendário de Vacinas&nbsp;<i class="icon-calendar"></i></a></li>
+                        <li><a href="#rB" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aplicadas&nbsp;<i class="icon-list-alt"></i></a></li>
+                        <li><a href="#rC" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
+
+                    </ul>
+                    <div class="tab-content">
+
+                        <div class="tab-pane active" id="rA" style="overflow: auto; max-height: 400px;"> <!--INICIO ABA CALENDÁRIO CRIANÇA-->
+
+                            <br>
+
+                            <table  class="table table-bordered table-striped" style="font-size: 13px;">
+                                <caption ><h4>Calendário de Vacinação Infantil</h4></caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                        <th style="text-align: center;">Idade</th>
+                                        <th style="text-align: center;">Vacinas</th>
+                                        <th style="text-align: center;">Doses</th>
+                                        <th style="text-align: center;">Doenças Evitadas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td  style="width: 70px;" rowspan="2">Ao nascer</td>
+                                        <td>BCG-ID</td>
+                                        <td style="width: 80px;">Dose Unica</td>
+                                        <td>Formas Graves de Turbeculose</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina contra Hepatite B (1)</td>
+                                        <td>1ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 mês</td>
+                                        <td>Vacina contra Hepatite B</td>
+                                        <td>2ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="4">2 meses</td>
+                                        <td>Vacina Oral contra a Pólio</td>
+                                        <td>1ª dose</td>
+                                        <td>Poliomielite (paralisia Infantil)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Tetravalente (2)</td>
+                                        <td>1ª dose</td>
+                                        <td>Difteria, tétano, coqueluche, meningite e outras infecções por Haemophilus influenzae tipo B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Oral contra Rotavírus Humano (3)</td>
+                                        <td>1ª dose</td>
+                                        <td>Doenças diarréicas por Rotavírus</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina contra Pneumococos</td>
+                                        <td>1ª dose</td>
+                                        <td>Otite, sinusite, pneumonias, meningite causadas pelo Streptococcus pneumoniae</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3 meses</td>
+                                        <td>Vacina contra Meningococo C</td>
+                                        <td>1ª dose</td>
+                                        <td>Doença invasiva causada por Neisseria meningitidis do Sorogrupo C</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="4">4 meses</td>
+                                        <td>Vacina Oral contra a Pólio</td>
+                                        <td>2ª dose</td>
+                                        <td>Poliomielite (paralisia Infantil)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Tetravalente</td>
+                                        <td>2ª dose</td>
+                                        <td>Difteria, tétano, coqueluche, meningite e outras infecções por Haemophilus influenzae tipo B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Oral contra Rotavírus Humano (4)</td>
+                                        <td>2ª dose</td>
+                                        <td>Doenças diarréicas por Rotavíru</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina contra Pneumococos</td>
+                                        <td>2ª dose</td>
+                                        <td>Otite, sinusite, pneumonias, meningite causadas pelo Streptococcus pneumoniae</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5 meses</td>
+                                        <td>Vacina contra Meningococo C</td>
+                                        <td>2ª dose</td>
+                                        <td>Doença invasiva causada por Neisseria meningitidis do Sorogrupo C</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="4">6 meses</td>
+                                        <td>Vacina contra Hepatite B</td>
+                                        <td>3ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Oral contra a Pólio</td>
+                                        <td>3ª dose</td>
+                                        <td>Poliomielite (paralisia Infantil)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Tetravalente</td>
+                                        <td>3ª dose</td>
+                                        <td>Difteria, tétano, coqueluche, meningite e outras infecções por Haemophilus influenzae tipo B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina contra Pneumococos</td>
+                                        <td>3ª dose</td>
+                                        <td>Otite, sinusite, pneumonias, meningite causadas pelo Streptococcus pneumoniae</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9 meses</td>
+                                        <td>Vacina contra febre amarela (5)</td>
+                                        <td>1ª dose</td>
+                                        <td>Febre amarela</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">12 meses</td>
+                                        <td>Tríplice Viral</td>
+                                        <td>1ª dose</td>
+                                        <td>Sarampo, Rubéola e Caxumba</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina contra Pneumococos</td>
+                                        <td>Reforço</td>
+                                        <td>Otite, sinusite, pneumonias, meningite causadas pelo Streptococcus pneumoniae</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3">15 meses</td>
+                                        <td>Vacina Oral contra a Pólio</td>
+                                        <td>Reforço</td>
+                                        <td>Poliomielite (paralisia Infantil)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Tríplice Bacteriana</td>
+                                        <td> 1ª reforço</td>
+                                        <td>Difteria, tétano, coqueluche</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina contra Meningococo C</td>
+                                        <td> Reforço</td>
+                                        <td>Doença invasiva causada por Neisseria meningitidis do Sorogrupo C</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">4-6 anos</td>
+                                        <td>Tríplice Viral</td>
+                                        <td>Reforço</td>
+                                        <td>Sarampo, Rubéola e Caxumba</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Tríplice Bacteriana</td>
+                                        <td> 2ª reforço</td>
+                                        <td>Difteria, tétano, coqueluche</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (1) A primeira dose da vacina contra a hepatite B deve ser administrada na maternidade, nas primeiras 12 horas de vida do recém-nascido. O esquema básico se constitui de 03 (três) doses, com intervalos de 30 dias da primeira para a segunda dose e 180 dias da primeira para a terceira dose.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (2) O esquema de vacinação atual é feito aos 2, 4 e 6 meses de idade com a vacina Tetravalente e dois reforços com a Tríplice Bacteriana (DTP). O primeiro reforço aos 15 meses e o segundo reforço entre 4 e 6 anos.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (3) É possível administar a primeira dose da Vacina Oral de Rotavírus Humano a partir de 1 mês e 15 dias a 3 meses e 7 dias de idade (6 a 14 semanas de vida).
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (4) É possível administrar a segunda dose da Vacina Oral de Rotavírus Humano a partir de 3 meses e 7 dias a 5 meses e 15 dias de idade (14 a 24 semanas de ida). O intervalo mínimo reconizado entre a primeira e a segunda dose é de 4 semanas.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (5) A vacina contra febre amarela está indicada para crianças a partir dos 09 meses de idade e quando for viajar para o exterior, vacinar contra Febre Amarela 10 (dez) dias antes da viagem.
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div> <!--FIM ABA CALENDÁRIO CRIANÇA-->
+
+                        <div class="tab-pane" id="rB"> <!--INICIO DA ABA VACINAS APLICADAS - CRIANÇAS-->
+
+
+
+                            <form class="form-inline" method="post" action="">
+                                <select name="tipoConsulta">
+                                    <option value="">--</option>
+                                    <option value="nome_vacina">Nome da Vacina</option>
+                                    <option value="dt_aplicacao">Data da Aplicação</option>
+                                    <option value="lote">Lote da Vacina</option>
+                                    <option value="">Todos</option>
+                                </select>
+
+                                <div class="input-append">
+                                    <input class="input-large" name="search" id="appendedInputButton" type="text">
+                                    <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+
+                                    <a href="/cartao/ver-cartao/tipo/1/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Visualisar Cartão de Vacinas" class="btn btn-info btn btn-default"><i class="icon-eye-open icon-white"></i></a>
+
+                                </div>
+
+                            </form>
+                            <br><br>
+                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aplicadas</caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                       <!-- <th>Código Paciente</th>-->
+                                        <th>Nome da vacina</th>
+                                        <th>Dose</th>
+                                        <th>Data da aplicação</th>
+                                        <th>Lote</th>
+                                        <th>Unidade</th>
+                                        <th>Matricula do responsável</th>
+                                        <!--<th>Função</th>-->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($this->vacinasAplicadas as $key => $value):
+                                        if ($value->cod_tipo_cartao == 1):
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $value->nome_vacina ?></td>
+                                                <td><?php echo $value->dose ?>ª</td>
+                                                <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                                <td><?php echo $value->lote ?></td>
+                                                <td><?php echo $value->nome_un_saude ?></td>
+                                                <td><?php echo $value->matricula ?></td>
+                                            </tr>
+                                            <?php
+                                        endif;
+                                    endforeach;
+                                    ?>
+                                </tbody>
+                            </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    <!--TABELA COM OS DADOS DA PESQUISA-->
+                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                    <?php echo $this->pagination->pages ?>
+                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                </ul>
+                                <!--<div class="row-fluid">
+                                    <div class="offset10">
+                                          <button class="btn btn-small btn-primary" type="button">Visualizar Cartão de Vacinas</button>
+                                    </div>
+                                </div>-->
+                            </div>
+                        </div> <!--FIM DA ABA VACINAS APLICADAS - CRIANÇAS-->
+
+                        <div class="tab-pane" id="rC"> <!--INICIO DA ABA VACINAS APRAZADAS - CRIANÇAS-->
+
+                            <form class="form-inline" method="post" action="">
+                                <select name="tipoConsulta">
+                                    <option value="">--</option>
+                                    <option value="nome_vacina">Nome da Vacina</option>
+                                    <option value="dt_aplicacao">Data aprazada</option>
+                                    <option value="">Todos</option>
+                                </select>
+                                <div class="input-append">
+                                    <input class="input-large" name="search" id="appendedInputButton" type="text">
+                                    <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+                                </div>
+                            </form>
+
+                            <br><br>
+
+                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aprazadas</caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                       <!-- <th>Código Paciente</th>-->
+                                        <th>Nome da vacina</th>
+                                        <th>Dose</th>
+                                        <th>Data para aplicação</th>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($this->vacinasAprazadas as $key => $value):
+                                        if ($value->cod_tipo_cartao == 1):
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $value->nome_vacina ?></td>
+                                                <td><?php echo $value->dose ?></td>
+                                                <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                            </tr>
+                                            <?php
+                                        endif;
+                                    endforeach;
+                                    ?>
+                                </tbody>
+                            </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    <!--TABELA COM OS DADOS DA PESQUISA-->
+                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                    <?php echo $this->pagination->pages ?>
+                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                </ul>
+                            </div>
+
+
+
+                        </div> <!--FIM DA ABA VACINAS APRAZADAS - CRIANCAS-->
+
+                    </div>
+                </div>
+
+            </div> <!--FIM DA ABA CRIANÇA-->
+
+            <div class="tab-pane" id="tab2"> <!--INICIO DA ABA ADOLESCENTE-->
+
+                <div class="tabbable tabs-right">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#rD" data-toggle="tab">Calendário de Vacinas&nbsp;<i class="icon-calendar"></i></a></li>
+                        <li><a href="#rE" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aplicadas&nbsp;<i class="icon-list-alt"></i></a></li>
+                        <li><a href="#rF" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="rD"> <!--INÍCIO DA ABA CALENDÁRIO ADOLESCENTE-->
+
+                            <br>
+
+                            <table  class="table table-bordered table-striped" style="font-size: 13px;">
+                                <caption ><h4>Calendário de Vacinação do Adoslescente</h4></caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                        <th style="text-align: center;">Idade</th>
+                                        <th style="text-align: center;">Vacinas</th>
+                                        <th style="text-align: center;">Doses</th>
+                                        <th style="text-align: center;">Doenças Evitadas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="4">De 11 a 19 anos</td>
+                                        <td>Dupla Adulto (2)</td>
+                                        <td>1ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hepatite B</td>
+                                        <td>1ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Febre Amarela (3)</td>
+                                        <td>Reforço</td>
+                                        <td>Febre Amarela</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tríplice Viral (4)</td>
+                                        <td>Única</td>
+                                        <td>Sarampo, Rubéola e Caxumba</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 mês após a 1ª dose contra Hepatite B</td>
+                                        <td>Hepatite B</td>
+                                        <td>2ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6 meses após a 2ª dose contra a Hepatite B</td>
+                                        <td>Hepatite B</td>
+                                        <td>3ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2 meses após a 1ª dose de Dupla Adulto</td>
+                                        <td>Dupla adulto</td>
+                                        <td>2ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2 meses após a 2ª dose de Dupla Adulto</td>
+                                        <td>Dupla adulto</td>
+                                        <td>3ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td  rowspan="2">A cada 10 anos, por toda a vida</td>
+                                        <td>Dupla adulto (5)</td>
+                                        <td>Reforço</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Febre Amarela</td>
+                                        <td>Reforço</td>
+                                        <td>Febre Amarela</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (1) Adolescente que não tiver comprovação de vacina anterior, seguir este esquema. Se apresentar documentação com esquema incompleto, completar o esquema já iniciado
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (2) Adolescente que já recebeu anteriormente 03 (três ) doses ou mais das vacinas DTP, DT ou dT, aplicar uma dose de reforço. É necessário doses de reforço a cada 10 anos. Em caso de ferimentos graves, antecipar a dose de reforço para 5 anos após a última dose. O intervalo mínimo entre as doses é de 30 dias.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (3) Adolescente que for viajar para o exterior, vacinar 10 (dez) dias antes da viagem.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (4) Adolescente que tiver duas doses de Tríplice Viral devidamente comprovada no cartão de vacinação, não precisa.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (5) Adolescente grávida, que esteja com a vacina em dia, mas recebeu sua última dose há mais de 5 (cinco ) anos, precisa receber uma dose de reforço. A dose deve ser aplicada no mínimo 20 dias antes da data provável do parto. Em caso de ferimentos graves, a dose de reforço deve ser antecipada para cinco anos após a última dose.
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div> <!--FIM DA ABA CALENDÁRIO ADOLESCENTE-->
+
+                        <div class="tab-pane" id="rE"> <!--INICIO DA ABA VACINAS APLICADAS - ADOLESCENTE-->
+
+                            <form class="form-inline" method="post" action="">
+                                <select name="tipoConsulta">
+                                    <option value="">--</option>
+                                    <option value="nome_vacina">Nome da Vacina</option>
+                                    <option value="dt_aplicacao">Data da Aplicação</option>
+                                    <option value="lote">Lote da Vacina</option>
+                                    <option value="">Todos</option>
+                                </select>
+
+                                <div class="input-append">
+                                    <input class="input-large" name="search" id="appendedInputButton" type="text">
+                                    <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+
+                                    <a href="/cartao/ver-cartao/tipo/2/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Visualisar Cartão de Vacinas" class="btn btn-info btn btn-default"><i class="icon-eye-open icon-white"></i></a>
+
+                                </div>
+
+                            </form>
+                            <br><br>
+                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aplicadas</caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                       <!-- <th>Código Paciente</th>-->
+                                        <th>Nome da vacina</th>
+                                        <th>Dose</th>
+                                        <th>Data da aplicação</th>
+                                        <th>Lote</th>
+                                        <th>Unidade</th>
+                                        <th>Matricula do responsável</th>
+                                        <!--<th>Função</th>-->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($this->vacinasAplicadas as $key => $value):
+                                        if ($value->cod_tipo_cartao == 2):
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $value->nome_vacina ?></td>
+                                                <td><?php echo $value->dose ?>ª</td>
+                                                <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                                <td><?php echo $value->lote ?></td>
+                                                <td><?php echo $value->nome_un_saude ?></td>
+                                                <td><?php echo $value->matricula ?></td>
+                                            </tr>
+                                            <?php
+                                        endif;
+                                    endforeach;
+                                    ?>
+                                </tbody>
+                            </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    <!--TABELA COM OS DADOS DA PESQUISA-->
+                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                    <?php echo $this->pagination->pages ?>
+                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                </ul>
+                                <!--<div class="row-fluid">
+                                    <div class="offset10">
+                                          <button class="btn btn-small btn-primary" type="button">Visualizar Cartão de Vacinas</button>
+                                    </div>
+                                </div>-->
+                            </div>
+
+
+
+
+                        </div> <!--FIM DA ABA VACINAS APLICADAS - ADOLESCENTE-->
+
+                        <div class="tab-pane active" id="rF"> <!--INICIO DA ABA VACINAS APRAZADAS - ADOLESCENTE-->
+
+                            <form class="form-inline" method="post" action="">
+                                <select name="tipoConsulta">
+                                    <option value="">--</option>
+                                    <option value="nome_vacina">Nome da Vacina</option>
+                                    <option value="dt_aplicacao">Data aprazada</option>
+                                    <option value="">Todos</option>
+                                </select>
+                                <div class="input-append">
+                                    <input class="input-large" name="search" id="appendedInputButton" type="text">
+                                    <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+                                </div>
+                            </form>
+
+                            <br><br>
+
+                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aprazadas</caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                       <!-- <th>Código Paciente</th>-->
+                                        <th>Nome da vacina</th>
+                                        <th>Dose</th>
+                                        <th>Data para aplicação</th>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($this->vacinasAprazadas as $key => $value):
+                                        if ($value->cod_tipo_cartao == 2):
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $value->nome_vacina ?></td>
+                                                <td><?php echo $value->dose ?></td>
+                                                <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                            </tr>
+                                            <?php
+                                        endif;
+                                    endforeach;
+                                    ?>
+                                </tbody>
+                            </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    <!--TABELA COM OS DADOS DA PESQUISA-->
+                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                    <?php echo $this->pagination->pages ?>
+                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                </ul>
+                            </div>
+
+                        </div> <!--FIM DA ABA VACINAS APRAZADAS - ADOLESCENTE-->
+
+                    </div>
+                </div>
+
+            </div> <!--FIM DA ABA ADOLESCENTE-->
+
+            <div class="tab-pane" id="tab3"> <!--INICIO DA ABA ADULTO-->
+
+                <div class="tabbable tabs-right">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#rG" data-toggle="tab">Calendário de Vacinas&nbsp;<i class="icon-calendar"></i></a></li>
+                        <li><a href="#rH" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aplicadas&nbsp;<i class="icon-list-alt"></i></a></li>
+                        <li><a href="#rI" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="rG"> <!--INICIO DO CALENDARIO ADULTO-->
+
+                            <br>
+
+                            <table  class="table table-bordered table-striped" style="font-size: 13px;">
+                                <caption ><h4>Calendário de Vacinação do Adulto</h4></caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                        <th style="text-align: center;">Idade</th>
+                                        <th style="text-align: center;">Vacinas</th>
+                                        <th style="text-align: center;">Doses</th>
+                                        <th style="text-align: center;">Doenças Evitadas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="4">A partir de 20 anos</td>
+                                        <td>Dupla Adulto (1)</td>
+                                        <td>1ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hepatite B (2)</td>
+                                        <td>1ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Febre Amarela (3)</td>
+                                        <td> Inicial ou reforço</td>
+                                        <td>Febre Amarela</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tríplice Viral (4)</td>
+                                        <td>Única</td>
+                                        <td>Sarampo, Rubéola e Caxumba</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 mês após a 1ª dose contra Hepatite B</td>
+                                        <td>Hepatite B</td>
+                                        <td>2ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6 meses após a 2ª dose contra a Hepatite B</td>
+                                        <td>Hepatite B</td>
+                                        <td>3ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2 meses após a 1ª dose de Dupla Adulto</td>
+                                        <td>Dupla adulto</td>
+                                        <td>2ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2 meses após a 2ª dose de Dupla Adulto</td>
+                                        <td>Dupla adulto</td>
+                                        <td>3ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td  rowspan="2">A cada 10 anos, por toda a vida</td>
+                                        <td>Dupla adulto (4)</td>
+                                        <td>Reforço</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Febre Amarela</td>
+                                        <td>Reforço</td>
+                                        <td>Febre Amarela</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (1) A partir de 20 (vinte) anos gestante, não gestante e homens que não tiverem comprovação de vacinação anterior seguir o esquema acima. Apresentando documentação com esquema incompleto, completar o esquema já iniciado. O intervalo mínimo entre as doses é de 30 dias.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (2) A vacina contra Hepatite B pode ser realizada em adultos até 29 anos.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (3) Adulto que for viajar para exterior, vacinar 10 (dez) dias antes da viagem.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (4) A vacina trlplice viral deve ser administrada em mulheres de 12 a 49 anos que não tiverem comprovação de vacinação anterior e em homens até 39 (trinta e nove) anos.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (5) Mulher grávida que esteja com a vacina em dia, mas recebeu sua última dose há mais de 5 (cinco ) anos, precisa receber uma dose de reforço. A dose deve ser aplicada no mínimo 20 dias antes da data provável do parto. Em caso de ferimentos graves, a dose de reforço deve ser antecipada para cinco anos após a última dose.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>  <!--FIM DO CALENDÁRIO ADULTO-->
+
+
+                        <div class="tab-pane" id="rH">  <!--INICIO DA ABA VACINAS APLICADAS - ADULTO-->
+
+                            <form class="form-inline" method="post" action="">
+                                <select name="tipoConsulta">
+                                    <option value="">--</option>
+                                    <option value="nome_vacina">Nome da Vacina</option>
+                                    <option value="dt_aplicacao">Data da Aplicação</option>
+                                    <option value="lote">Lote da Vacina</option>
+                                    <option value="">Todos</option>
+                                </select>
+
+                                <div class="input-append">
+                                    <input class="input-large" name="search" id="appendedInputButton" type="text">
+                                    <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+
+                                    <a href="/cartao/ver-cartao/tipo/3/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Visualisar Cartão de Vacinas" class="btn btn-info btn btn-default"><i class="icon-eye-open icon-white"></i></a>
+
+                                </div>
+
+                            </form>
+                            <br><br>
+                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aplicadas</caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                       <!-- <th>Código Paciente</th>-->
+                                        <th>Nome da vacina</th>
+                                        <th>Dose</th>
+                                        <th>Data da aplicação</th>
+                                        <th>Lote</th>
+                                        <th>Unidade</th>
+                                        <th>Matricula do responsável</th>
+                                        <!--<th>Função</th>-->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($this->vacinasAplicadas as $key => $value):
+                                        if ($value->cod_tipo_cartao == 3):
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $value->nome_vacina ?></td>
+                                                <td><?php echo $value->dose ?>ª</td>
+                                                <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                                <td><?php echo $value->lote ?></td>
+                                                <td><?php echo $value->nome_un_saude ?></td>
+                                                <td><?php echo $value->matricula ?></td>
+                                            </tr>
+                                            <?php
+                                        endif;
+                                    endforeach;
+                                    ?>
+                                </tbody>
+                            </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    <!--TABELA COM OS DADOS DA PESQUISA-->
+                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                    <?php echo $this->pagination->pages ?>
+                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                </ul>
+                                <!--<div class="row-fluid">
+                                    <div class="offset10">
+                                          <button class="btn btn-small btn-primary" type="button">Visualizar Cartão de Vacinas</button>
+                                    </div>
+                                </div>-->
+                            </div>
+
+                        </div>   <!--FIM DA ABA VACINAS APLICACADAS - ADULTO-->
+
+                        <div class="tab-pane" id="rI">  <!--INICIO DA ABA VACINAS APRAZADAS - ADULTO-->
+
+                            <form class="form-inline" method="post" action="">
+                                <select name="tipoConsulta">
+                                    <option value="">--</option>
+                                    <option value="nome_vacina">Nome da Vacina</option>
+                                    <option value="dt_aplicacao">Data aprazada</option>
+                                    <option value="">Todos</option>
+                                </select>
+                                <div class="input-append">
+                                    <input class="input-large" name="search" id="appendedInputButton" type="text">
+                                    <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+                                </div>
+                            </form>
+
+                            <br><br>
+
+                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aprazadas</caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                       <!-- <th>Código Paciente</th>-->
+                                        <th>Nome da vacina</th>
+                                        <th>Dose</th>
+                                        <th>Data para aplicação</th>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($this->vacinasAprazadas as $key => $value):
+                                        if ($value->cod_tipo_cartao == 3):
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $value->nome_vacina ?></td>
+                                                <td><?php echo $value->dose ?></td>
+                                                <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                            </tr>
+                                            <?php
+                                        endif;
+                                    endforeach;
+                                    ?>
+                                </tbody>
+                            </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    <!--TABELA COM OS DADOS DA PESQUISA-->
+                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                    <?php echo $this->pagination->pages ?>
+                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                </ul>
+                            </div>
+
+                        </div> <!--FIM DA ABA VACINAS APRAZADAS - ADULTO-->
+
+                    </div>
+                </div>
+
+            </div> <!--FIM DA ABA ADULTO-->
+
+            <div class="tab-pane" id="tab4"> <!--INICIO DA ABA IDOSO-->
+
+                <div class="tabbable tabs-right">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#rJ" data-toggle="tab">Calendário de Vacinas&nbsp;<i class="icon-calendar"></i></a></li>
+                        <li><a href="#rK" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aplicadas&nbsp;<i class="icon-list-alt"></i></a></li>
+                        <li><a href="#rL" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="rJ"> <!--INICIO DA ABA CALENDÁRIO IDOSO-->
+
+                            <br>
+
+                            <table  class="table table-bordered table-striped" style="font-size: 13px;">
+                                <caption ><h4>Calendário de Vacinação do Idoso</h4></caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                        <th style="text-align: center;">Idade</th>
+                                        <th style="text-align: center;">Vacinas</th>
+                                        <th style="text-align: center;">Doses</th>
+                                        <th style="text-align: center;">Doenças Evitadas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="3">A partir de 60 anos</td>
+                                        <td>Influenza (1)</td>
+                                        <td>Unual</td>
+                                        <td>Influenza ou Gripe</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hepatite B (2)</td>
+                                        <td>1ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Febre Amarela (3)</td>
+                                        <td> Inicial ou reforço</td>
+                                        <td>Febre Amarela</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1 mês após a 1ª dose contra Hepatite B</td>
+                                        <td>Hepatite B</td>
+                                        <td>2ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6 meses após a 2ª dose contra a Hepatite B</td>
+                                        <td>Hepatite B</td>
+                                        <td>3ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2 meses após a 1ª dose de Dupla Adulto</td>
+                                        <td>Dupla adulto</td>
+                                        <td>2ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2 meses após a 2ª dose de Dupla Adulto</td>
+                                        <td>Dupla adulto</td>
+                                        <td>3ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td  rowspan="2">A cada 10 anos, por toda a vida</td>
+                                        <td>Dupla adulto</td>
+                                        <td>Reforço</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Febre Amarela</td>
+                                        <td>Reforço</td>
+                                        <td>Febre Amarela</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (1) A vacina contra influenza é oferecida anualmente durante as Campanhas de Vacinação do Idoso. Os idosos que não tiverem comprovação de vacinação anterior seguir o esquema acima. Apresentando documentação com esquema incompleto, completar o esquema já iniciado. O intervalo mínimo entre as doses é de 30 dias.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (2) A vacina contra Hepatite B pode ser aplicada em grupos vulneráveis.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (3) Idoso que for viajar para exterior, vacinar 10 (dez) dias antes da viagem.
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div> <!--FIM DA ABA CALENDÁRIO - IDOSO-->
+
+
+                        <div class="tab-pane" id="rK"> <!--INICIO DA ABA VACINAS APLICADAS - IDOSO-->
+
+                            <form class="form-inline" method="post" action="">
+                                <select name="tipoConsulta">
+                                    <option value="">--</option>
+                                    <option value="nome_vacina">Nome da Vacina</option>
+                                    <option value="dt_aplicacao">Data da Aplicação</option>
+                                    <option value="lote">Lote da Vacina</option>
+                                    <option value="">Todos</option>
+                                </select>
+
+                                <div class="input-append">
+                                    <input class="input-large" name="search" id="appendedInputButton" type="text">
+                                    <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+
+                                    <a href="/cartao/ver-cartao/tipo/4/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>" title="Visualisar Cartão de Vacinas" class="btn btn-info btn btn-default"><i class="icon-eye-open icon-white"></i></a>
+                                </div>
+                            </form>
+                            <br><br>
+                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aplicadas</caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                       <!-- <th>Código Paciente</th>-->
+                                        <th>Nome da vacina</th>
+                                        <th>Dose</th>
+                                        <th>Data da aplicação</th>
+                                        <th>Lote</th>
+                                        <th>Unidade</th>
+                                        <th>Matricula do responsável</th>
+                                        <!--<th>Função</th>-->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($this->vacinasAplicadas as $key => $value):
+                                        if ($value->cod_tipo_cartao == 4):
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $value->nome_vacina ?></td>
+                                                <td><?php echo $value->dose ?>ª</td>
+                                                <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                                <td><?php echo $value->lote ?></td>
+                                                <td><?php echo $value->nome_un_saude ?></td>
+                                                <td><?php echo $value->matricula ?></td>
+                                            </tr>
+                                            <?php
+                                        endif;
+                                    endforeach;
+                                    ?>
+                                </tbody>
+                            </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    <!--TABELA COM OS DADOS DA PESQUISA-->
+                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                    <?php echo $this->pagination->pages ?>
+                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                </ul>
+                                <!--<div class="row-fluid">
+                                    <div class="offset10">
+                                          <button class="btn btn-small btn-primary" type="button">Visualizar Cartão de Vacinas</button>
+                                    </div>
+                                </div>-->
+                            </div>
+
+                        </div> <!--FIM DA ABA VACINAS APLICADAS - IDOSO-->
+
+                        <div class="tab-pane" id="rL"> <!--INICIO DA ABA VACINAS APRAZADAS - IDOSO-->
+
+                            <form class="form-inline" method="post" action="">
+                                <select name="tipoConsulta">
+                                    <option value="">--</option>
+                                    <option value="nome_vacina">Nome da Vacina</option>
+                                    <option value="dt_aplicacao">Data aprazada</option>
+                                    <option value="">Todos</option>
+                                </select>
+                                <div class="input-append">
+                                    <input class="input-large" name="search" id="appendedInputButton" type="text">
+                                    <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+                                </div>
+                            </form>
+
+                            <br><br>
+
+                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aprazadas</caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                       <!-- <th>Código Paciente</th>-->
+                                        <th>Nome da vacina</th>
+                                        <th>Dose</th>
+                                        <th>Data para aplicação</th>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    foreach ($this->vacinasAprazadas as $key => $value):
+                                        if ($value->cod_tipo_cartao == 4):
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $value->nome_vacina ?></td>
+                                                <td><?php echo $value->dose ?></td>
+                                                <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                            </tr>
+                                            <?php
+                                        endif;
+                                    endforeach;
+                                    ?>
+                                </tbody>
+                            </table>
+                            <div class="pagination pagination-centered">
+                                <ul>
+                                    <!--TABELA COM OS DADOS DA PESQUISA-->
+                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                    <?php echo $this->pagination->pages ?>
+                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                </ul>
+                            </div>
+
+                        </div> <!--FIM DA ABA VACINAS APRAZADAS - IDOSO-->
+                    </div>
+                </div>
+
+            </div> <!--FIM DA ABA IDOSO-->
+
+        </div>
+    </div> <!-- FIM DO MENU EXTERNO-->
+
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+

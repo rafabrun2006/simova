@@ -1,0 +1,74 @@
+<ul class="pager offset10">
+    <li class="previous">
+        <a href="/cartao/visualisa-vacina/cod_pessoa/<?php echo $this->paciente->cod_pessoa ?>"><i class="icon-arrow-left"></i><strong>Voltar</strong></a>
+    </li>
+
+</ul>
+<form>
+    <button class="btn btn-small btn-info" id="print" type="button" title="Imprimir Cartão de Vacinas"><i class="icon-print icon-white"></i></button>
+</form>
+<hr>
+
+<br><br>
+
+
+<table id="cartao-vacina" class="table table-bordered table-condensed " style="font-size: 13px;">
+
+    <thead  style="font-size: 15px;">
+        <tr>
+            <th colspan="7" style="background-color: #d9edf7; color: #000; font-size: 20px;text-align: center;">Registro das Vacinas do Calendário Basico</th>
+        </tr>
+        <tr>
+            <th style="background-color: #d9edf7; color: #000; width: 200px;">Nome completo:&nbsp;</th>
+            <th colspan="6"><?php echo $this->paciente->nome ?></th>
+        </tr>
+        <tr>
+            <th style="background-color: #d9edf7; color: #000;">Nome da mãe:&nbsp;</th>
+            <th colspan="6"><?php echo $this->paciente->nome_mae ?></th>
+        </tr>
+        <tr>
+            <th style="background-color: #d9edf7; color: #000;">Nome do pai:&nbsp;</th>
+            <th colspan="6"><?php echo $this->paciente->nome_pai ?></th>
+        </tr>
+        <tr>
+            <th style="background-color: #d9edf7; color: #000;">Data de Nascimento:&nbsp;</th>
+            <th colspan="6"><?php echo date('d-m-Y', strtotime($this->paciente->dt_nasc)) ?></th>
+        </tr>
+        <tr>
+            <th style="background-color: #d9edf7; color: #000;">Registro de Nascimento:&nbsp;</th>
+            <th colspan="6"><?php echo $this->paciente->registro_nasc ?></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr >
+            <td></td>
+            <td style="background-color: #08c; color: #FFFFFF">1ª Dose</td>
+            <td style="background-color: #08c; color: #FFFFFF">2ª Dose</td>
+            <td style="background-color: #08c; color: #FFFFFF">3ª Dose</td>
+            <td style="background-color: #08c; color: #FFFFFF">Reforço</td>
+
+        </tr>
+        <?php foreach ($this->cartaoVacina as $key => $columns): ?>
+            <?php
+            $i = 0;
+            ?>
+            <tr>
+                <td style="background-color: #08c; color: #FFFFFF"><?php echo $columns[$i]['nome_vacina'] ?></td>
+                <?php for ($j = 0; $j < 4; $j++): ?>
+                    <td>
+                        <strong>Data:</strong>&nbsp;<?php echo $columns[$j]['dt_vacina'] ?><br>
+                        <strong>Lote:</strong>&nbsp;<?php echo $columns[$j]['lote'] ?><br>
+                        <strong>Unid.:</strong>&nbsp;<?php echo $columns[$j]['nome_un_saude'] ?><br>
+                        <strong>Resp.Mat.:</strong>&nbsp;<?php echo $columns[$j]['matricula'] ?>
+                    </td>
+                <?php endfor; ?>
+            </tr>
+            <?php $i++; ?>
+        <?php endforeach; ?>
+        <tr>
+            <td colspan="7" style="background-color: #08c; color: #FFFFFF; height:20px"></td>
+        </tr>
+
+    </tbody>
+</table>

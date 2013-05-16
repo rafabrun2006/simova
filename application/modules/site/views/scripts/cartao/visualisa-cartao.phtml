@@ -1,0 +1,2346 @@
+<script type="text/javascript" src="/admin/js/pessoa.js"></script>
+<ul class="pager offset10">
+    <li class="previous">
+        <a href="/admin/cartao/consulta-cartao"><i class="icon-arrow-left"></i><strong>Voltar</strong></a>
+    </li>
+
+</ul>
+<fieldset>
+    <legend>Consulta de Calendário, Cartão e Aprazamento de vacinas</legend>
+    <?php echo $this->flashMessenger() ?>
+
+    <div class="tabbable"> <!-- INICIO DO MENU EXTERNO-->
+
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab1" data-toggle="tab">Criança</a></li>
+            <li><a href="#tab2" data-toggle="tab">Adoslecente</a></li>
+            <li><a href="#tab3" data-toggle="tab">Adulto</a></li>
+            <li><a href="#tab4" data-toggle="tab">Idoso</a></li>
+        </ul>
+
+        <div class="tab-content">
+
+            <div class="tab-pane active" id="tab1"> <!--INICIO ABA CRIANÇA-->
+
+                <div class="tabbable tabs-right">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#rA" data-toggle="tab">Calendário&nbsp;<i class="icon-calendar"></i></a></li>
+                        <li><a href="#rB" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartão&nbsp;<i class="icon-list-alt"></i></a></li>
+                        <li><a href="#rC" data-toggle="tab">&nbsp;Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
+
+                    </ul>
+                    <div class="tab-content">
+                        
+                        <div class="tab-pane active" id="rA"> <!--INICIO ABA CALENDÁRIO-->
+
+                            <br>
+
+                            <table  class="table table-bordered table-striped" style="font-size: 13px;">
+                                <caption ><h4>Calendário de Vacinação Infantil</h4></caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                        <th style="text-align: center;">Idade</th>
+                                        <th style="text-align: center;">Vacinas</th>
+                                        <th style="text-align: center;">Doses</th>
+                                        <th style="text-align: center;">Doenças Evitadas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="2">Ao nascer</td>
+                                        <td>BCG-ID</td>
+                                        <td>Dose Unica</td>
+                                        <td>Formas Graves de Turbeculose</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina contra Hepatite B (1)</td>
+                                        <td>1ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 mês</td>
+                                        <td>Vacina contra Hepatite B</td>
+                                        <td>2ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="4">2 meses</td>
+                                        <td>Vacina Oral contra a Pólio</td>
+                                        <td>1ª dose</td>
+                                        <td>Poliomielite (paralisia Infantil)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Tetravalente (2)</td>
+                                        <td>1ª dose</td>
+                                        <td>Difteria, tétano, coqueluche, meningite e outras infecções por Haemophilus influenzae tipo B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Oral contra Rotavírus Humano (3)</td>
+                                        <td>1ª dose</td>
+                                        <td>Doenças diarréicas por Rotavírus</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina contra Pneumococos</td>
+                                        <td>1ª dose</td>
+                                        <td>Otite, sinusite, pneumonias, meningite causadas pelo Streptococcus pneumoniae</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3 meses</td>
+                                        <td>Vacina contra Meningococo C</td>
+                                        <td>1ª dose</td>
+                                        <td>Doença invasiva causada por Neisseria meningitidis do Sorogrupo C</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="4">4 meses</td>
+                                        <td>Vacina Oral contra a Pólio</td>
+                                        <td>2ª dose</td>
+                                        <td>Poliomielite (paralisia Infantil)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Tetravalente</td>
+                                        <td>2ª dose</td>
+                                        <td>Difteria, tétano, coqueluche, meningite e outras infecções por Haemophilus influenzae tipo B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Oral contra Rotavírus Humano (4)</td>
+                                        <td>2ª dose</td>
+                                        <td>Doenças diarréicas por Rotavíru</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina contra Pneumococos</td>
+                                        <td>2ª dose</td>
+                                        <td>Otite, sinusite, pneumonias, meningite causadas pelo Streptococcus pneumoniae</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5 meses</td>
+                                        <td>Vacina contra Meningococo C</td>
+                                        <td>2ª dose</td>
+                                        <td>Doença invasiva causada por Neisseria meningitidis do Sorogrupo C</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="4">6 meses</td>
+                                        <td>Vacina contra Hepatite B</td>
+                                        <td>3ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Oral contra a Pólio</td>
+                                        <td>3ª dose</td>
+                                        <td>Poliomielite (paralisia Infantil)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Tetravalente</td>
+                                        <td>3ª dose</td>
+                                        <td>Difteria, tétano, coqueluche, meningite e outras infecções por Haemophilus influenzae tipo B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina contra Pneumococos</td>
+                                        <td>3ª dose</td>
+                                        <td>Otite, sinusite, pneumonias, meningite causadas pelo Streptococcus pneumoniae</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9 meses</td>
+                                        <td>Vacina contra febre amarela (5)</td>
+                                        <td>1ª dose</td>
+                                        <td>Febre amarela</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">12 meses</td>
+                                        <td>Tríplice Viral</td>
+                                        <td>1ª dose</td>
+                                        <td>Sarampo, Rubéola e Caxumba</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina contra Pneumococos</td>
+                                        <td>Reforço</td>
+                                        <td>Otite, sinusite, pneumonias, meningite causadas pelo Streptococcus pneumoniae</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="3">15 meses</td>
+                                        <td>Vacina Oral contra a Pólio</td>
+                                        <td>Reforço</td>
+                                        <td>Poliomielite (paralisia Infantil)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Tríplice Bacteriana</td>
+                                        <td> 1ª reforço</td>
+                                        <td>Difteria, tétano, coqueluche</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina contra Meningococo C</td>
+                                        <td> Reforço</td>
+                                        <td>Doença invasiva causada por Neisseria meningitidis do Sorogrupo C</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2">4-6 anos</td>
+                                        <td>Tríplice Viral</td>
+                                        <td>Reforço</td>
+                                        <td>Sarampo, Rubéola e Caxumba</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vacina Tríplice Bacteriana</td>
+                                        <td> 2ª reforço</td>
+                                        <td>Difteria, tétano, coqueluche</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (1) A primeira dose da vacina contra a hepatite B deve ser administrada na maternidade, nas primeiras 12 horas de vida do recém-nascido. O esquema básico se constitui de 03 (três) doses, com intervalos de 30 dias da primeira para a segunda dose e 180 dias da primeira para a terceira dose.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (2) O esquema de vacinação atual é feito aos 2, 4 e 6 meses de idade com a vacina Tetravalente e dois reforços com a Tríplice Bacteriana (DTP). O primeiro reforço aos 15 meses e o segundo reforço entre 4 e 6 anos.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (3) É possível administar a primeira dose da Vacina Oral de Rotavírus Humano a partir de 1 mês e 15 dias a 3 meses e 7 dias de idade (6 a 14 semanas de vida).
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (4) É possível administrar a segunda dose da Vacina Oral de Rotavírus Humano a partir de 3 meses e 7 dias a 5 meses e 15 dias de idade (14 a 24 semanas de ida). O intervalo mínimo reconizado entre a primeira e a segunda dose é de 4 semanas.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (5) A vacina contra febre amarela está indicada para crianças a partir dos 09 meses de idade e quando for viajar para o exterior, vacinar contra Febre Amarela 10 (dez) dias antes da viagem.
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div> <!--FIM ABA CALENDÁRIO-->
+                        
+                        <div class="tab-pane" id="rB"> <!--INICIO ABA CARTÃO-->
+
+                            <table class="table table-bordered " style="font-size: 13px;">
+
+                                <thead  style="font-size: 15px;">
+                                    <tr>
+                                        <th colspan="7" style="background-color: #d9edf7; color: #000; font-size: 20px;text-align: center;">Registro das Vacinas do Calendário Basico</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome completo:&nbsp;</th>
+                                        <th colspan="6"><?php echo $this->paciente->nome ?></th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome da mãe:&nbsp;</th>
+                                        <th colspan="6"><?php echo $this->paciente->nome_mae ?></th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome do pai:&nbsp;</th>
+                                        <th colspan="6"><?php echo $this->paciente->nome_pai ?></th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Data de Nascimento:&nbsp;</th>
+                                        <th colspan="6"><?php echo date('d/m/Y', strtotime($this->paciente->dt_nasc)) ?></th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Registro de Nascimento:&nbsp;</th>
+                                        <th colspan="6"><?php echo $this->paciente->registro_nasc ?></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr >
+                                        <td></td>
+                                        <td style="background-color: #08c; color: #FFFFFF">BCG-ID</td>
+                                        <td style="background-color: #08c; color: #FFFFFF">Hepatite B</td>
+                                        <td style="background-color: #08c; color: #FFFFFF">Anti-Polio</td>
+                                        <td style="background-color: #08c; color: #FFFFFF">Tetravalente</td>
+                                        <td style="background-color: #08c; color: #FFFFFF">Rotavirus</td>
+                                        <td style="background-color: #08c; color: #FFFFFF">Triplice Viral</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF">1ª Dose</td>
+                                        
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF;">2ª Dose</td>
+                                        <td></td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF">3ª Dose</td>
+                                        <td></td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="2" style="text-align:center;background-color: #08c; color: #FFFFFF;" >Febre Amarela</td>
+                                        <td colspan="2" style="text-align:center;background-color: #08c; color: #FFFFFF;">DTP</td>
+                                        <td style="background-color: #08c; color: #FFFFFF">DT 10 - 10 anos</td>
+                                        <td style="background-color: #08c; color: #FFFFFF">Campanha seguimento</td>
+
+                                    </tr>
+                                    <tr  class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF">1ª Dose ou reforço</td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF">2ª Dose ou reforço</td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="3" style="text-align:center;background-color: #08c; color: #FFFFFF;">Outras Vacinas</td>
+                                        <td colspan="3" style="text-align:center;background-color: #08c; color: #FFFFFF;">Campanhas</td>
+                                    </tr>
+                                    <tr class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="7" style="background-color: #08c; color: #FFFFFF; height:20px"></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div> <!--FIM ABA CARTÃO-->
+                        
+                        <div class="tab-pane" id="rC"> <!--INICIO ABA APRAZAMENTO-->
+
+                            <table class="table table-bordered " style="font-size: 13px;">
+
+                                <thead  style="font-size: 15px;">
+                                    <tr>
+                                        <th colspan="7" style="background-color: #fcf8e3; color: #000; font-size: 20px;text-align: center;">Vacinas Aprazadas</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome completo:&nbsp;</th>
+                                        <th colspan="6"><?php echo $this->paciente->nome ?></th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome da mãe:&nbsp;</th>
+                                        <th colspan="6"><?php echo $this->paciente->nome_mae ?></th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome do pai:&nbsp;</th>
+                                        <th colspan="6"><?php echo $this->paciente->nome_pai ?></th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Data de Nascimento:&nbsp;</th>
+                                        <th colspan="6"><?php echo date('d/m/Y', strtotime($this->paciente->dt_nasc)) ?></th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Registro de Nascimento:&nbsp;</th>
+                                        <th colspan="6"><?php echo $this->paciente->registro_nasc ?></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr >
+                                        <td></td>
+                                        <td style="background-color: #ffcc99; color: #FFFFFF">BCG-ID</td>
+                                        <td style="background-color: #ffcc99; color: #FFFFFF">Hepatite B</td>
+                                        <td style="background-color: #ffcc99; color: #FFFFFF">Anti-Polio</td>
+                                        <td style="background-color: #ffcc99; color: #FFFFFF">Tetravalente</td>
+                                        <td style="background-color: #ffcc99; color: #FFFFFF">Rotavirus</td>
+                                        <td style="background-color: #ffcc99; color: #FFFFFF">Triplice Viral</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #ffcc99; color: #FFFFFF">1ª Dose</td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr class="warning">
+                                        <td style="background-color: #ffcc99; color: #FFFFFF;">2ª Dose</td>
+                                        <td></td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #ffcc99; color: #FFFFFF">3ª Dose</td>
+                                        <td></td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td></td>
+                                        <td></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="2" style="text-align:center;background-color: #ffcc99; color: #FFFFFF;" >Febre Amarela</td>
+                                        <td colspan="2" style="text-align:center;background-color: #ffcc99; color: #FFFFFF;">DTP</td>
+                                        <td style="background-color: #ffcc99; color: #FFFFFF">DT 10 - 10 anos</td>
+                                        <td style="background-color: #ffcc99; color: #FFFFFF">Campanha seguimento</td>
+
+                                    </tr>
+                                    <tr  class="warning">
+                                        <td style="background-color: #ffcc99; color: #FFFFFF">1ª Dose ou reforço</td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #ffcc99; color: #FFFFFF">2ª Dose ou reforço</td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="3" style="text-align:center;background-color: #ffcc99; color: #FFFFFF;">Outras Vacinas</td>
+                                        <td colspan="3" style="text-align:center;background-color: #ffcc99; color: #FFFFFF;">Campanhas</td>
+                                    </tr>
+                                    <tr class="warning">
+                                        <td style="background-color: #ffcc99; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #ffcc99; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr class="warning">
+                                        <td style="background-color: #ffcc99; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #ffcc99; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="7" style="background-color: #ffcc99; color: #FFFFFF; height:20px"></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div> <!--FIM ABA APRAZAMENTO-->
+                        
+                    </div>
+                </div>
+
+            </div> <!--FIM ABA CRIANÇA-->
+
+            <div class="tab-pane" id="tab2"> <!--INICIO ABA ADOLESCENTE-->
+
+                <div class="tabbable tabs-right">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#rC" data-toggle="tab">Calendário&nbsp;<i class="icon-calendar"></i></a></li>
+                        <li><a href="#rD" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartão&nbsp;<i class="icon-list-alt"></i></a></li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="rC">
+
+                            <br>
+
+                            <table  class="table table-bordered table-striped" style="font-size: 13px;">
+                                <caption ><h4>Calendário de Vacinação do Adoslescente</h4></caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                        <th style="text-align: center;">Idade</th>
+                                        <th style="text-align: center;">Vacinas</th>
+                                        <th style="text-align: center;">Doses</th>
+                                        <th style="text-align: center;">Doenças Evitadas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="4">De 11 a 19 anos</td>
+                                        <td>Dupla Adulto (2)</td>
+                                        <td>1ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hepatite B</td>
+                                        <td>1ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Febre Amarela (3)</td>
+                                        <td>Reforço</td>
+                                        <td>Febre Amarela</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tríplice Viral (4)</td>
+                                        <td>Única</td>
+                                        <td>Sarampo, Rubéola e Caxumba</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 mês após a 1ª dose contra Hepatite B</td>
+                                        <td>Hepatite B</td>
+                                        <td>2ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6 meses após a 2ª dose contra a Hepatite B</td>
+                                        <td>Hepatite B</td>
+                                        <td>3ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2 meses após a 1ª dose de Dupla Adulto</td>
+                                        <td>Dupla adulto</td>
+                                        <td>2ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2 meses após a 2ª dose de Dupla Adulto</td>
+                                        <td>Dupla adulto</td>
+                                        <td>3ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td  rowspan="2">A cada 10 anos, por toda a vida</td>
+                                        <td>Dupla adulto (5)</td>
+                                        <td>Reforço</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Febre Amarela</td>
+                                        <td>Reforço</td>
+                                        <td>Febre Amarela</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (1) Adolescente que não tiver comprovação de vacina anterior, seguir este esquema. Se apresentar documentação com esquema incompleto, completar o esquema já iniciado
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (2) Adolescente que já recebeu anteriormente 03 (três ) doses ou mais das vacinas DTP, DT ou dT, aplicar uma dose de reforço. É necessário doses de reforço a cada 10 anos. Em caso de ferimentos graves, antecipar a dose de reforço para 5 anos após a última dose. O intervalo mínimo entre as doses é de 30 dias.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (3) Adolescente que for viajar para o exterior, vacinar 10 (dez) dias antes da viagem.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (4) Adolescente que tiver duas doses de Tríplice Viral devidamente comprovada no cartão de vacinação, não precisa.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (5) Adolescente grávida, que esteja com a vacina em dia, mas recebeu sua última dose há mais de 5 (cinco ) anos, precisa receber uma dose de reforço. A dose deve ser aplicada no mínimo 20 dias antes da data provável do parto. Em caso de ferimentos graves, a dose de reforço deve ser antecipada para cinco anos após a última dose.
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="tab-pane" id="rD">
+
+                            <table class="table table-bordered " style="font-size: 13px;">
+
+                                <thead  style="font-size: 15px;">
+                                    <tr>
+                                        <th colspan="7" style="background-color: #d9edf7; color: #000; font-size: 20px;text-align: center;">Registro das Vacinas do Calendário Basico</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome completo:&nbsp;</th>
+                                        <th colspan="6">Leonardo DaVinci</th>
+
+
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome da mãe:&nbsp;</th>
+                                        <th colspan="6">Monalisa</th>
+
+
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome do pai:&nbsp;</th>
+                                        <th colspan="6">Miquelangelo</th>
+
+
+
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Data de Nascimento:&nbsp;</th>
+                                        <th colspan="6">18/02/1451</th>
+
+
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Registro de Nascimento:&nbsp;</th>
+                                        <th colspan="6">5235487985</th>
+
+
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">RG:&nbsp;</th>
+                                        <th colspan="6">3335548747</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr >
+                                        <td></td>
+                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Tripice Viral</td>
+                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Hepatite B</td>
+                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Dupla Adulto</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF">1ª Dose</td>
+                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF;">2ª Dose</td>
+                                        <td colspan="2"></td>
+                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF">3ª Dose</td>
+                                        <td colspan="2"></td>
+                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="2" style="text-align:center;background-color: #08c; color: #FFFFFF;" >Febre Amarela</td>
+
+                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">DT 10 - 10 anos</td>
+                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Campanha seguimento</td>
+
+                                    </tr>
+                                    <tr  class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF">1ª Dose ou reforço</td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF">2ª Dose ou reforço</td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="3" style="text-align:center;background-color: #08c; color: #FFFFFF;">Outras Vacinas</td>
+                                        <td colspan="3" style="text-align:center;background-color: #08c; color: #FFFFFF;">Campanhas</td>
+                                    </tr>
+                                    <tr class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="7" style="background-color: #08c; color: #FFFFFF; height:20px"></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div> <!--FIM ABA ADOLESCENTE-->
+
+            <div class="tab-pane" id="tab3"> <!--INICIO ABA ADULTO-->
+
+                <div class="tabbable tabs-right">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#rE" data-toggle="tab">Calendário&nbsp;<i class="icon-calendar"></i></a></li>
+                        <li><a href="#rF" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartão&nbsp;<i class="icon-list-alt"></i></a></li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="rE">
+
+                            <br>
+
+                            <table  class="table table-bordered table-striped" style="font-size: 13px;">
+                                <caption ><h4>Calendário de Vacinação do Adulto</h4></caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                        <th style="text-align: center;">Idade</th>
+                                        <th style="text-align: center;">Vacinas</th>
+                                        <th style="text-align: center;">Doses</th>
+                                        <th style="text-align: center;">Doenças Evitadas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="4">A partir de 20 anos</td>
+                                        <td>Dupla Adulto (1)</td>
+                                        <td>1ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hepatite B (2)</td>
+                                        <td>1ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Febre Amarela (3)</td>
+                                        <td> Inicial ou reforço</td>
+                                        <td>Febre Amarela</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tríplice Viral (4)</td>
+                                        <td>Única</td>
+                                        <td>Sarampo, Rubéola e Caxumba</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1 mês após a 1ª dose contra Hepatite B</td>
+                                        <td>Hepatite B</td>
+                                        <td>2ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6 meses após a 2ª dose contra a Hepatite B</td>
+                                        <td>Hepatite B</td>
+                                        <td>3ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2 meses após a 1ª dose de Dupla Adulto</td>
+                                        <td>Dupla adulto</td>
+                                        <td>2ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2 meses após a 2ª dose de Dupla Adulto</td>
+                                        <td>Dupla adulto</td>
+                                        <td>3ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td  rowspan="2">A cada 10 anos, por toda a vida</td>
+                                        <td>Dupla adulto (4)</td>
+                                        <td>Reforço</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Febre Amarela</td>
+                                        <td>Reforço</td>
+                                        <td>Febre Amarela</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (1) A partir de 20 (vinte) anos gestante, não gestante e homens que não tiverem comprovação de vacinação anterior seguir o esquema acima. Apresentando documentação com esquema incompleto, completar o esquema já iniciado. O intervalo mínimo entre as doses é de 30 dias.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (2) A vacina contra Hepatite B pode ser realizada em adultos até 29 anos.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (3) Adulto que for viajar para exterior, vacinar 10 (dez) dias antes da viagem.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (4) A vacina trlplice viral deve ser administrada em mulheres de 12 a 49 anos que não tiverem comprovação de vacinação anterior e em homens até 39 (trinta e nove) anos.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (5) Mulher grávida que esteja com a vacina em dia, mas recebeu sua última dose há mais de 5 (cinco ) anos, precisa receber uma dose de reforço. A dose deve ser aplicada no mínimo 20 dias antes da data provável do parto. Em caso de ferimentos graves, a dose de reforço deve ser antecipada para cinco anos após a última dose.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="rF">
+
+                            <table class="table table-bordered " style="font-size: 13px;">
+
+                                <thead  style="font-size: 15px;">
+                                    <tr>
+                                        <th colspan="7" style="background-color: #d9edf7; color: #000; font-size: 20px;text-align: center;">Registro das Vacinas do Calendário Basico</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome completo:&nbsp;</th>
+                                        <th colspan="6">Leonardo DaVinci</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome da mãe:&nbsp;</th>
+                                        <th colspan="6">Monalisa</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome do pai:&nbsp;</th>
+                                        <th colspan="6">Miquelangelo</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Data de Nascimento:&nbsp;</th>
+                                        <th colspan="6">18/02/1451</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Registro de Nascimento:&nbsp;</th>
+                                        <th colspan="6">5235487985</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">RG:&nbsp;</th>
+                                        <th colspan="6">3335548747</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr >
+                                        <td></td>
+                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Tripice Viral</td>
+                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Hepatite B</td>
+                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Dupla Adulto</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF">1ª Dose</td>
+                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF;">2ª Dose</td>
+                                        <td colspan="2"></td>
+                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF">3ª Dose</td>
+                                        <td colspan="2"></td>
+                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td colspan="2">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="2" style="text-align:center;background-color: #08c; color: #FFFFFF;" >Febre Amarela</td>
+
+                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">DT 10 - 10 anos</td>
+                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Campanha seguimento</td>
+
+                                    </tr>
+                                    <tr  class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF">1ª Dose ou reforço</td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF">2ª Dose ou reforço</td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="3" style="text-align:center;background-color: #08c; color: #FFFFFF;">Outras Vacinas</td>
+                                        <td colspan="3" style="text-align:center;background-color: #08c; color: #FFFFFF;">Campanhas</td>
+                                    </tr>
+                                    <tr class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="7" style="background-color: #08c; color: #FFFFFF; height:20px"></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div> <!--FIM ABA ADULTO-->
+
+            <div class="tab-pane" id="tab4"> <!--INICIO ABA IDOSO-->
+
+                <div class="tabbable tabs-right">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#rG" data-toggle="tab">Calendário&nbsp;<i class="icon-calendar"></i></a></li>
+                        <li><a href="#rH" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cartão&nbsp;<i class="icon-list-alt"></i></a></li>
+
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="rG">
+
+                            <br>
+
+                            <table  class="table table-bordered table-striped" style="font-size: 13px;">
+                                <caption ><h4>Calendário de Vacinação do Idoso</h4></caption>
+                                <thead style="background-color: #08c; color: #FFFFFF">
+                                    <tr>
+                                        <th style="text-align: center;">Idade</th>
+                                        <th style="text-align: center;">Vacinas</th>
+                                        <th style="text-align: center;">Doses</th>
+                                        <th style="text-align: center;">Doenças Evitadas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td rowspan="3">A partir de 60 anos</td>
+                                        <td>Influenza (1)</td>
+                                        <td>Unual</td>
+                                        <td>Influenza ou Gripe</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hepatite B (2)</td>
+                                        <td>1ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Febre Amarela (3)</td>
+                                        <td> Inicial ou reforço</td>
+                                        <td>Febre Amarela</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>1 mês após a 1ª dose contra Hepatite B</td>
+                                        <td>Hepatite B</td>
+                                        <td>2ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6 meses após a 2ª dose contra a Hepatite B</td>
+                                        <td>Hepatite B</td>
+                                        <td>3ª dose</td>
+                                        <td>Hepatite B</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2 meses após a 1ª dose de Dupla Adulto</td>
+                                        <td>Dupla adulto</td>
+                                        <td>2ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2 meses após a 2ª dose de Dupla Adulto</td>
+                                        <td>Dupla adulto</td>
+                                        <td>3ª dose</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td  rowspan="2">A cada 10 anos, por toda a vida</td>
+                                        <td>Dupla adulto</td>
+                                        <td>Reforço</td>
+                                        <td>Difteria e Tétano</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Febre Amarela</td>
+                                        <td>Reforço</td>
+                                        <td>Febre Amarela</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (1) A vacina contra influenza é oferecida anualmente durante as Campanhas de Vacinação do Idoso. Os idosos que não tiverem comprovação de vacinação anterior seguir o esquema acima. Apresentando documentação com esquema incompleto, completar o esquema já iniciado. O intervalo mínimo entre as doses é de 30 dias.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (2) A vacina contra Hepatite B pode ser aplicada em grupos vulneráveis.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4">
+                                            (3) Idoso que for viajar para exterior, vacinar 10 (dez) dias antes da viagem.
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="tab-pane" id="rH">
+
+                            <table class="table table-bordered " style="font-size: 13px;">
+
+                                <thead  style="font-size: 15px;">
+                                    <tr>
+                                        <th colspan="7" style="background-color: #d9edf7; color: #000; font-size: 20px;text-align: center;">Registro das Vacinas do Calendário Basico</th>
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome completo:&nbsp;</th>
+                                        <th colspan="6">Leonardo DaVinci</th>
+
+
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome da mãe:&nbsp;</th>
+                                        <th colspan="6">Monalisa</th>
+
+
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Nome do pai:&nbsp;</th>
+                                        <th colspan="6">Miquelangelo</th>
+
+
+
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Data de Nascimento:&nbsp;</th>
+                                        <th colspan="6">18/02/1451</th>
+
+
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">Registro de Nascimento:&nbsp;</th>
+                                        <th colspan="6">5235487985</th>
+
+
+                                    </tr>
+                                    <tr>
+                                        <th style="background-color: #d9edf7; color: #000;">RG:&nbsp;</th>
+                                        <th colspan="6">3335548747</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr >
+                                        <td></td>
+                                        <td colspan="3" style="background-color: #08c; color: #FFFFFF;text-align:center;">Hepatite B</td>
+                                        <td colspan="3" style="background-color: #08c; color: #FFFFFF;text-align:center;">Dupla Adulto</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF">1ª Dose</td>
+                                        
+                                        <td colspan="3">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td colspan="3">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF;">2ª Dose</td>
+                                       
+                                        <td colspan="3">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td colspan="3">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF">3ª Dose</td>
+                                        
+                                        <td colspan="3">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td colspan="3">Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="2" style="text-align:center;background-color: #08c; color: #FFFFFF;" >Febre Amarela</td>
+
+                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">DT 10 - 10 anos</td>
+                                        <td colspan="2" style="background-color: #08c; color: #FFFFFF;text-align:center;">Campanha seguimento</td>
+
+                                    </tr>
+                                    <tr  class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF">1ª Dose ou reforço</td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF">2ª Dose ou reforço</td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td colspan="2" style="text-align:center;background-color: #08c; color: #FFFFFF;">Outras Vacinas</td>
+                                        <td style="text-align:center;background-color: #08c; color: #FFFFFF;">Campanhas</td>
+                                        <td colspan="3" style="text-align:center;background-color: #08c; color: #FFFFFF;">Influenza - Anual</td>
+                                    </tr>
+                                    <tr class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr class="info">
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td style="background-color: #08c; color: #FFFFFF"></td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>Vacina:&nbsp;<br>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+                                        <td>
+                                            Data:&nbsp;  /&nbsp;   /&nbsp;   <br>
+                                            Lote:&nbsp;<br>
+                                            Unid.:&nbsp;<br>
+                                            Resp.:&nbsp;
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td colspan="7" style="background-color: #08c; color: #FFFFFF; height:20px"></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div> <!--FIM ABA IDOSO-->
+
+        </div>
+    </div> <!-- FIM DO MENU EXTERNO-->
+
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+

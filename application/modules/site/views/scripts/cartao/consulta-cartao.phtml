@@ -1,0 +1,68 @@
+<script type="text/javascript" src="/admin/js/pessoa.js"></script>
+<?php
+    echo $this->modal;
+    echo $this->flashMessenger();
+?>
+<fieldset>
+    <legend>Consultar Cartão de Vacinas</legend>
+
+    <form class="form-inline" method="post" action="">
+        <select name="tipoConsulta">
+            <option value="">Selecione a opção</option>
+            <option value="nome">Nome</option>
+            <option value="nome_mae">Nome da mãe</option>
+            <option value="dt_nasc">Data de Nascimento (DD/MM/AAAA)</option>
+            <option value="rg">RG</option>
+            <option value="">Todos</option>
+        </select>
+        <div class="input-append">
+            <input class="input-large" name="search" id="appendedInputButton" type="text">
+            <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+        </div>
+    </form>
+
+    <!--ABAIXO APARECERÁ A LISTA COM OS RESULTADOS DA CONSULTA-->
+
+    <!--PAGINAÇÃO DAS TABELAS DA PESQUISA-->
+
+    <table class="table table-bordered table-striped" style="font-size: 13px;">
+        <thead style="background-color: #08c; color: #FFFFFF">
+            <tr>
+               <!-- <th>Código Paciente</th>-->
+                <th>Nome</th>
+                <th>Nome da mãe</th>
+                <th>Data de nascimento</th>
+                <th>Sexo</th>
+                <th>RG</th>
+                <th>Celular</th>
+                <th>Cartão de vacina</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($this->listPacientes as $cartao): ?>
+                <tr>
+                   <!-- <td>12</td>-->
+                    <td><?php echo $cartao->nome ?></td>
+                    <td><?php echo $cartao->nome_mae ?></td>
+                    <td><?php echo date('d-m-y', strtotime($cartao->dt_nasc)) ?></td>
+                    <td><?php echo $cartao->sexo ?></td>
+                    <td><?php echo $cartao->rg ?></td>
+                    <td><?php echo $cartao->telefone_celular ?></td>
+                    <td style="width: 120px;">
+                        <a href="/admin/cartao/visualisa-vacina/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Consultar calendário e cartão de vacinas" class="btn btn-info btn btn-mini"><i class=" icon-list icon-white"></i></a>
+                        <a href="/admin/cartao/registrar-aprazar-vacina/cod_pessoa/<?php echo $cartao->cod_pessoa ?>" title="Registrar e aprazar vacinas" class="btn btn-success btn btn-mini"><i class="icon-list-alt icon-white"></i></a>
+                        
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <div class="pagination pagination-centered">
+        <ul>
+            <!--TABELA COM OS DADOS DA PESQUISA-->
+            <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+            <?php echo $this->pagination->pages ?>
+            <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+        </ul>
+    </div>
+</fieldset>

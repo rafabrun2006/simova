@@ -27,5 +27,4 @@ Correções
 
 Dependencias
 
-1 - Verificação da existencia de codigo de matricula no registro de vacina
-2 - Retirar codigo da unidade de saude do aprazar vacina
+1 - verificar data de nascimento na edição de pessoa

@@ -1,0 +1,221 @@
+<ul class="pager offset10">
+    <li class="previous">
+        <a href="/admin/cartao/consulta-cartao"><i class="icon-arrow-left"></i><strong>Voltar</strong></a>
+    </li>
+</ul>
+<fieldset>
+    <legend>Registro e Aprazamento de vacinas</legend>
+
+    <?php echo $this->flashMessenger() ?>
+    <?php
+    isset($this->params['tab']) ?
+                    $active[$this->params['tab']] = 'active' : $active[1] = 'active';
+    ?>
+
+    <table class="table table-bordered table-condensed " style="font-size: 13px;">
+
+        <thead  style="font-size: 15px;">
+            <tr>
+                <th colspan="7" style="background-color: #08c; color: #FFFFFF; font-size: 20px;text-align: center;">Dados do Paciente</th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF;width: 180px;">Nome completo:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente['nome'] ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">Nome da mãe:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente['nome_mae'] ?></th>
+            </tr>
+
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">Data de Nascimento:&nbsp;</th>
+                <th colspan="6"><?php echo date('d/m/Y', strtotime($this->paciente['dt_nasc'])) ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">RG:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente['rg'] ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">Sexo:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente['sexo'] == 'M' ? 'Masculino' : 'Feminino' ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">Telefone celular:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente['num_tel'] ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">E-mail:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente['email'] ?></th>
+            </tr>
+        </thead>
+    </table>
+
+
+    <div style="margin-bottom: 18px;" class="tabbable">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#tab1">Registrar Vacinas</a></li>
+            <li class=""><a data-toggle="tab" href="#tab2">Aprazar Vacinas</a></li>
+
+        </ul>
+
+        <div class="tab-content">
+            <div id="tab1" class="tab-pane <?php echo $active[1] ?>">
+
+                <!--INICIO DO PRIMEIRO MENU-->
+                <form class="form-horizontal" method="post">
+                    <div class="rows-fluid">
+                        <div class="span6"> 
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label"><b>*</b> Data da Aplicação:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->dt_vacina ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label"><b>*</b> Número da Dose:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->dose ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label"><b>*</b> Unidade de Saúde:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->cod_un_saude ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label"><b>*</b> Grupo Vacinação:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->cod_grupo_vacina ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label"><b>*</b> Nome da Vacina:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->cod_vacina ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span6">
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Tipo do Cartão:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->cod_tipo_cartao ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Lote da Vacina:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->VacinaAplicada->lote ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Matricula:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->VacinaAplicada->matricula ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Campanha:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->VacinaAplicada->cod_campanha ?>
+                                </div>
+                            </div>
+                        </div>
+                        <?php echo $this->form->cod_cartao_vacina ?>
+                        <?php echo $this->form->cod_pessoa ?>
+                        <?php echo $this->form->cod_situacao_vacina->setValue(1) ?>
+                    </div>
+                    <div class="rows-fluid">
+                        <div class="span12">
+                            <div class="form-actions">
+                                <div class="control-group">
+                                    <button class="btn btn-primary" type="submit">Salvar</button>
+                                    <button class="btn btn-primary" type="reset">Limpar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div> <!--FIM DO PRIMEIRO MENU-->
+
+            <div id="tab2" class="tab-pane <?php echo $active[2] ?>">
+
+                <!--INICIO DO SEGUNDO MENU-->
+                <form class="form-horizontal" method="post">
+                    <div class="rows-fluid">
+                        <div class="span6"> 
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label"><b>*</b> Data da Aplicação:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->dt_vacina ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label"><b>*</b> Número da Dose:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->dose ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label"><b>*</b> Grupo Vacinação:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->cod_grupo_vacina ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span6">
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Tipo do Cartão:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->cod_tipo_cartao ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label"><b>*</b> Unidade de Saúde:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->cod_un_saude ?>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label"><b>*</b> Nome da Vacina:</label>
+                                <div class="controls">
+                                    <?php echo $this->form->cod_vacina ?>
+                                </div>
+                            </div>
+                        </div>
+                        <?php echo $this->form->cod_cartao_vacina ?>
+                        <?php echo $this->form->cod_pessoa ?>
+                        <?php echo $this->form->cod_situacao_vacina->setValue(2) ?>
+                    </div>
+
+                    <div class="rows-fluid">
+                        <div class="span12">
+                            <div class="form-actions">
+                                <div class="control-group">
+                                    <button class="btn btn-primary" type="submit">Salvar</button>
+                                    <button class="btn btn-primary" type="reset">Limpar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div> <!--FIM DO SEGUNDO MENU-->
+
+
+
+
+        </div>
+    </div>
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
