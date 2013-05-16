@@ -1,5 +1,5 @@
 <?php
-
+namespace application\models;
 /**
  * Description of Pessoa
  *
@@ -32,7 +32,7 @@ class App_Model_Funcionario extends Simova_Mapper_ModelMapper {
 
     public function getArrayById($cod_pessoa){
         
-        echo $query = $this->select()
+        $query = $this->select()
                 ->from(array('f' => 'tb_funcionario'), array('*'))
                 ->join(array('p' => 'tb_pessoa'), 'f.cod_pessoa = p.cod_pessoa', array('*'))
                 ->join(array('e' => 'tb_endereco'), 'p.cod_end = e.cod_end', array('*'))
