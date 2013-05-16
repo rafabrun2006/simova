@@ -14,8 +14,9 @@ class Admin_PessoaController extends Zend_Controller_Action {
         $form = new Admin_Form_Pessoa();
         $form->addSubForm(new Admin_Form_Funcionario(), 'Funcionario');
 
+            //verificando se a requisição é um post
         if ($this->_request->isPost()) {
-            $post = $this->_request->getPost();
+            $post = $this->_request->getPost(); // recebe os dados do post
 
             //Validando formulario
             if ($form->isValid($post)) {
@@ -30,6 +31,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
                 $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::FORM_INVALIDO));
             }
         }
+        // Disponibiliza conteudo para view
         $this->view->form = $form;
     }
 

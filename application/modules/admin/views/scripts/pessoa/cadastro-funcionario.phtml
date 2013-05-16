@@ -1,5 +1,10 @@
+
+<!--CHAMADA PARA O ARQUIVO JQUERY-->
 <script type="text/javascript" src="/admin/js/pessoa.js"></script>
-<?php echo $this->flashMessenger() ?>
+
+<!-- METODO USADO PARA EXIBIR MENSAGENS DO SISTEMA-->
+<?php echo $this->flashMessenger() ?> 
+
 <fieldset>
     <legend>Cadastrar Funcionário</legend>
 
@@ -11,16 +16,15 @@
         </ul>
         <form class="form-horizontal" method="post">
             <div class="tab-content">
-                <div id="tab1" class="tab-pane active">
-
-                    <!--INICIO DO PRIMEIRO FORM-->
-
-                    <div class="rows-fluid">
+                
+                <div id="tab1" class="tab-pane active"> <!--INICIO DA ABA DADOS PRINCIPAIS-->
+                   
+                    <div class="rows-fluid">  
                         <div class="span6">
                             <div class="control-group">
                                 <label for="inputEmail" class="control-label"><b>*</b> Nome Completo:</label>
                                 <div class="controls">
-                                    <?php echo $this->form->nome ?>
+                                    <?php echo $this->form->nome ?> <!--ESSE CODIGO EXIBE O-->
                                 </div>
                             </div>
                             <div class="control-group">
@@ -88,12 +92,10 @@
                         </div>
                     </div>-->
 
-                </div> <!--FIM DO PRIMEIRO MENU-->
+                </div> <!--FIM DA ABA DADOS PRINCIPAIS-->
 
-                <div id="tab2" class="tab-pane">
-
-                    <!--INICIO DO SEGUNDO FORM-->
-
+                <div id="tab2" class="tab-pane"> <!--INICIO DA ABA ENDEREÇO-->
+                   
                     <div class="rows-fluid">
                         <div class="span6">
                             <div class="control-group">
@@ -153,12 +155,10 @@
                             </div>
                         </div>
                     </div>-->
-                </div> <!--FIM DO SEGUNDO MENU-->
+                </div> <!--FIM DA ABA ENDEREÇO-->
 
-                <div id="tab3" class="tab-pane">
-
-                    <!--INICIO DO TERCEIRO FORM-->
-
+                <div id="tab3" class="tab-pane">  <!--INICIO DA ABA DADOS COMPLEMENTARES-->
+                    
                     <div class="rows-fluid">
                         <div class="span6">
                             <div class="control-group">
@@ -254,7 +254,7 @@
                             </div>
                         </div>
                     </div>
-                </div> <!--FIM DO TERCEIRO MENU-->
+                </div> <!--FIM DA ABA DADOS COMPLEMENTARES-->
             </div>
         </form>
     </div>
