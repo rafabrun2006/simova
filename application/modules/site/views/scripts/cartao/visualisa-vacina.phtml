@@ -272,39 +272,41 @@
 
                             </form>
                             <br><br>
-                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
-                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aplicadas</caption>
-                                <thead style="background-color: #08c; color: #FFFFFF">
-                                    <tr>
-                                       <!-- <th>Código Paciente</th>-->
-                                        <th>Nome da vacina</th>
-                                        <th>Dose</th>
-                                        <th>Data da aplicação</th>
-                                        <th>Lote</th>
-                                        <th>Unidade</th>
-                                        <th>Matricula do responsável</th>
-                                        <!--<th>Função</th>-->
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    foreach ($this->vacinasAplicadas as $key => $value):
-                                        if ($value->cod_tipo_cartao == 1):
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $value->nome_vacina ?></td>
-                                                <td><?php echo $value->dose ?>ª</td>
-                                                <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
-                                                <td><?php echo $value->lote ?></td>
-                                                <td><?php echo $value->nome_un_saude ?></td>
-                                                <td><?php echo $value->matricula ?></td>
-                                            </tr>
-                                            <?php
-                                        endif;
-                                    endforeach;
-                                    ?>
-                                </tbody>
-                            </table>
+                            <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
+                                <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                    <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aplicadas</caption>
+                                    <thead style="background-color: #08c; color: #FFFFFF">
+                                        <tr>
+                                           <!-- <th>Código Paciente</th>-->
+                                            <th>Nome da vacina</th>
+                                            <th>Dose</th>
+                                            <th>Data da aplicação</th>
+                                            <th>Lote</th>
+                                            <th>Unidade</th>
+                                            <th>Matricula do responsável</th>
+                                            <!--<th>Função</th>-->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        foreach ($this->vacinasAplicadas as $key => $value):
+                                            if ($value->cod_tipo_cartao == 1):
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $value->nome_vacina ?></td>
+                                                    <td><?php echo $value->dose ?>ª</td>
+                                                    <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                                    <td><?php echo $value->lote ?></td>
+                                                    <td><?php echo $value->nome_un_saude ?></td>
+                                                    <td><?php echo $value->matricula ?></td>
+                                                </tr>
+                                                <?php
+                                            endif;
+                                        endforeach;
+                                        ?>
+                                    </tbody>
+                                </table>
+                            <?php endif; ?>
                             <div class="pagination pagination-centered">
                                 <ul>
                                     <!--TABELA COM OS DADOS DA PESQUISA-->
@@ -336,41 +338,42 @@
                             </form>
 
                             <br><br>
+                            <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
+                                <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                    <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aprazadas</caption>
+                                    <thead style="background-color: #08c; color: #FFFFFF">
+                                        <tr>
+                                           <!-- <th>Código Paciente</th>-->
+                                            <th>Nome da vacina</th>
+                                            <th>Dose</th>
+                                            <th>Data para aplicação</th>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        foreach ($this->vacinasAprazadas as $key => $value):
+                                            if ($value->cod_tipo_cartao == 1):
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $value->nome_vacina ?></td>
+                                                    <td><?php echo $value->dose ?></td>
+                                                    <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                                </tr>
+                                                <?php
+                                            endif;
+                                        endforeach;
+                                        ?>
+                                    </tbody>
+                                </table>
 
-                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
-                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aprazadas</caption>
-                                <thead style="background-color: #08c; color: #FFFFFF">
-                                    <tr>
-                                       <!-- <th>Código Paciente</th>-->
-                                        <th>Nome da vacina</th>
-                                        <th>Dose</th>
-                                        <th>Data para aplicação</th>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    foreach ($this->vacinasAprazadas as $key => $value):
-                                        if ($value->cod_tipo_cartao == 1):
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $value->nome_vacina ?></td>
-                                                <td><?php echo $value->dose ?></td>
-                                                <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
-                                            </tr>
-                                            <?php
-                                        endif;
-                                    endforeach;
-                                    ?>
-                                </tbody>
-                            </table>
-                            <div class="pagination pagination-centered">
-                                <ul>
-                                    <!--TABELA COM OS DADOS DA PESQUISA-->
-                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
-                                    <?php echo $this->pagination->pages ?>
-                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
-                                </ul>
-                            </div>
-
+                                <div class="pagination pagination-centered">
+                                    <ul>
+                                        <!--TABELA COM OS DADOS DA PESQUISA-->
+                                        <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                        <?php echo $this->pagination->pages ?>
+                                        <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
 
 
                         </div> <!--FIM DA ABA VACINAS APRAZADAS - CRIANCAS-->
@@ -515,56 +518,54 @@
 
                             </form>
                             <br><br>
-                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
-                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aplicadas</caption>
-                                <thead style="background-color: #08c; color: #FFFFFF">
-                                    <tr>
-                                       <!-- <th>Código Paciente</th>-->
-                                        <th>Nome da vacina</th>
-                                        <th>Dose</th>
-                                        <th>Data da aplicação</th>
-                                        <th>Lote</th>
-                                        <th>Unidade</th>
-                                        <th>Matricula do responsável</th>
-                                        <!--<th>Função</th>-->
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    foreach ($this->vacinasAplicadas as $key => $value):
-                                        if ($value->cod_tipo_cartao == 2):
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $value->nome_vacina ?></td>
-                                                <td><?php echo $value->dose ?>ª</td>
-                                                <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
-                                                <td><?php echo $value->lote ?></td>
-                                                <td><?php echo $value->nome_un_saude ?></td>
-                                                <td><?php echo $value->matricula ?></td>
-                                            </tr>
-                                            <?php
-                                        endif;
-                                    endforeach;
-                                    ?>
-                                </tbody>
-                            </table>
-                            <div class="pagination pagination-centered">
-                                <ul>
-                                    <!--TABELA COM OS DADOS DA PESQUISA-->
-                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
-                                    <?php echo $this->pagination->pages ?>
-                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
-                                </ul>
-                                <!--<div class="row-fluid">
-                                    <div class="offset10">
-                                          <button class="btn btn-small btn-primary" type="button">Visualizar Cartão de Vacinas</button>
-                                    </div>
-                                </div>-->
-                            </div>
-
-
-
-
+                            <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
+                                <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                    <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aplicadas</caption>
+                                    <thead style="background-color: #08c; color: #FFFFFF">
+                                        <tr>
+                                           <!-- <th>Código Paciente</th>-->
+                                            <th>Nome da vacina</th>
+                                            <th>Dose</th>
+                                            <th>Data da aplicação</th>
+                                            <th>Lote</th>
+                                            <th>Unidade</th>
+                                            <th>Matricula do responsável</th>
+                                            <!--<th>Função</th>-->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        foreach ($this->vacinasAplicadas as $key => $value):
+                                            if ($value->cod_tipo_cartao == 2):
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $value->nome_vacina ?></td>
+                                                    <td><?php echo $value->dose ?>ª</td>
+                                                    <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                                    <td><?php echo $value->lote ?></td>
+                                                    <td><?php echo $value->nome_un_saude ?></td>
+                                                    <td><?php echo $value->matricula ?></td>
+                                                </tr>
+                                                <?php
+                                            endif;
+                                        endforeach;
+                                        ?>
+                                    </tbody>
+                                </table>
+                                <div class="pagination pagination-centered">
+                                    <ul>
+                                        <!--TABELA COM OS DADOS DA PESQUISA-->
+                                        <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                        <?php echo $this->pagination->pages ?>
+                                        <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                    </ul>
+                                    <!--<div class="row-fluid">
+                                        <div class="offset10">
+                                              <button class="btn btn-small btn-primary" type="button">Visualizar Cartão de Vacinas</button>
+                                        </div>
+                                    </div>-->
+                                </div>
+                            <?php endif; ?>
                         </div> <!--FIM DA ABA VACINAS APLICADAS - ADOLESCENTE-->
 
                         <div class="tab-pane active" id="rF"> <!--INICIO DA ABA VACINAS APRAZADAS - ADOLESCENTE-->
@@ -583,41 +584,41 @@
                             </form>
 
                             <br><br>
-
-                            <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
-                                <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aprazadas</caption>
-                                <thead style="background-color: #08c; color: #FFFFFF">
-                                    <tr>
-                                       <!-- <th>Código Paciente</th>-->
-                                        <th>Nome da vacina</th>
-                                        <th>Dose</th>
-                                        <th>Data para aplicação</th>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    foreach ($this->vacinasAprazadas as $key => $value):
-                                        if ($value->cod_tipo_cartao == 2):
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $value->nome_vacina ?></td>
-                                                <td><?php echo $value->dose ?></td>
-                                                <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
-                                            </tr>
-                                            <?php
-                                        endif;
-                                    endforeach;
-                                    ?>
-                                </tbody>
-                            </table>
-                            <div class="pagination pagination-centered">
-                                <ul>
-                                    <!--TABELA COM OS DADOS DA PESQUISA-->
-                                    <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
-                                    <?php echo $this->pagination->pages ?>
-                                    <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
-                                </ul>
-                            </div>
-
+                            <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
+                                <table class="table table-bordered table-striped table-condensed" style="font-size: 13px;">
+                                    <caption style="font-size: 18px;font-weight: bold;">Lista de Vacinas Aprazadas</caption>
+                                    <thead style="background-color: #08c; color: #FFFFFF">
+                                        <tr>
+                                           <!-- <th>Código Paciente</th>-->
+                                            <th>Nome da vacina</th>
+                                            <th>Dose</th>
+                                            <th>Data para aplicação</th>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        foreach ($this->vacinasAprazadas as $key => $value):
+                                            if ($value->cod_tipo_cartao == 2):
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $value->nome_vacina ?></td>
+                                                    <td><?php echo $value->dose ?></td>
+                                                    <td><?php echo date('d-m-Y', strtotime($value->dt_vacina)) ?></td>
+                                                </tr>
+                                                <?php
+                                            endif;
+                                        endforeach;
+                                        ?>
+                                    </tbody>
+                                </table>
+                                <div class="pagination pagination-centered">
+                                    <ul>
+                                        <!--TABELA COM OS DADOS DA PESQUISA-->
+                                        <li><a href="<?php echo $this->pagination->previous ?>">Anterior</a></li>
+                                        <?php echo $this->pagination->pages ?>
+                                        <li><a href="<?php echo $this->pagination->next ?>">Proximo</a></li>
+                                    </ul>
+                                </div>
+                            <?php endif; ?>
                         </div> <!--FIM DA ABA VACINAS APRAZADAS - ADOLESCENTE-->
 
                     </div>
