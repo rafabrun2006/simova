@@ -63,6 +63,8 @@ class Admin_VacinaController extends Zend_Controller_Action {
             $result = $model->joinAllRelations($where)->toArray();
 
             $form->populate($result[0]);
+
+            $form->getSubForm('Vacina')->populate($result[0]);
         }
 
         $this->view->form = $form;
@@ -80,9 +82,6 @@ class Admin_VacinaController extends Zend_Controller_Action {
 
             $modelLoteVacina = new App_Model_LoteVacina();
             $modelLoteVacina->save($post);
-
-            $modelFabricante = new App_Model_Fabricante();
-            $post['cod_fabric'] = $modelFabricante->save($post);
 
             $modelVacinaFabri = new App_Model_VacinaFabricante();
             $modelVacinaFabri->save($post);

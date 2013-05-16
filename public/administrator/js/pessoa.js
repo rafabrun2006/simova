@@ -12,7 +12,7 @@ $(document).ready(function() {
     
     //$('#rg').mask('9.999.999');
     
-    $('#cep').mask('999.999-99');
+    $('#cep').mask('99.999-999');
     
     $('#telefone_residencial').mask('(99)9999-9999');
     

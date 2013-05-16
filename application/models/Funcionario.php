@@ -1,5 +1,5 @@
 <?php
-
+namespace application\models;
 /**
  * Description of Pessoa
  *
@@ -36,7 +36,6 @@ class App_Model_Funcionario extends Simova_Mapper_ModelMapper {
                 ->from(array('f' => 'tb_funcionario'), array('*'))
                 ->join(array('p' => 'tb_pessoa'), 'f.cod_pessoa = p.cod_pessoa', array('*'))
                 ->join(array('e' => 'tb_endereco'), 'p.cod_end = e.cod_end', array('*'))
-                ->join(array('t' => 'tb_telefone'), 't.cod_pessoa = p.cod_pessoa', array('*'))
                 ->joinLeft(array('l' => 'tb_login'), 'l.cod_login = p.cod_login', array('*'))
                 ->where('p.cod_pessoa = ?', $cod_pessoa)
                 ->setIntegrityCheck(false)

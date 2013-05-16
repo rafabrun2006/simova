@@ -62,7 +62,6 @@ class Admin_Form_Pessoa extends Zend_Form {
         $dtNascimento->setLabel('Data de Nascimento: ')
                 ->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED)
-                //->addValidator(new Zend_Validate_Date('d/m/Y'))
                 ;
 
         $registroNasc = new Zend_Form_Element_Text('registro_nasc');
@@ -75,8 +74,7 @@ class Admin_Form_Pessoa extends Zend_Form {
 
         $perfil = new Zend_Form_Element_Select('cod_perfil');
         $perfil->setRequired(TRUE)
-                ->addErrorMessage(self::MESSAGE_REQUIRED)
-                ->setLabel('Perfil:');
+                ->addErrorMessage(self::MESSAGE_REQUIRED);
 
         $email = new Zend_Form_Element_Text('email', array('class' => 'input-xlarge'));
         $email->setLabel('Email:')
@@ -90,7 +88,6 @@ class Admin_Form_Pessoa extends Zend_Form {
          */
         $this->addSubForm(new Admin_Form_Endereco(), 'Endereco');
         $this->addSubForm(new Admin_Form_Login(), 'Login');
-        //$this->addSubForm(new Admin_Form_Telefone(), 'Telefone');
         $this->addSubForm(new Admin_Form_Status(), 'Status');
 
         $this->addElements(array(
@@ -115,9 +112,8 @@ class Admin_Form_Pessoa extends Zend_Form {
          * Populando campos pre-preenchidos
          */
         $sexo->addMultiOptions(array('M' => 'Masculino', 'F' => 'Feminino'))->setValue('M');
-        $estadoCivil->addMultiOptions(array('1' => 'Solteiro', '2' => 'Casado'));
-        $this->populaComboPerfil();
         $this->populaComboUnidade();
+        $this->populaEstadoCivil();
 
         foreach ($this->getElements() as $element) {
             $element->removeDecorator('HtmlTag')->removeDecorator('Label');
@@ -127,16 +123,6 @@ class Admin_Form_Pessoa extends Zend_Form {
     /*
      * @email Rafael Bruno <rafabrun2006@gmail.com>
      */
-
-    private function populaComboPerfil() {
-
-        $modelPerfil = new App_Model_Perfil();
-
-        foreach ($modelPerfil->listAll() as $value) {
-            $this->getElement('cod_perfil')
-                    ->addMultiOption($value->cod_perfil, $value->nome_perfil);
-        }
-    }
 
     private function populaComboUnidade() {
 
@@ -148,4 +134,12 @@ class Admin_Form_Pessoa extends Zend_Form {
         }
     }
 
+    private function populaEstadoCivil(){
+        $modelEstadoCivil = new App_Model_EstadoCivil();
+        
+        foreach($modelEstadoCivil->fetchAll() as $value){
+            $this->getElement('cod_estado_civil')
+                    ->addMultiOption($value->cod_estado_civil, $value->nome_estado_civil);
+        }
+    }
 }
