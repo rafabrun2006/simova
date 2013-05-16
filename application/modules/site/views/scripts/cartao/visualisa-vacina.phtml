@@ -1,53 +1,47 @@
 <script type="text/javascript" src="/js/pessoa.js"></script>
-<ul class="pager offset10">
-    <li class="previous">
-        <a href="/cartao/consulta-cartao"><i class="icon-arrow-left"></i><strong>Voltar</strong></a>
-    </li>
-
-</ul>
 <fieldset>
     <legend>Consulta de Calendário, Cartão e Aprazamento de vacinas</legend>
     <?php echo $this->flashMessenger() ?>
+    <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
+        <table class="table table-bordered table-condensed " style="font-size: 13px;"> <!--INÍCIO DO CABEÇALHO-->
 
-    <table class="table table-bordered table-condensed " style="font-size: 13px;"> <!--INÍCIO DO CABEÇALHO-->
+            <thead  style="font-size: 15px;">
+                <tr>
+                    <th colspan="7" style="background-color: #08c; color: #FFFFFF; font-size: 20px;text-align: center;">Dados do Paciente</th>
+                </tr>
+                <tr>
+                    <th style="background-color: #08c; color: #FFFFFF;width: 180px;">Nome completo:&nbsp;</th>
+                    <th colspan="6"><?php echo $this->paciente->nome ?></th>
+                </tr>
+                <tr>
+                    <th style="background-color: #08c; color: #FFFFFF">Nome da mãe:&nbsp;</th>
+                    <th colspan="6"><?php echo $this->paciente->nome_mae ?></th>
+                </tr>
 
-        <thead  style="font-size: 15px;">
-            <tr>
-                <th colspan="7" style="background-color: #08c; color: #FFFFFF; font-size: 20px;text-align: center;">Dados do Paciente</th>
-            </tr>
-            <tr>
-                <th style="background-color: #08c; color: #FFFFFF;width: 180px;">Nome completo:&nbsp;</th>
-                <th colspan="6"><?php echo $this->paciente->nome ?></th>
-            </tr>
-            <tr>
-                <th style="background-color: #08c; color: #FFFFFF">Nome da mãe:&nbsp;</th>
-                <th colspan="6"><?php echo $this->paciente->nome_mae ?></th>
-            </tr>
+                <tr>
+                    <th style="background-color: #08c; color: #FFFFFF">Data de Nascimento:&nbsp;</th>
+                    <th colspan="6"><?php echo date('d-m-Y', strtotime($this->paciente->dt_nasc)) ?></th>
+                </tr>
+                <tr>
+                    <th style="background-color: #08c; color: #FFFFFF">RG:&nbsp;</th>
+                    <th colspan="6"><?php echo $this->paciente->registro_nasc ?></th>
+                </tr>
+                <tr>
+                    <th style="background-color: #08c; color: #FFFFFF">Sexo:&nbsp;</th>
+                    <th colspan="6"><?php echo $this->paciente->sexo ?></th>
+                </tr>
+                <tr>
+                    <th style="background-color: #08c; color: #FFFFFF">Telefone celular:&nbsp;</th>
+                    <th colspan="6"><?php echo $this->paciente->telefone_celular ?></th>
+                </tr>
+                <tr>
+                    <th style="background-color: #08c; color: #FFFFFF">E-mail:&nbsp;</th>
+                    <th colspan="6"><?php echo $this->paciente->email ?></th>
+                </tr>
 
-            <tr>
-                <th style="background-color: #08c; color: #FFFFFF">Data de Nascimento:&nbsp;</th>
-                <th colspan="6"><?php echo date('d-m-Y', strtotime($this->paciente->dt_nasc)) ?></th>
-            </tr>
-            <tr>
-                <th style="background-color: #08c; color: #FFFFFF">RG:&nbsp;</th>
-                <th colspan="6"><?php echo $this->paciente->registro_nasc ?></th>
-            </tr>
-            <tr>
-                <th style="background-color: #08c; color: #FFFFFF">Sexo:&nbsp;</th>
-                <th colspan="6"><?php echo $this->paciente->sexo ?></th>
-            </tr>
-            <tr>
-                <th style="background-color: #08c; color: #FFFFFF">Telefone celular:&nbsp;</th>
-                <th colspan="6"><?php echo $this->paciente->telefone_celular ?></th>
-            </tr>
-            <tr>
-                <th style="background-color: #08c; color: #FFFFFF">E-mail:&nbsp;</th>
-                <th colspan="6"><?php echo $this->paciente->email ?></th>
-            </tr>
-
-        </thead>
-    </table> <!--FIM DO CABEÇALHO-->
-
+            </thead>
+        </table> <!--FIM DO CABEÇALHO-->
+    <?php endif; ?>
 
 
     <div class="tabbable"> <!-- INICIO DO MENU EXTERNO-->
@@ -65,10 +59,11 @@
 
                 <div class="tabbable tabs-right">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#rA" data-toggle="tab">Calendário de Vacinas&nbsp;<i class="icon-calendar"></i></a></li>
-                        <li><a href="#rB" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aplicadas&nbsp;<i class="icon-list-alt"></i></a></li>
-                        <li><a href="#rC" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
-
+                        <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
+                            <li class="active"><a href="#rA" data-toggle="tab">Calendário de Vacinas&nbsp;<i class="icon-calendar"></i></a></li>
+                            <li><a href="#rB" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aplicadas&nbsp;<i class="icon-list-alt"></i></a></li>
+                            <li><a href="#rC" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
+                        <?php endif; ?>
                     </ul>
                     <div class="tab-content">
 
@@ -388,12 +383,14 @@
             <div class="tab-pane" id="tab2"> <!--INICIO DA ABA ADOLESCENTE-->
 
                 <div class="tabbable tabs-right">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#rD" data-toggle="tab">Calendário de Vacinas&nbsp;<i class="icon-calendar"></i></a></li>
-                        <li><a href="#rE" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aplicadas&nbsp;<i class="icon-list-alt"></i></a></li>
-                        <li><a href="#rF" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
+                    <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#rD" data-toggle="tab">Calendário de Vacinas&nbsp;<i class="icon-calendar"></i></a></li>
+                            <li><a href="#rE" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aplicadas&nbsp;<i class="icon-list-alt"></i></a></li>
+                            <li><a href="#rF" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
 
-                    </ul>
+                        </ul>
+                    <?php endif; ?>
                     <div class="tab-content">
                         <div class="tab-pane active" id="rD"> <!--INÍCIO DA ABA CALENDÁRIO ADOLESCENTE-->
 
@@ -631,12 +628,14 @@
             <div class="tab-pane" id="tab3"> <!--INICIO DA ABA ADULTO-->
 
                 <div class="tabbable tabs-right">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#rG" data-toggle="tab">Calendário de Vacinas&nbsp;<i class="icon-calendar"></i></a></li>
-                        <li><a href="#rH" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aplicadas&nbsp;<i class="icon-list-alt"></i></a></li>
-                        <li><a href="#rI" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
+                    <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#rG" data-toggle="tab">Calendário de Vacinas&nbsp;<i class="icon-calendar"></i></a></li>
+                            <li><a href="#rH" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aplicadas&nbsp;<i class="icon-list-alt"></i></a></li>
+                            <li><a href="#rI" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
 
-                    </ul>
+                        </ul>
+                    <?php endif; ?>
                     <div class="tab-content">
                         <div class="tab-pane active" id="rG"> <!--INICIO DO CALENDARIO ADULTO-->
 
@@ -870,12 +869,14 @@
             <div class="tab-pane" id="tab4"> <!--INICIO DA ABA IDOSO-->
 
                 <div class="tabbable tabs-right">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#rJ" data-toggle="tab">Calendário de Vacinas&nbsp;<i class="icon-calendar"></i></a></li>
-                        <li><a href="#rK" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aplicadas&nbsp;<i class="icon-list-alt"></i></a></li>
-                        <li><a href="#rL" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
+                    <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#rJ" data-toggle="tab">Calendário de Vacinas&nbsp;<i class="icon-calendar"></i></a></li>
+                            <li><a href="#rK" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aplicadas&nbsp;<i class="icon-list-alt"></i></a></li>
+                            <li><a href="#rL" data-toggle="tab">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vacinas Aprazadas&nbsp;<i class="icon-tint"></i></a></li>
 
-                    </ul>
+                        </ul>
+                    <?php endif; ?>
                     <div class="tab-content">
                         <div class="tab-pane active" id="rJ"> <!--INICIO DA ABA CALENDÁRIO IDOSO-->
 

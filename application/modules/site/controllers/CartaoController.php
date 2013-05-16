@@ -27,45 +27,51 @@ class Site_CartaoController extends Zend_Controller_Action {
         $this->view->modal = $this->view->render('utils/modal.phtml');
     }
 
-    public function visualisaCartaoAction() {
-        $model = new App_Model_CartaoVacina();
-        $modelPaciente = new App_Model_Paciente();
-
-        $paciente = $modelPaciente->getArrayById($this->_getParam('cod_pessoa'));
-
-        $this->view->paciente = (object) $paciente[0];
-        $this->view->cartaoCrianca = $model->vacAplicBetweenIdade();
-    }
+//    public function visualisaCartaoAction() {
+//        $model = new App_Model_CartaoVacina();
+//        $modelPaciente = new App_Model_Paciente();
+//        $modelPessoa = new App_Model_Pessoa();
+//        $pessoa = $modelPessoa->findByPersonByLogin(Zend_Auth::getInstance()->getIdentity()->cod_login);
+//
+//        $paciente = $modelPaciente->getArrayById($pessoa[0]->cod_pessoa);
+//
+//        $this->view->paciente = (object) $paciente[0];
+//        $this->view->cartaoCrianca = $model->vacAplicBetweenIdade();
+//    }
 
     public function visualisaVacinaAction() {
         $usuario = Zend_Auth::getInstance();
-        $model = new App_Model_CartaoVacina();
-        $modelPaciente = new App_Model_Paciente();
-        $modelPessoa = new App_Model_Pessoa();
-        $pessoaByLogin = $modelPessoa->findByPersonByLogin($usuario->getIdentity()->cod_login);
 
-        $paciente = $modelPaciente->getArrayById($pessoaByLogin[0]->cod_pessoa);
+        if ($usuario->hasIdentity()) {
 
-        $aplicadas = array(
-            'cv.cod_pessoa' => $pessoaByLogin[0]->cod_pessoa,
-            'cv.cod_situacao_vacina' => 1
-        );
+            $model = new App_Model_CartaoVacina();
+            $modelPaciente = new App_Model_Paciente();
+            $modelPessoa = new App_Model_Pessoa();
+            $pessoaByLogin = $modelPessoa->findByPersonByLogin($usuario->getIdentity()->cod_login);
 
-        $aprazadas = array(
-            'cv.cod_pessoa' => $pessoaByLogin[0]->cod_pessoa,
-            'cv.cod_situacao_vacina' => 2
-        );
+            $paciente = $modelPaciente->getArrayById($pessoaByLogin[0]->cod_pessoa);
 
-        if ($this->_request->isPost()) {
-            $post = $this->_request->getPost();
+            $aplicadas = array(
+                'cv.cod_pessoa' => $pessoaByLogin[0]->cod_pessoa,
+                'cv.cod_situacao_vacina' => 1
+            );
 
-            //Resultados por filtros de consulta
-            $like = array($post['tipoConsulta'] => $post['search']);
+            $aprazadas = array(
+                'cv.cod_pessoa' => $pessoaByLogin[0]->cod_pessoa,
+                'cv.cod_situacao_vacina' => 2
+            );
+
+            if ($this->_request->isPost()) {
+                $post = $this->_request->getPost();
+
+                //Resultados por filtros de consulta
+                $like = array($post['tipoConsulta'] => $post['search']);
+            }
+
+            $this->view->paciente = (object) $paciente[0];
+            $this->view->vacinasAplicadas = $model->vacAplicBetweenIdade($aplicadas, $like);
+            $this->view->vacinasAprazadas = $model->vacAplicBetweenIdade($aprazadas, $like);
         }
-
-        $this->view->paciente = (object) $paciente[0];
-        $this->view->vacinasAplicadas = $model->vacAplicBetweenIdade($aplicadas, $like);
-        $this->view->vacinasAprazadas = $model->vacAplicBetweenIdade($aprazadas, $like);
     }
 
     public function verCartaoAction() {

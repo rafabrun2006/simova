@@ -50,7 +50,7 @@ class Site_AuthController extends Zend_Controller_Action {
                             ->write($authAdapter->getResultRowObject(null, 'senha_login'));
 
                     //Se login certo, redireciona para principal
-                    $this->_redirect('/');
+                    $this->_redirect('/cartao/visualisa-vacina');
                 } else {
                     //Se login errado, apresenta mensagem de erro
                     $this->view->mensagem = '<b>Usuário</b> e/ou <b>Senha</b> inválidos! ';
