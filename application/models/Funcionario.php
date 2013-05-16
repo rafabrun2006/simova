@@ -1,5 +1,5 @@
 <?php
-namespace application\models;
+
 /**
  * Description of Pessoa
  *
