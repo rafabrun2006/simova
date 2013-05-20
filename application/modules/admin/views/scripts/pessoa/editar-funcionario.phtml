@@ -61,6 +61,7 @@
                                 <label for="inputEmail" class="control-label">CPF Nº:</label>
                                 <div class="controls">
                                     <?php echo $this->form->cpf ?>
+                                    <div id="cpf-error"></div>
                                 </div>
                             </div>
                             <div class="control-group">
@@ -151,16 +152,16 @@
                         </div>
                     </div>
 
-                   <!-- <div class="rows-fluid"> 
-                        <div class="span12">
-                            <div class="form-actions">
-                                <div class="control-group">
-                                    <a class="btn btn-primary" href="#tab1" data-toggle="tab">Voltar <i class="icon-backward icon-white"></i></a>
-                                    <a class="btn btn-primary" href="#tab3" data-toggle="tab">Continuar <i class="icon-forward icon-white"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
+                    <!-- <div class="rows-fluid"> 
+                         <div class="span12">
+                             <div class="form-actions">
+                                 <div class="control-group">
+                                     <a class="btn btn-primary" href="#tab1" data-toggle="tab">Voltar <i class="icon-backward icon-white"></i></a>
+                                     <a class="btn btn-primary" href="#tab3" data-toggle="tab">Continuar <i class="icon-forward icon-white"></i></a>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>-->
                 </div> <!--FIM DO SEGUNDO MENU-->
 
                 <div id="tab3" class="tab-pane">
@@ -222,8 +223,8 @@
                             <div class="control-group">
                                 <label for="inputEmail" class="control-label">E-mail:</label>
                                 <div class="controls">
-                                    <?php //echo $this->form->email ?>
-                                    <input id="email" class="input-xlarge" type="email" name="email" value="">
+                                    <?php echo $this->form->email ?>
+                                    <!--<input id="email" class="input-xlarge" type="email" name="email" value="">-->
                                 </div>
                             </div>
                             <div class="control-group">
@@ -272,5 +273,8 @@
                 </div> <!--FIM DO TERCEIRO MENU-->
             </div>
         </form>
+    </div>
+    <div>
+        <strong>(*) Campos obrigatórios.</strong>
     </div>
 </fieldset>

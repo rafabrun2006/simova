@@ -3,9 +3,9 @@
 class Admin_PessoaController extends Zend_Controller_Action {
 
     public $_form;
-    
+
     public function init() {
-        /* Initialize action controller here */
+        $this->view->modal = $this->view->render('/utils/modal.phtml');
     }
 
     public function indexAction() {
@@ -15,14 +15,13 @@ class Admin_PessoaController extends Zend_Controller_Action {
     public function cadastroFuncionarioAction() {
         $this->_form = new Admin_Form_Pessoa();
         $this->_form->addSubForm(new Admin_Form_Funcionario(), 'Funcionario');
-        
+
         //Populando combo de perfil com perfil de funcionario e administrador
-        $this->populatePerfil(Simova_Constantes::FUNCIONARIO);
-        
+        $this->populatePerfil(array(Simova_Constantes::FUNCIONARIO, Simova_Constantes::ADMINISTRADOR));
+
         //Verificando se a requisição e um POST
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost(); // recebe os dados do post
-
             //Validando formulario
             if ($this->_form->isValid($post)) {
 
@@ -42,8 +41,8 @@ class Admin_PessoaController extends Zend_Controller_Action {
     public function cadastroPacienteAction() {
         $this->_form = new Admin_Form_Pessoa();
         $this->_form->addSubForm(new Admin_Form_Paciente(), 'Paciente');
-        
-        $this->populatePerfil(Simova_Constantes::PACIENTE);
+
+        $this->populatePerfil(array(Simova_Constantes::PACIENTE));
 
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
@@ -138,8 +137,8 @@ class Admin_PessoaController extends Zend_Controller_Action {
         $this->_form->addSubForm(new Admin_Form_Funcionario(), 'Funcionario');
 
         //Populando o form de pessoa
-        $this->populatePerfil(Simova_Constantes::FUNCIONARIO);
-        
+        $this->populatePerfil(array(Simova_Constantes::FUNCIONARIO, Simova_Constantes::ADMINISTRADOR));
+
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
 
@@ -159,13 +158,16 @@ class Admin_PessoaController extends Zend_Controller_Action {
     }
 
     public function editarPacienteAction() {
-        $form = new Admin_Form_Pessoa();
-        $form->addSubForm(new Admin_Form_Paciente(), 'Paciente');
+        $this->_form = new Admin_Form_Pessoa();
+        $this->_form->addSubForm(new Admin_Form_Paciente(), 'Paciente');
+
+        //Populando o form de pessoa
+        $this->populatePerfil(array(Simova_Constantes::PACIENTE));
 
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
 
-            if ($form->isValid($post)) {
+            if ($this->_form->isValid($post)) {
 
                 if ($this->save('P', $post)) {
                     $this->_helper->flashMessenger(array('success' => Simova_Mensagens::ALTERAR_SUCESSO));
@@ -178,7 +180,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
             }
         }
 
-        $this->populaFormEditar('P', $form, $this->_getParam('cod_pessoa'));
+        $this->populaFormEditar('P', $this->_form, $this->_getParam('cod_pessoa'));
     }
 
     /*
@@ -270,7 +272,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
                 $paciente->save($post);
             }
 
-            return TRUE;
+            return true;
         }
     }
 
@@ -297,16 +299,34 @@ class Admin_PessoaController extends Zend_Controller_Action {
         $this->restaurar('consulta-paciente');
     }
 
-    private function populatePerfil($perfil){
+    private function populatePerfil(array $perfil) {
         $modelPerfil = new App_Model_Perfil();
-        
+
         foreach ($modelPerfil->listAll() as $value) {
-            if ($value->cod_perfil >= $perfil) {
+            if (in_array($value->cod_perfil, $perfil)) {
                 $this->_form->getElement('cod_perfil')
                         ->addMultiOption($value->cod_perfil, $value->nome_perfil);
             }
         }
     }
-    
+
+    public function buscaPorCpfAction() {
+        if ($this->buscaPorCpf($this->_getParam('cpf'))) {
+            return $this->_helper->json(array('retorno' => true));
+        } else {
+            return $this->_helper->json(array('retorno' => false));
+        }
+    }
+
+    private function buscaPorCpf($cpf) {
+        try {
+            $model = new App_Model_Pessoa();
+            $model->findByCpf($cpf);
+            return true;
+        } catch (Zend_Exception $e) {
+            return false;
+        }
+    }
+
 }
 

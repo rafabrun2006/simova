@@ -42,4 +42,6 @@ class Simova_Mensagens {
      */
     const RESTAURAR_SUCESSO = 'Registro restaurado com sucesso';
     
+    const CPF_CADASTRADO = 'Este CPF já está cadastrado';
+    
 }

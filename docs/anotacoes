@@ -19,12 +19,11 @@
 
 Correções
 
-1 - Mensagens do sistema FlashMessenger - ok
-2 - Paginação - ok
-3 - Cronologia de data de nascimento
-4 - Estudar tipos para validação - ok
-5 - Colocar o endereço na view de unidade de saude - ok
-
-Dependencias
-
-1 - verificar data de nascimento na edição de pessoa
+1-Falta formulario do fale conosco - OK
+3-Falta a mensagem de campo obrigatorio - OK
+4-No meu esta trazendo apenas telefones(não esta trazendo as outras informçaoes) - OK
+5-Se colocar a cidade nao vem a UF e se eu colocar primeiro UF cidade vem escrita com erros - OK
+6-No formulario de paciente deve ter na combo de perfil somente funcionario e administrador - OK
+7-Por que esta aparecendo o codigo do banco no form funcionario - OK
+8-Quando coloca o cpf duplicado aparece o seguinte erro(Exception information - OK
+-Cartao de vacinas tem erro - OK

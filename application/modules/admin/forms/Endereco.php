@@ -20,8 +20,7 @@ class Admin_Form_Endereco extends Zend_Form {
 
         $codCID = new Zend_Form_Element_Select('cod_cid');
         $codCID->setRequired(TRUE)
-                ->addErrorMessage(self::MESSAGE_REQUIRED)
-                ->setLabel('Cidade: ');
+                ->addErrorMessage(self::MESSAGE_REQUIRED);
 
         $codUf = new Zend_Form_Element_Select('cod_uf');
         $codUf->setLabel('Estado: ');
@@ -63,8 +62,9 @@ class Admin_Form_Endereco extends Zend_Form {
     }
 
     private function populaComboCidade() {
-
         $modelCidade = new App_Model_Cidade();
+        
+        $this->getElement('cod_cid')->addMultiOption('', '--Aguardando UF--');
 
         foreach ($modelCidade->listAll() as $value) {
             $this->getElement('cod_cid')
