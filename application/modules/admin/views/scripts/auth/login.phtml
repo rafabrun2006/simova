@@ -64,7 +64,7 @@
         <div class="control-group">
             <label class="control-label"><b>Usuário:</b></label>
             <div class="controls">
-                <input name="email" type="text" id="email" class="input-block-level" placeholder="Email">
+                <input name="email" value="" type="text" id="email" class="input-block-level" placeholder="Email">
             </div>
         </div>
         <div class="control-group">
@@ -88,3 +88,7 @@
         <center>SIMOVA - Copyright©2013 SIMOVA - Todos os direitos reservados.</center>
     </footer>
 </div>
+<script type="text/javascript">
+    var email = document.getElementById('email');
+    email.focus();
+</script>

@@ -311,17 +311,21 @@ class Admin_PessoaController extends Zend_Controller_Action {
     }
 
     public function buscaPorCpfAction() {
-        if ($this->buscaPorCpf($this->_getParam('cpf'))) {
+        if ($this->buscaPorCpf($this->_getParam('cpf'), $this->_getParam('cod_pessoa'))) {
             return $this->_helper->json(array('retorno' => true));
         } else {
             return $this->_helper->json(array('retorno' => false));
         }
     }
 
-    private function buscaPorCpf($cpf) {
+    private function buscaPorCpf($cpf, $codPessoa = null) {
         try {
             $model = new App_Model_Pessoa();
-            $model->findByCpf($cpf);
+            
+            $codPessoa = !empty($codPessoa) ? $codPessoa : null;
+            
+            $model->findByCpf($cpf, $codPessoa);
+            
             return true;
         } catch (Zend_Exception $e) {
             return false;

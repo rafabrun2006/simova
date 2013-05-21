@@ -27,7 +27,10 @@ $(document).ready(function() {
     });
 
     $('#cpf').change(function() {
-        if (verificaCpf($('#cpf').val()) && !$('#cod_pessoa').val()) {
+        
+        var verifica = verificaCpf($('#cpf').val(), $('#cod_pessoa').val());
+        
+        if (verifica) {
             $('#cpf-error').css('color', 'red');
             $('#cpf-error').html('Número de CPF já está cadastrado');
             $(this).val('');
@@ -40,11 +43,11 @@ $(document).ready(function() {
 
 });
 
-function verificaCpf(cpf) {
+function verificaCpf(cpf, cod_pessoa) {
     retorno = false;
 
     $.ajax({
-        url: '/admin/pessoa/busca-por-cpf/cpf/' + cpf,
+        url: '/admin/pessoa/busca-por-cpf/cpf/' + cpf + '/cod_pessoa/' + cod_pessoa,
         type: 'post',
         async: false,
         dataType: 'json',
@@ -56,6 +59,6 @@ function verificaCpf(cpf) {
             }
         }
     });
-    
+
     return retorno;
 }

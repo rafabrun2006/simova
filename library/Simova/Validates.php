@@ -20,6 +20,19 @@ class Simova_Validates extends Zend_Validate_Abstract {
         'array1' => array(10, 9, 8, 7, 6, 5, 4, 3, 2),
         'array2' => array(11, 10, 9, 8, 7, 6, 5, 4, 3, 2),
     );
+    
+    protected $_exceptions = array(
+        '000.000.000-00',
+        '111.111.111-11',
+        '222.222.222-22',
+        '333.333.333-33',
+        '444.444.444-44',
+        '555.555.555-55',
+        '666.666.666-66',
+        '777.777.777-77',
+        '888.888.888-88',
+        '999.999.999-99',
+    );
 
     public function isValid($value) {
         
@@ -50,7 +63,7 @@ class Simova_Validates extends Zend_Validate_Abstract {
         $cpfDigits = implode('', $strSplit);
         $valid = $cpfDigits === $cpfComplete ? TRUE : FALSE;
 
-        if ($valid) {
+        if ($valid and !in_array($cpfComplete, $this->_exceptions)) {
             return true;
         } else {
             return false;
