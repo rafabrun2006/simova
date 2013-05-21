@@ -53,10 +53,15 @@ class App_Model_Pessoa extends Simova_Mapper_ModelMapper {
         return $this->fetchAll($query);
     }
     
-    public function findByCpf($cpf){
+    public function findByCpf($cpf, $codPessoa){
         $query = $this
                 ->select()
                 ->where('cpf = ?', $cpf);
+        
+        if($codPessoa){
+            $query->where('cod_pessoa != ?', $codPessoa);
+        }
+        
         $result = $this->fetchAll($query);
         
         //Retorna unico registro encontrado

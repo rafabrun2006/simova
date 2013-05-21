@@ -6,7 +6,7 @@ echo $this->flashMessenger();
 
 <legend>Consultar Paciente</legend>
 <form class="form-inline" action="" method="post">
-    <select name="tipoConsulta">
+    <select name="tipoConsulta" id="tipoConsulta">
         <option value="">Selecione a opção</option>
         <option value="nome">Nome</option>
         <option value="nome">Registro Nascimento</option>
@@ -16,8 +16,18 @@ echo $this->flashMessenger();
         <option value="">Todos</option>
     </select>
     <div class="input-append">
-        <input maxlength="50" class="input-xlarge" name="search" id="appendedInputButton" type="text">
-        <button class="btn btn-info" type="submit"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+        <div id="div-search-select" class="hidden">
+            <select name="search" class="search">
+                <option value="">--</option>
+                <option value="0">Inativo</option>
+                <option value="1">Ativo</option>
+            </select>
+            <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+        </div>
+        <div id="div-search-input" class="hidden-print">
+            <input maxlength="50" class="input-xlarge" name="search" id="appendedInputButton" type="text">
+            <button class="btn btn-info" type="submit"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
+        </div>
     </div>
 </form>
 
