@@ -149,7 +149,7 @@ footer a:hover,#blockend #footer_gray a:hover,#dock a:hover{text-decoration:unde
 .st_box  p { text-align:justify; }
 .st_box_contato {width: 540px; float: left; margin-right: 10px; overflow: hidden; background-color:#fff }
 .st_box_a_contato {width: 310px; float: left; margin-right:5px; overflow: hidden; background-color:#fff }
-.st_box_p_contato {width: 310px; height: 400px; margin-bottom: auto; border-left:1px solid #DDD; padding:0 5px; }
+.st_box_p_contato {width: 310px; max-height: 700px; margin-bottom: auto; border-left:1px solid #DDD; padding:0 5px; }
 .st_box_a {width: 228px; float: left; margin-right:5px; overflow: hidden; background-color:#fff }
 .st_box_pa {width: 230px; height: 240px; margin-bottom: auto; border-left:1px solid #DDD; padding:0 5px; }
 
