@@ -132,6 +132,7 @@ class Admin_CartaoController extends Zend_Controller_Action {
             $like = array($post['tipoConsulta'] => $post['search']);
         }
 
+        //$this->view->_cabecalho = $this->view->render('/cartao/_cabecalho.phtml');
         $this->view->paciente = (object) $paciente[0];
         $this->view->vacinasAplicadas = $model->vacAplicBetweenIdade($aplicadas, $like);
         $this->view->vacinasAprazadas = $model->vacAplicBetweenIdade($aprazadas, $like);

@@ -9,7 +9,43 @@
     <legend>Consulta de Calendário, Cartão e Aprazamento de vacinas</legend>
     <?php echo $this->flashMessenger() ?>
 
-    <!--Cabecalho-->
+    <table class="table table-bordered table-condensed " style="font-size: 13px;"> <!--INÍCIO DO CABEÇALHO-->
+        <thead  style="font-size: 15px;">
+            <tr>
+                <th colspan="7" style="background-color: #08c; color: #FFFFFF; font-size: 20px;text-align: center;">Dados do Paciente</th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF;width: 180px;">Nome completo:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente->nome ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">Nome da mãe:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente->nome_mae ?></th>
+            </tr>
+
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">Data de Nascimento:&nbsp;</th>
+                <th colspan="6"><?php echo date('d-m-Y', strtotime($this->paciente->dt_nasc)) ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">RG:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente->registro_nasc ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">Sexo:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente->sexo ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">Telefone celular:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente->telefone_celular ?></th>
+            </tr>
+            <tr>
+                <th style="background-color: #08c; color: #FFFFFF">E-mail:&nbsp;</th>
+                <th colspan="6"><?php echo $this->paciente->email ?></th>
+            </tr>
+
+        </thead>
+    </table> <!--FIM DO CABEÇALHO-->
 
     <div class="tabbable"> <!-- INICIO DO MENU EXTERNO-->
 
