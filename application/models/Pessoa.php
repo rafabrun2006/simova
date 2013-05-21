@@ -49,7 +49,7 @@ class App_Model_Pessoa extends Simova_Mapper_ModelMapper {
                 ->setIntegrityCheck(false)
                 ;
     
-        
+
         return $this->fetchAll($query);
     }
     
