@@ -20,22 +20,21 @@ class Simova_Validates extends Zend_Validate_Abstract {
         'array1' => array(10, 9, 8, 7, 6, 5, 4, 3, 2),
         'array2' => array(11, 10, 9, 8, 7, 6, 5, 4, 3, 2),
     );
-    
     protected $_exceptions = array(
-        '000.000.000-00',
-        '111.111.111-11',
-        '222.222.222-22',
-        '333.333.333-33',
-        '444.444.444-44',
-        '555.555.555-55',
-        '666.666.666-66',
-        '777.777.777-77',
-        '888.888.888-88',
-        '999.999.999-99',
+        '00000000000',
+        '11111111111',
+        '22222222222',
+        '33333333333',
+        '44444444444',
+        '55555555555',
+        '66666666666',
+        '77777777777',
+        '88888888888',
+        '99999999999',
     );
 
     public function isValid($value) {
-        
+
         $explode = explode('-', $value);
         $cpf8 = str_replace('.', '', $explode[0]);
         $strSplit = str_split($cpf8);
@@ -48,23 +47,25 @@ class Simova_Validates extends Zend_Validate_Abstract {
         $rest1 = (int) ($resMulti1 % 11);
         $strSplit[9] = $rest1 < 2 ? 0 : (11 - $rest1);
         //Fim para digito 1
-        
         //Calculo para obter digito 2
         for ($i = 0; $i < count($this->_modifiers['array2']); $i++) {
             $resMulti2 += (int) ($strSplit[$i] * (int) $this->_modifiers['array2'][$i]);
         }
-        
+
         $rest2 = (int) ($resMulti2 % 11);
         $strSplit[10] = $rest2 < 2 ? 0 : (11 - $rest2);
         //Fim digito 2
-        
         //Conferencia entre valor digitado e valor obtido por calculo
         $cpfComplete = str_replace(array('.', '-'), '', $value);
         $cpfDigits = implode('', $strSplit);
         $valid = $cpfDigits === $cpfComplete ? TRUE : FALSE;
 
-        if ($valid and !in_array($cpfComplete, $this->_exceptions)) {
-            return true;
+        if ($valid) {
+            if (in_array($cpfComplete, $this->_exceptions)) {
+                return false;
+            } else {
+                return true;
+            }
         } else {
             return false;
         }
