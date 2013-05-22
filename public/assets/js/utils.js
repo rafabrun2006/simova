@@ -26,18 +26,18 @@ $(document).ready(function() {
         });
     });
 
-    $('#cpf').change(function() {
+    $('#cpf').focusout(function() {
         
         var verifica = verificaCpf($('#cpf').val(), $('#cod_pessoa').val());
         
         if (verifica) {
             $('#cpf-error').css('color', 'red');
-            $('#cpf-error').html('Número de CPF já está cadastrado');
+            $('#cpf-error').html('Número de CPF invalido ou já cadastrado');
             $(this).val('');
             $(this).focus();
         }else{
             $('#cpf-error').css('color', 'green');
-            $('#cpf-error').html('Numero de CPF aceito');
+            $('#cpf-error').html('Número de CPF aceito');
         }
     });
 

@@ -207,12 +207,14 @@ class Admin_PessoaController extends Zend_Controller_Action {
         if ($tipoPessoa == 'F') {
             $model = new App_Model_Funcionario();
             $pessoa = $model->getArrayById($codPessoa);
+            $pessoa[0]['dt_nasc'] = Simova_Date::dateToView($pessoa[0]['dt_nasc']);
 
             //Adicionando subform para funcionario no formulario de pessoa
             $form->getSubForm('Funcionario')->populate($pessoa[0]);
         } else if ($tipoPessoa == 'P') {
             $model = new App_Model_Paciente();
             $pessoa = $model->getArrayById($codPessoa);
+            $pessoa[0]['dt_nasc'] = Simova_Date::dateToView($pessoa[0]['dt_nasc']);
 
             //Adicionando subform para paciente no formulario de pessoa
             $form->getSubForm('Paciente')->populate($pessoa[0]);
@@ -321,14 +323,20 @@ class Admin_PessoaController extends Zend_Controller_Action {
     private function buscaPorCpf($cpf, $codPessoa = null) {
         try {
             $model = new App_Model_Pessoa();
-            
+
             $codPessoa = !empty($codPessoa) ? $codPessoa : null;
-            
+
             $model->findByCpf($cpf, $codPessoa);
             
             return true;
         } catch (Zend_Exception $e) {
-            return false;
+            $validate = new Simova_Validates();
+
+            if($validate->isValid($cpf)){
+                return false;
+            }else{
+                return true;
+            }
         }
     }
 
