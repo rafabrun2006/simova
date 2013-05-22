@@ -51,6 +51,11 @@ class Admin_AuthController extends Zend_Controller_Action {
                     Zend_Auth::getInstance()->getStorage()
                             ->write($authAdapter->getResultRowObject(null, 'senha_login'));
                     
+                    $pessoa = $modelPessoa->findByPersonByLogin(Zend_Auth::getInstance()->getIdentity()->cod_login);
+                    
+                    Zend_Auth::getInstance()->getStorage()
+                            ->write($pessoa[0]);
+                    
                     //Se login certo, redireciona para principal
                     $this->_redirect('/admin/index');
                 } else {
