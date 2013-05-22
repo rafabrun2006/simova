@@ -40,7 +40,7 @@
 
                         <tr class="info">
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">Data de Nascimento:</td>
-                            <td><?php echo $this->pessoa->dt_nasc?></td>
+                            <td><?php echo Simova_Date::dateToView($this->pessoa->dt_nasc) ?></td>
                         </tr>
                         <tr>
                             <td style="font-size: 15px;font-weight: bold;background-color: #08c; color: #FFFFFF;">RG Nº:</td>

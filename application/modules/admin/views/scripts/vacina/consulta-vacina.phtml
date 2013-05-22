@@ -37,8 +37,8 @@
                        <!--<td><?php echo $vacinas->cod_vacina ?></td>-->
                         <td><?php echo $vacinas->nome_vacina ?></td>
                         <td><?php echo $vacinas->num_lote ?></td>
-                        <td><?php echo date('d-m-Y', strtotime($vacinas->dt_fabric)) ?></td>
-                        <td><?php echo date('d-m-Y', strtotime($vacinas->dt_venc)) ?></td>
+                        <td><?php echo Simova_Date::dateToView($vacinas->dt_fabric) ?></td>
+                        <td><?php echo Simova_Date::dateToView($vacinas->dt_venc) ?></td>
                         <td>
                             <a href="/admin/vacina/alterar-vacina/cod_vacina/<?php echo $vacinas->cod_vacina ?>" title="Alterar" class="btn btn-primary btn btn-mini"><i class="icon-pencil icon-white"></i></a>
                             <a href="/admin/vacina/excluir-vacina/cod_lote/<?php echo $vacinas->cod_lote ?>/cod_vacina/<?php echo $vacinas->cod_vacina ?>" title="Excluir" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;

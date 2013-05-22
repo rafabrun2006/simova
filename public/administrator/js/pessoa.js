@@ -7,6 +7,7 @@
 $(document).ready(function() {
 
     $('#dt_nasc').datepicker();
+    $('.date-utils').datepicker();
 
     $('#cpf').mask('999.999.999-99');
 
