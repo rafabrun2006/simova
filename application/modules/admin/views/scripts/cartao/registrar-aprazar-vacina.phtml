@@ -29,7 +29,7 @@
 
             <tr>
                 <th style="background-color: #08c; color: #FFFFFF">Data de Nascimento:&nbsp;</th>
-                <th colspan="6"><?php echo date('d/m/Y', strtotime($this->paciente['dt_nasc'])) ?></th>
+                <th colspan="6"><?php echo Simova_Date::dateToView($this->paciente['dt_nasc']) ?></th>
             </tr>
             <tr>
                 <th style="background-color: #08c; color: #FFFFFF">RG:&nbsp;</th>

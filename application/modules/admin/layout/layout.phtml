@@ -235,13 +235,14 @@
                                         </a>
                                     </li>
                                     <li class="divider"></li>
+                                    <?php if(Zend_Auth::getInstance()->getIdentity()->cod_pessoa): ?>
                                     <li>
                                         <a href="/admin/pessoa/cadastro-funcionario" title="Cadastrar Funcionário" class="corner-all">
                                             <i class="icon-pencil"></i>&nbsp;
                                             <span class="sidebar-text">Cadastrar</span>
                                         </a>
                                     </li>
-
+                                    <?php endif; ?>
                                 </ul>
                             </li>
                             <li>

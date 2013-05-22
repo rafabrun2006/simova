@@ -44,11 +44,13 @@ class Admin_AuthController extends Zend_Controller_Action {
                         ->setCredential(App_Model_Login::encodingBase64($post['password'])); //Preenchendo a senha
                 //Verificando o sucesso do login
                 if ($authAdapter->authenticate()->isValid()) {
-
+                    
+                    $modelPessoa = new App_Model_Pessoa();
+                    
                     //Preenchendo os dados da sessao do usuario autenticado
                     Zend_Auth::getInstance()->getStorage()
                             ->write($authAdapter->getResultRowObject(null, 'senha_login'));
-
+                    
                     //Se login certo, redireciona para principal
                     $this->_redirect('/admin/index');
                 } else {
