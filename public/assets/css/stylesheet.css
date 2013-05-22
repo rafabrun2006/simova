@@ -16,7 +16,7 @@ p{color:gray;font-size:8pt}
 
 /* Cabeçalhos do menu iniciar */
 .iframe{position:relative;left:-15px;width:945px!important;border:0!important;height:800px!important}
-body{background-image: url(/images/st_background.jpg); }
+body{background-image: url(/images/st_background.jpg);}
 header #paisagem{width:985px;height:48px;background-position:center}
 header #{float:left;width:350px;height:137px;margin-top:8px;background:url(/images/st_.png) no-repeat;text-indent:-1000px}
 header #logo{float:left;width:350px;height:137px;margin-top:8px;background:url(/images/st_logo.png) no-repeat;text-indent:-1000px}

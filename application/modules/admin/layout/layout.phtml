@@ -235,7 +235,7 @@
                                         </a>
                                     </li>
                                     <li class="divider"></li>
-                                    <?php if(Zend_Auth::getInstance()->getIdentity()->cod_pessoa): ?>
+                                    <?php if(Zend_Auth::getInstance()->getIdentity()->cod_perfil <= Simova_Constantes::ADMINISTRADOR): ?>
                                     <li>
                                         <a href="/admin/pessoa/cadastro-funcionario" title="Cadastrar Funcionário" class="corner-all">
                                             <i class="icon-pencil"></i>&nbsp;
