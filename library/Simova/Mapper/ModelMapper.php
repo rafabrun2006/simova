@@ -31,5 +31,14 @@ abstract class Simova_Mapper_ModelMapper extends Zend_Db_Table_Abstract {
             return $this->insert($dataInsert);
         }
     }
-
+    
+    public function delete($where) {
+        try{
+            parent::delete($where);
+            
+            return true;
+        }  catch (Zend_Exception $e){
+            return false;
+        }
+    }
 }

@@ -32,7 +32,7 @@ class Admin_Form_Funcionario extends Zend_Form {
 
         $cod_cargo = new Zend_Form_Element_Select('cod_cargo');
         $cod_cargo->setLabel('Cargo: ')
-                ->setRequired(TRUE)
+                ->setRequired(FALSE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
 
         /*
