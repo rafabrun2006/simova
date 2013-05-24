@@ -27,10 +27,12 @@ class Admin_UnidadeController extends Zend_Controller_Action {
 
     public function cadastroUnidadeAction() {
         $form = new Admin_Form_Unidade();
-
+        
         if ($this->_request->isPost()) {
             $post = $this->getRequest()->getPost();
 
+           
+            
             if ($form->isValid($post)) {
                 $model = new App_Model_UnidadeSaude();
                 $modelEndereco = new App_Model_Endereco();
@@ -64,6 +66,7 @@ class Admin_UnidadeController extends Zend_Controller_Action {
         $dataUnidade = $model->find($this->_getParam('cod_un_saude'))->toArray();
         $dataEndereco = $modelEndereco->find($dataUnidade[0]['cod_end'])->toArray();
 
+        
         if ($this->_request->isPost()) {
             $post = $this->getRequest()->getPost();
 
@@ -86,6 +89,8 @@ class Admin_UnidadeController extends Zend_Controller_Action {
                 $form->populate($post);
             }
         } else {
+           
+                      
             $form->populate(array_merge($dataEndereco[0], $dataUnidade[0]));
         }
 

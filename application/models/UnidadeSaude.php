@@ -7,7 +7,7 @@ class App_Model_UnidadeSaude extends Simova_Mapper_ModelMapper {
 
     public function save($data){
         $this->_primary = 'cod_un_saude';
-        
+       
         return parent::save($data);
     }
 }

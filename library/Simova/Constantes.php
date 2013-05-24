@@ -23,4 +23,7 @@ class Simova_Constantes {
     const ADMINISTRADOR     = 1;
     const FUNCIONARIO       = 2;
     const PACIENTE          = 3;
+    
+    const DATE_FORMAT_VIEW = 'd/m/Y';
+    const DATE_FORMAT_BANCO = 'Y-m-d';
 }

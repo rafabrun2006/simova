@@ -7,7 +7,7 @@
 $(document).ready(function() {
 
     $('.date-utils').datepicker({
-        format: 'dd-mm-yyyy'
+        format: 'dd/mm/yyyy'
     });
 
 
@@ -26,18 +26,19 @@ $(document).ready(function() {
         });
     });
 
-    $('#cpf').change(function() {
-        
-        var verifica = verificaCpf($('#cpf').val(), $('#cod_pessoa').val());
-        
-        if (verifica) {
-            $('#cpf-error').css('color', 'red');
-            $('#cpf-error').html('Número de CPF já está cadastrado');
-            $(this).val('');
-            $(this).focus();
-        }else{
-            $('#cpf-error').css('color', 'green');
-            $('#cpf-error').html('Numero de CPF aceito');
+    $('#cpf').focusout(function() {
+        if ($('#cpf').val() !== '___.___.___-__') {
+            var verifica = verificaCpf($('#cpf').val(), $('#cod_pessoa').val());
+
+            if (verifica && $('#cpf').val()) {
+                $('#cpf-error').css('color', 'red');
+                $('#cpf-error').html('Número de CPF invalido ou já cadastrado');
+                $(this).val('');
+                $(this).focus();
+            } else {
+                $('#cpf-error').css('color', 'green');
+                $('#cpf-error').html('Número de CPF aceito');
+            }
         }
     });
 

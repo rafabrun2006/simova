@@ -13,7 +13,7 @@ class App_Model_Pessoa extends Simova_Mapper_ModelMapper {
     public function save($data) {
         $this->_primary = 'cod_pessoa';
         //Convertendo data para padrao exigido pelo banco EUA
-        $data['dt_nasc'] = date('Y-m-d', strtotime($data['dt_nasc']));
+        $data['dt_nasc'] = Simova_Date::dateToBanco($data['dt_nasc']);
         
         return parent::save($data);
     }

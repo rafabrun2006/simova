@@ -41,7 +41,8 @@ class Admin_Form_Endereco extends Zend_Form {
 
         $complemento = new Zend_Form_Element_Text('complemento');
         $complemento->setLabel('Complemento:');
-
+        
+       
         $this->addElements(array(
             $codEnd,
             $codCID,
@@ -50,7 +51,8 @@ class Admin_Form_Endereco extends Zend_Form {
             $bairro,
             $numero,
             $complemento,
-            $codUf
+            $codUf,
+            
         ));
 
         $this->populaComboCidade();

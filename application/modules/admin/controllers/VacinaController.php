@@ -62,6 +62,9 @@ class Admin_VacinaController extends Zend_Controller_Action {
 
             $result = $model->joinAllRelations($where)->toArray();
 
+            $result[0]['dt_venc'] = Simova_Date::dateToView($result[0]['dt_venc']);
+            $result[0]['dt_fabric'] = Simova_Date::dateToView($result[0]['dt_fabric']);
+            
             $form->populate($result[0]);
 
             $form->getSubForm('Vacina')->populate($result[0]);

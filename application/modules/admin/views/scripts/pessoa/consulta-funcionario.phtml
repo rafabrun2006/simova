@@ -58,8 +58,10 @@ echo $this->flashMessenger();
                         <td>
                             <?php if ($funcionarios->cod_sit): ?>
                                 <a href="/admin/pessoa/visualisar-cadastro/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Detelhar cadastro" class="btn btn-warning btn btn-mini"><i class="icon-eye-open icon-white"></i></a>
-                                <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Alterar cadastro" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
-                                <a href="/admin/pessoa/excluir-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Excluir" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                                <?php if (Zend_Auth::getInstance()->getIdentity()->cod_perfil <= Simova_Constantes::ADMINISTRADOR): ?>
+                                    <a href="/admin/pessoa/editar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Alterar cadastro" class="btn btn-primary btn btn-mini"><i class="icon-edit icon-white"></i></a>
+                                    <a href="/admin/pessoa/excluir-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Excluir" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                                <?php endif; ?>
                             <?php else: ?>
                                 <a href="/admin/pessoa/restaurar-funcionario/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Restaurar cadastro" class="btn btn btn-mini"><i class="icon-check"></i></a>&nbsp;
                             <?php endif; ?>
