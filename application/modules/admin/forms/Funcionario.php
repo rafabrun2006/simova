@@ -62,6 +62,9 @@ class Admin_Form_Funcionario extends Zend_Form {
 
         $modelFuncao = new App_Model_Funcao();
 
+        $this->getElement('cod_funcao')
+                    ->addMultiOption(NULL, '--');
+        
         foreach ($modelFuncao->fetchAll() as $value) {
             $this->getElement('cod_funcao')
                     ->addMultiOption($value->cod_funcao, $value->nome_funcao);
@@ -72,6 +75,9 @@ class Admin_Form_Funcionario extends Zend_Form {
 
         $modelCargo = new App_Model_Cargo();
 
+        $this->getElement('cod_cargo')
+                    ->addMultiOption(NULL, '--');
+        
         foreach ($modelCargo->fetchAll() as $value) {
             $this->getElement('cod_cargo')
                     ->addMultiOption($value->cod_cargo, $value->nome_cargo);

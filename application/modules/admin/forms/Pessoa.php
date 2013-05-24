@@ -21,7 +21,7 @@ class Admin_Form_Pessoa extends Zend_Form {
 
         $cpf = new Zend_Form_Element_Text('cpf');
         $cpf->setLabel('CPF: ')
-                ->addValidator(new Simova_Validates())
+                ->setRequired(FALSE)
                 ->addErrorMessage(self::MESSAGE_INVALID_CPF)
                 ;
 
@@ -82,6 +82,9 @@ class Admin_Form_Pessoa extends Zend_Form {
         
         $telResidencial = new Zend_Form_Element_Text('telefone_residencial');
         $telCelular = new Zend_Form_Element_Text('telefone_celular');
+        $telCelular->setRequired(TRUE)
+                ->addErrorMessage(self::MESSAGE_REQUIRED)
+                ;
         
         /*
          * Adicionando formularios auxiliares
