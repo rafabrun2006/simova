@@ -60,7 +60,7 @@ class Simova_Validates extends Zend_Validate_Abstract {
         $cpfDigits = implode('', $strSplit);
         $valid = $cpfDigits === $cpfComplete ? TRUE : FALSE;
 
-        if ($valid) {
+        if ($valid or is_null($cpf8)) {
             if (in_array($cpfComplete, $this->_exceptions)) {
                 return false;
             } else {
@@ -69,6 +69,7 @@ class Simova_Validates extends Zend_Validate_Abstract {
         } else {
             return false;
         }
+        
     }
 
 }
