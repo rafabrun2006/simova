@@ -1,4 +1,10 @@
 <script type="text/javascript" src="/admin/js/pessoa.js"></script>
+<ul class="pager offset10">
+    <li class="previous">
+        <a href="/admin"><i class="icon-arrow-left"></i><strong>Voltar</strong></a>
+    </li>
+
+</ul>
 <fieldset>
     <legend>Alterar Perfil</legend>
     <?php echo $this->flashMessenger() ?>
@@ -66,7 +72,7 @@
                                     <div class="form-actions">
                                         <div class="control-group">
                                             <button class="btn btn-primary" type="submit">Salvar</button>
-                                            <button class="btn btn-primary" type="reset">Limpar</button>
+                                            <a href="/admin"><button class="btn btn-primary" type="button">Cancelar</button></a>
                                         </div>
                                     </div>
                                 </div>
