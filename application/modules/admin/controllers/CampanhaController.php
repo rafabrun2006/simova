@@ -15,5 +15,9 @@ class Admin_CampanhaController extends Zend_Controller_Action {
     public function cadastroCampanhaAction() {
         
     }
+    
+    public function alterarCampanhaAction(){
+        ;
+    }
 
 }
