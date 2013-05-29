@@ -201,42 +201,48 @@
                 <!-- Inicio Fazer acesso  --> 
                 <span style="margin-left: 2%;">
                     <img src="images/bullet.gif" />
-                    <strong> Faça o login abaixo para ter acesso a carterinha de vacinação online.</strong>
+                    <b> Faça o login abaixo para ter acesso a carterinha de vacinação online.</b>
                 </span>
                 <!-- Fim Fazer acesso  -->   
 
-                <!-- Inicio Formulários  -->  
-                <div style="text-align:right; margin:0 8px">
+                <!-- Inicio Formulários  -->
+                <div>
+                    <br>
                     <?php if (!$this->hasIdentity): ?>
-                        <form action="/auth/login" method="post" name="frmFaleConosco" onsubmit="return submit_page(this);" > 
-                            <strong> Usuário: </strong>
-                            <input id="nome_login" name="nome_login" type="text" placeholder="Inserir seu nome"/><br />
-                            <br />
-                            <strong> Senha: </strong>
-                            <input name="senha_login" type="password" placeholder="Insira sua senha" />
-                            <br/>
+                        <form class="form form-inline" action="/auth/login" method="post" name="frmFaleConosco" onsubmit="return submit_page(this);" > 
+                            <div class="controls">
+                                <label class="control-label"><b>Usuário:</b></label>
+                                <div class="control-group">
+                                    <input class="input" id="nome_login" name="nome_login" type="text" placeholder="Inserir seu nome"/>
+                                </div>
+                            </div>
+                            <div class="controls">
+                                <label class="control-label"><b>Senha:</b></label>
+                                <div class="control-group">
+                                    <input class="input" name="senha_login" type="password" placeholder="Insira sua senha" />
+                                </div>
+                            </div>
                             <!-- Fim Formulários  --> 
 
-                            <!-- Inicio botões  do formulario-->    
-                            <input type="submit" class="botaocor" name="enviar" id="signIn" value="Entrar">
-                            <input type="reset" class="botaocor" name="reset" id="Limpar" value=" Limpar ">
-                            <br/>
+                            <!-- Inicio botões  do formulario-->
+                            <div class="controls-row">
+                                <button type="submit" class="btn btn-primary btn-small" name="enviar" id="signIn">Entrar</button>
+                                <button type="reset" class="btn btn-small" name="reset" id="Limpar">Limpar </button>
+                            </div>
                             <!-- Fim botões  do formulario-->
 
                             <!-- botao esqueceu a senha-->
-                            <b><a href="/auth/recuperar">Esqueceu a senha?</a></b>
-                            <br/>
-                            <br/>
-                            <hr>
+                            <br>
+                            <small><a href="/auth/recuperar">Esqueceu a senha?</a></small>
                             <!-- botao esqueceu a senha-->
 
                             <!-- inicio botao cadastro novo -->		
-                            <input type="submit" class="botaocor" name="Cadastronovo" id="Cadastronovo" value="Cadastrar Novo"> 
+                            <small><a id="Cadastronovo" href="">Cadastrar Novo</a></small>
                         </form>
                     <?php else: ?>
-                    <br>
-                    <br>
-                    <strong>Olá, <?php echo $this->user->nome_login ?> (<a href="/auth/logout"><strong>Sair</strong></a>)</strong>
+                        <br>
+                        <br>
+                        <strong>Olá, <?php echo $this->user->nome_login ?> (<a href="/auth/logout"><strong>Sair</strong></a>)</strong>
                     <?php endif; ?>
 
                     <!-- Fim botao cadastro novo -->			
