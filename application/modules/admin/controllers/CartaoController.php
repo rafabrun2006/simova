@@ -35,7 +35,7 @@ class Admin_CartaoController extends Zend_Controller_Action {
         //Populando dados de paciente apartir do banco de dados
         $paciente = $modelPaciente->getArrayById($this->_getParam('cod_pessoa'));
         $form->getElement('cod_pessoa')->setValue($paciente[0]['cod_pessoa']);
-
+        
         /*
          * Preenchendo automaticamente os dados de registrar vacina quando 
          * estiver em situaçao de aprazada sendo que os dados serao utilizados
@@ -54,6 +54,8 @@ class Admin_CartaoController extends Zend_Controller_Action {
             $form->populate($dataArray[0]);
         }
 
+        $form->getElement('dt_vacina')->setValue(Simova_Date::dateToView($paciente[0]['dt_vacina']));
+        
         if ($this->_request->isPost()) {
 
             //Testando validade dos dados com zend form
