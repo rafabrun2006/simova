@@ -1,0 +1,105 @@
+<fieldset>
+    <legend>Cadastrar Calendário de Vacinas</legend>
+    <?php echo $this->flashMessenger() ?>
+    <div style="margin-bottom: 18px;" class="tabbable">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#tab1">Dados Principais</a></li>
+        </ul>
+
+        <div class="tab-content">
+            <div id="tab1" class="tab-pane active">  <!--INICIO DA PRIMEIRA ABA-MENU-->
+                <form class="form-horizontal" action="" method="post">
+                    <div class="rows-fluid">
+                        <div class="span6">
+                            <div class="control-group">
+                                <div class="control-group">
+                                    <label for="inputEmail" class="control-label"><b>*</b> Tipo do Calendário:</label>
+                                    <div class="controls">
+                                        <select>
+                                            <option>--</option>
+                                            <option>Infantil</option>
+                                            <option>Adoslecente</option>
+                                            <option>Adulto</option>
+                                            <option>Idoso</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <label for="inputEmail" class="control-label"><b>*</b> Idade:</label>
+                                <div class="controls">
+                                    <input type="text" id="inputEmail" placeholder="">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label"><b>*</b>Número da dose:</label>
+                                <div class="controls">
+                                    <select>
+                                            <option>--</option>
+                                            <option>1º dose</option>
+                                            <option>2º dose</option>
+                                            <option>3º dose</option>
+                                            <option>Reforço</option>
+                                        </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="span6">
+                            <div class="control-group">
+                                <div class="input-append date" data-date-format="dd-mm-yyyy" data-date="12-02-2012">
+                                    <label for="inputEmail" class="control-label"><b>*</b>Doenças Evitadas:</label>
+                                    <div class="controls">
+                                        <input type="text" id="inputEmail" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label"><b>*</b> Vacinas:</label>
+                                <div class="controls">
+                                    <select>
+                                            <option>--</option>
+                                            <option>BCG</option>
+                                            <option>Febre Amarela</option>
+                                            <option>Hepatite</option>
+                                            <option>Tripice Viral</option>
+                                            
+                                        </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label for="inputEmail" class="control-label">Descrição Rodapé:</label>
+                                <div class="controls">
+                                    <textarea rows="3" style="width: 210px;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rows-fluid">
+                            <div class="span12">
+                                <div class="form-actions">
+                                    <div class="control-group">
+                                        <button class="btn btn-primary" type="submit">Salvar</button>
+                                        <button class="btn btn-primary" type="reset">Limpar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </form>
+            </div> <!--FIM DA PRIMEIRA ABA-MENU-->
+        </div>
+    </div>
+    <div>
+        <strong>(*) Campos obrigatórios.</strong>
+    </div>
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
