@@ -20,7 +20,7 @@ class Admin_Form_VacinaAplicada extends Zend_Form {
         $codVacinaAplicada->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
 
-        $codLote = new Zend_Form_Element_Text('lote');
+        $codLote = new Zend_Form_Element_Select('lote');
         $codLote->setRequired(TRUE)
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
         
@@ -41,6 +41,7 @@ class Admin_Form_VacinaAplicada extends Zend_Form {
 
         $this->populaComboCampanha();
         $this->populaComboMatricula();
+        $this->populaComboLote();
         
         foreach ($this->getElements() as $element) {
             $element->removeDecorator('HtmlTag')->removeDecorator('Label');
@@ -64,6 +65,14 @@ class Admin_Form_VacinaAplicada extends Zend_Form {
         
         foreach($funcionario->fetchAll() as $option){
             $this->getElement('matricula')->addMultiOption($option->matricula, $option->matricula);
+        }
+    }
+    
+    private function populaComboLote(){
+        $modelLote = new App_Model_Lote();
+        
+        foreach($modelLote->fetchAll() as $lote){
+            $this->getElement('lote')->addMultiOption($lote->cod_lote, $lote->num_lote);
         }
     }
 
