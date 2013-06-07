@@ -21,7 +21,7 @@ $(document).ready(function() {
     $('#cod_uf').change(function() {
         var uf_id = $(this).val();
 
-        $.get('/admin/endereco/ajax-popula-cidade/uf_id/' + uf_id, function(data) {
+        $.post('/admin/endereco/ajax-popula-cidade/cod_uf/', {cod_uf:uf_id}, function(data) {
             $('#cod_cid').html(data);
         });
     });

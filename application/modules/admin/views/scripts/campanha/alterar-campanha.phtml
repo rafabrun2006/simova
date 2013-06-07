@@ -1,0 +1,67 @@
+<script type="text/javascript" src="/admin/js/pessoa.js"></script>
+<fieldset>
+    <legend>Cadastrar Campanhas</legend>
+    <?php
+    if ($this->mensagem):
+        ?>
+        <div class="alert <?php echo $this->mensagem['type'] ?>"><?php echo $this->mensagem['mensagem'] ?></div>
+        <?php
+    endif;
+    ?>
+
+    <div style="margin-bottom: 18px;" class="tabbable">
+        <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#tab1">Dados Principais</a></li>
+
+        </ul>
+        <form class="form-horizontal" method="post">
+            <div class="tab-content">
+                <div id="tab1" class="tab-pane active">
+
+
+                    <div id="tab1" class="tab-pane">
+
+                        <!--INICIO DO PRIMEIRO FORM-->
+
+                        <div class="rows-fluid">
+                            <div class="span6">
+                                <div class="control-group">
+                                    <div class="control-group">
+                                        <label for="inputEmail" class="control-label">Nome da Campanha:</label>
+                                        <div class="controls">
+                                            <input value="Contra Hepatite B" type="text" placeholder="Text input">
+                                        </div>
+                                    </div>
+                                    <label for="inputEmail" class="control-label">Data Inicial:</label>
+                                    <div class="controls">
+                                        <input type="text" value="10/03/2011" placeholder="Text input">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label for="inputEmail" class="control-label">Data Final:</label>
+                                    <div class="controls">
+                                        <input type="text" value="10/05/2011" placeholder="Text input">
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+                            <div class="rows-fluid">
+                                <div class="span12">
+                                    <div class="form-actions">
+                                        <div class="control-group">
+                                            <button class="btn btn-primary" type="submit">Salvar</button>
+                                            <button class="btn btn-primary" type="reset">Limpar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> <!--FIM DO PRIMEIRO MENU-->
+                    </div>
+
+
+                    </form>
+                </div>
+            </div>
+    </div>
+</fieldset>

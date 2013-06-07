@@ -2,7 +2,7 @@
 <fieldset>
     <legend>Calendario de Vacinas</legend>
     <?php echo $this->flashMessenger() ?>
-    <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
+    <?php if (Zend_Auth::getInstance()->getIdentity()->cod_perfil === Simova_Constantes::PACIENTE): ?>
         <table class="table table-bordered table-condensed " style="font-size: 13px;"> <!--INÍCIO DO CABEÇALHO-->
 
             <thead  style="font-size: 15px;">

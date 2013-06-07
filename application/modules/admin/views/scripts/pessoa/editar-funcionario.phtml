@@ -106,19 +106,19 @@
                     <div class="rows-fluid">
                         <div class="span6">
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Endereço:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Endereço:</label>
                                 <div class="controls">
                                     <?php echo $this->form->Endereco->endereco ?>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Número:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Número:</label>
                                 <div class="controls">
                                     <?php echo $this->form->Endereco->numero ?>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label"><b>*</b> Complemento: </label>
+                                <label for="inputEmail" class="control-label">Complemento: </label>
                                 <div class="controls">
                                     <?php echo $this->form->Endereco->complemento ?>
                                 </div>
@@ -183,7 +183,7 @@
                                 </div>-->
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Função:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Função:</label>
                                 <div class="controls">
                                     <?php echo $this->form->Funcionario->cod_funcao ?>
                                 </div>
@@ -195,7 +195,7 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Unidade de Saúde:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Unidade de Saúde:</label>
                                 <div class="controls">
                                     <?php echo $this->form->cod_un_saude ?>
                                 </div>
@@ -215,7 +215,7 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Telefone celular:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b>Telefone celular:</label>
                                 <div class="controls">
                                     <?php echo $this->form->telefone_celular ?>
                                 </div>
@@ -228,25 +228,25 @@
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Perfil:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Perfil:</label>
                                 <div class="controls">
                                     <?php echo $this->form->cod_perfil ?>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Usuário:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Usuário:</label>
                                 <div class="controls">
                                     <?php echo $this->form->Login->nome_login ?>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Senha:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Senha:</label>
                                 <div class="controls">
                                     <?php echo $this->form->Login->senha_login ?>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <label for="inputEmail" class="control-label">Confirmar-Senha:</label>
+                                <label for="inputEmail" class="control-label"><b>*</b> Confirmar-Senha:</label>
                                 <div class="controls">
                                     <?php echo $this->form->Login->senha_login ?>
                                 </div>
@@ -258,7 +258,7 @@
                             <div class="form-actions">
                                 <div class="control-group">
                                     <button class="btn btn-primary" type="submit">Salvar</button>
-                                    <a href="/admin/pessoa/consulta-funcionario" ><button class="btn btn-primary">Cancelar</button> </a>
+                                    <a href="/admin/pessoa/consulta-funcionario" class="btn btn-primary">Cancelar</a>
                                 </div>
                             </div>
                         </div>

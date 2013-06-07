@@ -9,7 +9,7 @@ echo $this->flashMessenger();
     <select name="tipoConsulta" id="tipoConsulta">
         <option value="">--</option>
         <option value="nome">Nome</option>
-        <option value="nome">Registro Nascimento</option>
+        <option value="registro_nasc">Registro Nascimento</option>
         <option value="rg">RG</option>
         <option value="cpf">CPF</option>
         <option value="cod_sit">Situação do Cadastro</option>
@@ -52,7 +52,7 @@ echo $this->flashMessenger();
                    <!-- <td><?php echo $paciente->cod_pac ?></td>-->
                     <td><?php echo $paciente->nome ?></td>
                     <td><?php echo $paciente->rg ?></td>
-                    <td><?php echo $paciente->rg ?></td>
+                    <td><?php echo $paciente->registro_nasc ?></td>
                     <td><?php echo $paciente->cpf ?></td>
                     <td>
                         <?php if ($paciente->cod_sit): ?>

@@ -23,8 +23,6 @@ class App_Model_Vacina extends Simova_Mapper_ModelMapper {
             }
         }
 
-        //echo $query;
-        
         return $this->fetchAll($query);
     }
 

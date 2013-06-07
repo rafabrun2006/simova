@@ -10,14 +10,9 @@ class Admin_EnderecoController extends Zend_Controller_Action {
         $this->_helper->layout()->disableLayout();
         $modelCidade = new App_Model_Cidade();
         
-        foreach ($modelCidade->listAll() as $value) {
-
-            if ($value->cod_uf == $this->_getParam('uf_id')) {
-                $select[] = array('value' => $value->cod_cid, 'label' => $value->nome_cid);
-            }
+        foreach ($modelCidade->listAll($this->_request->getPost()) as $value) {
+            $this->view->select .= '<option value="'. $value->cod_cid . '">' . $value->nome_cid . '</option>';
         }
-
-        $this->view->select = $select;
     }
 
 }

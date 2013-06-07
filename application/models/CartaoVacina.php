@@ -7,7 +7,7 @@ class App_Model_CartaoVacina extends Simova_Mapper_ModelMapper {
 
     public function save($data) {
 
-        $data['dt_vacina'] = date('Y-m-d', strtotime($data['dt_vacina']));
+        $data['dt_vacina'] = Simova_Date::dateToBanco($data['dt_vacina']);
 
         return parent::save($data);
     }
