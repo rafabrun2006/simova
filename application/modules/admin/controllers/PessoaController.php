@@ -42,8 +42,12 @@ class Admin_PessoaController extends Zend_Controller_Action {
         $this->_form = new Admin_Form_Pessoa();
         $this->_form->addSubForm(new Admin_Form_Paciente(), 'Paciente');
 
-        $this->populatePerfil(array(Simova_Constantes::PACIENTE));
-
+        //Modificado por força de correção
+        //
+        //$this->populatePerfil(array(Simova_Constantes::PACIENTE));
+        $this->_form->getElement('cod_perfil')->setValue(Simova_Constantes::PACIENTE);
+        //Fim
+        
         if ($this->_request->isPost()) {
             $post = $this->_request->getPost();
 
