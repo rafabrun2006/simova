@@ -52,10 +52,9 @@ class Admin_CartaoController extends Zend_Controller_Action {
             $form->getElement('dose')->setAttrib('readonly', TRUE);
 
             $form->populate($dataArray[0]);
+            $form->getElement('dt_vacina')->setValue(Simova_Date::dateToView($dataArray[0]['dt_vacina']));
         }
 
-        $form->getElement('dt_vacina')->setValue(Simova_Date::dateToView($paciente[0]['dt_vacina']));
-        
         if ($this->_request->isPost()) {
 
             //Testando validade dos dados com zend form
