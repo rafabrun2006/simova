@@ -9,7 +9,7 @@ class App_Model_Pessoa extends Simova_Mapper_ModelMapper {
 
     protected $_name = 'tb_pessoa';
     protected $_primary = 'cod_pessoa';
-
+    //METODO PARA FAZER UPDATE E INSERT
     public function save($data) {
         $this->_primary = 'cod_pessoa';
         //Convertendo data para padrao exigido pelo banco EUA
@@ -17,7 +17,7 @@ class App_Model_Pessoa extends Simova_Mapper_ModelMapper {
         
         return parent::save($data);
     }
-    
+    //METODO DE CONSULTA POR LOGIN
     public function findByPersonByLogin($codLogin){
         $query = $this->select()
                 ->from(array('l' => 'tb_login'), array('*'))
@@ -28,7 +28,7 @@ class App_Model_Pessoa extends Simova_Mapper_ModelMapper {
         
         return $this->fetchAll($query);
     }
-    
+    //METODO DE CONSULTA POR ID
     public function findById($cod_pessoa){
         
         $query = $this->select()
@@ -52,7 +52,7 @@ class App_Model_Pessoa extends Simova_Mapper_ModelMapper {
 
         return $this->fetchAll($query);
     }
-    
+    //CONSULTA POR CPF
     public function findByCpf($cpf, $codPessoa){
         $query = $this
                 ->select()

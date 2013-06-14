@@ -10,7 +10,8 @@ class App_Model_Funcionario extends Simova_Mapper_ModelMapper {
     protected $_name = 'tb_funcionario';
     protected $_primary = 'cod_funcionario';
     protected $_integrityCheck = FALSE;
-
+    
+    //METODO QUE RETORNA UMA LISTA DE FUNCIONÁRIOS
     public function listFuncionarios($where = NULL) {
         $query = $this->select()
                 ->from(array('f' => 'tb_funcionario'))
@@ -28,7 +29,7 @@ class App_Model_Funcionario extends Simova_Mapper_ModelMapper {
         
         return $this->fetchAll($query);
     }
-
+    //METODO QUE RECUPERA OS DADOS DE UMA PESSOA COMO ARRAY
     public function getArrayById($cod_pessoa) {
 
         $query = $this->select()
@@ -41,7 +42,7 @@ class App_Model_Funcionario extends Simova_Mapper_ModelMapper {
                 ->where('p.cod_pessoa = ?', $cod_pessoa)
                 ->setIntegrityCheck(false)
         ;
-
+        // FETCHALL RETORNA OBJETOS E O TO ARRAY TRANSFORMA OS OBJETOS EM ARRAYS
         return $this->fetchAll($query)->toArray();
     }
 
