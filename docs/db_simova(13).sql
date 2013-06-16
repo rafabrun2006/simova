@@ -543,8 +543,8 @@ INSERT INTO `tb_pessoa` (`cod_pessoa`, `cod_estado_civil`, `cod_un_saude`, `cod_
 (9, 1, 1, 44, NULL, 70, 'Rosete P. Lima', '', 'Fatima', 'Jose', 'M', '', '2005-02-02', '', 'rosetebsb@gmail.com', 1, 1, NULL, NULL),
 (10, 1, 1, 46, NULL, 74, 'Dino da Silva Sauro', '222.222.222-22', 'Rossete da Silva Sauro', 'Jonas da Silva Sauro', 'M', '2.222.222', '2013-04-14', '222222222222', 'rafabrun2006@gmail.com', 1, 1, NULL, NULL),
 (11, 1, 1, 47, NULL, 76, 'Dino da Silva Sauro', '222.222.222-22', 'Rossete da Silva Sauro', 'Jonas da Silva Sauro', 'M', '2.222.222', '2013-04-15', '123456789', 'rafabrun2006@gmail.com', 1, 1, NULL, NULL),
-(12, 1, 1, 48, NULL, 77, 'Rafael Bruno de Sousa Oliveira', '222.222.222-22', 'Rossete da Silva Sauro', 'Jonas da Silva Sauro', 'M', '2.222.222', '2013-04-15', '222222222222', 'rafabrun2006@gmail.com', 1, 1, NULL, NULL),
-(13, 1, 1, 49, NULL, 78, 'Rafael Bruno de Sousa Oliveira', '222.222.222-22', 'Rossete da Silva Sauro', 'Jonas da Silva Sauro', 'M', '2.222.222', '2013-04-15', '222222222222', 'rafabrun2006@gmail.com', 1, 1, NULL, NULL);
+(12, 1, 1, 48, NULL, 77, 'Rafael Administrador de Sousa Oliveira', '222.222.222-22', 'Rossete da Silva Sauro', 'Jonas da Silva Sauro', 'M', '2.222.222', '2013-04-15', '222222222222', 'rafabrun2006@gmail.com', 1, 1, NULL, NULL),
+(13, 1, 1, 49, NULL, 78, 'Rafael Administrador de Sousa Oliveira', '222.222.222-22', 'Rossete da Silva Sauro', 'Jonas da Silva Sauro', 'M', '2.222.222', '2013-04-15', '222222222222', 'rafabrun2006@gmail.com', 1, 1, NULL, NULL);
 
 -- --------------------------------------------------------
 

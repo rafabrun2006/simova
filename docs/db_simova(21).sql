@@ -11026,7 +11026,7 @@ CREATE TABLE IF NOT EXISTS `tb_pessoa` (
 INSERT INTO `tb_pessoa` (`cod_pessoa`, `cod_estado_civil`, `cod_un_saude`, `cod_login`, `cod_cartao_vac`, `cod_end`, `nome`, `cpf`, `nome_mae`, `nome_pai`, `sexo`, `rg`, `dt_nasc`, `registro_nasc`, `email`, `cod_perfil`, `cod_status`, `telefone_celular`, `telefone_residencial`, `cod_sit`) VALUES
 (7, 1, 3, 42, NULL, 68, 'Gilmar C. Rodrigues', '', 'Joana', 'Sinval', 'M', '123123', '1982-09-04', '', 'itgills@gmail.com', 3, 1, NULL, NULL, 1),
 (8, 1, 1, 43, NULL, 69, 'Hebert da silva sauro', '', 'fran da silva sauro', 'dino da sauro', 'M', '', '2003-02-13', '', 'hebert.hmeso@gmail.com', 1, 1, NULL, NULL, 1),
-(12, 1, 3, 48, NULL, 77, 'Rafael Bruno de Sousa Oliveira', '222.222.222-22', 'Rossete da Silva Sauro', 'Jonas da Silva Sauro', 'M', '2.222.222', '2013-04-15', '222222222222', 'rafabrun2006@gmail.com', 1, 1, NULL, NULL, 1),
+(12, 1, 3, 48, NULL, 77, 'Rafael Administrador de Sousa Oliveira', '222.222.222-22', 'Rossete da Silva Sauro', 'Jonas da Silva Sauro', 'M', '2.222.222', '2013-04-15', '222222222222', 'rafabrun2006@gmail.com', 1, 1, NULL, NULL, 1),
 (18, 1, 1, 56, NULL, 86, 'Mariana Santana', '', 'Monica Maria', 'Alberto Santana', 'F', '', '2013-02-20', '', 'monica@hotmail.com', 3, 1, NULL, NULL, 1),
 (19, 1, 1, 57, NULL, 87, 'Miguel', '251.658.989-77', 'Maria', 'Jose', 'M', '25698777', '2013-01-08', '5847896', 'miguel@gmail.com', 3, 1, NULL, NULL, 1),
 (20, 1, 3, 58, NULL, 88, 'Sara', '215.649.985-57', 'Francisca', '', 'M', '9874587', '2013-01-15', '2215487', 'sara@hotmail.com', 3, 1, NULL, NULL, 1),

@@ -124,7 +124,7 @@ class Admin_Form_Pessoa extends Zend_Form {
     }
 
     /*
-     * @email Rafael Bruno <rafabrun2006@gmail.com>
+     * @email Rafael Administrador <rafabrun2006@gmail.com>
      */
 
     private function populaComboUnidade() {

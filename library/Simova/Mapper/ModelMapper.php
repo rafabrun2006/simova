@@ -8,7 +8,7 @@
 /**
  * Description of ModelMapper
  *
- * @author bruno
+ * @author Administrador
  */
 abstract class Simova_Mapper_ModelMapper extends Zend_Db_Table_Abstract {
 

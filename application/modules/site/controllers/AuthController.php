@@ -5,7 +5,7 @@
  * 
  * Classe responsavel pela SESSAO da pagina para usuario administrador
  *
- * @author bruno
+ * @author Administrador
  */
 class Site_AuthController extends Zend_Controller_Action {
 

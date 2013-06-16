@@ -7,7 +7,7 @@
  * sistema, fazendo assim reutilização de codigo e padronização das mensagens
  * exibidas pelo sistema.
  *
- * @author bruno
+ * @author Administrador
  */
 class Simova_Mensagens {
     

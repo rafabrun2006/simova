@@ -3,7 +3,7 @@
 /**
  * Description of Pessoa
  *
- * @author bruno
+ * @author Administrador
  */
 class App_Model_Pessoa extends Simova_Mapper_ModelMapper {
 

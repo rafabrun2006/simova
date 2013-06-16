@@ -3,7 +3,7 @@
 /**
  * Description of Pessoa
  *
- * @author bruno
+ * @author Administrador
  */
 class App_Model_Login extends Simova_Mapper_ModelMapper {
 

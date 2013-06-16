@@ -8,7 +8,7 @@
 /**
  * Description of CadastroVacinas
  *
- * @author bruno
+ * @author Administrador
  */
 class Admin_Form_Funcionario extends Zend_Form {
 

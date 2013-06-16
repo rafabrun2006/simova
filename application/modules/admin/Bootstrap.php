@@ -8,7 +8,7 @@
 /**
  * Description of Bootstrap
  *
- * @author bruno
+ * @author Administrador
  */
 class Admin_Bootstrap extends Zend_Application_Module_Bootstrap {
 

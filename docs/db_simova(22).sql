@@ -10824,7 +10824,7 @@ INSERT INTO `tb_login` (`cod_login`, `cod_perfil`, `nome_login`, `senha_login`) 
 (71, 2, 'aluno', '202cb962ac59075b964b07152d234b70'),
 (72, 2, 'professor', '234a0c8d8a43c9a8d5b1f3d0bef04df7'),
 (73, 3, 'zico', '202cb962ac59075b964b07152d234b70'),
-(74, 1, 'rafaelbruno.ti@gmail.com', '1cdec5971b52ee3f72596bb5b946a6ec');
+(74, 1, 'rafaelAdministrador.ti@gmail.com', '1cdec5971b52ee3f72596bb5b946a6ec');
 
 -- --------------------------------------------------------
 
@@ -11029,7 +11029,7 @@ CREATE TABLE IF NOT EXISTS `tb_pessoa` (
 INSERT INTO `tb_pessoa` (`cod_pessoa`, `cod_estado_civil`, `cod_un_saude`, `cod_login`, `cod_cartao_vac`, `cod_end`, `nome`, `cpf`, `nome_mae`, `nome_pai`, `sexo`, `rg`, `dt_nasc`, `registro_nasc`, `email`, `cod_perfil`, `cod_status`, `telefone_celular`, `telefone_residencial`, `cod_sit`) VALUES
 (7, 1, 3, 42, NULL, 68, 'Gilmar C. Rodrigues', '111.111.111-11', 'Joana', 'Sinval', 'M', '123123', '1982-09-04', '11111', '', 3, '1', '(88)8888-8888', '(55)5555-5555', 1),
 (8, 1, 1, 43, NULL, 69, 'Hebert da silva sauro', '', 'fran da silva sauro', 'dino da sauro', 'M', '', '2003-02-13', '', 'hebert.hmeso@gmail.com', 1, '1', NULL, NULL, 1),
-(12, 1, 3, 48, NULL, 77, 'Rafael Bruno de Sousa Oliveira', '222.222.222-22', 'Rossete da Silva Sauro', 'Jonas da Silva Sauro', 'M', '2.222.222', '2013-04-15', '222222222222', 'rafabrun2006@gmail.com', 1, '1', '(66)6666-6666', '(33)3333-3333', 1),
+(12, 1, 3, 48, NULL, 77, 'Rafael Administrador de Sousa Oliveira', '222.222.222-22', 'Rossete da Silva Sauro', 'Jonas da Silva Sauro', 'M', '2.222.222', '2013-04-15', '222222222222', 'rafabrun2006@gmail.com', 1, '1', '(66)6666-6666', '(33)3333-3333', 1),
 (18, 1, 1, 56, NULL, 86, 'Mariana Santana', '', 'Monica Maria', 'Alberto Santana', 'F', '', '2013-02-20', '', 'monica@hotmail.com', 3, '1', NULL, NULL, 1),
 (19, 1, 1, 57, NULL, 87, 'Miguel', '251.658.989-77', 'Maria', 'Jose', 'M', '25698777', '2013-01-08', '5847896', 'miguel@gmail.com', 3, '1', NULL, NULL, 1),
 (20, 1, 3, 58, NULL, 88, 'Sara', '215.649.985-57', 'Francisca', '', 'M', '9874587', '2013-01-15', '2215487', 'sara@hotmail.com', 3, '1', NULL, NULL, 1),
@@ -11044,7 +11044,7 @@ INSERT INTO `tb_pessoa` (`cod_pessoa`, `cod_estado_civil`, `cod_un_saude`, `cod_
 (31, 2, 3, 69, NULL, 101, 'kelis jose Alves de Carvallho', '982.451.451-44', 'Maria', 'Jose', 'M', '5555', '1982-02-11', '', 'keli_alves@hotmail.com', 2, '1', NULL, NULL, 1),
 (32, 1, 4, 71, NULL, 104, 'aluno', '333.333.333-33', 'mãe', 'pai', 'M', '222', '2013-04-10', '', 'aluno@gmail.com', 2, '1', NULL, NULL, 1),
 (33, 1, 4, 72, NULL, 106, 'professor', '999.999.999-99', 'mae', 'pai', 'M', '4536547', '2013-04-10', '', 'professor@gmail.com', 2, '1', NULL, NULL, 1),
-(34, 1, 3, 74, NULL, 111, 'Rafael Jabae', '555.555.555-55', 'Antonia', 'Antonio', 'M', '99999999', '2013-04-29', '11111', 'rafaelbruno.ti@gmail.com', 1, '1', '(55)5555-5555', '(55)5555-5555', 1);
+(34, 1, 3, 74, NULL, 111, 'Rafael Jabae', '555.555.555-55', 'Antonia', 'Antonio', 'M', '99999999', '2013-04-29', '11111', 'rafaelAdministrador.ti@gmail.com', 1, '1', '(55)5555-5555', '(55)5555-5555', 1);
 
 -- --------------------------------------------------------
 

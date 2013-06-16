@@ -8,7 +8,7 @@
 /**
  * Description of Bootstrap
  *
- * @author bruno
+ * @author Administrador
  */
 class Site_Bootstrap extends Zend_Application_Module_Bootstrap {
     //put your code here

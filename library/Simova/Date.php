@@ -8,7 +8,7 @@
 /**
  * Description of Simova_Date
  *
- * @author Bruno
+ * @author Administrador
  */
 class Simova_Date {
     
