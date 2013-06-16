@@ -1,10 +1,6 @@
 <?php
 
-/**
- * Description of Pessoa
- *
- * @author bruno
- */
+
 class App_Model_Login extends Simova_Mapper_ModelMapper {
 
     protected $_name = 'tb_login';

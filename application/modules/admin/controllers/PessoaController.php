@@ -45,7 +45,8 @@ class Admin_PessoaController extends Zend_Controller_Action {
         //Modificado por força de correção
         //
         //$this->populatePerfil(array(Simova_Constantes::PACIENTE));
-        $this->_form->getElement('cod_perfil')->setValue(Simova_Constantes::PACIENTE);
+        
+        //$this->_form->getElement('cod_perfil')->setValue(Simova_Constantes::PACIENTE);
         //Fim
         
         if ($this->_request->isPost()) {
@@ -62,9 +63,13 @@ class Admin_PessoaController extends Zend_Controller_Action {
                     $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::CADASTRO_ERROR));
                 }
             } else {
+                print_r($this->_form->getErrors());
+                
                 $this->_helper->flashMessenger(array('warning' => Simova_Mensagens::FORM_INVALIDO));
             }
         }
+        
+        $this->_form->getElement('cod_perfil')->setValue(Simova_Constantes::PACIENTE);
         $this->view->form = $this->_form;
     }
 
