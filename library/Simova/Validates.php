@@ -1,15 +1,6 @@
 <?php
 
-/**
- * Validador para Cadastro de Pessoas
- *
- * Implementação de algoritmos para cadastro de pessoas físicas e jurídicas
- * conforme Ministério da Fazenda do Governo Federal.
- *
- * @category Hazel
- * @package  Hazel_Validator
- * @author   Wanderson Henrique Camargo Rosa
- */
+
 class Simova_Validates extends Zend_Validate_Abstract {
 
     /**

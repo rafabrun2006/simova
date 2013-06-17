@@ -12,7 +12,19 @@ class Admin_RelatorioController extends Zend_Controller_Action
     {
         // action body
     }
-    public function emitirRelatorioAction()
+    public function vacinaAplicadaAction()
+    {
+        // action body
+    }
+    public function vacinaAprazadaAction()
+    {
+        // action body
+    }
+    public function vacinaVencerAction()
+    {
+        // action body
+    }
+    public function visualizaRelatorioAplicadaAction()
     {
         // action body
     }

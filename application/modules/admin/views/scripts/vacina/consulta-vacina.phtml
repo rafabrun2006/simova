@@ -4,14 +4,14 @@
     <legend>Consultar Vacinas</legend>
     <form class="form-inline" method="post" action="">
         <select name="tipoConsulta">
-            <option value="">Selecione a opção</option>
+            <option value="">--</option>
             <option value="nome_vacina">Nome da vacina</option>
             <option value="cod_vacina">Código da vacina</option>
             <option value="">Todos</option>
         </select>
         <div class="input-append">
             <input class="input-large" name="search" id="appendedInputButton" type="text">
-            <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>Pesquisar</button>
+            <button type="submit" class="btn btn-info"><i class="icon-search icon-white"></i>&nbsp;Pesquisar</button>
         </div>
     </form>
 
@@ -40,8 +40,8 @@
                         <td><?php echo Simova_Date::dateToView($vacinas->dt_fabric) ?></td>
                         <td><?php echo Simova_Date::dateToView($vacinas->dt_venc) ?></td>
                         <td>
-                            <a href="/admin/vacina/alterar-vacina/cod_vacina/<?php echo $vacinas->cod_vacina ?>" title="Alterar" class="btn btn-primary btn btn-mini"><i class="icon-pencil icon-white"></i></a>
-                            <a href="/admin/vacina/excluir-vacina/cod_lote/<?php echo $vacinas->cod_lote ?>/cod_vacina/<?php echo $vacinas->cod_vacina ?>" title="Excluir" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
+                            <a href="/admin/vacina/alterar-vacina/cod_vacina/<?php echo $vacinas->cod_vacina ?>" title="Alterar registro" class="btn btn-primary btn btn-mini"><i class="icon-pencil icon-white"></i></a>
+                            <a href="/admin/vacina/excluir-vacina/cod_lote/<?php echo $vacinas->cod_lote ?>/cod_vacina/<?php echo $vacinas->cod_vacina ?>" title="Excluir registro" class="btn btn-danger btn btn-mini confirm"><i class="icon-trash icon-white"></i></a>&nbsp;
                         </td>
                     </tr>
                 <?php endforeach; ?>
