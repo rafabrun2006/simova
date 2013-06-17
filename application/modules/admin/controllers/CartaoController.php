@@ -34,7 +34,7 @@ class Admin_CartaoController extends Zend_Controller_Action {
 
         //Populando dados de paciente apartir do banco de dados
         $paciente = $modelPaciente->getArrayById($this->_getParam('cod_pessoa'));
-        $form->getElement('cod_pessoa')->setValue($paciente[0]['cod_pessoa']);
+        $form->getElement('cod_pessoa')->setValue($this->_getParam('cod_pessoa'));
         
         /*
          * Preenchendo automaticamente os dados de registrar vacina quando 

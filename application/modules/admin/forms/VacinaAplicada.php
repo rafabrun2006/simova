@@ -25,8 +25,6 @@ class Admin_Form_VacinaAplicada extends Zend_Form {
                 ->addErrorMessage(self::MESSAGE_REQUIRED);
         
         $codCampanha = new Zend_Form_Element_Select('cod_campanha');
-        $codCampanha->setRequired(TRUE)
-                ->addErrorMessage(self::MESSAGE_REQUIRED);
 
         $matricula = new Zend_Form_Element_Select('matricula');
         $matricula->setRequired(TRUE)
