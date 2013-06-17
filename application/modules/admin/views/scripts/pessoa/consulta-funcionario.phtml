@@ -54,7 +54,7 @@ echo $this->flashMessenger();
                         <td><?php echo $funcionarios->nome_login ?></td>
                         <td><?php echo $funcionarios->nome ?></td>
                         <td><?php echo $funcionarios->matricula ?></td>
-                        <td><?php echo $funcionarios->cod_status == 1 ? 'Ativo' : 'Inativo' ?></td>
+                        <td><?php echo $funcionarios->cod_sit == 1 ? 'Ativo' : 'Inativo' ?></td>
                         <td>
                             <?php if ($funcionarios->cod_sit): ?>
                                 <a href="/admin/pessoa/visualisar-cadastro/cod_pessoa/<?php echo $funcionarios->cod_pessoa ?>" title="Detelhar cadastro" class="btn btn-warning btn btn-mini"><i class="icon-eye-open icon-white"></i></a>
