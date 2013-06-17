@@ -2,6 +2,10 @@
 
 class Simova_Plugins_Acl extends Zend_Controller_Plugin_Abstract {
 
+    /**
+     * Metodo automatico do zend que executa no inicio da aplicação
+     * @param Zend_Controller_Request_Abstract $request
+     */
     public function dispatchLoopStartup(Zend_Controller_Request_Abstract $request) {
 
         /*

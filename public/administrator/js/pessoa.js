@@ -6,6 +6,8 @@
 
 $(document).ready(function() {
 
+    //Mascaras
+    
     $('#dt_nasc').datepicker();
     $('.date-utils').datepicker();
 

@@ -23,6 +23,7 @@ class Admin_Form_Pessoa extends Zend_Form {
         $cpf->setLabel('CPF: ')
                 ->setRequired(FALSE)
                 ->addErrorMessage(self::MESSAGE_INVALID_CPF)
+                ->addValidator(new Simova_Validates())
                 ;
 
         $nome = new Zend_Form_Element_Text('nome', array('class' => 'input-xlarge'));

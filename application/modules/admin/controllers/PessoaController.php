@@ -11,7 +11,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
     public function indexAction() {
         // action body
     }
-
+//Metodo que realiza o cadastro do funcionario
     public function cadastroFuncionarioAction() {
         $this->_form = new Admin_Form_Pessoa();
         $this->_form->addSubForm(new Admin_Form_Funcionario(), 'Funcionario');
@@ -324,8 +324,25 @@ class Admin_PessoaController extends Zend_Controller_Action {
         }
     }
 
+    /**
+     * Metodo que faz verificação da existencia do CPF e a validação do mesmo
+     * @param type $cpf
+     * @param type $codPessoa
+     * @return boolean
+     */
     private function buscaPorCpf($cpf, $codPessoa = null) {
         try {
+            //busca da existencia do CPF, dependendo do codigo da pessoa
+            //o CPF será validado como existente ou não existente
+            
+            /*
+             * Funcionamento
+             * Usuario digitou CPF e acionou evento (focusout) ->
+             * Jquery ->
+             * PessoaController::buscaPorCpfAction -> 
+             * PessoaController::buscaPorCpf -> App_Model_Pessoa::findByCpf();
+             */
+            
             $model = new App_Model_Pessoa();
 
             $codPessoa = !empty($codPessoa) ? $codPessoa : null;

@@ -6,18 +6,19 @@
 
 $(document).ready(function() {
 
+    //Mascara da data e utilização da biblioteca datePicker para criação do calendario
     $('.date-utils').datepicker({
         format: 'dd/mm/yyyy'
     });
 
-
+    //ação imprimir
     $('#print').click(function() {
         var table = document.getElementById('data-print');
         $('body').html(table);
         print();
     });
 
-    //Load city by UF
+    //seleção de cidades por uf
     $('#cod_uf').change(function() {
         var uf_id = $(this).val();
 
@@ -26,6 +27,7 @@ $(document).ready(function() {
         });
     });
 
+    //JQuery para validação do CPF
     $('#cpf').focusout(function() {
         if ($('#cpf').val() !== '___.___.___-__') {
             var verifica = verificaCpf($('#cpf').val(), $('#cod_pessoa').val());
@@ -44,9 +46,18 @@ $(document).ready(function() {
 
 });
 
+/*
+ * Funcionamento
+ * 1 - Usuario digitou CPF e acionou evento (focusout) ->
+ * 2 - Jquery ->
+ * 3 - PessoaController::buscaPorCpfAction -> 
+ * 4 - PessoaController::buscaPorCpf -> 
+ * 5 - App_Model_Pessoa::findByCpf();
+ * 6 - Retorno do PHP para jquery com resultado de Falso ou Verdadeiro
+ */
 function verificaCpf(cpf, cod_pessoa) {
     retorno = false;
-
+    //Ajax e um metodo do jquery que executa uma URL
     $.ajax({
         url: '/admin/pessoa/busca-por-cpf/cpf/' + cpf + '/cod_pessoa/' + cod_pessoa,
         type: 'post',

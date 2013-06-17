@@ -42,6 +42,7 @@ class Admin_AuthController extends Zend_Controller_Action {
                 $authAdapter
                         ->setIdentity($post['email']) //Preenchendo o usuario
                         ->setCredential(App_Model_Login::encodingBase64($post['password'])); //Preenchendo a senha
+                
                 //Verificando o sucesso do login
                 if ($authAdapter->authenticate()->isValid()) {
                     
@@ -53,6 +54,8 @@ class Admin_AuthController extends Zend_Controller_Action {
                     
                     $pessoa = $modelPessoa->findByPersonByLogin(Zend_Auth::getInstance()->getIdentity()->cod_login);
                     
+                    //Reescrevendo a sessão com os dados da pessoa encontrados
+                    //na tabela pessoa
                     Zend_Auth::getInstance()->getStorage()
                             ->write($pessoa[0]);
                     

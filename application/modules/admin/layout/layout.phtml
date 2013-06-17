@@ -33,7 +33,10 @@
           <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
     </head>
-    <?php $identity = Zend_Auth::getInstance()->getIdentity(); ?>
+    <?php 
+        /*Pega metodo do zend que retorna dados do usuario autenticado*/ 
+        $identity = Zend_Auth::getInstance()->getIdentity(); 
+    ?>
     <body>
         <!-- section header -->
         <header class="header">
