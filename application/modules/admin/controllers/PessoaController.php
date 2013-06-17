@@ -44,7 +44,7 @@ class Admin_PessoaController extends Zend_Controller_Action {
 
         //Modificado por força de correção
         //
-        //$this->populatePerfil(array(Simova_Constantes::PACIENTE));
+        $this->populatePerfil(array(Simova_Constantes::PACIENTE));
         $this->_form->getElement('cod_perfil')->setValue(Simova_Constantes::PACIENTE);
         //Fim
         

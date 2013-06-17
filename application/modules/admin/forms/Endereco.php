@@ -77,7 +77,9 @@ class Admin_Form_Endereco extends Zend_Form {
     private function populaComboEstado() {
 
         $modelEstado = new App_Model_Estado();
-
+        $this->getElement('cod_uf')
+                    ->addMultiOption('', '--');
+        
         foreach ($modelEstado->fetchAll() as $value) {
             $this->getElement('cod_uf')
                     ->addMultiOption($value->cod_uf, $value->nome_uf);
